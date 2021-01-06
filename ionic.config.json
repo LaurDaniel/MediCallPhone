@@ -1,5 +1,7 @@
 {
   "name": "ProgazIndex",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
