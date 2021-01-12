@@ -14,7 +14,7 @@ const TOKEN_KEY = 'access_token';
 })
 export class AuthenticationService {
  
-  url = "http://127.0.0.1:8000/";
+  url = "https://readers.infraweb.ro/";
   user = null;
   authenticationState = new BehaviorSubject(false);
  

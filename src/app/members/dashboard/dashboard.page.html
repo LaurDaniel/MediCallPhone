@@ -1,19 +1,23 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-button (click)="logout()">
+      <!-- <ion-button block color="menu-o"(click)="logout()">
+        <ion-label>Left Icon</ion-label>
         <ion-icon slot="icon-only" name="log-out"></ion-icon>
-      </ion-button>
+      </ion-button> -->
+      <button class="ion-button icon-end" (click)="logout()">
+        Iesire
+        <ion-icon name="star"></ion-icon>
+      </button>
     </ion-buttons>
-    <ion-title>My Dashboard</ion-title>
+    
+    <ion-title class="ion-text-center">Panou adaugare index</ion-title>
   </ion-toolbar>
 </ion-header>
  
 <ion-content [fullscreen]="true" class="ion-padding">
-  <h1>Click Button To Scan</h1>
-
-  <ion-button color="primary" (click)="scanCode()">
-    Scan Code
+  <ion-button shape="round" expand="block" style="text-align: center;"color="primary" (click)="scanCode()">
+    Scaneaza cod contor
   </ion-button>
 
   <div *ngIf="scannedData">
@@ -24,4 +28,27 @@
       Scanned Code Format : <b>{{ scannedData["format"] }}</b>
     </p>
   </div>
+  <form (ngSubmit)="scanCode()">
+    <ion-item>
+      <ion-label>Todo</ion-label>
+      <ion-input type="text"  name="title"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Description</ion-label>
+      <ion-textarea name="description"></ion-textarea>
+    </ion-item>
+    <ion-list>
+      <ion-item>
+        <ion-label>Observatii</ion-label>
+        <ion-select value="-" okText="Ok" cancelText="Anuleaza">
+          <ion-select-option value="Contor expirat">Contor expirat</ion-select-option>
+          <ion-select-option value="Contor deteriorat">Contor deteriorat</ion-select-option>
+          <ion-select-option value="Contor lipsa">Contor lipsa</ion-select-option>
+          <ion-select-option value="Sigiliu rupt">Sigiliu rupt</ion-select-option>
+          <ion-select-option value="Miros de gaz la PRM">Miros de gaz la PRM</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+    <button ion-button type="submit" block>Trimite</button>
+  </form>
 </ion-content>
