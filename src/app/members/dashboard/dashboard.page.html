@@ -1,10 +1,6 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="end" (click)="logout()">
-      <!-- <ion-button block color="menu-o"(click)="logout()">
-        <ion-label>Left Icon</ion-label>
-        <ion-icon slot="icon-only" name="log-out"></ion-icon>
-      </ion-button> -->
       <ion-button class="ion-button icon-end" (click)="logout()">
         <ion-text style="padding: 2px !important;">
           Iesire
@@ -16,28 +12,46 @@
     <ion-title class="ion-text-center">Panou adaugare index</ion-title>
   </ion-toolbar>
 </ion-header>
- 
-<ion-content [fullscreen]="true" class="ion-padding">
-  <ion-button shape="round" expand="block" style="text-align: center;"color="primary" (click)="scanCodClientInfo()">
-    Scaneaza cod contor
-  </ion-button>
-    <div *ngIf='scannedData'>
-    <div *ngIf='scannedData["text"]'>
 
+   <ion-content [fullscreen]="true" class="ion-padding">
+ <div *ngIf='this.scannedData == null'>
+  <ion-button shape="round" expand="block" style="text-align: center;"color="primary" (click)="scanCode()">
+    Scaneaza cod contor
+  </ion-button> 
+  </div>
+  <div *ngIf='scannedData'>
+    <div *ngIf='scannedData["text"] ==0'>
+    <div *ngIf='scannedData'>
+      <ion-button shape="round" expand="block" style="text-align: center;"color="primary" (click)="scanCode()">
+        Scaneaza cod contor
+      </ion-button> 
+      </div>
+    </div>
+    <div *ngIf='scannedData["text"]'>
+      <div *ngIf="userinfobool == 0">
+      <ion-button shape="round" expand="block" style="text-align: center;"color="primary" (click)="getToken()">
+        Afiseaza informatii client
+      </ion-button>
+    </div>
+    <div *ngIf="userinfobool == 1">
+      <ion-button shape="round" expand="block" style="text-align: center;"color="primary" (click)="ascundeuserinfo()">
+        Ascunde informatii client
+      </ion-button>
+    </div>
     <ion-card class="p-4">
-      <form (ngSubmit)="getToken()">
+      <form #indexForm="ngForm" (ngSubmit)="sendIndex(indexForm)">
         <ion-item>
           <ion-label>Cod contor</ion-label>
-          <ion-input id="cod_contor" type="text"  name="title" disabled="true" [(ngModel)]='scannedData["text"]'></ion-input>
+          <ion-input id="cod_contor" type="text" ngModel name="cod_contor" id="cod_contor"  [(ngModel)]='scannedData["text"]'[readonly]="true"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label position="fixed">Index curent</ion-label>
-          <ion-input type="number" name="description"></ion-input>
+          <ion-input type="number" ngModel name="index_citire" id="index_citire"></ion-input>
         </ion-item>
         <ion-list>
           <ion-item>
             <ion-label >Observatii</ion-label>
-            <ion-select value="-" okText="Ok" cancelText="Anuleaza">
+            <ion-select ngModel value="-" okText="Ok" cancelText="Anuleaza" name="observatii" id="observatii">
               <ion-select-option value="Contor expirat">Contor expirat</ion-select-option>
               <ion-select-option value="Contor deteriorat">Contor deteriorat</ion-select-option>
               <ion-select-option value="Contor lipsa">Contor lipsa</ion-select-option>
@@ -48,8 +62,27 @@
         </ion-list>
         <ion-button ion-button type="submit" expand="block">Trimite</ion-button>
       </form>
+      <div *ngIf='indexStatus'>
+        <div *ngIf='indexStatus["error"]'>
+          <div class="alert alert-danger mt-3" role="alert">
+            {{indexStatus["error"]}}
+          </div>
+        </div>
+       <div *ngIf='indexStatus["success"]' >
+      <div class="alert alert-success mt-3" role="alert">
+        {{indexStatus["success"]}}
+      </div>
+    </div>
+    <div *ngIf='indexStatus["alert"]' >
+      <div class="alert alert-warning mt-3" role="alert">
+        {{indexStatus["alert"]}}
+      </div>
+    </div>
+      </div>
     </ion-card>
+
     <div *ngIf='userinfo'>
+      <div *ngIf='userinfobool == 1'>
       <ion-card>
       <div *ngIf='userinfo["client"]'>
      <ul class="list-group">
@@ -61,25 +94,20 @@
      </ul>
        </div>
            <div *ngIf='userinfo["eroare"]'>
-             <div class="card border-danger mb-3" style="max-width: 18rem;">
+             <div class="card border-danger m-3">
                <div class="card-header">Alerta</div>
                <div class="card-body text-danger">
                  <p class="card-text">{{userinfo["eroare"]}}</p>
                </div>
              </div>
            </div> 
-     </ion-card>    
+     </ion-card>   
+    </div>
      </div>
-    <!-- <p>
-      Scanned Code Text : <b>{{ scannedData["text"] }}</b>
-    </p>
-    <p>
-      Scanned Code Format : <b>{{ scannedData["format"] }}</b>
-    </p> -->
+     <ion-button shape="round" expand="block" style="text-align: center;"color="primary" (click)="backtoscreen()">
+      Efectueaza o noua scanare
+    </ion-button>
   </div>
 </div>
-  <!-- <div *ngIf='scannedData["test"]'>
-    {{scannedData["test"]}}
-  </div> -->
- 
+
 </ion-content>
