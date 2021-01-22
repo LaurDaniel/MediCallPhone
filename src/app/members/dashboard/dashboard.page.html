@@ -57,6 +57,9 @@
               <ion-select-option value="Contor lipsa">Contor lipsa</ion-select-option>
               <ion-select-option value="Sigiliu rupt">Sigiliu rupt</ion-select-option>
               <ion-select-option value="Miros de gaz la PRM">Miros de gaz la PRM</ion-select-option>
+              <ion-select-option value="Lipsa afisaj">Lipsa afisaj</ion-select-option>
+              <ion-select-option value="Lipsa acces">Lipsa acces</ion-select-option>
+              <ion-select-option value="Contor in proprietate">Contor in proprietate</ion-select-option>
             </ion-select>
           </ion-item>
         </ion-list>
@@ -88,9 +91,10 @@
      <ul class="list-group">
        <li class="list-group-item active">Informatii client:</li>
        <li class="list-group-item"><strong>Nume client:</strong> {{userinfo["client"]["0"]["nume_client"]}}</li>
+       <li class="list-group-item"><strong>Adresa:</strong> {{userinfo["client"]["0"]["adresa_loc_consum"]}}</li>
+       <li class="list-group-item"><strong>Index precedent:</strong> {{userinfo["client"]["0"]["index_trecut"]}}</li>
        <li class="list-group-item"><strong>Cod client:</strong> {{userinfo["client"]["0"]["cod_client"]}}</li>
        <li class="list-group-item"><strong>Cod contor:</strong> {{userinfo["client"]["0"]["cod_contor"]}}</li>
-       <li class="list-group-item"><strong>Adresa:</strong> {{userinfo["client"]["0"]["adresa_loc_consum"]}}</li>
      </ul>
        </div>
            <div *ngIf='userinfo["eroare"]'>
