@@ -81,7 +81,7 @@ export class DashboardPage implements OnInit {
       let headers = new HttpHeaders() ;
       headers =  headers.set('Authorization','Bearer '+token);
       let parameters = new HttpParams();
-      parameters = parameters.set('cod_contor',form.value['cod_contor']).set('index_citire',form.value['index_citire']).set('observatii',form.value['observatii']);
+      parameters = parameters.set('cod_de_bare',form.value['cod_de_bare']).set('index_citire',form.value['index_citire']).set('observatii',form.value['observatii']);
    this.httpclient.post(url,parameters,{headers: headers}, ).subscribe((response) => {
      this.indexStatus = response;
      console.log(this.indexStatus);
@@ -116,7 +116,7 @@ export class DashboardPage implements OnInit {
         this.zone.runTask(() => this.contor = 1);
         this.zone.runTask(() => this.scannedData = barcodeData);
 
-        document.getElementById("cod_contor").setAttribute('value', this.scannedData['text']);
+        document.getElementById("cod_de_bare").setAttribute('value', this.scannedData['text']);
       })
       .catch(err => {
         this.zone.runTask(() => this.contor = 0);
