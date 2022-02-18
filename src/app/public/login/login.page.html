@@ -4,8 +4,19 @@
   </ion-toolbar>
 </ion-header> -->
 <ion-content style="text-align: center;margin-top:50px;">
-  <div style="padding: 40px; margin-top: 40px;">
-  <img src="assets/images/logo_progaz.png" style="max-width: 60%;">
+  <div style="padding: 40px; margin-top: 40px;"> <div class="col-md-8 col-lg-6 col-xl-5">
+    <div class="card overflow-hidden">
+        <div class="bg-login text-center">
+            <div class="bg-login-overlay"></div>
+            <div class="position-relative">
+                <h5 class="text-white font-size-20">Bine ai venit !</h5>
+                <p class="text-white-50 mb-0">Autentifica-te pentru a continua.</p>
+                <p class="logo logo-admin mt-4">
+                    <img src="assets/images/logo_raport_medical.png" alt="" style="max-width: 60%;" height="43">
+</p>
+            </div>
+        </div>
+  <!-- <img src="assets/images/logo_progaz.png" style="max-width: 60%;"> -->
   <form [formGroup]="credentialsForm" (ngSubmit)="onSubmit()">
  
     <ion-item>
@@ -22,5 +33,7 @@
     <!-- <ion-button expand="full" type="button" (click)="register()" [disabled]="!credentialsForm.valid">Register</ion-button> -->
  
   </form>
+</div>
+</div>
 </div>
 </ion-content>
