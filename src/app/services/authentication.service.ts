@@ -51,7 +51,7 @@ export class AuthenticationService {
   }
  
   login(credentials) {
-    return this.http.post(`${this.url}api/login/operator`, credentials)
+    return this.http.post(`${this.url}/api/login`, credentials)
       .pipe(
         tap(res => {
           this.storage.set(TOKEN_KEY, res['access_token']);

@@ -21,16 +21,16 @@
   <form [formGroup]="credentialsForm" (ngSubmit)="onSubmit()">
  
     <ion-item>
-      <ion-label position="floating">Email</ion-label>
+      <ion-label position="floating">Adresa de e-mail</ion-label>
       <ion-input type="email" formControlName="email"></ion-input>
     </ion-item>
  
     <ion-item>
-      <ion-label position="floating">Password</ion-label>
+      <ion-label position="floating">Parola</ion-label>
       <ion-input type="password" formControlName="password"></ion-input>
     </ion-item>
  
-    <ion-button expand="full" type="submit" [disabled]="!credentialsForm.valid">Login</ion-button>
+    <ion-button expand="full" type="submit" [disabled]="!credentialsForm.valid">Autentificare</ion-button>
     <!-- <ion-button expand="full" type="button" (click)="register()" [disabled]="!credentialsForm.valid">Register</ion-button> -->
  
   </form>
