@@ -1,12 +1,48 @@
 <ion-header>
   <ion-toolbar>
-    <ion-buttons slot="start">
-        <ion-back-button defaultHref="/login"></ion-back-button>
-    </ion-buttons>
+    <ion-button color="light" (click)="dismissRegister()">Close</ion-button>
     <ion-title>Register</ion-title>
   </ion-toolbar>
 </ion-header>
- 
 <ion-content padding>
- 
-</ion-content>
+  <form [formGroup]="credentialsForm" (ngSubmit)="onSubmit()">
+    <ion-item>
+        <ion-label position="floating">Adresa de e-mail*</ion-label>
+        <ion-input ngModel name="email"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label position="floating">Nume*</ion-label>
+      <ion-input ngModel name="last_name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Prenume*</ion-label>
+      <ion-input ngModel name="name"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label position="floating">Numar de telefon*</ion-label>
+      <ion-input type="email" ngModel name="phone"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Codul de pacient Medicover (MRN) *doar daca sunteti abonat Medicover</ion-label>
+      <ion-input type="email" ngModel name="mrn"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Cod numeric personal*</ion-label>
+      <ion-input type="email" ngModel name="mrn"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label position="floating">Parola</ion-label>
+      <ion-input type="password" ngModel name="password"></ion-input>
+    </ion-item>
+  
+    <ion-button type="submit" expand="full" color="danger">Inregistrare!</ion-button>
+  </form>
+  <p text-center>Ai deja un cont?</p>
+  <ion-button expand="full" color="primary" (click)="loginModal()">Autentifica-te!</ion-button>
+</ion-content>  

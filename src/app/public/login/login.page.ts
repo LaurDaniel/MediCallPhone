@@ -1,6 +1,8 @@
 import { AuthenticationService } from './../../services/authentication.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ModalController, NavController } from '@ionic/angular';
+import { RegisterPage } from '../register/register.page';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +13,7 @@ export class LoginPage implements OnInit {
  
   credentialsForm: FormGroup;
  
-  constructor(private formBuilder: FormBuilder, private authService: AuthenticationService) { }
+  constructor(private formBuilder: FormBuilder, private authService: AuthenticationService, private modalController: ModalController,) { }
  
   ngOnInit() {
     this.credentialsForm = this.formBuilder.group({
@@ -22,6 +24,17 @@ export class LoginPage implements OnInit {
  
   onSubmit() {
     this.authService.login(this.credentialsForm.value).subscribe();
+  }
+  dismissLogin() {
+    this.modalController.dismiss();
+  }
+
+  async registerModal() {
+    this.dismissLogin();
+    const registerModal = await this.modalController.create({
+      component: RegisterPage
+    });
+    return await registerModal.present();
   }
  
   register() {

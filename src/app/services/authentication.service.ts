@@ -14,7 +14,7 @@ const TOKEN_KEY = 'access_token';
 })
 export class AuthenticationService {
  
-  url = "https://probe.infragroup.ro/";
+  url = "https://probe.infragroup.ro";
   user = null;
   authenticationState = new BehaviorSubject(false);
  
