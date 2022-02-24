@@ -7,10 +7,10 @@ const routes: Routes = [
   { path: 'login', loadChildren: './public/login/login.module#LoginPageModule' },
   { path: 'register', loadChildren: './public/register/register.module#RegisterPageModule' },
   { 
-    path: 'members', 
-    canActivate: [AuthGuard],
-    loadChildren: './members/member-routing.module#MemberRoutingModule'
+    path: 'home', loadChildren: './pages/customer/home/home.module#HomePageModule', canActivate: [AuthGuard],
   },
+ 
+
 ];
  
 @NgModule({

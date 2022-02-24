@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     
-    <ion-button item-end color="danger" (click)="dismissRegister()">x</ion-button>
+    <!-- <ion-button item-end color="danger" (click)="dismissRegister()">x</ion-button> -->
     <ion-title>Inregistrare</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -48,7 +48,7 @@
       <ion-input type="password" formControlName="confirm_password" id="confirm_password" ></ion-input>
     </ion-item>
 
-    <div *ngIf="f.confirm_password.errors?.confirmedValidator">Parolele nu se potrivesc.</div>
+    <div  class="error ion-padding" *ngIf="f.confirm_password.errors?.confirmedValidator">Parolele nu se potrivesc.</div>
   
     <ion-button type="submit" [disabled]="!credentialsForm.valid" expand="full" color="danger">Inregistrare!</ion-button>
   </form>

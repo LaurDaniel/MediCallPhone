@@ -1,7 +1,7 @@
 import { AuthenticationService } from './../../services/authentication.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { ModalController, NavController } from '@ionic/angular';
+import { ModalController, MenuController, NavController } from '@ionic/angular';
 import { RegisterPage } from '../register/register.page';
 import { Router } from '@angular/router';
 
@@ -16,7 +16,7 @@ export class LoginPage implements OnInit {
   credentialsForm: FormGroup;
   RegisterPage: RegisterPage;
  
-  constructor(private router: Router,public navCtrl: NavController, private formBuilder: FormBuilder, private authService: AuthenticationService, private modalController: ModalController,) { }
+  constructor( private menu: MenuController,private router: Router,public navCtrl: NavController, private formBuilder: FormBuilder, private authService: AuthenticationService, private modalController: ModalController,) {this.menu.enable(false); }
  
   ngOnInit() {
     this.credentialsForm = this.formBuilder.group({

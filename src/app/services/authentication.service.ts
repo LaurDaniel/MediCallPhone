@@ -1,11 +1,12 @@
-import { Platform, AlertController } from '@ionic/angular';
+import { Platform, AlertController, NavController } from '@ionic/angular';
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { Storage } from '@ionic/storage';
 import { environment } from '../../environments/environment';
 import { tap, catchError } from 'rxjs/operators';
 import { BehaviorSubject } from 'rxjs';
+import { EnvService } from './env.service';
  
 const TOKEN_KEY = 'access_token';
  
@@ -13,13 +14,14 @@ const TOKEN_KEY = 'access_token';
   providedIn: 'root'
 })
 export class AuthenticationService {
- 
+  isLoggedIn = false;
+  token:any;
   url = "https://probe.infragroup.ro";
   user = null;
   authenticationState = new BehaviorSubject(false);
  
-  constructor(private http: HttpClient, private helper: JwtHelperService, private storage: Storage,
-    private plt: Platform, private alertController: AlertController) {
+  constructor(private env: EnvService,private http: HttpClient, private helper: JwtHelperService, private storage: Storage,
+    private plt: Platform, private alertController: AlertController,  private navCtrl: NavController,) {
     this.plt.ready().then(() => {
       this.checkToken();
     });
@@ -66,6 +68,18 @@ export class AuthenticationService {
     this.storage.remove(TOKEN_KEY).then(() => {
       this.authenticationState.next(false);
     });
+    // const headers = new HttpHeaders({
+    //   'Authorization': this.token["token_type"]+" "+this.token["access_token"]
+    // });
+    // return this.http.get(this.env.API_URL + 'auth/logout', { headers: headers })
+    // .pipe(
+    //   tap(data => {
+    //     this.storage.remove("token");
+    //     this.isLoggedIn = false;
+    //     delete this.token;
+    //     return data;
+    //   })
+    // )
   }
  
   getSpecialData() {

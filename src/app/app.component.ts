@@ -2,9 +2,11 @@ import { Router } from '@angular/router';
 import { AuthenticationService } from './services/authentication.service';
 import { Component } from '@angular/core';
  
-import { Platform } from '@ionic/angular';
+import { Platform, NavController} from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { AlertService } from 'src/app/services/alert.service';
+import { MenuController } from '@ionic/angular';
  
 @Component({
   selector: 'app-root',
@@ -12,11 +14,14 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 })
 export class AppComponent {
   constructor(
+    private menu: MenuController,
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
-    private authenticationService: AuthenticationService,
-    private router: Router
+    private authService: AuthenticationService,
+    private router: Router,
+    private alertService: AlertService,
+    private navCtrl: NavController
   ) {
     this.initializeApp();
   }
@@ -26,14 +31,20 @@ export class AppComponent {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
  
-      this.authenticationService.authenticationState.subscribe(state => {
+      this.authService.authenticationState.subscribe(state => {
         if (state) {
-          this.router.navigate(['members', 'dashboard']);
+          this.router.navigate(['home']);
         } else {
           this.router.navigate(['login']);
         }
       });
  
     });
+  }
+  logout() {
+    this.authService.logout()
+    this.menu.enable(false);
+    this.navCtrl.navigateRoot('/login');
+    
   }
 }
