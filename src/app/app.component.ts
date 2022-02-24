@@ -13,6 +13,13 @@ import { MenuController } from '@ionic/angular';
   templateUrl: 'app.component.html'
 })
 export class AppComponent {
+  public appPages = [
+    {
+      title: 'Panou Principal',
+      url: '/home',
+      icon: 'home'
+    },
+  ];
   constructor(
     private menu: MenuController,
     private platform: Platform,
@@ -33,6 +40,7 @@ export class AppComponent {
  
       this.authService.authenticationState.subscribe(state => {
         if (state) {
+          this.menu.enable(true);
           this.router.navigate(['home']);
         } else {
           this.router.navigate(['login']);
@@ -43,8 +51,8 @@ export class AppComponent {
   }
   logout() {
     this.authService.logout()
-    this.menu.enable(false);
-    this.navCtrl.navigateRoot('/login');
     
+    this.navCtrl.navigateRoot('/login');
+    this.menu.enable(false);
   }
 }
