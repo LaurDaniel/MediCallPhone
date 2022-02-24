@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ModalController, NavController } from '@ionic/angular';
 import { RegisterPage } from '../register/register.page';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-login',
@@ -12,8 +14,9 @@ import { RegisterPage } from '../register/register.page';
 export class LoginPage implements OnInit {
  
   credentialsForm: FormGroup;
+  RegisterPage: RegisterPage;
  
-  constructor(private formBuilder: FormBuilder, private authService: AuthenticationService, private modalController: ModalController,) { }
+  constructor(private router: Router,public navCtrl: NavController, private formBuilder: FormBuilder, private authService: AuthenticationService, private modalController: ModalController,) { }
  
   ngOnInit() {
     this.credentialsForm = this.formBuilder.group({
@@ -23,6 +26,7 @@ export class LoginPage implements OnInit {
   }
  
   onSubmit() {
+    // this.showAlert('Autentificarea nu a reusit! Fi sigur ca email-ul si parola sunt corecte!');
     this.authService.login(this.credentialsForm.value).subscribe();
   }
   dismissLogin() {
@@ -31,17 +35,19 @@ export class LoginPage implements OnInit {
 
   async registerModal() {
     this.dismissLogin();
-    const registerModal = await this.modalController.create({
-      component: RegisterPage
-    });
-    return await registerModal.present();
+    return this.router.navigateByUrl('/register');
+    
+    // const registerModal = await this.modalController.create({
+    //   component: RegisterPage
+    // });
+    // return await registerModal.present();
   }
  
-  register() {
-    this.authService.register(this.credentialsForm.value).subscribe(res => {
-      // Call Login to automatically login the new user
-      this.authService.login(this.credentialsForm.value).subscribe();
-    });
-  }
+  // register() {
+  //   this.authService.register(this.credentialsForm.value).subscribe(res => {
+  //     // Call Login to automatically login the new user
+  //     this.authService.login(this.credentialsForm.value).subscribe();
+  //   });
+  // }
  
 }

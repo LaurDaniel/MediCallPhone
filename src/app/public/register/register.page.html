@@ -1,48 +1,59 @@
 <ion-header>
   <ion-toolbar>
-    <ion-button color="light" (click)="dismissRegister()">Close</ion-button>
-    <ion-title>Register</ion-title>
+    
+    <ion-button item-end color="danger" (click)="dismissRegister()">x</ion-button>
+    <ion-title>Inregistrare</ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content padding>
   <form [formGroup]="credentialsForm" (ngSubmit)="onSubmit()">
+  <!-- <form [formGroup]="credentialsForm2" (ngSubmit)="register(form)" > -->
     <ion-item>
         <ion-label position="floating">Adresa de e-mail*</ion-label>
-        <ion-input ngModel name="email"></ion-input>
+        <ion-input  formControlName="email"></ion-input>
     </ion-item>
   
     <ion-item>
       <ion-label position="floating">Nume*</ion-label>
-      <ion-input ngModel name="last_name"></ion-input>
+      <ion-input  formControlName="last_name"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label position="floating">Prenume*</ion-label>
-      <ion-input ngModel name="name"></ion-input>
+      <ion-input  formControlName="name"></ion-input>
     </ion-item>
   
     <ion-item>
       <ion-label position="floating">Numar de telefon*</ion-label>
-      <ion-input type="email" ngModel name="phone"></ion-input>
+      <ion-input  formControlName="phone"></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-label position="floating">Codul de pacient Medicover (MRN) *doar daca sunteti abonat Medicover</ion-label>
-      <ion-input type="email" ngModel name="mrn"></ion-input>
+      <ion-label position="floating">MRN *pentru abonati</ion-label>
+      <ion-input   formControlName="mrn"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label position="floating">Cod numeric personal*</ion-label>
-      <ion-input type="email" ngModel name="mrn"></ion-input>
+      <ion-input  formControlName="cnp"></ion-input>
     </ion-item>
   
     <ion-item>
       <ion-label position="floating">Parola</ion-label>
-      <ion-input type="password" ngModel name="password"></ion-input>
+      <ion-input type="password" formControlName="password"></ion-input>
     </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Confirmare Parola</ion-label>
+      <ion-input type="password" formControlName="confirm_password" id="confirm_password" ></ion-input>
+    </ion-item>
+
+    <div *ngIf="f.confirm_password.errors?.confirmedValidator">Parolele nu se potrivesc.</div>
   
-    <ion-button type="submit" expand="full" color="danger">Inregistrare!</ion-button>
+    <ion-button type="submit" [disabled]="!credentialsForm.valid" expand="full" color="danger">Inregistrare!</ion-button>
   </form>
   <p text-center>Ai deja un cont?</p>
   <ion-button expand="full" color="primary" (click)="loginModal()">Autentifica-te!</ion-button>
 </ion-content>  
+
+

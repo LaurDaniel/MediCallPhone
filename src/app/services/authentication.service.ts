@@ -42,12 +42,9 @@ export class AuthenticationService {
   }
  
   register(credentials) {
-    return this.http.post(`${this.url}/api/register`, credentials).pipe(
-      catchError(e => {
-        this.showAlert(e.error.msg);
-        throw new Error(e);
-      })
-    );
+   
+    return this.http.post(`${this.url}/api/register`, credentials);
+     
   }
  
   login(credentials) {
@@ -91,7 +88,7 @@ export class AuthenticationService {
   showAlert(msg) {
     let alert = this.alertController.create({
       message: msg,
-       header: 'Alerta',
+       header: '',
       buttons: ['OK']
     });
     alert.then(alert => alert.present());
