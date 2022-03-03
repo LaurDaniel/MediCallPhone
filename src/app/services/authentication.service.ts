@@ -18,6 +18,7 @@ export class AuthenticationService {
   token:any;
   url = "https://probe.infragroup.ro";
   user = null;
+  // user_id = null;
   authenticationState = new BehaviorSubject(false);
  
   constructor(private env: EnvService,private http: HttpClient, private helper: JwtHelperService, private storage: Storage,
@@ -56,6 +57,7 @@ export class AuthenticationService {
           this.storage.set(TOKEN_KEY, res['access_token']);
           this.user = this.helper.decodeToken(res['access_token']);
           this.authenticationState.next(true);
+          localStorage.setItem("user_id",res['user'].id);
         }),
         catchError(e => {
           this.showAlert('Autentificarea nu a reusit! Fi sigur ca email-ul si parola sunt corecte!');
