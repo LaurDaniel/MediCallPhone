@@ -12,6 +12,8 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 import { HttpClientModule } from '@angular/common/http';
 import { Storage, IonicStorageModule } from '@ionic/storage';
 import { JwtModule, JWT_OPTIONS } from '@auth0/angular-jwt';
+// import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 export function jwtOptionsFactory(storage) {
   return {
     tokenGetter: () => {
@@ -25,7 +27,7 @@ export function jwtOptionsFactory(storage) {
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(),
      AppRoutingModule,IonicStorageModule.forRoot(),
-     HttpClientModule, FormsModule,
+     HttpClientModule, FormsModule,NgxDatatableModule,
      JwtModule.forRoot({
       jwtOptionsProvider: {
         provide: JWT_OPTIONS,

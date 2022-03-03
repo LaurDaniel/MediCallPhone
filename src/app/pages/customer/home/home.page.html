@@ -6,9 +6,35 @@
     <ion-title>Panou Principal</ion-title>
   </ion-toolbar>
 </ion-header>
-
+<ion-content>
+<div class="ion-padding">
+  <!-- Theme classes dark, material, bootstrap -->
+  <ngx-datatable 
+    class="material"
+    [limit]="8" 
+    [rows]="rows" 
+    [rowHeight]="50" 
+    [columns]="columns"
+    [columnMode]="'force'" 
+    [sortType]="'multi'" 
+    [headerHeight]="50" 
+    [footerHeight]="50">
+    <ngx-datatable-column name="id"></ngx-datatable-column>
+    <ngx-datatable-column name="Data programare" prop="data_programare"></ngx-datatable-column>
+    <ngx-datatable-column name="ora programare" prop="ora_programare"></ngx-datatable-column>
+    <ngx-datatable-column name="Nume pacient" prop="user"></ngx-datatable-column>
+    <ngx-datatable-column name="Specialitate" prop="specialitate"></ngx-datatable-column>
+    <ngx-datatable-column name="Doctor" prop="doctor"></ngx-datatable-column>
+    <ngx-datatable-column name="Action" ><ng-template ngx-datatable-cell-template let-value="value">
+      <span>
+        <ion-button color="danger" (click)="deleteConsult(id)">Anuleaza</ion-button>
+       </span>
+  </ng-template></ngx-datatable-column>
+  </ngx-datatable>
+</div>
+</ion-content>
 <!-- <ion-content> -->
-  <table mdbTable>
+  <!-- <table mdbTable>
     <thead>
       <tr>
         <th *ngFor="let head of headElements" scope="col">{{head}} </th>
@@ -25,5 +51,5 @@
      
       <th><ion-button color="danger" (click)="deleteConsult(programare.id)">Anuleaza</ion-button></th>
     </tbody>
-  </table>
+  </table> -->
 <!-- </ion-content> -->
