@@ -1,4 +1,4 @@
-<ion-header class="header-background">
+<ion-header [translucent]="true" class="header-background">
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
@@ -7,27 +7,23 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-grid class="ion-margin">
-    <ion-row>
-      <ion-col>ID</ion-col> 
-      <ion-col>Data</ion-col>
-      <ion-col>Ora</ion-col>
-      <ion-col>Nume pacient</ion-col>
-      <ion-col>Specialitate</ion-col>
-      <ion-col>Doctor</ion-col>
-      <ion-col>Actiuni</ion-col>
-
+<!-- <ion-content> -->
+  <table mdbTable>
+    <thead>
+      <tr>
+        <th *ngFor="let head of headElements" scope="col">{{head}} </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr mdbTableCol *ngFor="let programare of programari;">
+        <th scope="row">#{{ programare.id }}</th>
+      <th>{{ programare.data_programare }}</th>
+      <th>{{ programare.ora_programare }}</th>
+      <th>{{ programare.nume}}</th>
+      <th>{{ programare.specialitate}}</th>
+      <th>{{ programare.doctor}}</th>
      
-    </ion-row>
-    <ion-row *ngFor="let programare of programari;">
-      <ion-col>#{{ programare.id }}</ion-col>
-      <ion-col>{{ programare.nume}}</ion-col>
-      <ion-col>{{ programare.specialitate}}</ion-col>
-      <ion-col>{{ programare.doctor}}</ion-col>
-      <ion-col>{{ programare.data_programare }}</ion-col>
-      <ion-col>{{ programare.ora_programare }}</ion-col>
-      <ion-col><ion-button color="danger" (click)="deleteConsult(programare.id)">Anuleaza</ion-button></ion-col>
-    </ion-row>
-  </ion-grid>
-</ion-content>
+      <th><ion-button color="danger" (click)="deleteConsult(programare.id)">Anuleaza</ion-button></th>
+    </tbody>
+  </table>
+<!-- </ion-content> -->

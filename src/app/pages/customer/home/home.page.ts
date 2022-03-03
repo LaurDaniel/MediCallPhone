@@ -15,6 +15,7 @@ export class HomePage implements OnInit {
   }
   // user = authService
  programari: any[];
+ headElements = ['ID', 'Nume pacient', 'Doctor', 'Data', 'Ora', 'Actiuni'];
   ngOnInit() {
     this.menu.enable(true);
     this.http.get(`${this.url}/api/home/programari/${localStorage.getItem("user_id")}`).subscribe(data=>{
