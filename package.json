@@ -28,6 +28,7 @@
     "@ionic/storage": "^2.3.1",
     "@swimlane/ngx-datatable": "^20.0.0",
     "bootstrap": "^4.5.3",
+    "ionic-angular": "^2.0.0-beta.6-201604212137",
     "rxjs": "~6.5.5",
     "tslib": "^2.1.0",
     "zone.js": "~0.10.3"
