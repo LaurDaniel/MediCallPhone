@@ -5,6 +5,8 @@ import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { ViewEncapsulation } from '@angular/core';
 export interface Data {
   programari: string;
+  tranzactii: string;
+  message: string;
 }
 @Component({
   selector: 'app-home',
@@ -18,6 +20,7 @@ export class HomePage implements OnInit {
     this.menu.enable(true);
   }
 public programari: any;
+public tranzactii: any;
 public data: Data;
 public columns: any;
 public rows: any;
@@ -26,6 +29,9 @@ public rows: any;
   
     this.http.get<Data>(`${this.url}/api/home/programari/${localStorage.getItem("user_id")}`).subscribe(data=>{
       this.programari = data.programari;
+      this.tranzactii = data.tranzactii;
+      if(data.message == '1')
+        this.showAlert(data['Plata dumneavoastra este in curs procesare. Puteti urmari statusul acesteia pe pagina principala. Va multumim!']);
       console.log(this.programari);
     })
   }
