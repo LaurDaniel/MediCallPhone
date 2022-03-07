@@ -6,9 +6,9 @@
     <ion-title>Panou Principal</ion-title>
   </ion-toolbar>
 </ion-header>
-<ion-content>
+<!-- <ion-content>
 <div class="ion-padding">
-  <!-- Theme classes dark, material, bootstrap -->
+ 
   <ngx-datatable 
     class="material"
     [limit]="8" 
@@ -19,11 +19,9 @@
     [sortType]="'multi'" 
     [headerHeight]="50" 
     [footerHeight]="50">
-    <ngx-datatable-column name="id"></ngx-datatable-column>
     <ngx-datatable-column name="Data programare" prop="data_programare"></ngx-datatable-column>
-    <ngx-datatable-column name="ora programare" prop="ora_programare"></ngx-datatable-column>
+    <ngx-datatable-column name="Ora programare" prop="ora_programare"></ngx-datatable-column>
     <ngx-datatable-column name="Nume pacient" prop="user"></ngx-datatable-column>
-    <ngx-datatable-column name="Specialitate" prop="specialitate"></ngx-datatable-column>
     <ngx-datatable-column name="Doctor" prop="doctor"></ngx-datatable-column>
     <ngx-datatable-column name="Action" ><ng-template ngx-datatable-cell-template let-value="value">
       <span>
@@ -32,24 +30,31 @@
   </ng-template></ngx-datatable-column>
   </ngx-datatable>
 </div>
-</ion-content>
-<!-- <ion-content> -->
-  <!-- <table mdbTable>
+</ion-content> -->
+<ion-content> 
+  <div class="table-responsive">
+    <table class="table table-centered table-striped w-auto">
     <thead>
       <tr>
-        <th *ngFor="let head of headElements" scope="col">{{head}} </th>
+        <th>Data</th>
+        <th>Ora</th>
+        <th>Nume pacient</th>
+        <th>Specialitate</th>
+        <th>Doctor</th>
+        <th>Actiuni</th>
       </tr>
     </thead>
     <tbody>
       <tr mdbTableCol *ngFor="let programare of programari;">
-        <th scope="row">#{{ programare.id }}</th>
+        <!-- <th scope="row">#{{ programare.id }}</th> -->
       <th>{{ programare.data_programare }}</th>
       <th>{{ programare.ora_programare }}</th>
-      <th>{{ programare.nume}}</th>
+      <th>{{ programare.user}}</th>
       <th>{{ programare.specialitate}}</th>
       <th>{{ programare.doctor}}</th>
      
       <th><ion-button color="danger" (click)="deleteConsult(programare.id)">Anuleaza</ion-button></th>
     </tbody>
-  </table> -->
-<!-- </ion-content> -->
+  </table> 
+  </div>
+ </ion-content>

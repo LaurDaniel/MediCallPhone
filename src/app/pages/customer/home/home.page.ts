@@ -17,26 +17,16 @@ export class HomePage implements OnInit {
   constructor(private http: HttpClient,private menu: MenuController, private authService: AuthenticationService, private alertCtrl: AlertController) { 
     this.menu.enable(true);
   }
-  // user = authService
-//  programari: any[];
-//  headElements = ['ID', 'Nume pacient', 'Doctor', 'Data', 'Ora', 'Actiuni'];
+public programari: any;
 public data: Data;
 public columns: any;
 public rows: any;
   ngOnInit() {
     this.menu.enable(true);
-    // this.columns = [
-    //   { name: 'id', },
-    //   { name: 'Data programare', prop: 'data_programare' },
-    //   { name: 'Ora programare', prop: 'ora_programare' },
-    //   { name: 'Nume pacient', prop: 'user' },
-    //   { name: 'Doctor', prop: 'doctor' },
-    //   { name: 'Actiuni', prop: 'id' },
-    // ];
+  
     this.http.get<Data>(`${this.url}/api/home/programari/${localStorage.getItem("user_id")}`).subscribe(data=>{
-      this.rows = data.programari;
-// console.log(data['programari']);
-// console.log();
+      this.programari = data.programari;
+      console.log(this.programari);
     })
   }
 
