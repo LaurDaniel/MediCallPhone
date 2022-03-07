@@ -6,3 +6,9 @@ ion-toolbar {
     --color: #ffffff;
     --background: rgb(0, 83, 159);
 }
+
+    ion-content{
+        -webkit-font-smoothing: antialiased;
+-font-smoothing: antialiased;
+    }
+

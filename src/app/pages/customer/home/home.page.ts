@@ -30,6 +30,21 @@ public rows: any;
     })
   }
 
+  showAlert(msg) {
+    let alert = this.alertCtrl.create({
+      message: msg,
+      buttons: [{
+        text: 'OK',
+        cssClass:'icon-color',
+        handler:()=>{
+          window.location.reload();
+          console.log('reload');
+        }
+      }]
+    });
+    alert.then(alert => alert.present());
+  }
+
   deleteConsult(id_consult) {
     let alert = this.alertCtrl.create({
       // title: '',
@@ -49,12 +64,13 @@ public rows: any;
           handler: data => {
             console.log('Items Removed!');
             this.http.get(`${this.url}/api/home/delete/${id_consult}`).subscribe(data=>{
+              this.showAlert(data['response']);
               
               console.log(data);
               // console.log();
                   })
 
-            //Call you API to remove Items here.
+         
           }
         }
       ]
