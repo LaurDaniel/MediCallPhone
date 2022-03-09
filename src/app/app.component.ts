@@ -1,7 +1,7 @@
 import { Router } from '@angular/router';
 import { AuthenticationService } from './services/authentication.service';
 import { Component } from '@angular/core';
- 
+import {Location} from '@angular/common';
 import { Platform, NavController} from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
@@ -19,6 +19,11 @@ export class AppComponent {
       url: '/home',
       icon: 'home'
     },
+    {
+      title: 'Accesati Consultatia',
+      url: '/conferinta',
+      icon: 'videocam'
+    },
   ];
   constructor(
     private menu: MenuController,
@@ -28,11 +33,17 @@ export class AppComponent {
     private authService: AuthenticationService,
     private router: Router,
     private alertService: AlertService,
-    private navCtrl: NavController
+    private navCtrl: NavController,
+    private _location: Location
   ) {
     this.initializeApp();
   }
- 
+  // reloadComponent() {
+  //   let currentUrl = this.router.url;
+  //       this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+  //       this.router.onSameUrlNavigation = 'reload';
+  //       this.router.navigate([currentUrl]);
+  //   }
   initializeApp() {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();

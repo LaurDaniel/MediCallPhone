@@ -1,5 +1,5 @@
 {
-  "name": "ProgazIndex",
+  "name": "MediCall",
   "version": "0.0.1",
   "author": "Ionic Framework",
   "homepage": "https://ionicframework.com/",
@@ -31,6 +31,7 @@
     "cordova-browser": "6.0.0",
     "ionic-angular": "^2.0.0-beta.6-201604212137",
     "rxjs": "~6.5.5",
+    "safe-pipe": "^2.0.2",
     "tslib": "^2.1.0",
     "zone.js": "~0.10.3"
   },

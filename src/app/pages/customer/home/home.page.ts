@@ -32,7 +32,7 @@ public rows: any;
       this.tranzactii = data.tranzactii;
       if(data.message == '1')
         this.showAlert(data['Plata dumneavoastra este in curs procesare. Puteti urmari statusul acesteia pe pagina principala. Va multumim!']);
-      console.log(this.programari);
+      // console.log(this.programari);
     })
   }
 
@@ -44,7 +44,7 @@ public rows: any;
         cssClass:'icon-color',
         handler:()=>{
           window.location.reload();
-          console.log('reload');
+          // console.log('reload');
         }
       }]
     });
@@ -61,18 +61,18 @@ public rows: any;
           role: 'cancel',
           cssClass:'icon-color',
           handler: () => {
-            console.log('Cancel clicked');
+            // console.log('Cancel clicked');
           }
         },
         {
           text: 'Anuleaza!',
           cssClass:'icon-color',
           handler: data => {
-            console.log('Items Removed!');
+            // console.log('Items Removed!');
             this.http.get(`${this.url}/api/home/delete/${id_consult}`).subscribe(data=>{
               this.showAlert(data['response']);
               
-              console.log(data);
+              // console.log(data);
               // console.log();
                   })
 

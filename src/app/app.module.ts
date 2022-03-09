@@ -11,6 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 import { HttpClientModule } from '@angular/common/http';
 import { Storage, IonicStorageModule } from '@ionic/storage';
+import { SafePipe } from './safe.pipe';
 import { JwtModule, JWT_OPTIONS } from '@auth0/angular-jwt';
 // import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
@@ -23,7 +24,7 @@ export function jwtOptionsFactory(storage) {
   }
 }
 @NgModule({
-  declarations: [AppComponent,],
+  declarations: [AppComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(),
      AppRoutingModule,IonicStorageModule.forRoot(),

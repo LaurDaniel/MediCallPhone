@@ -1,0 +1,44 @@
+<ion-header [translucent]="true" class="header-background">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+    <ion-title>Consultatii online</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngIf="url_conferinta" >
+              <ion-card-content>
+                  <iframe class="webPage" allow="camera; microphone; fullscreen; display-capture" [src]="url_conferinta | safe" ></iframe>
+              </ion-card-content>
+            </ion-card>
+            <!-- <ion-card *ngIf="url_conferinta" >
+              <ion-card-content>
+                  <form  [formGroup]="dropzone" (ngSubmit)="onSubmitDropzone()">
+                      <div class="dz-message" data-dz-message><span>Faceti click sau trageti fisierul in interiorul acestei casete pentru a putea incarca documentele</span></div>
+                  </form>
+                </ion-card-content>
+              </ion-card> -->
+              <!-- <ion-card *ngIf="url_conferinta" >
+                <ion-card-header>
+                  <ion-card-title>Fisiere incarcate de doctor</ion-card-title>
+                </ion-card-header> -->
+                <!-- <ion-card-content>
+                  <button class="btn btn-primary mt-2 mb-3 w-100" id="refresh_files"><i class="fas fa-sync-alt mr-2"></i>Reimprospateaza fisiere</button> -->
+                  <!-- <ul class="list-group" id="file_listing" *ngFor="let fisier of fisiere_consultatie;"> -->
+                      <!-- <li class="list-group-item"><a target='_blank' href="/filedownload/fisier.nume_fisier" >{{fisier.nume_fisier}}</a></li>  -->
+                  <!-- </ul> -->
+                <!-- </ion-card-content> -->
+              <!-- </ion-card> -->
+              <ion-card *ngIf="!url_conferinta">
+                <ion-card-header>
+                  <ion-card-title>Momentan nu ai nicio camera de consultatie deschisa</ion-card-title>
+                </ion-card-header>
+                <ion-card-content>
+                          <p class="card-text">Daca astepti sa intri in conferinta, camera se va deschide imediat ce doctorul va porni consultatia, indiferent daca consultatia va avea loc pentru unul din conturile asociate.
+                          </p>
+                          <!-- <a href="{{route('consultatie.online')}}" class="btn btn-primary waves-effect waves-light">Reincearca conectarea la consultatia online</a> -->
+                        </ion-card-content>
+                      </ion-card>
+</ion-content>

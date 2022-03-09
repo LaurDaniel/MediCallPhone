@@ -6,31 +6,6 @@
     <ion-title>Panou Principal</ion-title>
   </ion-toolbar>
 </ion-header>
-<!-- <ion-content>
-<div class="ion-padding">
- 
-  <ngx-datatable 
-    class="material"
-    [limit]="8" 
-    [rows]="rows" 
-    [rowHeight]="50" 
-    [columns]="columns"
-    [columnMode]="'force'" 
-    [sortType]="'multi'" 
-    [headerHeight]="50" 
-    [footerHeight]="50">
-    <ngx-datatable-column name="Data programare" prop="data_programare"></ngx-datatable-column>
-    <ngx-datatable-column name="Ora programare" prop="ora_programare"></ngx-datatable-column>
-    <ngx-datatable-column name="Nume pacient" prop="user"></ngx-datatable-column>
-    <ngx-datatable-column name="Doctor" prop="doctor"></ngx-datatable-column>
-    <ngx-datatable-column name="Action" ><ng-template ngx-datatable-cell-template let-value="value">
-      <span>
-        <ion-button color="danger" (click)="deleteConsult(id)">Anuleaza</ion-button>
-       </span>
-  </ng-template></ngx-datatable-column>
-  </ngx-datatable>
-</div>
-</ion-content> -->
 <ion-content> 
   <ion-card>
     <ion-card-header>
@@ -52,7 +27,7 @@
     <tbody>
       <tr mdbTableCol *ngFor="let programare of programari;">
         <!-- <th scope="row">#{{ programare.id }}</th> -->
-      <th>{{ programare.data_programare }}</th>
+      <th>{{ programare.data_programare  | date: 'dd/MM/yyyy'}}</th>
       <th>{{ programare.ora_programare }}</th>
       <th>{{ programare.user}}</th>
       <th>{{ programare.specialitate}}</th>
