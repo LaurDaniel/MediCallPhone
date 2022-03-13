@@ -14,7 +14,7 @@ import { Storage, IonicStorageModule } from '@ionic/storage';
 import { SafePipe } from './safe.pipe';
 import { JwtModule, JWT_OPTIONS } from '@auth0/angular-jwt';
 // import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+
 export function jwtOptionsFactory(storage) {
   return {
     tokenGetter: () => {
@@ -28,7 +28,7 @@ export function jwtOptionsFactory(storage) {
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(),
      AppRoutingModule,IonicStorageModule.forRoot(),
-     HttpClientModule, FormsModule,NgxDatatableModule,
+     HttpClientModule, FormsModule,
      JwtModule.forRoot({
       jwtOptionsProvider: {
         provide: JWT_OPTIONS,

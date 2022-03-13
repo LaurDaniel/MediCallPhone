@@ -7,7 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { HomePageRoutingModule } from './home-routing.module';
 
 import { HomePage } from './home.page';
-import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+
 
 @NgModule({
   imports: [
@@ -15,7 +15,6 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
     FormsModule,
     IonicModule,
     HomePageRoutingModule,
-    NgxDatatableModule
   ],
   declarations: [HomePage],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

@@ -8,7 +8,8 @@ const routes: Routes = [
   { path: 'register', loadChildren: './public/register/register.module#RegisterPageModule' },
   { 
     path: 'home', loadChildren: './pages/customer/home/home.module#HomePageModule', canActivate: [AuthGuard],
-  },  {
+  },
+  {
     path: 'conferinta',
     loadChildren: () => import('./pages/customer/conferinta/conferinta.module').then( m => m.ConferintaPageModule)
   },

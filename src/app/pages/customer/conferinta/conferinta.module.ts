@@ -8,6 +8,7 @@ import { ConferintaPageRoutingModule } from './conferinta-routing.module';
 
 import { ConferintaPage } from './conferinta.page';
 import { SafePipe } from 'src/app/safe.pipe';
+import { NgxDropzoneModule } from 'ngx-dropzone';
 
 @NgModule({
   imports: [
@@ -15,6 +16,7 @@ import { SafePipe } from 'src/app/safe.pipe';
     FormsModule,
     IonicModule,
     ConferintaPageRoutingModule,
+    NgxDropzoneModule
     
   ],
   declarations: [ConferintaPage,SafePipe]

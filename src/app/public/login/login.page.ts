@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
 })
+
 export class LoginPage implements OnInit {
  
   credentialsForm: FormGroup;
@@ -37,17 +38,8 @@ export class LoginPage implements OnInit {
     this.dismissLogin();
     return this.router.navigateByUrl('/register');
     
-    // const registerModal = await this.modalController.create({
-    //   component: RegisterPage
-    // });
-    // return await registerModal.present();
   }
  
-  // register() {
-  //   this.authService.register(this.credentialsForm.value).subscribe(res => {
-  //     // Call Login to automatically login the new user
-  //     this.authService.login(this.credentialsForm.value).subscribe();
-  //   });
-  // }
+ 
  
 }

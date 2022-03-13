@@ -52,6 +52,7 @@ export class AppComponent {
       this.authService.authenticationState.subscribe(state => {
         if (state) {
           this.menu.enable(true);
+          // console.log(state)
           this.router.navigate(['home']);
         } else {
           this.router.navigate(['login']);
