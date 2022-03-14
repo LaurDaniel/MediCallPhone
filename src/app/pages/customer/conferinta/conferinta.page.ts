@@ -62,12 +62,12 @@ export class ConferintaPage implements OnInit {
       formData.append("file[]", this.files[i]);
     }
     const headers = new HttpHeaders({
-      'Accept': "application/json ",
-      'Content-Type': 'application/json'
+      'Accept': '*/*',
+      'Content-Type': 'multipart/form-data'
     });
     let options = { headers: headers };
 
-    this.http.post(`http://127.0.0.1:8000/api/conferinta/fileupload/${localStorage.getItem("user_id")}`, formData, options)
+    this.http.post(`${this.url}/api/conferinta/fileupload/${localStorage.getItem("user_id")}`, formData, options)
     .subscribe(res => {
        console.log(res);
        alert('Uploaded Successfully.');
