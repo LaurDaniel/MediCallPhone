@@ -15,8 +15,8 @@
             </ion-card>
              <ion-card *ngIf="url_conferinta" >
               <ion-card-content>
-                <ngx-dropzone (change)="onSelect($event)">
-                  <ngx-dropzone-label>Drop it, baby!</ngx-dropzone-label>
+                <ngx-dropzone [multiple]="false" (change)="onSelect($event)">
+                  <ngx-dropzone-label>Faceti click sau trageti fisierul in interiorul acestei casete pentru a putea incarca documentele!</ngx-dropzone-label>
                   <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
                     <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
                   </ngx-dropzone-preview>
@@ -26,17 +26,18 @@
                   </form> -->
                 </ion-card-content>
               </ion-card>
-              <!-- <ion-card *ngIf="url_conferinta" >
+              <ion-card *ngIf="url_conferinta" >
                 <ion-card-header>
                   <ion-card-title>Fisiere incarcate de doctor</ion-card-title>
-                </ion-card-header> -->
-                <!-- <ion-card-content>
-                  <button class="btn btn-primary mt-2 mb-3 w-100" id="refresh_files"><i class="fas fa-sync-alt mr-2"></i>Reimprospateaza fisiere</button> -->
-                  <!-- <ul class="list-group" id="file_listing" *ngFor="let fisier of fisiere_consultatie;"> -->
-                      <!-- <li class="list-group-item"><a target='_blank' href="/filedownload/fisier.nume_fisier" >{{fisier.nume_fisier}}</a></li>  -->
-                  <!-- </ul> -->
-                <!-- </ion-card-content> -->
-              <!-- </ion-card> -->
+                </ion-card-header>
+                <ion-card-content>
+                
+                  <ul class="list-group" id="file_listing" *ngFor="let fisier of fisiere;">
+                      <li class="list-group-item"><button (click)="downloadFile(fisier.id)" >{{fisier.nume_fisier}}</button></li> 
+                  </ul>
+                  <!-- <button class="btn btn-primary mt-2 mb-3 w-100" id="refresh_files"><i class="fas fa-sync-alt mr-2"></i>Reimprospateaza fisiere</button>                                                                        -->
+                </ion-card-content>
+              </ion-card>
               <ion-card *ngIf="!url_conferinta">
                 <ion-card-header>
                   <ion-card-title>Momentan nu ai nicio camera de consultatie deschisa</ion-card-title>

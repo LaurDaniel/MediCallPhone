@@ -9,6 +9,8 @@ import { ConferintaPageRoutingModule } from './conferinta-routing.module';
 import { ConferintaPage } from './conferinta.page';
 import { SafePipe } from 'src/app/safe.pipe';
 import { NgxDropzoneModule } from 'ngx-dropzone';
+import { File } from '@ionic-native/file/ngx';
+import { HTTP } from '@ionic-native/http/ngx';
 
 @NgModule({
   imports: [
@@ -19,6 +21,7 @@ import { NgxDropzoneModule } from 'ngx-dropzone';
     NgxDropzoneModule
     
   ],
-  declarations: [ConferintaPage,SafePipe]
+  declarations: [ConferintaPage,SafePipe],
+  providers: [File, HTTP]
 })
 export class ConferintaPageModule {}
