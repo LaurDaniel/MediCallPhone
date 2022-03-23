@@ -33,7 +33,7 @@
                 <ion-card-content>
                 
                   <ul class="list-group" id="file_listing" *ngFor="let fisier of fisiere;">
-                      <li class="list-group-item"><button (click)="downloadFile(fisier.id)" >{{fisier.nume_fisier}}</button></li> 
+                      <li class="list-group-item"><a href="https://infraspaces.ams3.digitaloceanspaces.com/medicover/files/2022-03-21/1647871834ExportCis%20%2831%29.xlsx" target="_blank" >{{fisier.nume_fisier}}</a></li> 
                   </ul>
                   <!-- <button class="btn btn-primary mt-2 mb-3 w-100" id="refresh_files"><i class="fas fa-sync-alt mr-2"></i>Reimprospateaza fisiere</button>                                                                        -->
                 </ion-card-content>

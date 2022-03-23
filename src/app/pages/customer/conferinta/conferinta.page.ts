@@ -4,7 +4,7 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { HTTP } from '@ionic-native/http/ngx';
 import {interval} from 'rxjs';
-import { File } from '@ionic-native/file/ngx';
+// import { File } from '@ionic-native/file/ngx';
 
 
 import { Router } from '@angular/router';
@@ -24,7 +24,7 @@ export class ConferintaPage implements OnInit {
   public id_consult: any;
   files: File[] = [];
   private downloadedFile;
-  constructor( private menu: MenuController, private router: Router, private authService: AuthenticationService,private http: HttpClient,private file: File,private http2: HTTP) {
+  constructor( private menu: MenuController, private router: Router, private authService: AuthenticationService,private http: HttpClient) {
    }
  
  fetchUrl()
@@ -80,15 +80,15 @@ onRemove(event) {
     this.files.splice(this.files.indexOf(event), 1);
 }
 
-downloadFile(id) {
-  var url = "https://infraspaces.ams3.digitaloceanspaces.com/medicover/files/2022-03-21/1647871834ExportCis%20%2831%29.xlsx";
-  this.http2.sendRequest(url, { method: "get", responseType: "arraybuffer" }).then(
-    httpResponse => {
-      console.log("File dowloaded successfully")
-      this.downloadedFile = new Blob([httpResponse.data], { type: 'application/pdf' });
-    }
-  ).catch(err => {
-    console.error(err);
-  })
-}
+// downloadFile(id) {
+//   var url = "https://infraspaces.ams3.digitaloceanspaces.com/medicover/files/2022-03-21/1647871834ExportCis%20%2831%29.xlsx";
+//   this.http2.sendRequest(url, { method: "get", responseType: "arraybuffer" }).then(
+//     httpResponse => {
+//       console.log("File dowloaded successfully")
+//       this.downloadedFile = new Blob([httpResponse.data], { type: 'application/pdf' });
+//     }
+//   ).catch(err => {
+//     console.error(err);
+//   })
+// }
 }
