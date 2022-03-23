@@ -10,7 +10,7 @@
 <ion-content>
   <ion-card *ngIf="url_conferinta" >
               <ion-card-content class="resp-container">
-                  <iframe class="webPage" allow="camera; microphone; fullscreen; display-capture" src="https://meet.jit.si/SomeRandomRoomNameToTestTheCamera#config.constraints.video.aspectRatio=1.33 | safe" ></iframe>
+                  <iframe class="webPage" allow="microphone *; camera; fullscreen; display-capture" [src]="url_conferinta | safe" ></iframe>
               </ion-card-content>
             </ion-card>
              <ion-card *ngIf="url_conferinta" >
@@ -33,7 +33,7 @@
                 <ion-card-content>
                 
                   <ul class="list-group" id="file_listing" *ngFor="let fisier of fisiere;">
-                      <li class="list-group-item"><a href="https://infraspaces.ams3.digitaloceanspaces.com/medicover/files/{{fisier.data_incarcare}}/{{fisier.nume_fisier}}" target="_blank"  download>{{fisier.nume_fisier}}</a></li> 
+                      <li class="list-group-item"><button (click)="downloadFile(fisier.nume_fisier)" >{{fisier.nume_fisier}}</button></li> 
                   </ul>
                   <!-- <button class="btn btn-primary mt-2 mb-3 w-100" id="refresh_files"><i class="fas fa-sync-alt mr-2"></i>Reimprospateaza fisiere</button>                                                                        -->
                 </ion-card-content>

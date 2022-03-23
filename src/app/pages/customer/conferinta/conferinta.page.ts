@@ -48,6 +48,8 @@ export class ConferintaPage implements OnInit {
       interval(30000).subscribe(x => {
         this.fetchUrl();
     });
+ 
+    // console.log(navigator.mediaDevices.getUserMedia());
 
   }
 
@@ -80,7 +82,7 @@ onRemove(event) {
     this.files.splice(this.files.indexOf(event), 1);
 }
 
-// downloadFile(id) {
+downloadFile(nume_fisier) {
 //   var url = "https://infraspaces.ams3.digitaloceanspaces.com/medicover/files/2022-03-21/1647871834ExportCis%20%2831%29.xlsx";
 //   this.http2.sendRequest(url, { method: "get", responseType: "arraybuffer" }).then(
 //     httpResponse => {
@@ -90,5 +92,26 @@ onRemove(event) {
 //   ).catch(err => {
 //     console.error(err);
 //   })
-// }
+
+// Storage.get('test.pdf', { download: true })
+//         .then(result => {
+//             console.log(Utf8ArrayToStr(result.Body));
+//         })
+//         .catch(err => {
+//             console.log('error axios');
+//             console.log(err)
+//         });
+this.http.get(`${this.url}/api/conferinta/filedownload/${nume_fisier}`,{responseType: 'blob'})
+    .subscribe((response: any) => {
+      let dataType = response.type;
+      let binaryData = [];
+      binaryData.push(response);
+      let downloadLink = document.createElement('a');
+      downloadLink.href = window.URL.createObjectURL(new Blob(binaryData, {type: dataType}));
+      downloadLink.setAttribute('download', nume_fisier);
+      document.body.appendChild(downloadLink);
+      downloadLink.click();
+      //  alert('Fisier incarcat cu succes.');
+    })
+}
 }
