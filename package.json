@@ -21,6 +21,7 @@
     "@angular/router": "~10.0.0",
     "@auth0/angular-jwt": "^5.0.2",
     "@awesome-cordova-plugins/file-transfer": "^5.40.0",
+    "@capacitor/android": "^3.4.3",
     "@capacitor/app": "1.1.1",
     "@capacitor/core": "3.4.3",
     "@capacitor/haptics": "1.1.4",
