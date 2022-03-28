@@ -4,6 +4,8 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { HTTP } from '@ionic-native/http/ngx';
 import {interval} from 'rxjs';
+import * as fileSaver from 'file-saver';
+
 // import { File } from '@ionic-native/file/ngx';
 
 
@@ -14,6 +16,7 @@ import { Router } from '@angular/router';
   selector: 'app-conferinta',
   templateUrl: './conferinta.page.html',
   styleUrls: ['./conferinta.page.scss'],
+ 
 })
 export class ConferintaPage implements OnInit {
   url = "https://probe.infragroup.ro";
@@ -34,12 +37,12 @@ export class ConferintaPage implements OnInit {
     this.url_conferinta = data['url_consult'];
     this.id_consult = data['id_consult'];
     this.fisiere = data['fisiere'];
-    console.log(data);
+    console.log(this.fisiere);
  });
  }
 
   ngOnInit() {
-    // let tempRouter = this.router;
+  
     this.url_conferinta = null;
     this.menu.enable(true);
       this.fetchUrl();
@@ -48,6 +51,7 @@ export class ConferintaPage implements OnInit {
       interval(30000).subscribe(x => {
         this.fetchUrl();
     });
+  
  
     // console.log(navigator.mediaDevices.getUserMedia());
 
@@ -83,35 +87,21 @@ onRemove(event) {
 }
 
 downloadFile(nume_fisier) {
-//   var url = "https://infraspaces.ams3.digitaloceanspaces.com/medicover/files/2022-03-21/1647871834ExportCis%20%2831%29.xlsx";
-//   this.http2.sendRequest(url, { method: "get", responseType: "arraybuffer" }).then(
-//     httpResponse => {
-//       console.log("File dowloaded successfully")
-//       this.downloadedFile = new Blob([httpResponse.data], { type: 'application/pdf' });
-//     }
-//   ).catch(err => {
-//     console.error(err);
-//   })
-
-// Storage.get('test.pdf', { download: true })
-//         .then(result => {
-//             console.log(Utf8ArrayToStr(result.Body));
-//         })
-//         .catch(err => {
-//             console.log('error axios');
-//             console.log(err)
-//         });
 this.http.get(`${this.url}/api/conferinta/filedownload/${nume_fisier}`,{responseType: 'blob'})
     .subscribe((response: any) => {
-      let dataType = response.type;
-      let binaryData = [];
-      binaryData.push(response);
-      let downloadLink = document.createElement('a');
-      downloadLink.href = window.URL.createObjectURL(new Blob(binaryData, {type: dataType}));
-      downloadLink.setAttribute('download', nume_fisier);
-      document.body.appendChild(downloadLink);
-      downloadLink.click();
+      let blob:any = new Blob([response], { type: 'text/json; charset=utf-8' });
+			const url = window.URL.createObjectURL(blob);
+      fileSaver.saveAs(blob, nume_fisier);
+      // let dataType = response.type;
+      // let binaryData = [];
+      // binaryData.push(response);
+      // let downloadLink = document.createElement('a');
+      // downloadLink.href = window.URL.createObjectURL(new Blob(binaryData, {type: dataType}));
+      // downloadLink.setAttribute('download', nume_fisier);
+      // document.body.appendChild(downloadLink);
+      // downloadLink.click();
       //  alert('Fisier incarcat cu succes.');
     })
 }
+
 }
