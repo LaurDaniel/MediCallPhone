@@ -2,13 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { MenuController, AlertController } from '@ionic/angular';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
-import { HTTP } from '@ionic-native/http/ngx';
 import {interval} from 'rxjs';
-import * as fileSaver from 'file-saver';
-
-// import { File } from '@ionic-native/file/ngx';
-
-
+import { Platform } from '@ionic/angular';
+import { File as File2 } from '@ionic-native/file/ngx';
 import { Router } from '@angular/router';
 
 
@@ -26,8 +22,8 @@ export class ConferintaPage implements OnInit {
   title = 'dropzone';
   public id_consult: any;
   files: File[] = [];
-  private downloadedFile;
-  constructor( private menu: MenuController, private router: Router, private authService: AuthenticationService,private http: HttpClient) {
+
+  constructor( private platform: Platform, private file: File2,private menu: MenuController, private router: Router, private authService: AuthenticationService,private http: HttpClient) {
    }
  
  fetchUrl()
@@ -87,21 +83,14 @@ onRemove(event) {
 }
 
 downloadFile(nume_fisier) {
+  const downloadPath = (
+    this.platform.is('android')
+ ) ? this.file.externalDataDirectory : this.file.documentsDirectory;
+ let vm = this;
 this.http.get(`${this.url}/api/conferinta/filedownload/${nume_fisier}`,{responseType: 'blob'})
     .subscribe((response: any) => {
-      let blob:any = new Blob([response], { type: 'text/json; charset=utf-8' });
-			const url = window.URL.createObjectURL(blob);
-      fileSaver.saveAs(blob, nume_fisier);
-      // let dataType = response.type;
-      // let binaryData = [];
-      // binaryData.push(response);
-      // let downloadLink = document.createElement('a');
-      // downloadLink.href = window.URL.createObjectURL(new Blob(binaryData, {type: dataType}));
-      // downloadLink.setAttribute('download', nume_fisier);
-      // document.body.appendChild(downloadLink);
-      // downloadLink.click();
-      //  alert('Fisier incarcat cu succes.');
-    })
+      vm.file.writeFile(downloadPath, nume_fisier, response, {replace: true});
+  });
 }
 
 }
