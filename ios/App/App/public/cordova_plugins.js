@@ -18,6 +18,14 @@
         ]
         },
       {
+          "id": "cordova-plugin-file-opener2.FileOpener2",
+          "file": "plugins/cordova-plugin-file-opener2/www/plugins.FileOpener2.js",
+          "pluginId": "cordova-plugin-file-opener2",
+        "clobbers": [
+          "cordova.plugins.fileOpener2"
+        ]
+        },
+      {
           "id": "cordova-plugin-android-permissions.Permissions",
           "file": "plugins/cordova-plugin-android-permissions/www/permissions-dummy.js",
           "pluginId": "cordova-plugin-android-permissions",
@@ -304,6 +312,7 @@
       "cordova-plugin-advanced-http": "3.2.2",
       "cordova-plugin-android-permissions": "1.1.3",
       "cordova-plugin-file": "6.0.2",
+      "cordova-plugin-file-opener2": "3.0.5",
       "cordova-plugin-file-transfer": "1.7.1",
       "cordova-pdf-generator": "2.1.1",
       "cordova-plugin-device": "2.0.3",

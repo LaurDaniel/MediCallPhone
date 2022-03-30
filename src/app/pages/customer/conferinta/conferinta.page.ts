@@ -7,6 +7,7 @@ import { Platform } from '@ionic/angular';
 import { File as File2 } from '@ionic-native/file/ngx';
 import { Router } from '@angular/router';
 import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
+import { FileOpener } from '@awesome-cordova-plugins/file-opener/ngx';
 
 
 @Component({
@@ -24,7 +25,7 @@ export class ConferintaPage implements OnInit {
   public id_consult: any;
   files: File[] = [];
 
-  constructor( private platform: Platform, private file: File2,private menu: MenuController, private router: Router, private authService: AuthenticationService,private http: HttpClient) {
+  constructor(private fileOpener: FileOpener, private platform: Platform, private file: File2,private menu: MenuController, private router: Router, private authService: AuthenticationService,private http: HttpClient) {
    }
  
  fetchUrl()
@@ -85,15 +86,16 @@ onRemove(event) {
 
 downloadFile(nume_fisier) {
   
-  const downloadPath = (
-    this.platform.is('android')
- ) ? this.file.externalDataDirectory : this.file.documentsDirectory;
- console.log(downloadPath);
- let vm = this;
+//   const downloadPath = (
+//     this.platform.is('android')
+//  ) ? this.file.externalDataDirectory : this.file.documentsDirectory;
+//  console.log(downloadPath);
+//  let vm = this;
 this.http.get(`${this.url}/api/conferinta/filedownload/${nume_fisier}`,{responseType: 'blob'})
     .subscribe((response: any) => {
       console.log(response);
-      vm.file.writeFile(downloadPath, nume_fisier, response, {replace: true});
+      this.fileOpener.open(response, 'application/pdf')
+      // vm.file.writeFile(downloadPath, nume_fisier, response, {replace: true});
   });
 }
 
