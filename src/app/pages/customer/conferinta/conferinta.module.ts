@@ -11,7 +11,8 @@ import { SafePipe } from 'src/app/safe.pipe';
 import { NgxDropzoneModule } from 'ngx-dropzone';
 import { HTTP } from '@ionic-native/http/ngx';
 import { File as File2 } from '@ionic-native/file/ngx';
-import { FileOpener } from '@awesome-cordova-plugins/file-opener/ngx';
+// import { FileOpener } from '@awesome-cordova-plugins/file-opener/ngx';
+import { PreviewAnyFile } from '@ionic-native/preview-any-file/ngx';
 
 @NgModule({
   imports: [
@@ -23,6 +24,6 @@ import { FileOpener } from '@awesome-cordova-plugins/file-opener/ngx';
     
   ],
   declarations: [ConferintaPage,SafePipe],
-  providers: [ HTTP, File2, FileOpener]
+  providers: [ HTTP, File2, PreviewAnyFile]
 })
 export class ConferintaPageModule {}
