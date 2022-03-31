@@ -96,7 +96,7 @@ this.http.get(`${this.url}/api/conferinta/filedownload/${nume_fisier}`)
     .subscribe((response: any) => {
       console.log(response);
       this.previewAnyFile.preview(
-        response
+        "https://infraspaces.ams3.digitaloceanspaces.com/"+response
     ) .then((res): any => {
       console.log(res);
     })
