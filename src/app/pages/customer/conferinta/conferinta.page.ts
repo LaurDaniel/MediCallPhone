@@ -74,7 +74,7 @@ export class ConferintaPage implements OnInit {
 
     this.http.post(`${this.url}/api/conferinta/fileupload/${this.id_consult}`, formData, options)
     .subscribe(res => {
-       console.log(res);
+      //  console.log(res);
        alert('Fisier incarcat cu succes.');
     })
 }
