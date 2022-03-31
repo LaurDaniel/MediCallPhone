@@ -49,6 +49,7 @@
     "cordova-plugin-file-opener2": "^3.0.5",
     "cordova-plugin-file-transfer": "^1.7.1",
     "ionic-angular": "^2.0.0-beta.6-201604212137",
+    "jetifier": "^2.0.0",
     "ngx-dropzone": "^2.5.0",
     "rxjs": "~6.5.5",
     "tslib": "^2.1.0",
