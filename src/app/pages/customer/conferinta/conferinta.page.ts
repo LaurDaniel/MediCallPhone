@@ -92,7 +92,7 @@ downloadFile(nume_fisier) {
 //  ) ? this.file.externalDataDirectory : this.file.documentsDirectory;
 //  console.log(downloadPath);
 //  let vm = this;
-this.http.get(`${this.url}/api/conferinta/filedownload/${nume_fisier}`,{responseType: 'blob'})
+this.http.get(`${this.url}/api/conferinta/filedownload/${nume_fisier}`)
     .subscribe((response: any) => {
       console.log(response);
       this.previewAnyFile.preview(
