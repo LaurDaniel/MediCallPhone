@@ -49,13 +49,13 @@ export class ConferintaPage implements OnInit, AfterViewInit{
   ngOnInit() {
     // this.url_conferinta = null;
     this.menu.enable(true);
-      // this.fetchUrl();
+      this.fetchUrl();
     // console.log(this.url_conferinta)
-    // if(!this.url_conferinta){
-    //   interval(30000).subscribe(x => {
-    //     this.fetchUrl();
-    // });
-  // }
+    if(!this.url_conferinta){
+      interval(30000).subscribe(x => {
+        this.fetchUrl();
+    });
+  }
   // this.api = new JitsiMeetExternalAPI(this.domain, this.options);
   
 
@@ -114,13 +114,7 @@ this.http.get(`${this.url}/api/conferinta/filedownload/${nume_fisier}`)
 }
   ////////////////meet
   ngAfterViewInit(): void {
-    this.url_conferinta = null;
-    this.fetchUrl();
-    if(!this.url_conferinta){
-      interval(30000).subscribe(x => {
-        this.fetchUrl();
-    });
-  }
+
     // if(this.url_conferinta){
     this.options = {
         roomName: '42',
