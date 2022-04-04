@@ -121,7 +121,7 @@ this.http.get(`${this.url}/api/conferinta/filedownload/${nume_fisier}`)
         width: 900,
         height: 500,
         jwt:'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJqaXRzaSIsImlzcyI6InplbGxpbSIsInN1YiI6InZvaWNlLmluZnJhZ3JvdXAucm8iLCJyb29tIjoiNDIiLCJjb250ZXh0Ijp7InVzZXIiOnsibmFtZSI6IlBhY2llbnQgVXNlcjEgVXNlcjEifX19.DVpTGjXm56RTFGOiGcN6mqSkb_5E097We5yUFvISmCI',
-        // configOverwrite: { prejoinPageEnabled: false },
+        configOverwrite: { prejoinPageEnabled: false },
         // interfaceConfigOverwrite: {
         //     // overwrite interface properties
         // },
