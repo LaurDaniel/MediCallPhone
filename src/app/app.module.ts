@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { Storage, IonicStorageModule } from '@ionic/storage';
 import { SafePipe } from './safe.pipe';
 import { JwtModule, JWT_OPTIONS } from '@auth0/angular-jwt';
+import { AndroidPermissions } from '@awesome-cordova-plugins/android-permissions/ngx';
 // import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 export function jwtOptionsFactory(storage) {
@@ -40,6 +41,7 @@ export function jwtOptionsFactory(storage) {
   providers: [
     StatusBar,
     SplashScreen,
+    AndroidPermissions,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     BarcodeScanner,
  

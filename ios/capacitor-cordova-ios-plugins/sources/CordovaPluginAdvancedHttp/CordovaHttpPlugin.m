@@ -42,13 +42,13 @@
 
 - (void)setRequestSerializer:(NSString*)serializerName forManager:(SM_AFHTTPSessionManager*)manager {
     if ([serializerName isEqualToString:@"json"]) {
-        manager.requestSerializer = [AFJSONRequestSerializer serializer];
+        manager.requestSerializer = [SM_AFJSONRequestSerializer serializer];
     } else if ([serializerName isEqualToString:@"utf8"]) {
         manager.requestSerializer = [TextRequestSerializer serializer];
     } else if ([serializerName isEqualToString:@"raw"]) {
         manager.requestSerializer = [BinaryRequestSerializer serializer];
     } else {
-        manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+        manager.requestSerializer = [SM_AFHTTPRequestSerializer serializer];
     }
 }
 
@@ -404,8 +404,18 @@
         } else {
             CFDictionaryRef identityDict = CFArrayGetValueAtIndex(items, 0);
             SecIdentityRef identity = (SecIdentityRef)CFDictionaryGetValue(identityDict, kSecImportItemIdentity);
+            SecTrustRef trust = (SecTrustRef)CFDictionaryGetValue(identityDict, kSecImportItemTrust);
 
-            self->x509Credential = [NSURLCredential credentialWithIdentity:identity certificates: nil persistence:NSURLCredentialPersistenceForSession];
+            int count = (int)SecTrustGetCertificateCount(trust);
+            NSMutableArray* trustCertificates = nil;
+            if (count > 1) {
+                trustCertificates = [NSMutableArray arrayWithCapacity:SecTrustGetCertificateCount(trust)];
+                for (int i=1;i<count; ++i) {
+                    [trustCertificates addObject:(id)SecTrustGetCertificateAtIndex(trust, i)];
+                }
+            }
+
+            self->x509Credential = [NSURLCredential credentialWithIdentity:identity certificates: trustCertificates persistence:NSURLCredentialPersistenceForSession];
             CFRelease(items);
 
             pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
@@ -513,7 +523,7 @@
 
 - (void)downloadFile:(CDVInvokedUrlCommand*)command {
     SM_AFHTTPSessionManager *manager = [SM_AFHTTPSessionManager manager];
-    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    manager.responseSerializer = [SM_AFHTTPResponseSerializer serializer];
 
     NSString *url = [command.arguments objectAtIndex:0];
     NSDictionary *headers = [command.arguments objectAtIndex:1];

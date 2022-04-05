@@ -6,9 +6,7 @@ import {interval} from 'rxjs';
 import { Platform } from '@ionic/angular';
 import { File as File2 } from '@ionic-native/file/ngx';
 import { Router } from '@angular/router';
-import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
 import { PreviewAnyFile } from '@ionic-native/preview-any-file/ngx';
-// import { FileOpener } from '@awesome-cordova-plugins/file-opener/ngx';
 declare var JitsiMeetExternalAPI: any;
 
 
@@ -47,7 +45,7 @@ export class ConferintaPage implements OnInit, AfterViewInit{
  }
 
   ngOnInit() {
-    // this.url_conferinta = null;
+    this.url_conferinta = null;
     this.menu.enable(true);
       this.fetchUrl();
     // console.log(this.url_conferinta)
@@ -56,12 +54,6 @@ export class ConferintaPage implements OnInit, AfterViewInit{
         this.fetchUrl();
     });
   }
-  // this.api = new JitsiMeetExternalAPI(this.domain, this.options);
-  
-
-  
- 
-    // console.log(navigator.mediaDevices.getUserMedia());
 
   }
 
@@ -115,7 +107,7 @@ this.http.get(`${this.url}/api/conferinta/filedownload/${nume_fisier}`)
   ////////////////meet
   ngAfterViewInit(): void {
 
-    // if(this.url_conferinta){
+ 
     this.options = {
         roomName: '42',
         width: 900,
@@ -130,7 +122,6 @@ this.http.get(`${this.url}/api/conferinta/filedownload/${nume_fisier}`)
     }
 
     this.api = new JitsiMeetExternalAPI(this.domain, this.options);
-  // }
 }
  ///////////////
 

@@ -7,6 +7,7 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AlertService } from 'src/app/services/alert.service';
 import { MenuController } from '@ionic/angular';
+import { AndroidPermissions } from '@awesome-cordova-plugins/android-permissions/ngx';
  
 @Component({
   selector: 'app-root',
@@ -34,7 +35,8 @@ export class AppComponent {
     private router: Router,
     private alertService: AlertService,
     private navCtrl: NavController,
-    private _location: Location
+    private _location: Location,
+    private androidPermissions: AndroidPermissions
   ) {
     this.initializeApp();
   }
@@ -48,7 +50,14 @@ export class AppComponent {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
- 
+      if(this.platform.is('android')){
+      this.androidPermissions.checkPermission(this.androidPermissions.PERMISSION.MICROPHONE).then(
+        result => console.log('Has permission?',result.hasPermission),
+        err => this.androidPermissions.requestPermission(this.androidPermissions.PERMISSION.MICROPHONE)
+      );
+      
+      this.androidPermissions.requestPermissions([this.androidPermissions.PERMISSION.MICROPHONE, this.androidPermissions.PERMISSION.GET_ACCOUNTS]);
+      }
       this.authService.authenticationState.subscribe(state => {
         if (state) {
           this.menu.enable(true);
