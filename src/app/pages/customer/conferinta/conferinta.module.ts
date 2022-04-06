@@ -13,6 +13,7 @@ import { HTTP } from '@ionic-native/http/ngx';
 import { File as File2 } from '@ionic-native/file/ngx';
 // import { FileOpener } from '@awesome-cordova-plugins/file-opener/ngx';
 import { PreviewAnyFile } from '@ionic-native/preview-any-file/ngx';
+import { Media } from '@ionic-native/media/ngx';
 
 @NgModule({
   imports: [
@@ -24,6 +25,6 @@ import { PreviewAnyFile } from '@ionic-native/preview-any-file/ngx';
     
   ],
   declarations: [ConferintaPage,SafePipe],
-  providers: [ HTTP, File2, PreviewAnyFile]
+  providers: [ HTTP, File2, PreviewAnyFile,Media]
 })
 export class ConferintaPageModule {}
