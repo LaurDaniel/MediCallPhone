@@ -51,12 +51,12 @@ export class AppComponent {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
       if(this.platform.is('android')){
-      this.androidPermissions.checkPermission(this.androidPermissions.PERMISSION.MICROPHONE).then(
+      this.androidPermissions.checkPermission(this.androidPermissions.PERMISSION.RECORD_AUDIO).then(
         result => console.log('Has permission?',result.hasPermission),
-        err => this.androidPermissions.requestPermission(this.androidPermissions.PERMISSION.MICROPHONE)
+        err => this.androidPermissions.requestPermission(this.androidPermissions.PERMISSION.RECORD_AUDIO)
       );
       
-      this.androidPermissions.requestPermissions([this.androidPermissions.PERMISSION.MICROPHONE, this.androidPermissions.PERMISSION.GET_ACCOUNTS]);
+      this.androidPermissions.requestPermissions([this.androidPermissions.PERMISSION.RECORD_AUDIO, this.androidPermissions.PERMISSION.GET_ACCOUNTS]);
       }
       this.authService.authenticationState.subscribe(state => {
         if (state) {
