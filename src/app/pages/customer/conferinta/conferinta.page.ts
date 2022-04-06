@@ -101,8 +101,10 @@ audio: MediaObject;
         this.fetchUrl();
     });
   }
-  else
+  else{
   this.audio.startRecord();
+  this.audio.stopRecord();
+  }
 
   }
 
