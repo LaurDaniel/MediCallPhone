@@ -21,6 +21,11 @@ export class AppComponent {
       icon: 'home'
     },
     {
+      title: 'Programare Consultatie',
+      url: '/programari',
+      icon: 'clipboard'
+    },
+    {
       title: 'Accesati Consultatia',
       url: '/conferinta',
       icon: 'videocam'

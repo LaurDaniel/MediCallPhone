@@ -40,7 +40,8 @@
               },
               {
                 "input": "node_modules/bootstrap/dist/css/bootstrap.min.css"
-              }
+              },
+              "./node_modules/@mobiscroll/angular/dist/css/mobiscroll.min.css"
             ],
             "scripts": []
           },
@@ -131,7 +132,9 @@
               "tsconfig.spec.json",
               "e2e/tsconfig.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         },
         "e2e": {

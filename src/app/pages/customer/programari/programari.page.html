@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Programare Consultatie</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card >
+    <ion-card-header>
+      <ion-card-title>Formular programare</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+   
+    <ion-item>
+    <ion-label><strong>Specialitate</strong></ion-label>
+    <ionic-selectable  #specialitateComponent placeholder="Selectati" [(ngModel)]="selectedValue" (onChange)="selectSpecialitate($selectedValue)" [items]="specialitati" itemValueField="specialitate" itemTextField="specialitate" [canSearch]="true">
+      <!-- <ion-select-option *ngFor="let specialitate of specialitati" [value]="specialitate.specialitate">{{specialitate.specialitate}}</ion-select-option> -->
+    </ionic-selectable>
+    </ion-item>
+
+    <ion-item>
+    <ion-label><strong>Medic</strong></ion-label>
+    <ionic-selectable [placeholder]="specialitateComponent.value ? '' : 'Selectati mai intai specialitatea'" [items]="medici" itemValueField="id" itemTextField="name" [canSearch]="true" [isEnabled]="specialitateComponent.value">
+      <!-- <ion-select-option *ngFor="let medic of mediciSelect" [value]="medic.id">{{medic.last_name+' '+medic.name}}</ion-select-option> -->
+    </ionic-selectable>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label position="floating"><strong>Motivul programarii</strong></ion-label>
+      <ion-input ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating"><strong>Data programarii</strong></ion-label>
+      <!-- <ion-button id="open-modal">Open Datetime Modal</ion-button>
+      <ion-modal trigger="open-modal">
+        <ng-template>
+          <ion-content> -->
+            <ion-datetime></ion-datetime>
+          <!-- </ion-content>
+        </ng-template>
+      </ion-modal> -->
+    </ion-item>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
