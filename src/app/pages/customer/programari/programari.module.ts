@@ -8,6 +8,7 @@ import { ProgramariPageRoutingModule } from './programari-routing.module';
 
 import { ProgramariPage } from './programari.page';
 import { IonicSelectableModule } from 'ionic-selectable';
+import { DatePicker } from '@ionic-native/date-picker/ngx';
 
 @NgModule({
   imports: [
@@ -15,8 +16,11 @@ import { IonicSelectableModule } from 'ionic-selectable';
     FormsModule,
     IonicModule,
     ProgramariPageRoutingModule,
-    IonicSelectableModule
+    IonicSelectableModule,
+    // DatePicker
+    
   ],
-  declarations: [ProgramariPage]
+  declarations: [ProgramariPage],
+  providers: [ DatePicker]
 })
 export class ProgramariPageModule {}

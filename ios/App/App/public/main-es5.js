@@ -278,9 +278,15 @@
       var src_app_services_alert_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! src/app/services/alert.service */
       "3LUQ");
+      /* harmony import */
+
+
+      var _awesome_cordova_plugins_android_permissions_ngx__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      /*! @awesome-cordova-plugins/android-permissions/ngx */
+      "YCdq");
 
       var AppComponent = /*#__PURE__*/function () {
-        function AppComponent(menu, platform, splashScreen, statusBar, authService, router, alertService, navCtrl, _location) {
+        function AppComponent(menu, platform, splashScreen, statusBar, authService, router, alertService, navCtrl, _location, androidPermissions) {
           _classCallCheck(this, AppComponent);
 
           this.menu = menu;
@@ -292,10 +298,15 @@
           this.alertService = alertService;
           this.navCtrl = navCtrl;
           this._location = _location;
+          this.androidPermissions = androidPermissions;
           this.appPages = [{
             title: 'Panou Principal',
             url: '/home',
             icon: 'home'
+          }, {
+            title: 'Programare Consultatie',
+            url: '/programari',
+            icon: 'clipboard'
           }, {
             title: 'Accesati Consultatia',
             url: '/conferinta',
@@ -319,6 +330,16 @@
               _this.statusBar.styleDefault();
 
               _this.splashScreen.hide();
+
+              if (_this.platform.is('android')) {
+                _this.androidPermissions.checkPermission(_this.androidPermissions.PERMISSION.RECORD_AUDIO).then(function (result) {
+                  return console.log('Has permission?', result.hasPermission);
+                }, function (err) {
+                  return _this.androidPermissions.requestPermission(_this.androidPermissions.PERMISSION.RECORD_AUDIO);
+                });
+
+                _this.androidPermissions.requestPermissions([_this.androidPermissions.PERMISSION.RECORD_AUDIO, _this.androidPermissions.PERMISSION.GET_ACCOUNTS]);
+              }
 
               _this.authService.authenticationState.subscribe(function (state) {
                 if (state) {
@@ -363,6 +384,8 @@
           type: _ionic_angular__WEBPACK_IMPORTED_MODULE_6__["NavController"]
         }, {
           type: _angular_common__WEBPACK_IMPORTED_MODULE_5__["Location"]
+        }, {
+          type: _awesome_cordova_plugins_android_permissions_ngx__WEBPACK_IMPORTED_MODULE_10__["AndroidPermissions"]
         }];
       };
 
@@ -494,81 +517,93 @@
       /* harmony import */
 
 
-      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      var _mobiscroll_angular__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! @mobiscroll/angular */
+      "2l+E");
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
       /*! @angular/core */
       "fXoL");
       /* harmony import */
 
 
-      var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
       /*! @angular/platform-browser */
       "jhN1");
       /* harmony import */
 
 
-      var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
       /*! @angular/router */
       "tyNb");
       /* harmony import */
 
 
-      var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! @ionic/angular */
       "TEn/");
       /* harmony import */
 
 
-      var _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      var _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! @ionic-native/splash-screen/ngx */
       "54vc");
       /* harmony import */
 
 
-      var _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      var _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! @ionic-native/status-bar/ngx */
       "VYYF");
       /* harmony import */
 
 
-      var _angular_forms__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      var _angular_forms__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! @angular/forms */
       "3Pt+");
       /* harmony import */
 
 
-      var _app_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      var _app_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! ./app.component */
       "Sy1n");
       /* harmony import */
 
 
-      var _app_routing_module__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      var _app_routing_module__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
       /*! ./app-routing.module */
       "vY5A");
       /* harmony import */
 
 
-      var _ionic_native_barcode_scanner_ngx__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      var _ionic_native_barcode_scanner_ngx__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
       /*! @ionic-native/barcode-scanner/ngx */
       "WdVq");
       /* harmony import */
 
 
-      var _angular_common_http__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+      var _angular_common_http__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
       /*! @angular/common/http */
       "tk/3");
       /* harmony import */
 
 
-      var _ionic_storage__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
+      var _ionic_storage__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
       /*! @ionic/storage */
       "e8h1");
       /* harmony import */
 
 
-      var _auth0_angular_jwt__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
+      var _auth0_angular_jwt__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
       /*! @auth0/angular-jwt */
-      "Nm8O"); // import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+      "Nm8O");
+      /* harmony import */
+
+
+      var _awesome_cordova_plugins_android_permissions_ngx__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
+      /*! @awesome-cordova-plugins/android-permissions/ngx */
+      "YCdq"); // import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
       function jwtOptionsFactory(storage) {
@@ -584,21 +619,21 @@
         _classCallCheck(this, AppModule);
       });
 
-      AppModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        declarations: [_app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"]],
+      AppModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
+        declarations: [_app_component__WEBPACK_IMPORTED_MODULE_9__["AppComponent"]],
         entryComponents: [],
-        imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"].forRoot(), _app_routing_module__WEBPACK_IMPORTED_MODULE_9__["AppRoutingModule"], _ionic_storage__WEBPACK_IMPORTED_MODULE_12__["IonicStorageModule"].forRoot(), _angular_common_http__WEBPACK_IMPORTED_MODULE_11__["HttpClientModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormsModule"], _auth0_angular_jwt__WEBPACK_IMPORTED_MODULE_13__["JwtModule"].forRoot({
+        imports: [_mobiscroll_angular__WEBPACK_IMPORTED_MODULE_1__["MbscModule"], _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__["BrowserModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["IonicModule"].forRoot(), _app_routing_module__WEBPACK_IMPORTED_MODULE_10__["AppRoutingModule"], _ionic_storage__WEBPACK_IMPORTED_MODULE_13__["IonicStorageModule"].forRoot(), _angular_common_http__WEBPACK_IMPORTED_MODULE_12__["HttpClientModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_8__["FormsModule"], _auth0_angular_jwt__WEBPACK_IMPORTED_MODULE_14__["JwtModule"].forRoot({
           jwtOptionsProvider: {
-            provide: _auth0_angular_jwt__WEBPACK_IMPORTED_MODULE_13__["JWT_OPTIONS"],
+            provide: _auth0_angular_jwt__WEBPACK_IMPORTED_MODULE_14__["JWT_OPTIONS"],
             useFactory: jwtOptionsFactory,
-            deps: [_ionic_storage__WEBPACK_IMPORTED_MODULE_12__["Storage"]]
+            deps: [_ionic_storage__WEBPACK_IMPORTED_MODULE_13__["Storage"]]
           }
         })],
-        providers: [_ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_6__["StatusBar"], _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_5__["SplashScreen"], {
-          provide: _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouteReuseStrategy"],
-          useClass: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicRouteStrategy"]
-        }, _ionic_native_barcode_scanner_ngx__WEBPACK_IMPORTED_MODULE_10__["BarcodeScanner"]],
-        bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"]]
+        providers: [_ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_7__["StatusBar"], _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_6__["SplashScreen"], _awesome_cordova_plugins_android_permissions_ngx__WEBPACK_IMPORTED_MODULE_15__["AndroidPermissions"], {
+          provide: _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouteReuseStrategy"],
+          useClass: _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["IonicRouteStrategy"]
+        }, _ionic_native_barcode_scanner_ngx__WEBPACK_IMPORTED_MODULE_11__["BarcodeScanner"]],
+        bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_9__["AppComponent"]]
       })], AppModule);
       /***/
     },
@@ -978,6 +1013,17 @@
           /*! ./pages/customer/conferinta/conferinta.module */
           "stGv")).then(function (m) {
             return m.ConferintaPageModule;
+          });
+        }
+      }, {
+        path: 'programari',
+        loadChildren: function loadChildren() {
+          return __webpack_require__.e(
+          /*! import() | pages-customer-programari-programari-module */
+          "pages-customer-programari-programari-module").then(__webpack_require__.bind(null,
+          /*! ./pages/customer/programari/programari.module */
+          "zqwK")).then(function (m) {
+            return m.ProgramariPageModule;
           });
         }
       }];

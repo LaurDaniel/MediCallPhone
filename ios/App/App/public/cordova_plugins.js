@@ -26,6 +26,14 @@
         ]
         },
       {
+          "id": "cordova-plugin-datepicker.DatePicker",
+          "file": "plugins/cordova-plugin-datepicker/www/ios/DatePicker.js",
+          "pluginId": "cordova-plugin-datepicker",
+        "clobbers": [
+          "datePicker"
+        ]
+        },
+      {
           "id": "cordova-plugin-device.device",
           "file": "plugins/cordova-plugin-device/www/device.js",
           "pluginId": "cordova-plugin-device",
@@ -148,6 +156,22 @@
         ],
         "merges": [
           "window"
+        ]
+        },
+      {
+          "id": "cordova-plugin-media.Media",
+          "file": "plugins/cordova-plugin-media/www/Media.js",
+          "pluginId": "cordova-plugin-media",
+        "clobbers": [
+          "window.Media"
+        ]
+        },
+      {
+          "id": "cordova-plugin-media.MediaError",
+          "file": "plugins/cordova-plugin-media/www/MediaError.js",
+          "pluginId": "cordova-plugin-media",
+        "clobbers": [
+          "window.MediaError"
         ]
         },
       {
@@ -295,10 +319,12 @@
     {
       "cordova-plugin-advanced-http": "3.3.1",
       "cordova-plugin-android-permissions": "1.1.3",
+      "cordova-plugin-datepicker": "0.9.3",
       "cordova-plugin-file": "6.0.2",
+      "cordova-plugin-media": "5.0.4",
       "cordova-plugin-preview-any-file": "0.2.9",
       "cordova-pdf-generator": "2.1.1",
-      "cordova-plugin-device": "2.0.3",
+      "cordova-plugin-device": "2.1.0",
       "phonegap-plugin-barcodescanner": "8.1.0"
     };
     // BOTTOM OF METADATA
