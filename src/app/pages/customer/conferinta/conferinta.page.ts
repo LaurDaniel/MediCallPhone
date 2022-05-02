@@ -8,6 +8,7 @@ import { File as File2 } from '@ionic-native/file/ngx';
 import { Router } from '@angular/router';
 import { PreviewAnyFile } from '@ionic-native/preview-any-file/ngx';
 import { Media, MediaObject } from '@ionic-native/media/ngx';
+
 // import { File } from '@ionic-native/file';
 declare var JitsiMeetExternalAPI: any;
 
@@ -114,25 +115,6 @@ this.http.get(`${this.url}/api/conferinta/filedownload/${nume_fisier}`)
 
   });
 }
-  ////////////////meet
-//   ngAfterViewInit(): void {
 
- 
-//     this.options = {
-//         roomName: '42',
-//         width: 900,
-//         height: 500,
-//         jwt:'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJqaXRzaSIsImlzcyI6InplbGxpbSIsInN1YiI6InZvaWNlLmluZnJhZ3JvdXAucm8iLCJyb29tIjoiNDIiLCJjb250ZXh0Ijp7InVzZXIiOnsibmFtZSI6IlBhY2llbnQgVXNlcjEgVXNlcjEifX19.DVpTGjXm56RTFGOiGcN6mqSkb_5E097We5yUFvISmCI',
-//         configOverwrite: { prejoinPageEnabled: false },
-//         // interfaceConfigOverwrite: {
-//         //     // overwrite interface properties
-//         // },
-//         parentNode: document.querySelector('#jitsi-iframe'),
-       
-//     }
-
-//     this.api = new JitsiMeetExternalAPI(this.domain, this.options);
-// }
- ///////////////
 
 }

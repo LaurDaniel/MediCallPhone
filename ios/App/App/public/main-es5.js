@@ -79,7 +79,7 @@
                       _context.next = 2;
                       return this.toastController.create({
                         message: message,
-                        duration: 2000,
+                        duration: 5000,
                         position: 'top',
                         color: 'dark'
                       });
@@ -628,6 +628,8 @@
             useFactory: jwtOptionsFactory,
             deps: [_ionic_storage__WEBPACK_IMPORTED_MODULE_13__["Storage"]]
           }
+        }), _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["IonicModule"].forRoot({
+          mode: 'md'
         })],
         providers: [_ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_7__["StatusBar"], _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_6__["SplashScreen"], _awesome_cordova_plugins_android_permissions_ngx__WEBPACK_IMPORTED_MODULE_15__["AndroidPermissions"], {
           provide: _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouteReuseStrategy"],

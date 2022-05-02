@@ -1,14 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-
 import { IonicModule } from '@ionic/angular';
-
 import { ProgramariPageRoutingModule } from './programari-routing.module';
-
 import { ProgramariPage } from './programari.page';
 import { IonicSelectableModule } from 'ionic-selectable';
-import { DatePicker } from '@ionic-native/date-picker/ngx';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { Ng2FlatpickrModule } from 'ng2-flatpickr';
+import { InAppBrowser } from '@awesome-cordova-plugins/in-app-browser/ngx';
+
+
+
 
 @NgModule({
   imports: [
@@ -17,10 +18,16 @@ import { DatePicker } from '@ionic-native/date-picker/ngx';
     IonicModule,
     ProgramariPageRoutingModule,
     IonicSelectableModule,
-    // DatePicker
-    
+    ReactiveFormsModule,
+    Ng2FlatpickrModule,
+   
   ],
   declarations: [ProgramariPage],
-  providers: [ DatePicker]
+  providers: [
+  
+    InAppBrowser,
+  
+  ]
+
 })
 export class ProgramariPageModule {}

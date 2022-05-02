@@ -36,7 +36,7 @@ let AlertService = class AlertService {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
             const toast = yield this.toastController.create({
                 message: message,
-                duration: 2000,
+                duration: 5000,
                 position: 'top',
                 color: 'dark'
             });
@@ -353,7 +353,8 @@ AppModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
                     useFactory: jwtOptionsFactory,
                     deps: [_ionic_storage__WEBPACK_IMPORTED_MODULE_13__["Storage"]],
                 }
-            })
+            }),
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["IonicModule"].forRoot({ mode: 'md' }),
         ],
         providers: [
             _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_7__["StatusBar"],

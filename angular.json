@@ -41,7 +41,8 @@
               {
                 "input": "node_modules/bootstrap/dist/css/bootstrap.min.css"
               },
-              "./node_modules/@mobiscroll/angular/dist/css/mobiscroll.min.css"
+              "./node_modules/@mobiscroll/angular/dist/css/mobiscroll.min.css",
+              "node_modules/flatpickr/dist/flatpickr.min.css"
             ],
             "scripts": []
           },

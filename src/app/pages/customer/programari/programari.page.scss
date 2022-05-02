@@ -1,0 +1,15 @@
+.hacking-datetime {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+  @import 'flatpickr/dist/flatpickr.min.css';
+  .input.datePicker{
+
+    max-width: 150px !important;
+    width: 100% !important;
+    opacity: 40% !important;
+    text-align: center !important;
+}

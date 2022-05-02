@@ -2,6 +2,14 @@
   cordova.define('cordova/plugin_list', function(require, exports, module) {
     module.exports = [
       {
+          "id": "cordova-plugin-inappbrowser.inappbrowser",
+          "file": "plugins/cordova-plugin-inappbrowser/www/inappbrowser.js",
+          "pluginId": "cordova-plugin-inappbrowser",
+        "clobbers": [
+          "cordova.InAppBrowser.open"
+        ]
+        },
+      {
           "id": "cordova-plugin-advanced-http.http",
           "file": "plugins/cordova-plugin-advanced-http/www/advanced-http.js",
           "pluginId": "cordova-plugin-advanced-http",
@@ -325,6 +333,7 @@
       "cordova-plugin-preview-any-file": "0.2.9",
       "cordova-pdf-generator": "2.1.1",
       "cordova-plugin-device": "2.1.0",
+      "cordova-plugin-inappbrowser": "5.0.0",
       "phonegap-plugin-barcodescanner": "8.1.0"
     };
     // BOTTOM OF METADATA

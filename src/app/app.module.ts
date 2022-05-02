@@ -39,7 +39,8 @@ BrowserModule, IonicModule.forRoot(),
         useFactory: jwtOptionsFactory,
         deps: [Storage],
       }
-    })
+    }),
+    IonicModule.forRoot({ mode: 'md' }),
     ],
   providers: [
     StatusBar,

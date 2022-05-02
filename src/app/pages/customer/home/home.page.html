@@ -14,22 +14,25 @@
     <ion-card-content>
   <div class="table-responsive">
     <table class="table table-centered table-striped ">
-    <thead>
+    <thead style="text-align: center !important;">
       <tr>
-        <th>Data</th>
-        <th>Ora</th>
-        <th>Nume pacient</th>
+        <th>
+          <ul style="list-style-type:none;margin-bottom:-6% !important;padding-left: 0 !important"><li >Data</li><li>Ora</li></ul></th>
+        <!-- <th>Ora</th> -->
+        <!-- <th>Nume pacient</th> -->
         <th>Specialitate</th>
         <th>Doctor</th>
         <th>Actiuni</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody style="text-align: center !important;">
       <tr mdbTableCol *ngFor="let programare of programari;">
         <!-- <th scope="row">#{{ programare.id }}</th> -->
-      <th>{{ programare.data_programare  | date: 'dd/MM/yyyy'}}</th>
-      <th>{{ programare.ora_programare }}</th>
-      <th>{{ programare.user}}</th>
+        <th>
+          <ul style="list-style-type:none;margin-bottom:-6% !important;padding-left: 0 !important"><li >{{ programare.data_programare  | date: 'dd/MM/yyyy'}}</li><li>{{ programare.ora_programare }}</li></ul></th>
+      <!-- <th>{{ programare.data_programare  | date: 'dd/MM/yyyy'}}</th>
+      <th>{{ programare.ora_programare }}</th> -->
+      <!-- <th>{{ programare.user}}</th> -->
       <th>{{ programare.specialitate}}</th>
       <th>{{ programare.doctor}}</th>
      
@@ -50,7 +53,7 @@
     <thead>
       <tr>
         <th>Data</th>
-        <th>Id tranzactie</th>
+        <!-- <th>Id tranzactie</th> -->
         <th>Valoare</th>
         <th>Status plata</th>
         <!-- <th>Doctor</th>
@@ -61,7 +64,7 @@
       <tr mdbTableCol *ngFor="let tranzactie of tranzactii;">
         <!-- <th scope="row">#{{ programare.id }}</th> -->
       <th>{{ tranzactie.created_at | date: 'dd/MM/yyyy'}}</th>
-      <th>{{ tranzactie.ext_order_id }}</th>
+      <!-- <th>{{ tranzactie.ext_order_id }}</th> -->
       <th>{{ tranzactie.order_amount}}</th>
    
       <td *ngIf="tranzactie.paid_order == 1 || tranzactie.paid_order == 2"><ion-badge color="success">Plata acceptata</ion-badge></td>
