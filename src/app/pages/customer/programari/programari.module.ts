@@ -7,6 +7,8 @@ import { IonicSelectableModule } from 'ionic-selectable';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { Ng2FlatpickrModule } from 'ng2-flatpickr';
 import { InAppBrowser } from '@awesome-cordova-plugins/in-app-browser/ngx';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 
 
@@ -19,7 +21,7 @@ import { InAppBrowser } from '@awesome-cordova-plugins/in-app-browser/ngx';
     ProgramariPageRoutingModule,
     IonicSelectableModule,
     ReactiveFormsModule,
-    Ng2FlatpickrModule,
+    NgbModule
    
   ],
   declarations: [ProgramariPage],

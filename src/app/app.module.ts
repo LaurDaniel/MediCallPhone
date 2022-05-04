@@ -15,6 +15,7 @@ import { Storage, IonicStorageModule } from '@ionic/storage';
 import { SafePipe } from './safe.pipe';
 import { JwtModule, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { AndroidPermissions } from '@awesome-cordova-plugins/android-permissions/ngx';
+import { DatePickerModule } from '@syncfusion/ej2-angular-calendars';
 // import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 export function jwtOptionsFactory(storage) {
@@ -29,6 +30,7 @@ export function jwtOptionsFactory(storage) {
   declarations: [AppComponent],
   entryComponents: [],
   imports: [ 
+    DatePickerModule,
     MbscModule,  
 BrowserModule, IonicModule.forRoot(),
      AppRoutingModule,IonicStorageModule.forRoot(),

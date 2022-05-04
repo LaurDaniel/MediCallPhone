@@ -115,8 +115,9 @@ export class ProgramariPage implements OnInit {
   }) {
     // this.medicSelectat =  event.value.id;
     this.oraSelectata = null;
-    var calendar = flatpickr(document.getElementById("calendar"));
+    var calendar = flatpickr(document.getElementById("calendar"),{disableMobile: true});
     calendar.set({
+      // disableMobile: true,
       "minDate": new Date(),
       locale: Romanian.ro,
       dateFormat: 'Y-m-d',

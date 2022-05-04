@@ -37,19 +37,26 @@
     </ion-item>
 
     
-    <!-- <ion-item [disabled]="motivComponent.value ? 'false' : 'true'"> -->
-      <!-- <ion-label position="floating"><strong>Data programarii</strong></ion-label> -->
-      <ion-item>
-        <ion-label position="floating"><strong>Data programarii</strong></ion-label>
-    <ion-input #dataComponent [(ngModel)]="data" [disabled]="medicComponent.value ? 'false' : 'true'" ng2-flatpickr id="calendar" formControlName="data" ></ion-input>
-  <!-- </ng2-flatpickr> -->
+ 
+      <ion-item [disabled]="medicComponent.value ? 'false' : 'true'">
+        <ion-label><strong>Data programarii</strong></ion-label>
+    <ion-input #dataComponent [(ngModel)]="data"  id="calendar" formControlName="data" ></ion-input>
+
     </ion-item>
+    <!-- <ion-item><ion-input   #dataComponent [(ngModel)]="data"  id="calendar" formControlName="data"  (click)="dataComponent.toggle()"
+      type="button"
+      class="form-control"
+      placeholder="yyyy-mm-dd"
+      ngbDatepicker
+    ></ion-input></ion-item> -->
     <!-- </ion-item> -->
     <ion-item>
       <ion-label><strong>Ora programare</strong></ion-label>
       <ionic-selectable  [(ngModel)]="oraSelectata" [placeholder]="dataComponent.value ? '' : 'Selectati mai intai data'" [items]="slots" itemValueField="slot" itemTextField="text" [canSearch]="true" [isEnabled]="dataComponent.value" formControlName="ora" closeButtonText="Inapoi">
       </ionic-selectable>
       </ion-item>
+
+   
       
     <ion-button type="submit" [disabled]="!programareForm.valid" expand="full" color="primary">Adauga programare!</ion-button>
   </form>
