@@ -64,7 +64,8 @@ export class ProgramariPage implements OnInit {
       ora: ['', [Validators.required]],
       user: ['', []],
     });
-    this.http.get(`${this.url}/api/programari/getinfo/49`).subscribe(data=>{
+    
+    this.http.get(`${this.url}/api/programari/getinfo/${localStorage.getItem("user_id")}`).subscribe(data=>{
       // var departments = data['specialitati'];
       this.user = data['user'];
       this.user_name = this.user.name;
@@ -101,7 +102,7 @@ export class ProgramariPage implements OnInit {
           if(a.plata == 'abonat' || medic.plata2=='FFS')
           return true;
         return false;
-          return medic.departament == event.value.specialitate;
+          // return medic.departament == event.value.specialitate;
         });
         this.medicSelectat = null;
         this.data = null;
@@ -129,12 +130,16 @@ export class ProgramariPage implements OnInit {
     ],
    
     });
+    var id_minor = "0";
+    if(this.minorSelectat !=null)
+     id_minor = this.minorSelectat.id;
+   
     calendar.set("onChange", ( selectedDates: any ) => {
     let params = new HttpParams();
     params = params.append('date', flatpickr.formatDate(selectedDates[0],'Y-m-d'));
     params = params.append('doctor', this.medicSelectat.id);
-    params = params.append('user', "49");
-    params = params.append('minor', "0");
+    params = params.append('user', localStorage.getItem("user_id"));
+    params = params.append('minor', id_minor);
     this.http.get(`${this.url}/api/programari/getslots`,{params:params}).subscribe(data=>{
       // console.log(data['message']);
       if(data['message']==undefined)
