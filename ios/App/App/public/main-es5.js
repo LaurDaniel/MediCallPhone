@@ -603,7 +603,13 @@
 
       var _awesome_cordova_plugins_android_permissions_ngx__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
       /*! @awesome-cordova-plugins/android-permissions/ngx */
-      "YCdq"); // import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+      "YCdq");
+      /* harmony import */
+
+
+      var _syncfusion_ej2_angular_calendars__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(
+      /*! @syncfusion/ej2-angular-calendars */
+      "ed8r"); // import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
       function jwtOptionsFactory(storage) {
@@ -622,7 +628,7 @@
       AppModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
         declarations: [_app_component__WEBPACK_IMPORTED_MODULE_9__["AppComponent"]],
         entryComponents: [],
-        imports: [_mobiscroll_angular__WEBPACK_IMPORTED_MODULE_1__["MbscModule"], _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__["BrowserModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["IonicModule"].forRoot(), _app_routing_module__WEBPACK_IMPORTED_MODULE_10__["AppRoutingModule"], _ionic_storage__WEBPACK_IMPORTED_MODULE_13__["IonicStorageModule"].forRoot(), _angular_common_http__WEBPACK_IMPORTED_MODULE_12__["HttpClientModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_8__["FormsModule"], _auth0_angular_jwt__WEBPACK_IMPORTED_MODULE_14__["JwtModule"].forRoot({
+        imports: [_syncfusion_ej2_angular_calendars__WEBPACK_IMPORTED_MODULE_16__["DatePickerModule"], _mobiscroll_angular__WEBPACK_IMPORTED_MODULE_1__["MbscModule"], _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__["BrowserModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["IonicModule"].forRoot(), _app_routing_module__WEBPACK_IMPORTED_MODULE_10__["AppRoutingModule"], _ionic_storage__WEBPACK_IMPORTED_MODULE_13__["IonicStorageModule"].forRoot(), _angular_common_http__WEBPACK_IMPORTED_MODULE_12__["HttpClientModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_8__["FormsModule"], _auth0_angular_jwt__WEBPACK_IMPORTED_MODULE_14__["JwtModule"].forRoot({
           jwtOptionsProvider: {
             provide: _auth0_angular_jwt__WEBPACK_IMPORTED_MODULE_14__["JWT_OPTIONS"],
             useFactory: jwtOptionsFactory,

@@ -69,7 +69,7 @@
    
       <td *ngIf="tranzactie.paid_order == 1 || tranzactie.paid_order == 2"><ion-badge color="success">Plata acceptata</ion-badge></td>
       <td *ngIf="tranzactie.paid_order == 3 "><ion-badge color="secondary">Plata anulata</ion-badge></td>
-      <td *ngIf="tranzactie.paid_order == 0 &&  tranzactie.response == 0"><ion-badge color="tertiary">Plata in asteptare</ion-badge></td>
+      <td *ngIf="tranzactie.paid_order == 0 &&  (tranzactie.response == null || tranzactie.response == 0)"><ion-badge color="tertiary">Plata in asteptare</ion-badge></td>
       <td *ngIf="tranzactie.paid_order == 0 &&  tranzactie.response == 1"><ion-badge color="secondary">Plata anulata</ion-badge></td>
     
      

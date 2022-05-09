@@ -9,6 +9,7 @@ import flatpickr from "flatpickr";
 import { AlertService } from 'src/app/services/alert.service';
 import { DomSanitizer, SafeResourceUrl, SafeUrl} from '@angular/platform-browser';
 import { InAppBrowser } from '@awesome-cordova-plugins/in-app-browser/ngx';
+// import { WebView } from 'cordova-plugin-ionic-webview/';
 
 // import { DatePicker } from '@ionic-native/date-picker/ngx';
 
@@ -37,7 +38,8 @@ export class ProgramariPage implements OnInit {
   public minori :any;
   public user :any;
   public user_name :any;
-  public  minDate = new Date().toISOString().split("T")[0];                                                    
+  public  minDate = new Date().toISOString().split("T")[0]; 
+  // public OSVersion = android.os.Build.VERSION.RELEASE;                                                   
   programareForm: FormGroup;
   dateOptions: FlatpickrOptions = {
     locale: Romanian.ro,
@@ -52,6 +54,9 @@ export class ProgramariPage implements OnInit {
   }
     };
   
+
+    // myWebView.getSettings().setUserAgentString(String.format("Mozilla/5.0 (Linux; Android %s; FixMatka v1.0 Build/IMM76B) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/72.0.3626.96 Mobile Safari/537.36", OSVersion));
+
   constructor( private menu: MenuController,private http: HttpClient,private formBuilder: FormBuilder,    private alertService: AlertService,private sanitizer: DomSanitizer,private iab: InAppBrowser) { }
   ngOnInit() {
     this.menu.enable(true);
@@ -200,11 +205,26 @@ export class ProgramariPage implements OnInit {
                   this.programareForm.patchValue({
                     user: this.user, 
                   });
-              
+                  var inAppBrowserRef;
                 console.log(this.programareForm.value);
+               
                 this.http.post(`${this.url}/api/programari/create`, this.programareForm.value).subscribe(data=>{
                   console.log(data);
+                  // var target = "_blank";
+
+                  // var options = "location=yes,hidden=yes,beforeload=yes";
+              
+                  // inAppBrowserRef = cordova.InAppBrowser.open(data['url'], target, options);
+                  // inAppBrowserRef.addEventListener('loadstart', function(url)
+                  // {
+                  //   console.log(url)
+                  // });
                   const browser = this.iab.create(data['url']);
+                  browser.on('loadstart').subscribe(event => {
+                    // browser.insertCSS({ code: "body{color: red;" });
+                    console.log(event);
+                 });
+                  // browser.addEventListener('loadstart', function(event) { alert('start: ' + event.url); });
 
                
             // console.log(this.slots[0].slot);
