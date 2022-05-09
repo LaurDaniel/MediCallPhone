@@ -222,7 +222,10 @@ export class ProgramariPage implements OnInit {
                   const browser = this.iab.create(data['url']);
                   browser.on('loadstart').subscribe(event => {
                     // browser.insertCSS({ code: "body{color: red;" });
-                    console.log(event);
+                    console.log(event.url);
+                    if(event.url == this.url)
+                    browser.close();
+                    console.log("bines");
                  });
                   // browser.addEventListener('loadstart', function(event) { alert('start: ' + event.url); });
 
