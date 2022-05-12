@@ -1,6 +1,7 @@
 import { Component, Input, Output, EventEmitter, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 
 // import * as paginate from 'jw-paginate';
+declare var require: any;
 var  paginate = require('jw-paginate');
 
 @Component({
