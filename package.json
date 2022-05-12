@@ -70,6 +70,7 @@
         "ionic4-date-picker": "^0.1.0",
         "jetifier": "^2.0.0",
         "js-datepicker": "^5.18.0",
+        "jw-paginate": "^1.0.4",
         "ng2-flatpickr": "^9.0.0",
         "ngx-dropzone": "^2.5.0",
         "rxjs": "~6.5.5",

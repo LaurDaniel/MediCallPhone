@@ -1,11 +1,17 @@
 <ion-header [translucent]="true" class="header-background">
-  <ion-toolbar>
+  <ion-toolbar >
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
       </ion-buttons>
-    <ion-title>Panou Principal</ion-title>
+      <ion-title slot="start" style="display:inline-block;position: relative;top: 5px;left: 5px;">
+      <ion-label >Panou Principal</ion-label>
+   </ion-title>
+   <ion-thumbnail slot="end" style="display:inline-block;margin-right:5%">
+    <img src="https://medicall.medicover.ro/images/medicover-logo-light-single-8.png" style="transform:scale(0.7);">
+  </ion-thumbnail>
   </ion-toolbar>
 </ion-header>
+
 <ion-content> 
   <ion-card>
     <ion-card-header>
@@ -26,7 +32,7 @@
       </tr>
     </thead>
     <tbody style="text-align: center !important;">
-      <tr mdbTableCol *ngFor="let programare of programari;">
+      <tr mdbTableCol *ngFor="let programare of pageOfItems2;">
         <!-- <th scope="row">#{{ programare.id }}</th> -->
         <th>
           <ul style="list-style-type:none;margin-bottom:-6% !important;padding-left: 0 !important"><li >{{ programare.data_programare  | date: 'dd/MM/yyyy'}}</li><li>{{ programare.ora_programare }}</li></ul></th>
@@ -36,14 +42,15 @@
       <th>{{ programare.specialitate}}</th>
       <th>{{ programare.doctor}}</th>
      
-      <th><ion-button color="danger" (click)="deleteConsult(programare.id)">Anuleaza</ion-button></th>
+      <th><ion-button color="danger" (click)="deleteConsult(programare)">Anuleaza</ion-button></th>
     </tbody>
   </table> 
+  <jw-pagination [items]="programari" (changePage)="onChangePage2($event)" [maxPages]="3"  [pageSize]="5"></jw-pagination>
   </div>
 </ion-card-content>
   </ion-card>
 
-  <ion-card>
+   <ion-card>
     <ion-card-header>
       <ion-card-title>Ultimele tranzactii</ion-card-title>
     </ion-card-header>
@@ -53,29 +60,32 @@
     <thead>
       <tr>
         <th>Data</th>
-        <!-- <th>Id tranzactie</th> -->
+     
         <th>Valoare</th>
         <th>Status plata</th>
-        <!-- <th>Doctor</th>
-        <th>Actiuni</th> -->
+
       </tr>
     </thead>
     <tbody>
-      <tr mdbTableCol *ngFor="let tranzactie of tranzactii;">
-        <!-- <th scope="row">#{{ programare.id }}</th> -->
+      <tr mdbTableCol *ngFor="let tranzactie of pageOfItems;">
+    
       <th>{{ tranzactie.created_at | date: 'dd/MM/yyyy'}}</th>
-      <!-- <th>{{ tranzactie.ext_order_id }}</th> -->
+   
       <th>{{ tranzactie.order_amount}}</th>
    
       <td *ngIf="tranzactie.paid_order == 1 || tranzactie.paid_order == 2"><ion-badge color="success">Plata acceptata</ion-badge></td>
-      <td *ngIf="tranzactie.paid_order == 3 "><ion-badge color="secondary">Plata anulata</ion-badge></td>
+      <td *ngIf="tranzactie.paid_order == 3 "><ion-badge color="secondary">Plata returnata</ion-badge></td>
       <td *ngIf="tranzactie.paid_order == 0 &&  (tranzactie.response == null || tranzactie.response == 0)"><ion-badge color="tertiary">Plata in asteptare</ion-badge></td>
-      <td *ngIf="tranzactie.paid_order == 0 &&  tranzactie.response == 1"><ion-badge color="secondary">Plata anulata</ion-badge></td>
+      <td *ngIf="tranzactie.paid_order == 0 &&  tranzactie.response == 1"><ion-badge color="danger">Plata anulata</ion-badge></td>
     
      
     
     </tbody>
   </table> 
+ 
+
+
+  <jw-pagination [items]="tranzactii" [maxPages]="3" (changePage)="onChangePage($event)"  [pageSize]="5"></jw-pagination>
   </div>
 </ion-card-content>
 </ion-card>

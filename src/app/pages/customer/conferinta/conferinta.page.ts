@@ -8,6 +8,7 @@ import { File as File2 } from '@ionic-native/file/ngx';
 import { Router } from '@angular/router';
 import { PreviewAnyFile } from '@ionic-native/preview-any-file/ngx';
 import { Media, MediaObject } from '@ionic-native/media/ngx';
+import { IonLoaderService } from 'src/app/services/ion-loader.service';
 
 // import { File } from '@ionic-native/file';
 declare var JitsiMeetExternalAPI: any;
@@ -31,7 +32,8 @@ export class ConferintaPage implements OnInit{
 audio: MediaObject;
 // audioList: any[] = [];
     
-  url = "https://probe.infragroup.ro";
+// url = "https://probe.infragroup.ro";
+url = "https://medicall.medicover.ro";
   public url_conferinta: any;
   public check_url: any;
   public fisiere: any;
@@ -39,7 +41,7 @@ audio: MediaObject;
   public id_consult: any;
   files: File[] = [];
 
-  constructor( private media: Media,private previewAnyFile: PreviewAnyFile, private platform: Platform, private file: File2,private menu: MenuController, private router: Router, private authService: AuthenticationService,private http: HttpClient) {
+  constructor( private media: Media,private previewAnyFile: PreviewAnyFile, private platform: Platform, private file: File2,private menu: MenuController, private router: Router, private authService: AuthenticationService,private http: HttpClient,private ionLoaderService: IonLoaderService) {
    }
   
  fetchUrl()
@@ -49,21 +51,25 @@ audio: MediaObject;
     this.url_conferinta = data['url_consult'];
     this.id_consult = data['id_consult'];
     this.fisiere = data['fisiere'];
+    this.ionLoaderService.dismissLoader();
  });
  }
 
   ngOnInit() {
+    this.ionLoaderService.simpleLoader();
     this.url_conferinta = null;
     this.menu.enable(true);
       this.fetchUrl();
     if(!this.url_conferinta){
       interval(30000).subscribe(x => {
+        // this.ionLoaderService.dismissLoader();
         this.fetchUrl();
     });
   }
   else{
   this.audio.startRecord();
   this.audio.stopRecord();
+  
   }
 
   }

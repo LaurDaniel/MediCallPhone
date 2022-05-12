@@ -1,0 +1,83 @@
+<ion-header [translucent]="true" class="header-background">
+  <ion-toolbar >
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title slot="start" style="display:inline-block;position: relative;top: 5px;left: 5px;">
+      <ion-label >Asociaza Cont</ion-label>
+   </ion-title>
+   <ion-thumbnail slot="end" style="display:inline-block;margin-right:5%">
+    <img src="https://medicall.medicover.ro/images/medicover-logo-light-single-8.png" style="transform:scale(0.7);">
+  </ion-thumbnail>
+  </ion-toolbar>
+</ion-header>
+
+
+<!-- <ion-content>
+<ion-card>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row class="ion-align-items-end">
+          <ion-col style="margin-left:25px;">
+            <ion-avatar style= "margin-top:25px !important;margin-bottom:25px !important;transform:scale(1.5);"><ion-img src="https://infraspaces.ams3.digitaloceanspaces.com/medicover/avatars/user/{{avatar}}"></ion-img></ion-avatar>
+            <ion-label class="text-align: start"><strong>{{user_name}}</strong></ion-label>
+           <div class="online-circle" style="left: 75px;
+           position: absolute;
+           right: 0;
+           top: 25px;"><ion-icon name="ellipse" color="success"></ion-icon></div>
+          </ion-col>
+          <ion-col class="ion-align-self-center">
+            <ion-button color="success" class="ion-float-right"><ion-icon name="people"></ion-icon>Asociaza Cont</ion-button>
+          </ion-col>
+        </ion-row>
+</ion-grid>
+<ion-item>
+  <ion-label position="floating"><strong>Nume</strong></ion-label>
+  <ion-input></ion-input>
+</ion-item>
+<ion-item>
+  <ion-label position="floating"><strong>Prenume</strong></ion-label>
+  <ion-input></ion-input>
+</ion-item>
+<ion-item>
+  <ion-label position="floating"><strong>Adresa de email</strong></ion-label>
+  <ion-input></ion-input>
+</ion-item>
+
+<ion-button type="submit" expand="full" color="primary">Salveaza modificari</ion-button>
+    </ion-card-content>
+</ion-card>
+</ion-content> -->
+
+<ion-content>
+  <ion-card>
+    <form [formGroup]="credentialsForm" (ngSubmit)="onSubmit()">
+      <!-- <form [formGroup]="credentialsForm2" (ngSubmit)="register(form)" > -->
+      
+        <ion-item>
+          <ion-label position="floating">Nume*</ion-label>
+          <ion-input  formControlName="last_name"></ion-input>
+        </ion-item>
+    
+        <ion-item>
+          <ion-label position="floating">Prenume*</ion-label>
+          <ion-input  formControlName="name"></ion-input>
+        </ion-item>
+      
+    
+        <ion-item>
+          <ion-label position="floating">MRN *pentru abonati</ion-label>
+          <ion-input   formControlName="mrn"></ion-input>
+        </ion-item>
+    
+        <ion-item>
+          <ion-label position="floating">Cod numeric personal*</ion-label>
+          <ion-input  formControlName="cnp"></ion-input>
+        </ion-item>
+      
+     
+      
+        <ion-button type="submit" [disabled]="!credentialsForm.valid" expand="full" color="primary">Salveaza Datele</ion-button>
+      </form>
+  </ion-card>
+</ion-content>

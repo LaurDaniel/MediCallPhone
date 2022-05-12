@@ -9,9 +9,11 @@ import flatpickr from "flatpickr";
 import { AlertService } from 'src/app/services/alert.service';
 import { DomSanitizer, SafeResourceUrl, SafeUrl} from '@angular/platform-browser';
 import { InAppBrowser } from '@awesome-cordova-plugins/in-app-browser/ngx';
-// import { WebView } from 'cordova-plugin-ionic-webview/';
+import { Router } from '@angular/router';
+import { IonLoaderService } from 'src/app/services/ion-loader.service';
 
-// import { DatePicker } from '@ionic-native/date-picker/ngx';
+
+
 
 @Component({
   selector: 'app-programari',
@@ -23,7 +25,8 @@ export class ProgramariPage implements OnInit {
 
   @ViewChild(Ng2FlatpickrComponent) flatpickr: ElementRef;
   pickers: QueryList<Ng2FlatpickrComponent>;
-  url = "https://probe.infragroup.ro";
+ // url = "https://probe.infragroup.ro";
+ url = "https://medicall.medicover.ro";
   public medici: any;
   public mediciSelect: any;
   public specialitati: any;
@@ -39,6 +42,17 @@ export class ProgramariPage implements OnInit {
   public user :any;
   public user_name :any;
   public  minDate = new Date().toISOString().split("T")[0]; 
+  slideOpt ={
+    direction: 'horizontal',
+    slidesPerView: 1,
+    pagination: {
+      el: '.swiper-pagination',
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  }
   // public OSVersion = android.os.Build.VERSION.RELEASE;                                                   
   programareForm: FormGroup;
   dateOptions: FlatpickrOptions = {
@@ -53,12 +67,14 @@ export class ProgramariPage implements OnInit {
     // this.pickers.first.writeValue( selectedDates[0] ); 
   }
     };
-  
+ 
+ 
 
     // myWebView.getSettings().setUserAgentString(String.format("Mozilla/5.0 (Linux; Android %s; FixMatka v1.0 Build/IMM76B) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/72.0.3626.96 Mobile Safari/537.36", OSVersion));
 
-  constructor( private menu: MenuController,private http: HttpClient,private formBuilder: FormBuilder,    private alertService: AlertService,private sanitizer: DomSanitizer,private iab: InAppBrowser) { }
+  constructor( private menu: MenuController,private http: HttpClient,private router: Router,private formBuilder: FormBuilder,    private alertService: AlertService,private sanitizer: DomSanitizer,private iab: InAppBrowser,private ionLoaderService: IonLoaderService, private alertCtrl: AlertController) { }
   ngOnInit() {
+    this.ionLoaderService.simpleLoader();
     this.menu.enable(true);
     this.programareForm = this.formBuilder.group({
       specialitate: ['', [Validators.required]],
@@ -84,8 +100,12 @@ export class ProgramariPage implements OnInit {
       });
       this.medici = Object.values(data['doctors']);
       this.minori = Object.values(data['minori']);
+      this.ionLoaderService.dismissLoader();
+      this.mediciSelect = this.medici;
+    
       // console.log((this.specialitati[0].specialitate));
    });
+
   //  console.log(this.minDate)
   }
 
@@ -209,29 +229,59 @@ export class ProgramariPage implements OnInit {
                 console.log(this.programareForm.value);
                
                 this.http.post(`${this.url}/api/programari/create`, this.programareForm.value).subscribe(data=>{
-                  console.log(data);
-                  // var target = "_blank";
-
-                  // var options = "location=yes,hidden=yes,beforeload=yes";
-              
-                  // inAppBrowserRef = cordova.InAppBrowser.open(data['url'], target, options);
-                  // inAppBrowserRef.addEventListener('loadstart', function(url)
-                  // {
-                  //   console.log(url)
-                  // });
+                  console.log(data['url']);
+                  if(data['url'] == null)
+                  {
+                    let alert = this.alertCtrl.create({
+                      // title: '',
+                      message: data['response'],
+                      buttons: [
+                        {
+                          text: 'Ok',
+                          cssClass:'icon-color',
+                          handler: data => {
+                              if(data['prg'] == true)
+                              {
+                                this.router.navigateByUrl('/home');
+                              }
+                            }  
+                        }
+                      ]
+                    });
+                    alert.then(alert => alert.present());
+                    
+                  }
+                  else{
                   const browser = this.iab.create(data['url']);
                   browser.on('loadstart').subscribe(event => {
                     // browser.insertCSS({ code: "body{color: red;" });
                     console.log(event.url);
-                    if(event.url == this.url)
+                    if(event.url == this.url+'/login'){
                     browser.close();
+                    return this.router.navigateByUrl('/home');
                     console.log("bines");
+                    }
+                  
                  });
+                }
                   // browser.addEventListener('loadstart', function(event) { alert('start: ' + event.url); });
 
                
             // console.log(this.slots[0].slot);
-                });
+                });  
+              }
+              openCv(event1){
+                console.log(event1);
+                const browser = this.iab.create(event1);
+                browser.on('loadstart').subscribe(event => {
+                  // browser.insertCSS({ code: "body{color: red;" });
+                  console.log(event.url);
+                  if(event.url != event1){
+                  browser.close();
+                 
+                  }
+                
+               });
               }
 
 }

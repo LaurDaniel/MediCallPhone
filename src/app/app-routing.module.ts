@@ -12,11 +12,19 @@ const routes: Routes = [
   {
     path: 'conferinta',
     loadChildren: () => import('./pages/customer/conferinta/conferinta.module').then( m => m.ConferintaPageModule)
-  },  {
+  },
+  {
     path: 'programari',
     loadChildren: () => import('./pages/customer/programari/programari.module').then( m => m.ProgramariPageModule)
   },
-
+  {
+    path: 'arhiva',
+    loadChildren: () => import('./pages/customer/arhiva/arhiva.module').then( m => m.ArhivaPageModule)
+  },
+  {
+    path: 'profile',
+    loadChildren: () => import('./pages/customer/profile/profile.module').then( m => m.ProfilePageModule)
+  },
 
  
 

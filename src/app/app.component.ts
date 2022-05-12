@@ -7,6 +7,7 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AlertService } from 'src/app/services/alert.service';
 import { MenuController } from '@ionic/angular';
+import { EventService } from 'src/app/services/event.service';
 import { AndroidPermissions } from '@awesome-cordova-plugins/android-permissions/ngx';
  
 @Component({
@@ -25,12 +26,26 @@ export class AppComponent {
       url: '/programari',
       icon: 'clipboard'
     },
+    // {
+    //   title: 'Asociaza Cont',
+    //   url: '/profile',
+    //   icon: 'people'
+    // },
     {
       title: 'Accesati Consultatia',
       url: '/conferinta',
       icon: 'videocam'
     },
+    {
+      title: 'Istoric Consultatii',
+      url: '/arhiva',
+      icon: 'documents'
+    },
   ];
+  public user_name : any;
+  public user : any;
+  public avatar : any;
+
   constructor(
     private menu: MenuController,
     private platform: Platform,
@@ -41,39 +56,55 @@ export class AppComponent {
     private alertService: AlertService,
     private navCtrl: NavController,
     private _location: Location,
-    private androidPermissions: AndroidPermissions
+    private androidPermissions: AndroidPermissions,
+    private events: EventService
   ) {
     this.initializeApp();
   }
-  // reloadComponent() {
-  //   let currentUrl = this.router.url;
-  //       this.router.routeReuseStrategy.shouldReuseRoute = () => false;
-  //       this.router.onSameUrlNavigation = 'reload';
-  //       this.router.navigate([currentUrl]);
-  //   }
+  
   initializeApp() {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
-      if(this.platform.is('android')){
-      this.androidPermissions.checkPermission(this.androidPermissions.PERMISSION.RECORD_AUDIO).then(
-        result => console.log('Has permission?',result.hasPermission),
-        err => this.androidPermissions.requestPermission(this.androidPermissions.PERMISSION.RECORD_AUDIO)
-      );
+      // if(this.platform.is('android')){
+      // // this.androidPermissions.checkPermission(this.androidPermissions.PERMISSION.RECORD_AUDIO).then(
+      // //   result => console.log('Has permission?',result.hasPermission),
+      // //   err => this.androidPermissions.requestPermission(this.androidPermissions.PERMISSION.RECORD_AUDIO)
+      // // );
       
-      this.androidPermissions.requestPermissions([this.androidPermissions.PERMISSION.RECORD_AUDIO, this.androidPermissions.PERMISSION.GET_ACCOUNTS]);
-      }
+      // this.androidPermissions.requestPermissions([this.androidPermissions.PERMISSION.RECORD_AUDIO, this.androidPermissions.PERMISSION.GET_ACCOUNTS]);
+      // } 
+     
+     
       this.authService.authenticationState.subscribe(state => {
         if (state) {
           this.menu.enable(true);
           // console.log(state)
+          this.avatar=localStorage.getItem('avatar');
+          this.user_name = localStorage.getItem('user_name');
+          console.log(this.avatar);
           this.router.navigate(['home']);
         } else {
           this.router.navigate(['login']);
         }
       });
- 
+      this.events.getObservable().subscribe((data) => {
+        
+        this.user=JSON.parse(data['user']);
+        console.log(this.user);
+        if(!this.user_name){
+        localStorage.setItem('user_name',this.user.last_name+" "+this.user.name);
+        localStorage.setItem('avatar',this.user.avatar);
+        this.avatar=localStorage.getItem('avatar');
+        this.user_name = localStorage.getItem('user_name');
+        }
+      
+      
+      //  console.log(this.user.avatar)
     });
+
+    });
+ 
   }
   logout() {
     this.authService.logout()

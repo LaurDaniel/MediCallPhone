@@ -1,0 +1,79 @@
+<ion-header [translucent]="true" class="header-background">
+  <ion-toolbar >
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title slot="start" style="display:inline-block;position: relative;top: 5px;left: 5px;">
+      <ion-label >Rapoarte Consultatii</ion-label>
+   </ion-title>
+   <ion-thumbnail slot="end" style="display:inline-block;margin-right:5%">
+    <img src="https://medicall.medicover.ro/images/medicover-logo-light-single-8.png" style="transform:scale(0.7);">
+  </ion-thumbnail>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content> 
+  <ion-card>
+    <!-- <ion-card-header>
+      <ion-card-title>Consultatii programate</ion-card-title>
+    </ion-card-header> -->
+    <ion-card-content>
+  <div class="table-responsive">
+    <table class="table table-centered table-striped ">
+    <thead style="text-align: center !important;">
+      <tr>
+        <th>
+          <ul style="list-style-type:none;margin-bottom:-6% !important;padding-left: 0 !important"><li >Data</li><li>Ora</li></ul></th>
+        <th>Specialitate</th>
+        <th>Doctor</th>
+        <th>Raport</th>
+      </tr>
+    </thead>
+    <tbody style="text-align: center !important;">
+      <tr mdbTableCol *ngFor="let programare of pageOfItems;">
+        <!-- <th scope="row">#{{ programare.id }}</th> -->
+        <th>
+          <ul style="list-style-type:none;margin-bottom:-6% !important;padding-left: 0 !important"><li >{{ programare.data  | date: 'dd/MM/yyyy'}}</li><li>{{ programare.ora }}</li></ul></th>
+      <th>{{ programare.specialitate}}</th>
+      <th>{{ programare.doctor_name}}</th>
+     
+      <th><ion-button color="success" (click)="generateRap(programare.id)"><ion-icon name="document"></ion-icon>Vizualizare</ion-button></th>
+    </tbody>
+  </table> 
+  <jw-pagination [items]="programari" (changePage)="onChangePage($event)" [maxPages]="3"  [pageSize]="5"></jw-pagination>
+  </div>
+</ion-card-content>
+  </ion-card>
+
+  <!-- <ion-card>
+    <ion-card-header>
+      <ion-card-title>Conturi asociate</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+  <div class="table-responsive">
+    <table class="table table-centered table-striped ">
+    <thead style="text-align: center !important;">
+      <tr>
+        <th>Nume</th>
+        <th>CNP</th>
+        <th>MRN</th>
+        <th>Actiuni</th>
+      </tr>
+    </thead>
+    <tbody style="text-align: center !important;">
+      <tr mdbTableCol *ngFor="let user of pageOfItems;">
+
+        <th>{{user.name}}</th>
+      <th>{{ user.cnp}}</th>
+      <th>{{user.mrn}}</th>
+     
+      <th><ion-button color="success" (click)="update(user)">Editeaza</ion-button></th>
+    </tbody>
+  </table> 
+  <jw-pagination [items]="users" (changePage)="onChangePage($event)" [maxPages]="3"  [pageSize]="5"></jw-pagination>
+  </div>
+</ion-card-content>
+  </ion-card> -->
+
+  
+ </ion-content>
