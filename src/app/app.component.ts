@@ -26,13 +26,13 @@ export class AppComponent {
       url: '/programari',
       icon: 'clipboard'
     },
-    // {
-    //   title: 'Asociaza Cont',
-    //   url: '/profile',
-    //   icon: 'people'
-    // },
     {
-      title: 'Accesati Consultatia',
+      title: 'Asociaza Cont',
+      url: '/profile',
+      icon: 'people'
+    },
+    {
+      title: 'Acceseaza Consultatia',
       url: '/conferinta',
       icon: 'videocam'
     },

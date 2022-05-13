@@ -80,4 +80,35 @@
         <ion-button type="submit" [disabled]="!credentialsForm.valid" expand="full" color="primary">Salveaza Datele</ion-button>
       </form>
   </ion-card>
+
+  
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Conturi asociate</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+  <div class="table-responsive">
+    <table class="table table-centered table-striped ">
+    <thead style="text-align: center !important;">
+      <tr>
+        <th>Nume</th>
+        <th>CNP</th>
+        <th>MRN</th>
+        <th>Actiuni</th>
+      </tr>
+    </thead>
+    <tbody style="text-align: center !important;">
+      <tr mdbTableCol *ngFor="let user of pageOfItems;">
+
+        <th>{{user.name}}</th>
+      <th>{{ user.cnp}}</th>
+      <th>{{user.mrn}}</th>
+     
+      <th><ion-button color="success" (click)="update(user)">Editeaza</ion-button></th>
+    </tbody>
+  </table> 
+  <jw-pagination [items]="users" (changePage)="onChangePage($event)" [maxPages]="3"  [pageSize]="5"></jw-pagination>
+  </div>
+</ion-card-content>
+  </ion-card>
 </ion-content>
