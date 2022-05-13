@@ -27,12 +27,12 @@ export class AppComponent {
       icon: 'clipboard'
     },
     {
-      title: 'Asociaza Cont',
+      title: 'Asociere Cont',
       url: '/profile',
       icon: 'people'
     },
     {
-      title: 'Acceseaza Consultatia',
+      title: 'Accesare Consultatie',
       url: '/conferinta',
       icon: 'videocam'
     },

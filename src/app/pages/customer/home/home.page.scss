@@ -2,7 +2,7 @@
 @import "bootstrap";
 ion-toolbar {
     --color: #ffffff;
-    --background: rgb(0, 83, 159);
+    --background: #004b94;
 }
 
     ion-content{
@@ -28,7 +28,7 @@ ion-toolbar {
         padding: 0.5rem 0.75rem;
         margin-left: -1px;
         line-height: 1.25;
-        color: #007bff;
+        color: #004b94;
         background-color: #fff;
         border: 1px solid #dee2e6;
       }
@@ -44,7 +44,7 @@ ion-toolbar {
       .page-link:focus {
         z-index: 3;
         outline: 0;
-        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+        box-shadow: 0 0 0 0.2rem #004b94;
       }
       
       .page-item:first-child .page-link {
@@ -61,8 +61,8 @@ ion-toolbar {
       .page-item.active .page-link {
         z-index: 3;
         color: #fff;
-        background-color: #007bff;
-        border-color: #007bff;
+        background-color: #004b94;
+        border-color: #004b94;
       }
       
       .page-item.disabled .page-link {

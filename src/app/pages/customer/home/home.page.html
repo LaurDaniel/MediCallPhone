@@ -20,7 +20,7 @@
     <ion-card-content>
   <div class="table-responsive">
     <table class="table table-centered table-striped ">
-    <thead style="text-align: center !important;">
+    <thead style="text-align: center !important; ">
       <tr>
         <th>
           <ul style="list-style-type:none;margin-bottom:-6% !important;padding-left: 0 !important"><li >Data</li><li>Ora</li></ul></th>
@@ -32,7 +32,7 @@
       </tr>
     </thead>
     <tbody style="text-align: center !important;">
-      <tr mdbTableCol *ngFor="let programare of pageOfItems2;">
+      <tr mdbTableCol *ngFor="let programare of pageOfItems2;" style="vertical-align: middle;">
         <!-- <th scope="row">#{{ programare.id }}</th> -->
         <th>
           <ul style="list-style-type:none;margin-bottom:-6% !important;padding-left: 0 !important"><li >{{ programare.data_programare  | date: 'dd/MM/yyyy'}}</li><li>{{ programare.ora_programare }}</li></ul></th>
@@ -42,7 +42,7 @@
       <th>{{ programare.specialitate}}</th>
       <th>{{ programare.doctor}}</th>
      
-      <th><ion-button color="danger" (click)="deleteConsult(programare)">Anuleaza</ion-button></th>
+      <th><ion-badge color="danger" (click)="deleteConsult(programare)" style="font-size:1.5em"><ion-icon name="close-circle-outline"></ion-icon></ion-badge></th>
     </tbody>
   </table> 
   <jw-pagination [items]="programari" (changePage)="onChangePage2($event)" [maxPages]="3"  [pageSize]="5"></jw-pagination>
@@ -57,7 +57,7 @@
     <ion-card-content>
   <div class="table-responsive">
     <table class="table table-centered table-striped ">
-    <thead>
+    <thead  style="text-align: center !important;">
       <tr>
         <th>Data</th>
      
@@ -66,7 +66,7 @@
 
       </tr>
     </thead>
-    <tbody>
+    <tbody  style="text-align: center !important;">
       <tr mdbTableCol *ngFor="let tranzactie of pageOfItems;">
     
       <th>{{ tranzactie.created_at | date: 'dd/MM/yyyy'}}</th>
@@ -75,7 +75,7 @@
    
       <td *ngIf="tranzactie.paid_order == 1 || tranzactie.paid_order == 2"><ion-badge color="success">Plata acceptata</ion-badge></td>
       <td *ngIf="tranzactie.paid_order == 3 "><ion-badge color="secondary">Plata returnata</ion-badge></td>
-      <td *ngIf="tranzactie.paid_order == 0 &&  (tranzactie.response == null || tranzactie.response == 0)"><ion-badge color="tertiary">Plata in asteptare</ion-badge></td>
+      <td *ngIf="tranzactie.paid_order == 0 &&  (tranzactie.response == null || tranzactie.response == 0)"><ion-badge color="primary">Plata in asteptare</ion-badge></td>
       <td *ngIf="tranzactie.paid_order == 0 &&  tranzactie.response == 1"><ion-badge color="danger">Plata anulata</ion-badge></td>
     
      
