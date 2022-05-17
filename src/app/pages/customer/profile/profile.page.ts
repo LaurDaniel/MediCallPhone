@@ -13,8 +13,8 @@ import { Router } from '@angular/router';
 export class ProfilePage implements OnInit {
 public conturi:any;
 //  url = "https://probe.infragroup.ro";
-//  url = "https://medicall.medicover.ro";
- url = "http://127.0.0.1:8000";
+ url = "https://medicall.medicover.ro";
+//  url = "http://127.0.0.1:8000";
   credentialsForm: FormGroup;
   constructor(   private formBuilder: FormBuilder,private ionLoaderService: IonLoaderService,private http: HttpClient,private alertCtrl: AlertController,private router: Router) { }
 
