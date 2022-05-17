@@ -37,7 +37,7 @@
       <th>{{ programare.specialitate}}</th>
       <th>{{ programare.doctor_name}}</th>
      
-      <th><ion-badge color="success" (click)="generateRap(programare.id)"><ion-icon name="document"></ion-icon></ion-badge></th>
+      <th><ion-badge color="success" (click)="generateRap(programare.id)" style="font-size:1.5em"><ion-icon name="document"></ion-icon></ion-badge></th>
     </tbody>
   </table> 
   <jw-pagination [items]="programari" (changePage)="onChangePage($event)" [maxPages]="3"  [pageSize]="5"></jw-pagination>
