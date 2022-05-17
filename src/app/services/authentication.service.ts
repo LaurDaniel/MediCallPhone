@@ -17,9 +17,9 @@ const TOKEN_KEY = 'access_token';
 export class AuthenticationService {
   isLoggedIn = false;
   token:any;
-  url = "https://medicall.medicover.ro";
+  // url = "https://medicall.medicover.ro";
   // url = "https://probe.infragroup.ro";
-  // url = "http://127.0.0.1:8000";
+  url = "http://127.0.0.1:8000";
   user = null;
   // user_id = null;
   authenticationState = new BehaviorSubject(false);

@@ -13,7 +13,8 @@ import { Router } from '@angular/router';
 export class ProfilePage implements OnInit {
 public conturi:any;
 //  url = "https://probe.infragroup.ro";
- url = "https://medicall.medicover.ro";
+//  url = "https://medicall.medicover.ro";
+ url = "http://127.0.0.1:8000";
   credentialsForm: FormGroup;
   constructor(   private formBuilder: FormBuilder,private ionLoaderService: IonLoaderService,private http: HttpClient,private alertCtrl: AlertController,private router: Router) { }
 
@@ -22,7 +23,8 @@ public conturi:any;
       name: ['', [Validators.required]],
       last_name: ['', [Validators.required]],
       mrn: ['', []],
-      cnp: ['', [Validators.required, ,Validators.maxLength(13),Validators.pattern('(1[1-9][0-9]|2[1-9][0-9]|50[0-9]|60[9]|7[1-9][0-9]|8[1-9][0-9]){1}(0[1-9]|1[0-2]){1}(0[1-9]|1[0-9]|2[0-9]|3[0-1]){1}[0-9]{6}$')]],
+      id_user: ['', []],
+      cnp: ['', [Validators.required, ,Validators.maxLength(13),Validators.pattern('(5[0-2][0-9]|6[0-2][0-9]){1}(0[1-9]|1[0-2]){1}(0[1-9]|1[0-9]|2[0-9]|3[0-1]){1}[0-9]{6}$')]],
     }
    );
   //  this.http.get(`http://127.0.0.1:8000/api/profile/getinfo/49`).subscribe(data=>{
@@ -37,10 +39,11 @@ public conturi:any;
   }
 
   onSubmit(){
-    this.credentialsForm.patchValue({
-      id_user: localStorage.getItem("user_id")
-    });
-
+    this.credentialsForm.value.id_user=localStorage.getItem("user_id");
+    // this.credentialsForm.patchValue({
+    //   id_user: localStorage.getItem("user_id")
+    // });
+// console.log(  this.credentialsForm.value)
   this.http.post(`${this.url}/api/profile/create`,this.credentialsForm.value).subscribe(data=>{
   // this.http.post(`http://127.0.0.1:8000/api/profile/create`,this.credentialsForm.value).subscribe(data=>{
     console.log(localStorage.getItem("user_id"));
@@ -52,7 +55,7 @@ public conturi:any;
             text: 'Ok',
             cssClass:'icon-color',
             handler: data => {
-              this.router.navigateByUrl('/profile');
+              this.ngOnInit();
              
               }  
           }
@@ -74,9 +77,8 @@ public conturi:any;
               {
                 text: 'Ok',
                 cssClass:'icon-color',
-                handler: data => {
-                  this.router.navigateByUrl('/profile');
-                 
+                handler: data2 => {
+                  this.ngOnInit();
                   }  
               }
             ]
