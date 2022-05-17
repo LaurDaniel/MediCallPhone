@@ -13,3 +13,16 @@
     opacity: 40% !important;
     text-align: center !important;
 }
+.ion-color-medicall {
+	--ion-color-base: var(--ion-color-medicall);
+	--ion-color-base-rgb: var(--ion-color-medicall-rgb);
+	--ion-color-contrast: var(--ion-color-medicall-contrast);
+	--ion-color-contrast-rgb: var(--ion-color-medicall-contrast-rgb);
+	--ion-color-shade: var(--ion-color-medicall-shade);
+	--ion-color-tint: var(--ion-color-medicall-tint);
+}
+
+// .ion-no-padding {
+
+//   margin-top:-5%;
+// }

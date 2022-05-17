@@ -1,9 +1,14 @@
 <ion-header [translucent]="true" class="header-background">
-  <ion-toolbar>
+  <ion-toolbar >
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
       </ion-buttons>
-    <ion-title>Consultatii online</ion-title>
+      <ion-title slot="start" style="display:inline-block;position: relative;top: 5px;left: 5px;">
+      <ion-label >Conferinta Online</ion-label>
+   </ion-title>
+   <ion-thumbnail slot="end" style="display:inline-block;margin-right:5%">
+    <img src="assets/images/logo.png" style="transform:scale(0.7);">
+  </ion-thumbnail>
   </ion-toolbar>
 </ion-header>
 
@@ -17,7 +22,7 @@
              <ion-card *ngIf="url_conferinta" >
               <ion-card-content>
                 <ngx-dropzone [multiple]="false" (change)="onSelect($event)">
-                  <ngx-dropzone-label>Faceti click sau trageti fisierul in interiorul acestei casete pentru a putea incarca documentele!</ngx-dropzone-label>
+                  <ngx-dropzone-label>Faceti click sau trageti fisierul in interiorul acestei casete pentru a putea incarca documentele.</ngx-dropzone-label>
                   <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
                     <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
                   </ngx-dropzone-preview>

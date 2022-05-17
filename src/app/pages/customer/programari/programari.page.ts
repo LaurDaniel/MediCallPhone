@@ -121,7 +121,7 @@ export class ProgramariPage implements OnInit {
      var a = this.minorSelectat;
     //  console.log(this.minorSelectat.plata);
     this.mediciSelect =  this.medici.filter(function(medic) {
-          console.log(medic,event.value);
+          // console.log(medic,event.value);
           if(medic.departament == event.value.specialitate)
           if(medic.age_from <= a.varsta && medic.age_to >= a.varsta)
           if(a.plata == 'abonat' || medic.plata2=='FFS')
@@ -168,11 +168,25 @@ export class ProgramariPage implements OnInit {
     params = params.append('minor', id_minor);
     this.http.get(`${this.url}/api/programari/getslots`,{params:params}).subscribe(data=>{
       // console.log(data['message']);
-      if(data['message']==undefined)
+     
       this.slots = Object.values(data['slots']);
-      else
-      alert(data['message']);
+      if(this.slots.length == 0){
+       let alert =  this.alertCtrl.create({
+          // title: '',
+          message: 'Medicul selectat nu are locuri disponibile in aceasta data.',
+          buttons: [
+            {
+              text: 'Ok',
+              cssClass:'icon-color',  
+            }
+          ]
+        });
+        alert.then(alert => alert.present());
+      }
+      
+      // alert('Medicul selectat nu are locuri libere in aceasta data.');
       this.oraSelectata = null;
+      // console.log(data['message']);
 // console.log(this.slots[0].slot);
     });
     // this.pickers.first.writeValue( selectedDates[0] ); 

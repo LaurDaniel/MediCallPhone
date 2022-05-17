@@ -7,7 +7,7 @@
       <ion-label >Panou Principal</ion-label>
    </ion-title>
    <ion-thumbnail slot="end" style="display:inline-block;margin-right:5%">
-    <img src="https://medicall.medicover.ro/images/medicover-logo-light-single-8.png" style="transform:scale(0.7);">
+    <img src="assets/images/logo.png" style="transform:scale(0.7);">
   </ion-thumbnail>
   </ion-toolbar>
 </ion-header>
@@ -39,8 +39,9 @@
       <!-- <th>{{ programare.data_programare  | date: 'dd/MM/yyyy'}}</th>
       <th>{{ programare.ora_programare }}</th> -->
       <!-- <th>{{ programare.user}}</th> -->
-      <th>{{ programare.specialitate}}</th>
-      <th>{{ programare.doctor}}</th>
+      <th><label>{{ programare.specialitate}}</label></th>
+      <th><label>{{ programare.doctor}}</label></th>
+      <!-- <th>{{ programare.doctor}}</th> -->
      
       <th><ion-badge color="danger" (click)="deleteConsult(programare)" style="font-size:1.5em"><ion-icon name="close-circle-outline"></ion-icon></ion-badge></th>
     </tbody>

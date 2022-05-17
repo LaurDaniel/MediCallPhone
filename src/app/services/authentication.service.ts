@@ -19,6 +19,7 @@ export class AuthenticationService {
   token:any;
   url = "https://medicall.medicover.ro";
   // url = "https://probe.infragroup.ro";
+  // url = "http://127.0.0.1:8000";
   user = null;
   // user_id = null;
   authenticationState = new BehaviorSubject(false);

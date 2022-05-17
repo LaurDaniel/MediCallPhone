@@ -7,7 +7,7 @@
       <ion-label >Rapoarte Consultatii</ion-label>
    </ion-title>
    <ion-thumbnail slot="end" style="display:inline-block;margin-right:5%">
-    <img src="https://medicall.medicover.ro/images/medicover-logo-light-single-8.png" style="transform:scale(0.7);">
+    <img src="assets/images/logo.png" style="transform:scale(0.7);">
   </ion-thumbnail>
   </ion-toolbar>
 </ion-header>
@@ -37,7 +37,7 @@
       <th>{{ programare.specialitate}}</th>
       <th>{{ programare.doctor_name}}</th>
      
-      <th><ion-button color="success" (click)="generateRap(programare.id)"><ion-icon name="document"></ion-icon>Vizualizare</ion-button></th>
+      <th><ion-badge color="success" (click)="generateRap(programare.id)"><ion-icon name="document"></ion-icon></ion-badge></th>
     </tbody>
   </table> 
   <jw-pagination [items]="programari" (changePage)="onChangePage($event)" [maxPages]="3"  [pageSize]="5"></jw-pagination>

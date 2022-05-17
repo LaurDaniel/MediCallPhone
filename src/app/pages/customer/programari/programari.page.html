@@ -1,11 +1,17 @@
-<ion-header>
-  <ion-toolbar>
+<ion-header [translucent]="true" class="header-background">
+  <ion-toolbar >
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
       </ion-buttons>
-    <ion-title>Programare Consultatie</ion-title>
+      <ion-title slot="start" style="display:inline-block;position: relative;top: 5px;left: 5px;">
+      <ion-label >Programare Consultatie</ion-label>
+   </ion-title>
+   <ion-thumbnail slot="end" style="display:inline-block;margin-right:5%">
+    <img src="assets/images/logo.png" style="transform:scale(0.7);">
+  </ion-thumbnail>
   </ion-toolbar>
 </ion-header>
+
 
 <ion-content>
   <ion-card >
@@ -16,18 +22,42 @@
       <form [formGroup]="programareForm" (ngSubmit)="onSubmit()">
     <ion-item *ngIf="minori!=0" (click)="minorClick()">
     <ion-label><strong>Pacient</strong></ion-label>
-    <ionic-selectable  [(ngModel)]="minorSelectat" [placeholder]="user_name" (onChange)="selectMinor($event)" [items]="minori" itemValueField="id" itemTextField="name" [canSearch]="true" [canClear] = "true" formControlName="minor" closeButtonText="Inapoi" clearButtonText="Sterge" (onClear)="clearMinor($event)">
+    <ionic-selectable  [(ngModel)]="minorSelectat" [placeholder]="user_name" (onChange)="selectMinor($event)" [items]="minori" itemValueField="id" itemTextField="name" [canSearch]="true"  [searchFailText]="'Fara rezultat'" [canClear] = "true" formControlName="minor" closeButtonText="Inapoi" clearButtonText="Sterge" (onClear)="clearMinor($event)">
+      <ng-template ionicSelectableCloseButtonTemplate>
+        <ion-icon name="arrow-back-circle" style="font-size: 24px;"></ion-icon>
+      </ng-template>
+      <ng-template ionicSelectableTitleTemplate>
+        <div style="text-align: center;">
+       <span>Pacient</span>
+      </div>
+      </ng-template>
     </ionic-selectable>
     </ion-item>
     <ion-item>
     <ion-label><strong>Specialitate</strong></ion-label>
-    <ionic-selectable [(ngModel)]="specialitateSelectata"  #specialitateComponent placeholder="Selectati" [(ngModel)]="selectedValue" (onChange)="selectSpecialitate($event)" [items]="specialitatiSelect" itemValueField="specialitate" itemTextField="specialitate" [canSearch]="true" formControlName="specialitate" closeButtonText="Inapoi" >
+    <ionic-selectable [(ngModel)]="specialitateSelectata"  #specialitateComponent placeholder="Selectati" [(ngModel)]="selectedValue" (onChange)="selectSpecialitate($event)" [items]="specialitatiSelect" [searchFailText]="'Fara rezultat'" itemValueField="specialitate" itemTextField="specialitate" [canSearch]="true" searchPlaceholder="Cauta" searchPlaceholder="Cauta" formControlName="specialitate"  >
+      <ng-template ionicSelectableCloseButtonTemplate>
+        <ion-icon name="arrow-back-circle" style="font-size: 24px;"></ion-icon>
+      </ng-template>
+      <ng-template ionicSelectableTitleTemplate>
+        <div style="text-align: center;">
+       <span>Specialitate</span>
+      </div>
+      </ng-template>
     </ionic-selectable>
     </ion-item>
 
     <ion-item>
     <ion-label><strong>Medic</strong></ion-label>
-    <ionic-selectable [(ngModel)]="medicSelectat" #medicComponent [placeholder]="specialitateComponent.value ? '' : 'Selectati mai intai specialitatea'" [items]="mediciSelect" itemValueField="id" itemTextField="name" [canSearch]="true" [isEnabled]="specialitateComponent.value" formControlName="medic" (onChange)="selectMedic($event)" closeButtonText="Inapoi">
+    <ionic-selectable [(ngModel)]="medicSelectat" #medicComponent [placeholder]="specialitateComponent.value ? '' : 'Selectati mai intai specialitatea'" [items]="mediciSelect" [searchFailText]="'Fara rezultat'" itemValueField="id" itemTextField="name" [canSearch]="true" searchPlaceholder="Cauta" [isEnabled]="specialitateComponent.value" formControlName="medic" (onChange)="selectMedic($event)" closeButtonText="Inapoi">
+      <ng-template ionicSelectableCloseButtonTemplate>
+        <ion-icon name="arrow-back-circle" style="font-size: 24px;"></ion-icon>
+      </ng-template>
+      <ng-template ionicSelectableTitleTemplate>
+        <div style="text-align: center;">
+       <span>Medic</span>
+      </div>
+      </ng-template>
     </ionic-selectable>
     </ion-item>
   
@@ -52,13 +82,21 @@
     <!-- </ion-item> -->
     <ion-item>
       <ion-label><strong>Ora programare</strong></ion-label>
-      <ionic-selectable  [(ngModel)]="oraSelectata" [placeholder]="dataComponent.value ? '' : 'Selectati mai intai data'" [items]="slots" itemValueField="slot" itemTextField="text" [canSearch]="true" [isEnabled]="dataComponent.value" formControlName="ora" closeButtonText="Inapoi">
+      <ionic-selectable  [(ngModel)]="oraSelectata" [placeholder]="dataComponent.value ? '' : 'Selectati mai intai data'" [items]="slots" itemValueField="slot" itemTextField="text" [searchFailText]="'Fara rezultat'" [canSearch]="true" searchPlaceholder="Cauta" [isEnabled]="dataComponent.value" formControlName="ora" closeButtonText="Inapoi">
+        <ng-template ionicSelectableCloseButtonTemplate>
+          <ion-icon name="arrow-back-circle" style="font-size: 24px;"></ion-icon>
+        </ng-template>
+        <ng-template ionicSelectableTitleTemplate>
+          <div style="text-align: center;">
+         <span>Ora programare</span>
+        </div>
+        </ng-template>
       </ionic-selectable>
       </ion-item>
 
    
       
-    <ion-button type="submit" [disabled]="!programareForm.valid" expand="full" color="primary">Adauga programare!</ion-button>
+    <ion-button type="submit" [disabled]="!programareForm.valid" expand="full" color="medicall">Adauga programare</ion-button>
   </form>
     </ion-card-content>
   </ion-card>
@@ -75,9 +113,9 @@
             </ion-card-title>
             <ion-list>
               <!-- <ion-item> -->
-              <ion-list >
+              <ion-list>
              
-                <ion-item style="display:block;text-align: center;" lines="none"><ion-label>  <ion-icon name="medkit"></ion-icon>Specialitate:</ion-label></ion-item>
+                <ion-item   style="display:block;text-align: center;" lines="none"><ion-label>  <ion-icon style="margin-right:3px"name="medkit"></ion-icon>Specialitate:</ion-label></ion-item>
                 <ion-item style="display:block;text-align: center;">
                   <ion-label>{{medic.departament}}</ion-label>
               </ion-item> 
@@ -86,13 +124,9 @@
           <!-- </ion-item> -->
         <!-- <ion-item> -->
               <ion-list lines="none">
-                <ion-item style="display:block;text-align: center;"><ion-label>  <ion-icon name="medical"></ion-icon>Tip consultatie:</ion-label></ion-item>
-              <!-- <ion-item >
-                <ion-icon name="medical"></ion-icon>Tip consultatie: 
-                </ion-item> -->
-               
+                <ion-item style="display:block;text-align: center;"><ion-label>  <ion-icon name="document-text"></ion-icon>Tip consultatie:</ion-label></ion-item>
                 <ion-item style="display:block;text-align: center;" *ngIf="medic.tip_consultatie1">
-                <ion-label><ion-badge color="primary" >{{medic.tip_consultatie1}}</ion-badge></ion-label>
+                <ion-label><ion-badge color="medicall" >{{medic.tip_consultatie1}}</ion-badge></ion-label>
               </ion-item>
             <ion-item style="display:block;text-align: center;" *ngIf="medic.tip_consultatie2">
             <ion-label><ion-badge color="success" >{{medic.tip_consultatie2}}</ion-badge></ion-label>
