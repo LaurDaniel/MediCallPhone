@@ -67,6 +67,9 @@ export class AuthenticationService {
           })
         }),
         catchError(e => {
+          // console.log(e.message);
+          // if(e.message == 'Verificare')
+          // this.showAlert('Verificare');
           this.showAlert('Autentificarea nu a reusit! Fi sigur ca email-ul si parola sunt corecte!');
           throw new Error(e);
         })
