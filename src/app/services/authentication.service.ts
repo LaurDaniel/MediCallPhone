@@ -57,6 +57,9 @@ export class AuthenticationService {
     return this.http.post(`${this.url}/api/login`, credentials)
       .pipe(
         tap(res => {
+          if(res['message'] == 'Verificare')
+          console.log('ver');
+          else{
           this.storage.set(TOKEN_KEY, res['access_token']);
           this.user = this.helper.decodeToken(res['access_token']);
           this.authenticationState.next(true);
@@ -65,11 +68,10 @@ export class AuthenticationService {
           this.events.changeUser({
             user: JSON.stringify(res['user'])
           })
+        }
         }),
         catchError(e => {
-          // console.log(e.message);
-          // if(e.message == 'Verificare')
-          // this.showAlert('Verificare');
+         
           this.showAlert('Autentificarea nu a reusit! Fi sigur ca email-ul si parola sunt corecte!');
           throw new Error(e);
         })

@@ -90,7 +90,6 @@
         "@types/node": "^12.20.51",
         "codelyzer": "^6.0.0",
         "cordova-android": "9.0.0",
-        "cordova-pdf-generator": "^2.1.1",
         "cordova-plugin-device": "^2.0.3",
         "cordova-plugin-inappbrowser": "^5.0.0",
         "cordova-plugin-ionic-keyboard": "^2.2.0",
