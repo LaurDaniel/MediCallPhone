@@ -14,11 +14,6 @@
     <param name="android-package" value="com.plugin.datepicker.DatePickerPlugin"/>
   </feature>
 
-  <feature name="File">
-    <param name="android-package" value="org.apache.cordova.file.FileUtils"/>
-    <param name="onload" value="true"/>
-  </feature>
-
   <feature name="Media">
     <param name="android-package" value="org.apache.cordova.media.AudioHandler"/>
   </feature>
@@ -30,10 +25,6 @@
   <feature name="UserAgent">
     <param name="android-package" value="im.ltdev.cordova.UserAgent"/>
     <param name="onload" value="true"/>
-  </feature>
-
-  <feature name="PDFService">
-    <param name="android-package" value="com.pdf.generator.PDFGenerator"/>
   </feature>
 
   <feature name="Device">

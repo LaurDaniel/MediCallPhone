@@ -22,9 +22,12 @@
   <!-- <img src="assets/images/logo_progaz.png" style="max-width: 60%;"> -->
 Inainte sa mergi mai departe verifica daca ai primit link-ul de activare a contului pe email.
 Daca nu ai primit link-ul,
+<ion-anchor (click)="verifyEmail()">da click aici pentru a primi un nou email.</ion-anchor>
 </div>
 </div> 
 </div> 
-</div> 
+</div>
+<p align="center" text-center>Ai deja un cont?</p>
+<ion-button  color="primary" (click)="loginModal()">Autentifica-te!</ion-button> 
 
 </ion-content>

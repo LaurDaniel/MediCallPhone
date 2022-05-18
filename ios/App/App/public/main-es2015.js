@@ -419,6 +419,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! rxjs */ "qCKp");
 /* harmony import */ var _env_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./env.service */ "5zL6");
 /* harmony import */ var _event_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./event.service */ "fTLw");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/router */ "tyNb");
+
 
 
 
@@ -431,12 +433,13 @@ __webpack_require__.r(__webpack_exports__);
 
 const TOKEN_KEY = 'access_token';
 let AuthenticationService = class AuthenticationService {
-    constructor(env, http, helper, storage, events, plt, alertController, navCtrl) {
+    constructor(env, http, helper, storage, events, router, plt, alertController, navCtrl) {
         this.env = env;
         this.http = http;
         this.helper = helper;
         this.storage = storage;
         this.events = events;
+        this.router = router;
         this.plt = plt;
         this.alertController = alertController;
         this.navCtrl = navCtrl;
@@ -472,14 +475,18 @@ let AuthenticationService = class AuthenticationService {
     login(credentials) {
         return this.http.post(`${this.url}/api/login`, credentials)
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["tap"])(res => {
-            this.storage.set(TOKEN_KEY, res['access_token']);
-            this.user = this.helper.decodeToken(res['access_token']);
-            this.authenticationState.next(true);
-            localStorage.setItem("user_id", res['user'].id);
-            // alert(res['user'])
-            this.events.changeUser({
-                user: JSON.stringify(res['user'])
-            });
+            if (res['message'] == 'Verificare')
+                return this.router.navigateByUrl('/verify');
+            else {
+                this.storage.set(TOKEN_KEY, res['access_token']);
+                this.user = this.helper.decodeToken(res['access_token']);
+                this.authenticationState.next(true);
+                localStorage.setItem("user_id", res['user'].id);
+                // alert(res['user'])
+                this.events.changeUser({
+                    user: JSON.stringify(res['user'])
+                });
+            }
         }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["catchError"])(e => {
             this.showAlert('Autentificarea nu a reusit! Fi sigur ca email-ul si parola sunt corecte!');
             throw new Error(e);
@@ -530,6 +537,7 @@ AuthenticationService.ctorParameters = () => [
     { type: _auth0_angular_jwt__WEBPACK_IMPORTED_MODULE_4__["JwtHelperService"] },
     { type: _ionic_storage__WEBPACK_IMPORTED_MODULE_5__["Storage"] },
     { type: _event_service__WEBPACK_IMPORTED_MODULE_9__["EventService"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_10__["Router"] },
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_1__["Platform"] },
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_1__["AlertController"] },
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_1__["NavController"] }
@@ -859,6 +867,10 @@ const routes = [
     {
         path: 'profile',
         loadChildren: () => Promise.all(/*! import() | pages-customer-profile-profile-module */[__webpack_require__.e("common"), __webpack_require__.e("pages-customer-profile-profile-module")]).then(__webpack_require__.bind(null, /*! ./pages/customer/profile/profile.module */ "4cRM")).then(m => m.ProfilePageModule)
+    },
+    {
+        path: 'verify',
+        loadChildren: () => __webpack_require__.e(/*! import() | public-verify-verify-module */ "public-verify-verify-module").then(__webpack_require__.bind(null, /*! ./public/verify/verify.module */ "dfRO")).then(m => m.VerifyPageModule)
     },
 ];
 let AppRoutingModule = class AppRoutingModule {

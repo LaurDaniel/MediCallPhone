@@ -750,11 +750,17 @@
       var _event_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! ./event.service */
       "fTLw");
+      /* harmony import */
+
+
+      var _angular_router__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      /*! @angular/router */
+      "tyNb");
 
       var TOKEN_KEY = 'access_token';
 
       var AuthenticationService = /*#__PURE__*/function () {
-        function AuthenticationService(env, http, helper, storage, events, plt, alertController, navCtrl) {
+        function AuthenticationService(env, http, helper, storage, events, router, plt, alertController, navCtrl) {
           var _this2 = this;
 
           _classCallCheck(this, AuthenticationService);
@@ -764,6 +770,7 @@
           this.helper = helper;
           this.storage = storage;
           this.events = events;
+          this.router = router;
           this.plt = plt;
           this.alertController = alertController;
           this.navCtrl = navCtrl;
@@ -811,17 +818,19 @@
             var _this4 = this;
 
             return this.http.post("".concat(this.url, "/api/login"), credentials).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["tap"])(function (res) {
-              _this4.storage.set(TOKEN_KEY, res['access_token']);
+              if (res['message'] == 'Verificare') return _this4.router.navigateByUrl('/verify');else {
+                _this4.storage.set(TOKEN_KEY, res['access_token']);
 
-              _this4.user = _this4.helper.decodeToken(res['access_token']);
+                _this4.user = _this4.helper.decodeToken(res['access_token']);
 
-              _this4.authenticationState.next(true);
+                _this4.authenticationState.next(true);
 
-              localStorage.setItem("user_id", res['user'].id); // alert(res['user'])
+                localStorage.setItem("user_id", res['user'].id); // alert(res['user'])
 
-              _this4.events.changeUser({
-                user: JSON.stringify(res['user'])
-              });
+                _this4.events.changeUser({
+                  user: JSON.stringify(res['user'])
+                });
+              }
             }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["catchError"])(function (e) {
               _this4.showAlert('Autentificarea nu a reusit! Fi sigur ca email-ul si parola sunt corecte!');
 
@@ -898,6 +907,8 @@
           type: _ionic_storage__WEBPACK_IMPORTED_MODULE_5__["Storage"]
         }, {
           type: _event_service__WEBPACK_IMPORTED_MODULE_9__["EventService"]
+        }, {
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_10__["Router"]
         }, {
           type: _ionic_angular__WEBPACK_IMPORTED_MODULE_1__["Platform"]
         }, {
@@ -1160,6 +1171,17 @@
           /*! ./pages/customer/profile/profile.module */
           "4cRM")).then(function (m) {
             return m.ProfilePageModule;
+          });
+        }
+      }, {
+        path: 'verify',
+        loadChildren: function loadChildren() {
+          return __webpack_require__.e(
+          /*! import() | public-verify-verify-module */
+          "public-verify-verify-module").then(__webpack_require__.bind(null,
+          /*! ./public/verify/verify.module */
+          "dfRO")).then(function (m) {
+            return m.VerifyPageModule;
           });
         }
       }];
