@@ -18,9 +18,9 @@ const TOKEN_KEY = 'access_token';
 export class AuthenticationService {
   isLoggedIn = false;
   token:any;
-  // url = "https://medicall.medicover.ro";
+  url = "https://medicall.medicover.ro";
   // url = "https://probe.infragroup.ro";
-  url = "http://127.0.0.1:8000";
+  // url = "http://127.0.0.1:8000";
   user = null;
   // user_id = null;
   authenticationState = new BehaviorSubject(false);
@@ -59,7 +59,7 @@ export class AuthenticationService {
       .pipe(
         tap(res => {
           if(res['message'] == 'Verificare')
-          return this.router.navigateByUrl('/verify');
+          this.showAlert('Pentru a intra in contul deja existent, este necesar sa accesati link-ul pe care l-ati primit pe adresa de e-mail si sa va conectati.Multumim!');
           else{
           this.storage.set(TOKEN_KEY, res['access_token']);
           this.user = this.helper.decodeToken(res['access_token']);

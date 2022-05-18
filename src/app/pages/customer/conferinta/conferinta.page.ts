@@ -35,8 +35,8 @@ audio: MediaObject;
 // audioList: any[] = [];
     
 // url = "https://probe.infragroup.ro";
-// url = "https://medicall.medicover.ro";
-url = "http://127.0.0.1:8000";
+url = "https://medicall.medicover.ro";
+// url = "http://127.0.0.1:8000";
   public url_conferinta: any;
   public check_url: any;
   public fisiere: any;
