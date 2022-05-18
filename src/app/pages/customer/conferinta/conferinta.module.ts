@@ -14,6 +14,7 @@ import { File as File2 } from '@ionic-native/file/ngx';
 // import { FileOpener } from '@awesome-cordova-plugins/file-opener/ngx';
 import { PreviewAnyFile } from '@ionic-native/preview-any-file/ngx';
 import { Media } from '@ionic-native/media/ngx';
+import { UserAgent } from '@ionic-native/user-agent/ngx';
 
 @NgModule({
   imports: [
@@ -21,10 +22,11 @@ import { Media } from '@ionic-native/media/ngx';
     FormsModule,
     IonicModule,
     ConferintaPageRoutingModule,
-    NgxDropzoneModule
+    NgxDropzoneModule,
+   
     
   ],
-  declarations: [ConferintaPage,SafePipe],
-  providers: [ HTTP, File2, PreviewAnyFile,Media]
+  declarations: [ConferintaPage,SafePipe,],
+  providers: [ HTTP, File2, PreviewAnyFile,Media,]
 })
 export class ConferintaPageModule {}

@@ -46,9 +46,9 @@
       /* harmony import */
 
 
-      var _helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-      /*! ./helpers-dd7e4b7b.js */
-      "1vRN");
+      var _helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! ./helpers-1457892a.js */
+      "W6o/");
       /* harmony import */
 
 
@@ -179,7 +179,7 @@
         _createClass(Textarea, [{
           key: "debounceChanged",
           value: function debounceChanged() {
-            this.ionChange = Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_2__["f"])(this.ionChange, this.debounce);
+            this.ionChange = Object(_helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_2__["f"])(this.ionChange, this.debounce);
           }
         }, {
           key: "disabledChanged",
@@ -229,14 +229,14 @@
         }, {
           key: "componentWillLoad",
           value: function componentWillLoad() {
-            this.inheritedAttributes = Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_2__["i"])(this.el, ['title']);
+            this.inheritedAttributes = Object.assign(Object.assign({}, Object(_helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_2__["i"])(this.el)), Object(_helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_2__["h"])(this.el, ['title']));
           }
         }, {
           key: "componentDidLoad",
           value: function componentDidLoad() {
             var _this2 = this;
 
-            Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_2__["r"])(function () {
+            Object(_helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_2__["r"])(function () {
               return _this2.runAutoGrow();
             });
           }
@@ -391,7 +391,7 @@
             var mode = Object(_ionic_global_63a97a32_js__WEBPACK_IMPORTED_MODULE_1__["b"])(this);
             var value = this.getValue();
             var labelId = this.inputId + '-lbl';
-            var label = Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_2__["h"])(this.el);
+            var label = Object(_helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_2__["j"])(this.el);
 
             if (label) {
               label.id = labelId;

@@ -58,9 +58,9 @@
       /* harmony import */
 
 
-      var _helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-      /*! ./helpers-dd7e4b7b.js */
-      "1vRN");
+      var _helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! ./helpers-1457892a.js */
+      "W6o/");
       /* harmony import */
 
 
@@ -316,7 +316,7 @@
               return;
             }
 
-            var _Object = Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_2__["p"])(detail.event),
+            var _Object = Object(_helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_2__["p"])(detail.event),
                 x = _Object.x,
                 y = _Object.y;
 
@@ -620,8 +620,8 @@
 
             if (segmentEl) {
               this.updateState();
-              Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_2__["a"])(segmentEl, 'ionSelect', this.updateState);
-              Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_2__["a"])(segmentEl, 'ionStyle', this.updateStyle);
+              Object(_helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_2__["a"])(segmentEl, 'ionSelect', this.updateState);
+              Object(_helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_2__["a"])(segmentEl, 'ionStyle', this.updateStyle);
             }
           }
         }, {
@@ -630,8 +630,8 @@
             var segmentEl = this.segmentEl;
 
             if (segmentEl) {
-              Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_2__["b"])(segmentEl, 'ionSelect', this.updateState);
-              Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_2__["b"])(segmentEl, 'ionStyle', this.updateStyle);
+              Object(_helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_2__["b"])(segmentEl, 'ionSelect', this.updateState);
+              Object(_helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_2__["b"])(segmentEl, 'ionStyle', this.updateStyle);
               this.segmentEl = null;
             }
           }

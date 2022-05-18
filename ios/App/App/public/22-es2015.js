@@ -12,12 +12,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ion_popover", function() { return Popover; });
 /* harmony import */ var _index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index-7a8b7a1c.js */ "wEJo");
 /* harmony import */ var _ionic_global_63a97a32_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ionic-global-63a97a32.js */ "E/Mt");
-/* harmony import */ var _framework_delegate_4392cd63_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./framework-delegate-4392cd63.js */ "acej");
-/* harmony import */ var _overlays_e9ccff30_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./overlays-e9ccff30.js */ "SOSK");
+/* harmony import */ var _framework_delegate_94e770cc_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./framework-delegate-94e770cc.js */ "spDm");
+/* harmony import */ var _overlays_a62f858b_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./overlays-a62f858b.js */ "f9PN");
 /* harmony import */ var _theme_ff3fc52f_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./theme-ff3fc52f.js */ "74mu");
-/* harmony import */ var _index_931440b1_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./index-931440b1.js */ "Js3/");
-/* harmony import */ var _animation_096c6391_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./animation-096c6391.js */ "meiF");
-/* harmony import */ var _helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./helpers-dd7e4b7b.js */ "1vRN");
+/* harmony import */ var _index_a7711c1e_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./index-a7711c1e.js */ "qb1Q");
+/* harmony import */ var _animation_822d986b_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./animation-822d986b.js */ "Kfhc");
+/* harmony import */ var _helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./helpers-1457892a.js */ "W6o/");
 /* harmony import */ var _hardware_back_button_4a6b37fb_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./hardware-back-button-4a6b37fb.js */ "B4Jq");
 
 
@@ -107,9 +107,9 @@ const iosEnterAnimation = (baseEl, ev) => {
     contentEl.style.left = `calc(${popoverCSS.left}px - var(--ion-safe-area-right, 0px))`;
   }
   contentEl.style.transformOrigin = originY + ' ' + originX;
-  const baseAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_6__["c"])();
-  const backdropAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_6__["c"])();
-  const wrapperAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_6__["c"])();
+  const baseAnimation = Object(_animation_822d986b_js__WEBPACK_IMPORTED_MODULE_6__["c"])();
+  const backdropAnimation = Object(_animation_822d986b_js__WEBPACK_IMPORTED_MODULE_6__["c"])();
+  const wrapperAnimation = Object(_animation_822d986b_js__WEBPACK_IMPORTED_MODULE_6__["c"])();
   backdropAnimation
     .addElement(baseEl.querySelector('ion-backdrop'))
     .fromTo('opacity', 0.01, 'var(--backdrop-opacity)')
@@ -132,9 +132,9 @@ const POPOVER_IOS_BODY_PADDING = 5;
  * iOS Popover Leave Animation
  */
 const iosLeaveAnimation = (baseEl) => {
-  const baseAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_6__["c"])();
-  const backdropAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_6__["c"])();
-  const wrapperAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_6__["c"])();
+  const baseAnimation = Object(_animation_822d986b_js__WEBPACK_IMPORTED_MODULE_6__["c"])();
+  const backdropAnimation = Object(_animation_822d986b_js__WEBPACK_IMPORTED_MODULE_6__["c"])();
+  const wrapperAnimation = Object(_animation_822d986b_js__WEBPACK_IMPORTED_MODULE_6__["c"])();
   backdropAnimation
     .addElement(baseEl.querySelector('ion-backdrop'))
     .fromTo('opacity', 'var(--backdrop-opacity)', 0);
@@ -207,11 +207,11 @@ const mdEnterAnimation = (baseEl, ev) => {
   else if (targetTop + targetHeight + contentHeight > bodyHeight) {
     contentEl.style.bottom = POPOVER_MD_BODY_PADDING + 'px';
   }
-  const baseAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_6__["c"])();
-  const backdropAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_6__["c"])();
-  const wrapperAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_6__["c"])();
-  const contentAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_6__["c"])();
-  const viewportAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_6__["c"])();
+  const baseAnimation = Object(_animation_822d986b_js__WEBPACK_IMPORTED_MODULE_6__["c"])();
+  const backdropAnimation = Object(_animation_822d986b_js__WEBPACK_IMPORTED_MODULE_6__["c"])();
+  const wrapperAnimation = Object(_animation_822d986b_js__WEBPACK_IMPORTED_MODULE_6__["c"])();
+  const contentAnimation = Object(_animation_822d986b_js__WEBPACK_IMPORTED_MODULE_6__["c"])();
+  const viewportAnimation = Object(_animation_822d986b_js__WEBPACK_IMPORTED_MODULE_6__["c"])();
   backdropAnimation
     .addElement(baseEl.querySelector('ion-backdrop'))
     .fromTo('opacity', 0.01, 'var(--backdrop-opacity)')
@@ -244,9 +244,9 @@ const mdEnterAnimation = (baseEl, ev) => {
  * Md Popover Leave Animation
  */
 const mdLeaveAnimation = (baseEl) => {
-  const baseAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_6__["c"])();
-  const backdropAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_6__["c"])();
-  const wrapperAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_6__["c"])();
+  const baseAnimation = Object(_animation_822d986b_js__WEBPACK_IMPORTED_MODULE_6__["c"])();
+  const backdropAnimation = Object(_animation_822d986b_js__WEBPACK_IMPORTED_MODULE_6__["c"])();
+  const wrapperAnimation = Object(_animation_822d986b_js__WEBPACK_IMPORTED_MODULE_6__["c"])();
   backdropAnimation
     .addElement(baseEl.querySelector('ion-backdrop'))
     .fromTo('opacity', 'var(--backdrop-opacity)', 0);
@@ -300,7 +300,7 @@ const Popover = class {
       this.dismiss();
     };
     this.onBackdropTap = () => {
-      this.dismiss(undefined, _overlays_e9ccff30_js__WEBPACK_IMPORTED_MODULE_3__["B"]);
+      this.dismiss(undefined, _overlays_a62f858b_js__WEBPACK_IMPORTED_MODULE_3__["B"]);
     };
     this.onLifecycle = (modalEvent) => {
       const el = this.usersElement;
@@ -316,7 +316,7 @@ const Popover = class {
     };
   }
   connectedCallback() {
-    Object(_overlays_e9ccff30_js__WEBPACK_IMPORTED_MODULE_3__["e"])(this.el);
+    Object(_overlays_a62f858b_js__WEBPACK_IMPORTED_MODULE_3__["e"])(this.el);
   }
   /**
    * Present the popover overlay after it has been created.
@@ -330,9 +330,9 @@ const Popover = class {
       throw new Error('container is undefined');
     }
     const data = Object.assign(Object.assign({}, this.componentProps), { popover: this.el });
-    this.usersElement = await Object(_framework_delegate_4392cd63_js__WEBPACK_IMPORTED_MODULE_2__["a"])(this.delegate, container, this.component, ['popover-viewport', this.el['s-sc']], data);
-    await Object(_index_931440b1_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this.usersElement);
-    return Object(_overlays_e9ccff30_js__WEBPACK_IMPORTED_MODULE_3__["d"])(this, 'popoverEnter', iosEnterAnimation, mdEnterAnimation, this.event);
+    this.usersElement = await Object(_framework_delegate_94e770cc_js__WEBPACK_IMPORTED_MODULE_2__["a"])(this.delegate, container, this.component, ['popover-viewport', this.el['s-sc']], data);
+    await Object(_index_a7711c1e_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this.usersElement);
+    return Object(_overlays_a62f858b_js__WEBPACK_IMPORTED_MODULE_3__["d"])(this, 'popoverEnter', iosEnterAnimation, mdEnterAnimation, this.event);
   }
   /**
    * Dismiss the popover overlay after it has been presented.
@@ -341,9 +341,9 @@ const Popover = class {
    * @param role The role of the element that is dismissing the popover. For example, 'cancel' or 'backdrop'.
    */
   async dismiss(data, role) {
-    const shouldDismiss = await Object(_overlays_e9ccff30_js__WEBPACK_IMPORTED_MODULE_3__["f"])(this, data, role, 'popoverLeave', iosLeaveAnimation, mdLeaveAnimation, this.event);
+    const shouldDismiss = await Object(_overlays_a62f858b_js__WEBPACK_IMPORTED_MODULE_3__["f"])(this, data, role, 'popoverLeave', iosLeaveAnimation, mdLeaveAnimation, this.event);
     if (shouldDismiss) {
-      await Object(_framework_delegate_4392cd63_js__WEBPACK_IMPORTED_MODULE_2__["d"])(this.delegate, this.usersElement);
+      await Object(_framework_delegate_94e770cc_js__WEBPACK_IMPORTED_MODULE_2__["d"])(this.delegate, this.usersElement);
     }
     return shouldDismiss;
   }
@@ -351,13 +351,13 @@ const Popover = class {
    * Returns a promise that resolves when the popover did dismiss.
    */
   onDidDismiss() {
-    return Object(_overlays_e9ccff30_js__WEBPACK_IMPORTED_MODULE_3__["g"])(this.el, 'ionPopoverDidDismiss');
+    return Object(_overlays_a62f858b_js__WEBPACK_IMPORTED_MODULE_3__["g"])(this.el, 'ionPopoverDidDismiss');
   }
   /**
    * Returns a promise that resolves when the popover will dismiss.
    */
   onWillDismiss() {
-    return Object(_overlays_e9ccff30_js__WEBPACK_IMPORTED_MODULE_3__["g"])(this.el, 'ionPopoverWillDismiss');
+    return Object(_overlays_a62f858b_js__WEBPACK_IMPORTED_MODULE_3__["g"])(this.el, 'ionPopoverWillDismiss');
   }
   render() {
     const mode = Object(_ionic_global_63a97a32_js__WEBPACK_IMPORTED_MODULE_1__["b"])(this);

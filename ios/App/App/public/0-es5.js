@@ -52,9 +52,9 @@
       /* harmony import */
 
 
-      var _overlays_e9ccff30_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-      /*! ./overlays-e9ccff30.js */
-      "SOSK");
+      var _overlays_a62f858b_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! ./overlays-a62f858b.js */
+      "f9PN");
       /* harmony import */
 
 
@@ -64,9 +64,9 @@
       /* harmony import */
 
 
-      var _animation_096c6391_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-      /*! ./animation-096c6391.js */
-      "meiF");
+      var _animation_822d986b_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      /*! ./animation-822d986b.js */
+      "Kfhc");
       /* harmony import */
 
 
@@ -94,18 +94,18 @@
       /* harmony import */
 
 
-      var _helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
-      /*! ./helpers-dd7e4b7b.js */
-      "1vRN");
+      var _helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      /*! ./helpers-1457892a.js */
+      "W6o/");
       /**
        * iOS Action Sheet Enter Animation
        */
 
 
       var iosEnterAnimation = function iosEnterAnimation(baseEl) {
-        var baseAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_5__["c"])();
-        var backdropAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_5__["c"])();
-        var wrapperAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_5__["c"])();
+        var baseAnimation = Object(_animation_822d986b_js__WEBPACK_IMPORTED_MODULE_5__["c"])();
+        var backdropAnimation = Object(_animation_822d986b_js__WEBPACK_IMPORTED_MODULE_5__["c"])();
+        var wrapperAnimation = Object(_animation_822d986b_js__WEBPACK_IMPORTED_MODULE_5__["c"])();
         backdropAnimation.addElement(baseEl.querySelector('ion-backdrop')).fromTo('opacity', 0.01, 'var(--backdrop-opacity)').beforeStyles({
           'pointer-events': 'none'
         }).afterClearStyles(['pointer-events']);
@@ -118,9 +118,9 @@
 
 
       var iosLeaveAnimation = function iosLeaveAnimation(baseEl) {
-        var baseAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_5__["c"])();
-        var backdropAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_5__["c"])();
-        var wrapperAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_5__["c"])();
+        var baseAnimation = Object(_animation_822d986b_js__WEBPACK_IMPORTED_MODULE_5__["c"])();
+        var backdropAnimation = Object(_animation_822d986b_js__WEBPACK_IMPORTED_MODULE_5__["c"])();
+        var wrapperAnimation = Object(_animation_822d986b_js__WEBPACK_IMPORTED_MODULE_5__["c"])();
         backdropAnimation.addElement(baseEl.querySelector('ion-backdrop')).fromTo('opacity', 'var(--backdrop-opacity)', 0);
         wrapperAnimation.addElement(baseEl.querySelector('.action-sheet-wrapper')).fromTo('transform', 'translateY(0%)', 'translateY(100%)');
         return baseAnimation.addElement(baseEl).easing('cubic-bezier(.36,.66,.04,1)').duration(450).addAnimation([backdropAnimation, wrapperAnimation]);
@@ -131,9 +131,9 @@
 
 
       var mdEnterAnimation = function mdEnterAnimation(baseEl) {
-        var baseAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_5__["c"])();
-        var backdropAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_5__["c"])();
-        var wrapperAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_5__["c"])();
+        var baseAnimation = Object(_animation_822d986b_js__WEBPACK_IMPORTED_MODULE_5__["c"])();
+        var backdropAnimation = Object(_animation_822d986b_js__WEBPACK_IMPORTED_MODULE_5__["c"])();
+        var wrapperAnimation = Object(_animation_822d986b_js__WEBPACK_IMPORTED_MODULE_5__["c"])();
         backdropAnimation.addElement(baseEl.querySelector('ion-backdrop')).fromTo('opacity', 0.01, 'var(--backdrop-opacity)').beforeStyles({
           'pointer-events': 'none'
         }).afterClearStyles(['pointer-events']);
@@ -146,9 +146,9 @@
 
 
       var mdLeaveAnimation = function mdLeaveAnimation(baseEl) {
-        var baseAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_5__["c"])();
-        var backdropAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_5__["c"])();
-        var wrapperAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_5__["c"])();
+        var baseAnimation = Object(_animation_822d986b_js__WEBPACK_IMPORTED_MODULE_5__["c"])();
+        var backdropAnimation = Object(_animation_822d986b_js__WEBPACK_IMPORTED_MODULE_5__["c"])();
+        var wrapperAnimation = Object(_animation_822d986b_js__WEBPACK_IMPORTED_MODULE_5__["c"])();
         backdropAnimation.addElement(baseEl.querySelector('ion-backdrop')).fromTo('opacity', 'var(--backdrop-opacity)', 0);
         wrapperAnimation.addElement(baseEl.querySelector('.action-sheet-wrapper')).fromTo('transform', 'translateY(0%)', 'translateY(100%)');
         return baseAnimation.addElement(baseEl).easing('cubic-bezier(.36,.66,.04,1)').duration(450).addAnimation([backdropAnimation, wrapperAnimation]);
@@ -198,13 +198,13 @@
           this.animated = true;
 
           this.onBackdropTap = function () {
-            _this.dismiss(undefined, _overlays_e9ccff30_js__WEBPACK_IMPORTED_MODULE_3__["B"]);
+            _this.dismiss(undefined, _overlays_a62f858b_js__WEBPACK_IMPORTED_MODULE_3__["B"]);
           };
 
           this.dispatchCancelHandler = function (ev) {
             var role = ev.detail.role;
 
-            if (Object(_overlays_e9ccff30_js__WEBPACK_IMPORTED_MODULE_3__["i"])(role)) {
+            if (Object(_overlays_a62f858b_js__WEBPACK_IMPORTED_MODULE_3__["i"])(role)) {
               var cancelButton = _this.getButtons().find(function (b) {
                 return b.role === 'cancel';
               });
@@ -221,12 +221,12 @@
         _createClass(ActionSheet, [{
           key: "present",
           value: function present() {
-            return Object(_overlays_e9ccff30_js__WEBPACK_IMPORTED_MODULE_3__["d"])(this, 'actionSheetEnter', iosEnterAnimation, mdEnterAnimation);
+            return Object(_overlays_a62f858b_js__WEBPACK_IMPORTED_MODULE_3__["d"])(this, 'actionSheetEnter', iosEnterAnimation, mdEnterAnimation);
           }
         }, {
           key: "connectedCallback",
           value: function connectedCallback() {
-            Object(_overlays_e9ccff30_js__WEBPACK_IMPORTED_MODULE_3__["e"])(this.el);
+            Object(_overlays_a62f858b_js__WEBPACK_IMPORTED_MODULE_3__["e"])(this.el);
           }
           /**
            * Dismiss the action sheet overlay after it has been presented.
@@ -241,7 +241,7 @@
         }, {
           key: "dismiss",
           value: function dismiss(data, role) {
-            return Object(_overlays_e9ccff30_js__WEBPACK_IMPORTED_MODULE_3__["f"])(this, data, role, 'actionSheetLeave', iosLeaveAnimation, mdLeaveAnimation);
+            return Object(_overlays_a62f858b_js__WEBPACK_IMPORTED_MODULE_3__["f"])(this, data, role, 'actionSheetLeave', iosLeaveAnimation, mdLeaveAnimation);
           }
           /**
            * Returns a promise that resolves when the action sheet did dismiss.
@@ -250,7 +250,7 @@
         }, {
           key: "onDidDismiss",
           value: function onDidDismiss() {
-            return Object(_overlays_e9ccff30_js__WEBPACK_IMPORTED_MODULE_3__["g"])(this.el, 'ionActionSheetDidDismiss');
+            return Object(_overlays_a62f858b_js__WEBPACK_IMPORTED_MODULE_3__["g"])(this.el, 'ionActionSheetDidDismiss');
           }
           /**
            * Returns a promise that resolves when the action sheet will dismiss.
@@ -260,7 +260,7 @@
         }, {
           key: "onWillDismiss",
           value: function onWillDismiss() {
-            return Object(_overlays_e9ccff30_js__WEBPACK_IMPORTED_MODULE_3__["g"])(this.el, 'ionActionSheetWillDismiss');
+            return Object(_overlays_a62f858b_js__WEBPACK_IMPORTED_MODULE_3__["g"])(this.el, 'ionActionSheetWillDismiss');
           }
         }, {
           key: "buttonClick",
@@ -273,7 +273,7 @@
                     case 0:
                       role = button.role;
 
-                      if (!Object(_overlays_e9ccff30_js__WEBPACK_IMPORTED_MODULE_3__["i"])(role)) {
+                      if (!Object(_overlays_a62f858b_js__WEBPACK_IMPORTED_MODULE_3__["i"])(role)) {
                         _context.next = 3;
                         break;
                       }
@@ -326,7 +326,7 @@
                       }
 
                       _context2.next = 3;
-                      return Object(_overlays_e9ccff30_js__WEBPACK_IMPORTED_MODULE_3__["s"])(button.handler);
+                      return Object(_overlays_a62f858b_js__WEBPACK_IMPORTED_MODULE_3__["s"])(button.handler);
 
                     case 3:
                       rtn = _context2.sent;

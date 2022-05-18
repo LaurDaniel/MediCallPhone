@@ -1671,105 +1671,6 @@
     },
 
     /***/
-    "c7Fb":
-    /*!*******************************************************************************!*\
-      !*** ./node_modules/@ionic-native/preview-any-file/__ivy_ngcc__/ngx/index.js ***!
-      \*******************************************************************************/
-
-    /*! exports provided: PreviewAnyFile */
-
-    /***/
-    function c7Fb(module, __webpack_exports__, __webpack_require__) {
-      "use strict";
-
-      __webpack_require__.r(__webpack_exports__);
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "PreviewAnyFile", function () {
-        return PreviewAnyFile;
-      });
-      /* harmony import */
-
-
-      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-      /*! tslib */
-      "mrSG");
-      /* harmony import */
-
-
-      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-      /*! @angular/core */
-      "fXoL");
-      /* harmony import */
-
-
-      var _ionic_native_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-      /*! @ionic-native/core */
-      "C6fG");
-
-      var PreviewAnyFile =
-      /** @class */
-      function (_super) {
-        Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"])(PreviewAnyFile, _super);
-
-        function PreviewAnyFile() {
-          return _super !== null && _super.apply(this, arguments) || this;
-        }
-
-        PreviewAnyFile.prototype.preview = function (url) {
-          return Object(_ionic_native_core__WEBPACK_IMPORTED_MODULE_2__["cordova"])(this, "preview", {}, arguments);
-        };
-
-        PreviewAnyFile.prototype.previewBase64 = function (base64, options) {
-          return Object(_ionic_native_core__WEBPACK_IMPORTED_MODULE_2__["cordova"])(this, "previewBase64", {}, arguments);
-        };
-
-        PreviewAnyFile.prototype.previewPath = function (url, options) {
-          return Object(_ionic_native_core__WEBPACK_IMPORTED_MODULE_2__["cordova"])(this, "previewPath", {}, arguments);
-        };
-
-        PreviewAnyFile.prototype.previewAsset = function (url, options) {
-          return Object(_ionic_native_core__WEBPACK_IMPORTED_MODULE_2__["cordova"])(this, "previewAsset", {}, arguments);
-        };
-
-        PreviewAnyFile.pluginName = "PreviewAnyFile";
-        PreviewAnyFile.plugin = "cordova-plugin-preview-any-file";
-        PreviewAnyFile.pluginRef = "PreviewAnyFile";
-        PreviewAnyFile.repo = "https://github.com/mostafa-mansour1/previewAnyFile";
-        PreviewAnyFile.install = "";
-        PreviewAnyFile.installVariables = [];
-        PreviewAnyFile.platforms = ["Android", "iOS"];
-
-        PreviewAnyFile.ɵfac = function PreviewAnyFile_Factory(t) {
-          return ɵPreviewAnyFile_BaseFactory(t || PreviewAnyFile);
-        };
-
-        PreviewAnyFile.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjectable"]({
-          token: PreviewAnyFile,
-          factory: function factory(t) {
-            return PreviewAnyFile.ɵfac(t);
-          }
-        });
-
-        var ɵPreviewAnyFile_BaseFactory = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵgetInheritedFactory"](PreviewAnyFile);
-        /*@__PURE__*/
-
-
-        (function () {
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](PreviewAnyFile, [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"]
-          }], null, null);
-        })();
-
-        return PreviewAnyFile;
-      }(_ionic_native_core__WEBPACK_IMPORTED_MODULE_2__["IonicNativePlugin"]); //# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uL3NyYy9AaW9uaWMtbmF0aXZlL3BsdWdpbnMvcHJldmlldy1hbnktZmlsZS9uZ3gvaW5kZXgudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IjtBQUFBLE9BQU8sRUFBRSxVQUFVLEVBQUUsTUFBTSxlQUFlLENBQUM7QUFDM0MsT0FBTyw4QkFBc0MsTUFBTSxvQkFBb0IsQ0FBQzs7QUFDeEU7QUFHUSxJQXFENEIsa0NBQWlCO0FBQUM7QUFFOUI7QUFBeUU7QUFBTSxJQUtyRyxnQ0FBTyxhQUFDLEdBQVc7QUFLVixJQUtULHNDQUFhLGFBQUMsTUFBYyxFQUFFLE9BQStCO0FBSzlDLElBS2Ysb0NBQVcsYUFBQyxHQUFXLEVBQUUsT0FBK0I7QUFLM0MsSUFLYixxQ0FBWSxhQUFDLEdBQVcsRUFBRSxPQUErQjtBQUl0QztBQUFrRDtBQUErRDtBQUFpRDtBQUFnRjtBQUFpQztBQUEwQztrREExQ2pWLFVBQVU7Ozs7OzBCQUNMO0FBQUMseUJBMURQO0FBQUUsRUEwRGtDLGlCQUFpQjtBQUNwRCxTQURZLGNBQWM7QUFBSSIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IEluamVjdGFibGUgfSBmcm9tICdAYW5ndWxhci9jb3JlJztcbmltcG9ydCB7IFBsdWdpbiwgQ29yZG92YSwgSW9uaWNOYXRpdmVQbHVnaW4gfSBmcm9tICdAaW9uaWMtbmF0aXZlL2NvcmUnO1xuXG5leHBvcnQgaW50ZXJmYWNlIFByZXZpZXdBbnlGaWxlT3B0aW9ucyB7XG4gIC8qKlxuICAgKiBUaGUgbmFtZSBvZiB0aGUgZmlsZSB0byBwcmV2aWV3LlxuICAgKi9cbiAgbmFtZT86IHN0cmluZztcbiAgLyoqXG4gICAqIFRoZSBtaW1lIHR5cGUgb2YgdGhlIGZpbGUgdG8gcHJldmlldy5cbiAgICovXG4gIG1pbWVUeXBlOiBzdHJpbmc7XG59XG5cbi8qKlxuICogQG5hbWUgUHJldmlld0FueUZpbGVcbiAqIEBkZXNjcmlwdGlvblxuICogV2hhdGV2ZXIgdGhlIGZpbGUgaXMgUERGIGRvY3VtZW50LCBXb3JkIGRvY3VtZW50LCBFeGNlbCwgb2ZmaWNlIGRvY3VtZW50LHppcCBhcmNoaXZlIGZpbGUsIGltYWdlLCB0ZXh0LCBodG1sIG9yIGFueXRoaW5nIGVsc2UsIHlvdSBjYW4gcGVyZm9ybSBhIHByZXZpZXcgYnkgdGhpcyBjb3Jkb3ZhIFBsdWdpbiB0byBwcmV2aWV3IGFueSBmaWxlIGluIG5hdGl2ZSBtb2RlIGJ5IHByb3ZpZGluZyB0aGUgbG9jYWwgb3IgZXh0ZXJuYWwgVVJMLlxuICpcbiAqICBSZXF1aXJlcyBDb3Jkb3ZhIHBsdWdpbjogYGNvcmRvdmEtcGx1Z2luLXByZXZpZXctYW55LWZpbGVgLiBGb3IgbW9yZSBpbmZvLCBwbGVhc2Ugc2VlIHRoZSBbcHJldmlld0FueUZpbGUgcGx1Z2luIGRvY3NdKGh0dHBzOi8vZ2l0aHViLmNvbS9tb3N0YWZhLW1hbnNvdXIxL3ByZXZpZXdBbnlGaWxlKS5cbiAqXG4gKiBAdXNhZ2VcbiAqIGBgYHR5cGVzY3JpcHRcbiAqIGltcG9ydCB7IFByZXZpZXdBbnlGaWxlIH0gZnJvbSAnQGlvbmljLW5hdGl2ZS9wcmV2aWV3LWFueS1maWxlL25neCc7XG4gKlxuICpcbiAqIGNvbnN0cnVjdG9yKHByaXZhdGUgcHJldmlld0FueUZpbGU6IFByZXZpZXdBbnlGaWxlKSB7IH1cbiAqXG4gKiAuLi5cbiAqXG4gKlxuICogdGhpcy5wcmV2aWV3QW55RmlsZS5wcmV2aWV3KCdmaWxlOi8vZmlsZXBhdGguZXh0JylcbiAqICAgLnRoZW4oKHJlczogYW55KSA9PiBjb25zb2xlLmxvZyhyZXMpKVxuICogICAuY2F0Y2goKGVycm9yOiBhbnkpID0+IGNvbnNvbGUuZXJyb3IoZXJyb3IpKTtcbiAqXG4gKiBgYGBcbiAqXG4gKlxuICogLi4uXG4gKlxuICpcbiAqIHRoaXMucHJldmlld0FueUZpbGUucHJldmlld1BhdGgoJ2h0dHA6Ly93d3cuZG9tYWluLmNvbS9zYW1wbGVmaWxlJylcbiAqICAgLnRoZW4oKHJlczogYW55KSA9PiBjb25zb2xlLmxvZyhyZXMpKVxuICogICAuY2F0Y2goKGVycm9yOiBhbnkpID0+IGNvbnNvbGUuZXJyb3IoZXJyb3IpKTtcbiAqXG4gKiBgYGBcbiAqL1xuXG5AUGx1Z2luKHtcbiAgcGx1Z2luTmFtZTogJ1ByZXZpZXdBbnlGaWxlJyxcbiAgcGx1Z2luOiAnY29yZG92YS1wbHVnaW4tcHJldmlldy1hbnktZmlsZScsIC8vIG5wbSBwYWNrYWdlIG5hbWUsIGV4YW1wbGU6IGNvcmRvdmEtcGx1Z2luLWNhbWVyYVxuICBwbHVnaW5SZWY6ICdQcmV2aWV3QW55RmlsZScsIC8vIHRoZSB2YXJpYWJsZSByZWZlcmVuY2UgdG8gY2FsbCB0aGUgcGx1Z2luLCBleGFtcGxlOiBuYXZpZ2F0b3IuZ2VvbG9jYXRpb25cbiAgcmVwbzogJ2h0dHBzOi8vZ2l0aHViLmNvbS9tb3N0YWZhLW1hbnNvdXIxL3ByZXZpZXdBbnlGaWxlJywgLy8gdGhlIGdpdGh1YiByZXBvc2l0b3J5IFVSTCBmb3IgdGhlIHBsdWdpblxuICBpbnN0YWxsOiAnJywgLy8gT1BUSU9OQUwgaW5zdGFsbCBjb21tYW5kLCBpbiBjYXNlIHRoZSBwbHVnaW4gcmVxdWlyZXMgdmFyaWFibGVzXG4gIGluc3RhbGxWYXJpYWJsZXM6IFtdLCAvLyBPUFRJT05BTCB0aGUgcGx1Z2luIHJlcXVpcmVzIHZhcmlhYmxlc1xuICBwbGF0Zm9ybXM6IFsnQW5kcm9pZCcsICdpT1MnXSwgLy8gQXJyYXkgb2YgcGxhdGZvcm1zIHN1cHBvcnRlZCwgZXhhbXBsZTogWydBbmRyb2lkJywgJ2lPUyddXG59KVxuQEluamVjdGFibGUoKVxuZXhwb3J0IGNsYXNzIFByZXZpZXdBbnlGaWxlIGV4dGVuZHMgSW9uaWNOYXRpdmVQbHVnaW4ge1xuICAvKipcbiAgICogdGhpcyBmdW5jdGlvbiByZXR1cm4gU1VDQ0VTUyBpbiBzdWNjZXNzIGNhbGxiYWNrIGlmIHRoZSBmaWxlIHN1Y2Nlc3NmdWxseSBvcGVuZWQsIGlmIHRoZSBjb250ZW50IGlzIGJhc2U2NCB5b3UgaGF2ZSB0byB3cml0ZSBpdCBpbnRvIGZpbGUgYnkgY29yZG92YS1wbHVnaW4tZmlsZVxuICAgKiBAcGFyYW0gdXJsIHtzdHJpbmd9IGZ1bGwgYWJzb2x1dGUgVVJMIGZvciB0aGUgZmlsZSwgaWYgdGhlIHBhdGggaXMgY29udGVudDovLyB5b3UgbmVlZCB0byByZXNvbHZlIHRoZSBuYXRpdmUgdXJsLCBpZiB0aGUgcGF0aCBpcyBodHRwczovLyBpdCBtYXkgbm90IHdvcmsgaW4gYW5kcm9pZFxuICAgKiBAcmV0dXJuIHtQcm9taXNlPGFueT59IFJldHVybnMgYSBwcm9taXNlIHRoYXQgcmVzb2x2ZXMgaWYgdGhlIGZpbGUgb3BlbmVkIHJlamVjdCBpZiBub3Q7XG4gICAqL1xuICBAQ29yZG92YSgpXG4gIHByZXZpZXcodXJsOiBzdHJpbmcpOiBQcm9taXNlPHN0cmluZz4ge1xuICAgIHJldHVybjtcbiAgfVxuXG4gIC8qKlxuICAgKiBwcmV2aWV3UGF0aCBmdW5jdGlvbiB3aWxsIHJldHVybiBzdWNjZXNzIGNhbGxiYWNrIGlmIHRoZSBmaWxlIHN1Y2Nlc3NmdWxseSBvcGVuZWQsIGlmIHRoZSBjb250ZW50IGlzIGJhc2U2NCB5b3UgaGF2ZSB0byB1c2UgcHJldmlld0Jhc2U2NCBtZXRob2RcbiAgICogQHBhcmFtIGJhc2U2NCB7U3RyaW5nfSBiYXNlNjQgc3RyaW5nIGNvbnRlbnRcbiAgICogQHBhcmFtIG9wdGlvbnMge1ByZXZpZXdBbnlGaWxlT3B0aW9uc30gZGVmaW5lIHRoZSBuYW1lIG9mIHRoZSBmaWxlIHdpdGggZXh0ZW5zaW9uIG9yIGl0J3MgbWltZVR5cGUsIGlmIHRoZSBjb3JyZWN0IGV4dGVuc2lvbiBub3QgZXhpc3QgaW4gdGhlIHBhdGhcbiAgICovXG4gIEBDb3Jkb3ZhKClcbiAgcHJldmlld0Jhc2U2NChiYXNlNjQ6IHN0cmluZywgb3B0aW9ucz86IFByZXZpZXdBbnlGaWxlT3B0aW9ucyk6IFByb21pc2U8c3RyaW5nPiB7XG4gICAgcmV0dXJuO1xuICB9XG5cbiAgLyoqXG4gICAqIHByZXZpZXdQYXRoIGZ1bmN0aW9uIHdpbGwgcmV0dXJuIHN1Y2Nlc3MgY2FsbGJhY2sgaWYgdGhlIGZpbGUgc3VjY2Vzc2Z1bGx5IG9wZW5lZCwgaWYgdGhlIGNvbnRlbnQgaXMgYmFzZTY0IHlvdSBoYXZlIHRvIHVzZSBwcmV2aWV3QmFzZTY0IG1ldGhvZFxuICAgKiBAcGFyYW0gdXJsIHtTdHJpbmd9IGZ1bGwgYWJzb2x1dGUgVVJMIC0+IGZpbGU6Ly8sIGNvbnRlbnQ6Ly8sIGh0dHA6Ly8sIGh0dHBzLCAuLi4gZXRjLCBpZiBleHRlbnNpb24gbm90IGV4aXN0LCB5b3UgbXVzdCBkZWZpbmUgaXQgaW4gdGhlIG9wdCBwYXJhbVxuICAgKiBAcGFyYW0gb3B0aW9ucyB7UHJldmlld0FueUZpbGVPcHRpb25zfSBkZWZpbmUgdGhlIG5hbWUgb2YgdGhlIGZpbGUgd2l0aCBleHRlbnNpb24gb3IgaXQncyBtaW1lVHlwZSwgaWYgdGhlIGNvcnJlY3QgZXh0ZW5zaW9uIG5vdCBleGlzdCBpbiB0aGUgcGF0aFxuICAgKi9cbiAgQENvcmRvdmEoKVxuICBwcmV2aWV3UGF0aCh1cmw6IHN0cmluZywgb3B0aW9ucz86IFByZXZpZXdBbnlGaWxlT3B0aW9ucyk6IFByb21pc2U8c3RyaW5nPiB7XG4gICAgcmV0dXJuO1xuICB9XG5cbiAgLyoqXG4gICAqIHByZXZpZXdQYXRoIGZ1bmN0aW9uIHdpbGwgcmV0dXJuIHN1Y2Nlc3MgY2FsbGJhY2sgaWYgdGhlIGZpbGUgc3VjY2Vzc2Z1bGx5IG9wZW5lZCwgaWYgdGhlIGNvbnRlbnQgaXMgYmFzZTY0IHlvdSBoYXZlIHRvIHVzZSBwcmV2aWV3QmFzZTY0IG1ldGhvZFxuICAgKiBAcGFyYW0gdXJsIHtTdHJpbmd9IGZ1bGwgYWJzb2x1dGUgVVJMIC0+IGZpbGU6Ly8sIGNvbnRlbnQ6Ly8sIGh0dHA6Ly8sIGh0dHBzLCAuLi4gZXRjLCBpZiBleHRlbnNpb24gbm90IGV4aXN0LCB5b3UgbXVzdCBkZWZpbmUgaXQgaW4gdGhlIG9wdCBwYXJhbVxuICAgKiBAcGFyYW0gb3B0aW9ucyB7UHJldmlld0FueUZpbGVPcHRpb25zfSBkZWZpbmUgdGhlIG5hbWUgb2YgdGhlIGZpbGUgd2l0aCBleHRlbnNpb24gb3IgaXQncyBtaW1lVHlwZSwgaWYgdGhlIGNvcnJlY3QgZXh0ZW5zaW9uIG5vdCBleGlzdCBpbiB0aGUgcGF0aFxuICAgKi9cbiAgQENvcmRvdmEoKVxuICBwcmV2aWV3QXNzZXQodXJsOiBzdHJpbmcsIG9wdGlvbnM/OiBQcmV2aWV3QW55RmlsZU9wdGlvbnMpOiBQcm9taXNlPHN0cmluZz4ge1xuICAgIHJldHVybjtcbiAgfVxufVxuIl19
-
-      /***/
-
-    },
-
-    /***/
     "cKCH":
     /*!******************************************************************************************************!*\
       !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/pages/customer/conferinta/conferinta.page.html ***!
@@ -1785,7 +1686,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<ion-header [translucent]=\"true\" class=\"header-background\">\r\n  <ion-toolbar>\r\n    <ion-buttons slot=\"start\">\r\n      <ion-menu-button></ion-menu-button>\r\n      </ion-buttons>\r\n    <ion-title>Consultatii online</ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n  <ion-card *ngIf=\"url_conferinta\" >\r\n              <ion-card-content class=\"resp-container\">\r\n                  <iframe class=\"webPage\" allow=\"microphone *; camera; fullscreen; display-capture\" [src]=\"url_conferinta | safe\" ></iframe>\r\n                  <!-- <div id=\"jitsi-iframe\"></div> -->\r\n              </ion-card-content>\r\n            </ion-card>\r\n             <ion-card *ngIf=\"url_conferinta\" >\r\n              <ion-card-content>\r\n                <ngx-dropzone [multiple]=\"false\" (change)=\"onSelect($event)\">\r\n                  <ngx-dropzone-label>Faceti click sau trageti fisierul in interiorul acestei casete pentru a putea incarca documentele!</ngx-dropzone-label>\r\n                  <ngx-dropzone-preview *ngFor=\"let f of files\" [removable]=\"true\" (removed)=\"onRemove(f)\">\r\n                    <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>\r\n                  </ngx-dropzone-preview>\r\n                </ngx-dropzone>\r\n                 <!-- <form  [formGroup]=\"dropzone\" (ngSubmit)=\"onSubmitDropzone()\">\r\n                      <div class=\"dz-message\" data-dz-message><span>Faceti click sau trageti fisierul in interiorul acestei casete pentru a putea incarca documentele</span></div>\r\n                  </form> -->\r\n                </ion-card-content>\r\n              </ion-card>\r\n              <ion-card *ngIf=\"url_conferinta\" >\r\n                <ion-card-header>\r\n                  <ion-card-title>Fisiere incarcate de doctor</ion-card-title>\r\n                </ion-card-header>\r\n                <ion-card-content>\r\n                \r\n                  <ul class=\"list-group\" id=\"file_listing\" *ngFor=\"let fisier of fisiere;\">\r\n                      <li class=\"list-group-item\"><a (click)=\"downloadFile(fisier.nume_fisier)\" >{{fisier.nume_fisier}}</a></li> \r\n                  </ul>\r\n                  <!-- <button class=\"btn btn-primary mt-2 mb-3 w-100\" id=\"refresh_files\"><i class=\"fas fa-sync-alt mr-2\"></i>Reimprospateaza fisiere</button>                                                                        -->\r\n                </ion-card-content>\r\n              </ion-card>\r\n              <ion-card *ngIf=\"!url_conferinta\">\r\n                <ion-card-header>\r\n                  <ion-card-title>Momentan nu ai nicio camera de consultatie deschisa</ion-card-title>\r\n                </ion-card-header>\r\n                <ion-card-content>\r\n                          <p class=\"card-text\">Daca astepti sa intri in conferinta, camera se va deschide imediat ce doctorul va porni consultatia, indiferent daca consultatia va avea loc pentru unul din conturile asociate.\r\n                          </p>\r\n                          <!-- <a href=\"{{route('consultatie.online')}}\" class=\"btn btn-primary waves-effect waves-light\">Reincearca conectarea la consultatia online</a> -->\r\n                        </ion-card-content>\r\n                      </ion-card>\r\n</ion-content>\r\n\r\n\r\n";
+      __webpack_exports__["default"] = "<ion-header [translucent]=\"true\" class=\"header-background\">\r\n  <ion-toolbar >\r\n    <ion-buttons slot=\"start\">\r\n      <ion-menu-button></ion-menu-button>\r\n      </ion-buttons>\r\n      <ion-title slot=\"start\" style=\"display:inline-block;position: relative;top: 5px;left: 5px;\">\r\n      <ion-label >Conferinta Online</ion-label>\r\n   </ion-title>\r\n   <ion-thumbnail slot=\"end\" style=\"display:inline-block;margin-right:5%\">\r\n    <img src=\"assets/images/logo.png\" style=\"transform:scale(0.7);\">\r\n  </ion-thumbnail>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n  <ion-card *ngIf=\"url_conferinta\" >\r\n              <ion-card-content class=\"resp-container\">\r\n                  <iframe class=\"webPage\" allow=\"microphone *; camera; fullscreen; display-capture\" [src]=\"url_conferinta | safe\" ></iframe>\r\n                  <!-- <div id=\"jitsi-iframe\"></div> -->\r\n              </ion-card-content>\r\n            </ion-card>\r\n             <ion-card *ngIf=\"url_conferinta\" >\r\n              <ion-card-content>\r\n                <ngx-dropzone [multiple]=\"false\" (change)=\"onSelect($event)\">\r\n                  <ngx-dropzone-label>Faceti click sau trageti fisierul in interiorul acestei casete pentru a putea incarca documentele.</ngx-dropzone-label>\r\n                  <ngx-dropzone-preview *ngFor=\"let f of files\" [removable]=\"true\" (removed)=\"onRemove(f)\">\r\n                    <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>\r\n                  </ngx-dropzone-preview>\r\n                </ngx-dropzone>\r\n                 <!-- <form  [formGroup]=\"dropzone\" (ngSubmit)=\"onSubmitDropzone()\">\r\n                      <div class=\"dz-message\" data-dz-message><span>Faceti click sau trageti fisierul in interiorul acestei casete pentru a putea incarca documentele</span></div>\r\n                  </form> -->\r\n                </ion-card-content>\r\n              </ion-card>\r\n              <ion-card *ngIf=\"url_conferinta\" >\r\n                <ion-card-header>\r\n                  <ion-card-title>Fisiere incarcate de doctor</ion-card-title>\r\n                </ion-card-header>\r\n                <ion-card-content>\r\n                \r\n                  <ul class=\"list-group\" id=\"file_listing\" *ngFor=\"let fisier of fisiere;\">\r\n                      <li class=\"list-group-item\"><a (click)=\"downloadFile(fisier.nume_fisier)\" >{{fisier.nume_fisier}}</a></li> \r\n                  </ul>\r\n                  <!-- <button class=\"btn btn-primary mt-2 mb-3 w-100\" id=\"refresh_files\"><i class=\"fas fa-sync-alt mr-2\"></i>Reimprospateaza fisiere</button>                                                                        -->\r\n                </ion-card-content>\r\n              </ion-card>\r\n              <ion-card *ngIf=\"!url_conferinta\">\r\n                <ion-card-header>\r\n                  <ion-card-title>Momentan nu ai nicio camera de consultatie deschisa</ion-card-title>\r\n                </ion-card-header>\r\n                <ion-card-content>\r\n                          <p class=\"card-text\">Daca astepti sa intri in conferinta, camera se va deschide imediat ce doctorul va porni consultatia, indiferent daca consultatia va avea loc pentru unul din conturile asociate.\r\n                          </p>\r\n                          <!-- <a href=\"{{route('consultatie.online')}}\" class=\"btn btn-primary waves-effect waves-light\">Reincearca conectarea la consultatia online</a> -->\r\n                        </ion-card-content>\r\n                      </ion-card>\r\n</ion-content>\r\n\r\n\r\n";
       /***/
     },
 
@@ -1921,7 +1822,7 @@
 
       var tslib__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
       /*! tslib */
-      "NfBk");
+      "O1h7");
       /* harmony import */
 
 
@@ -3655,9 +3556,16 @@
       var _ionic_native_media_ngx__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
       /*! @ionic-native/media/ngx */
       "9YJ4");
+      /* harmony import */
+
+
+      var src_app_services_ion_loader_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
+      /*! src/app/services/ion-loader.service */
+      "G8uT");
 
       var ConferintaPage = /*#__PURE__*/function () {
-        function ConferintaPage(media, previewAnyFile, platform, file, menu, router, authService, http) {
+        // constructor( private media: Media,private previewAnyFile: PreviewAnyFile, private platform: Platform, private file: File2,private menu: MenuController, private router: Router, private authService: AuthenticationService,private http: HttpClient,private ionLoaderService: IonLoaderService,private userAgent: UserAgent) {
+        function ConferintaPage(media, previewAnyFile, platform, file, menu, router, authService, http, ionLoaderService) {
           _classCallCheck(this, ConferintaPage);
 
           this.media = media;
@@ -3668,10 +3576,13 @@
           this.router = router;
           this.authService = authService;
           this.http = http;
+          this.ionLoaderService = ionLoaderService;
           this.domain = "voice.infragroup.ro"; // For self hosted use your domain
           // audioList: any[] = [];
+          // url = "https://probe.infragroup.ro";
+          // url = "https://medicall.medicover.ro";
 
-          this.url = "https://probe.infragroup.ro";
+          this.url = "http://127.0.0.1:8000";
           this.title = 'dropzone';
           this.files = [];
         }
@@ -3681,10 +3592,17 @@
           value: function fetchUrl() {
             var _this5 = this;
 
+            //  if(this.platform.is('iphone') || this.platform.is('ios') ){
+            // // // this.userAgent.set('Mozilla/5.0 (iPhone; CPU iPhone OS 15_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.4 Mobile/15E148 Safari/604.1')
+            // // // .then((res: any) => console.log(res))
+            // // // .catch((error: any) => console.error(error));
+            // //  }
             this.http.get("".concat(this.url, "/api/conferinta/roomOpened/").concat(localStorage.getItem("user_id"))).subscribe(function (data) {
               _this5.url_conferinta = data['url_consult'];
               _this5.id_consult = data['id_consult'];
               _this5.fisiere = data['fisiere'];
+
+              _this5.ionLoaderService.dismissLoader();
             });
           }
         }, {
@@ -3692,12 +3610,15 @@
           value: function ngOnInit() {
             var _this6 = this;
 
+            console.log(this.platform.platforms);
+            this.ionLoaderService.simpleLoader();
             this.url_conferinta = null;
             this.menu.enable(true);
             this.fetchUrl();
 
             if (!this.url_conferinta) {
               Object(rxjs__WEBPACK_IMPORTED_MODULE_7__["interval"])(30000).subscribe(function (x) {
+                // this.ionLoaderService.dismissLoader();
                 _this6.fetchUrl();
               });
             } else {
@@ -3775,6 +3696,8 @@
           type: src_app_services_authentication_service__WEBPACK_IMPORTED_MODULE_5__["AuthenticationService"]
         }, {
           type: _angular_common_http__WEBPACK_IMPORTED_MODULE_6__["HttpClient"]
+        }, {
+          type: src_app_services_ion_loader_service__WEBPACK_IMPORTED_MODULE_12__["IonLoaderService"]
         }];
       };
 

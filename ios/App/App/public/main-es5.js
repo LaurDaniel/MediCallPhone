@@ -17,7 +17,7 @@
     /***/
     function _(module, exports, __webpack_require__) {
       module.exports = __webpack_require__(
-      /*! D:\XAMPP\htdocs\MedicoverPhone\src\main.ts */
+      /*! D:\XAMPP\htdocs\MedicallPhone\src\main.ts */
       "zUnb");
       /***/
     },
@@ -281,12 +281,18 @@
       /* harmony import */
 
 
-      var _awesome_cordova_plugins_android_permissions_ngx__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      var src_app_services_event_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      /*! src/app/services/event.service */
+      "fTLw");
+      /* harmony import */
+
+
+      var _awesome_cordova_plugins_android_permissions_ngx__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
       /*! @awesome-cordova-plugins/android-permissions/ngx */
       "YCdq");
 
       var AppComponent = /*#__PURE__*/function () {
-        function AppComponent(menu, platform, splashScreen, statusBar, authService, router, alertService, navCtrl, _location, androidPermissions) {
+        function AppComponent(menu, platform, splashScreen, statusBar, authService, router, alertService, navCtrl, _location, androidPermissions, events) {
           _classCallCheck(this, AppComponent);
 
           this.menu = menu;
@@ -299,6 +305,7 @@
           this.navCtrl = navCtrl;
           this._location = _location;
           this.androidPermissions = androidPermissions;
+          this.events = events;
           this.appPages = [{
             title: 'Panou Principal',
             url: '/home',
@@ -308,18 +315,20 @@
             url: '/programari',
             icon: 'clipboard'
           }, {
-            title: 'Accesati Consultatia',
+            title: 'Asociere Cont',
+            url: '/profile',
+            icon: 'people'
+          }, {
+            title: 'Accesare Consultatie',
             url: '/conferinta',
             icon: 'videocam'
+          }, {
+            title: 'Istoric Consultatii',
+            url: '/arhiva',
+            icon: 'documents'
           }];
           this.initializeApp();
-        } // reloadComponent() {
-        //   let currentUrl = this.router.url;
-        //       this.router.routeReuseStrategy.shouldReuseRoute = () => false;
-        //       this.router.onSameUrlNavigation = 'reload';
-        //       this.router.navigate([currentUrl]);
-        //   }
-
+        }
 
         _createClass(AppComponent, [{
           key: "initializeApp",
@@ -329,27 +338,41 @@
             this.platform.ready().then(function () {
               _this.statusBar.styleDefault();
 
-              _this.splashScreen.hide();
+              _this.splashScreen.hide(); // if(this.platform.is('android')){
+              // // this.androidPermissions.checkPermission(this.androidPermissions.PERMISSION.RECORD_AUDIO).then(
+              // //   result => console.log('Has permission?',result.hasPermission),
+              // //   err => this.androidPermissions.requestPermission(this.androidPermissions.PERMISSION.RECORD_AUDIO)
+              // // );
+              // this.androidPermissions.requestPermissions([this.androidPermissions.PERMISSION.RECORD_AUDIO, this.androidPermissions.PERMISSION.GET_ACCOUNTS]);
+              // } 
 
-              if (_this.platform.is('android')) {
-                _this.androidPermissions.checkPermission(_this.androidPermissions.PERMISSION.RECORD_AUDIO).then(function (result) {
-                  return console.log('Has permission?', result.hasPermission);
-                }, function (err) {
-                  return _this.androidPermissions.requestPermission(_this.androidPermissions.PERMISSION.RECORD_AUDIO);
-                });
-
-                _this.androidPermissions.requestPermissions([_this.androidPermissions.PERMISSION.RECORD_AUDIO, _this.androidPermissions.PERMISSION.GET_ACCOUNTS]);
-              }
 
               _this.authService.authenticationState.subscribe(function (state) {
                 if (state) {
                   _this.menu.enable(true); // console.log(state)
 
 
+                  _this.avatar = localStorage.getItem('avatar');
+                  _this.user_name = localStorage.getItem('user_name');
+                  console.log(_this.avatar);
+
                   _this.router.navigate(['home']);
                 } else {
                   _this.router.navigate(['login']);
                 }
+              });
+
+              _this.events.getObservable().subscribe(function (data) {
+                _this.user = JSON.parse(data['user']);
+                console.log(_this.user);
+
+                if (!_this.user_name) {
+                  localStorage.setItem('user_name', _this.user.last_name + " " + _this.user.name);
+                  localStorage.setItem('avatar', _this.user.avatar);
+                  _this.avatar = localStorage.getItem('avatar');
+                  _this.user_name = localStorage.getItem('user_name');
+                } //  console.log(this.user.avatar)
+
               });
             });
           }
@@ -385,7 +408,9 @@
         }, {
           type: _angular_common__WEBPACK_IMPORTED_MODULE_5__["Location"]
         }, {
-          type: _awesome_cordova_plugins_android_permissions_ngx__WEBPACK_IMPORTED_MODULE_10__["AndroidPermissions"]
+          type: _awesome_cordova_plugins_android_permissions_ngx__WEBPACK_IMPORTED_MODULE_11__["AndroidPermissions"]
+        }, {
+          type: src_app_services_event_service__WEBPACK_IMPORTED_MODULE_10__["EventService"]
         }];
       };
 
@@ -479,7 +504,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<ion-app>\r\n  <!-- <ion-split-pane> -->\r\n    <ion-menu>\r\n      <ion-header>\r\n        <ion-toolbar>\r\n          <ion-title>Meniu</ion-title>\r\n        </ion-toolbar>\r\n      </ion-header>\r\n      <ion-content>\r\n        \r\n        <ion-list>\r\n          <ion-menu-toggle auto-hide=\"false\" *ngFor=\"let p of appPages\">\r\n            <ion-item [routerDirection]=\"'root'\" [routerLink]=\"[p.url]\">\r\n              <ion-icon slot=\"start\" [name]=\"p.icon\"></ion-icon>\r\n              <ion-label>\r\n                {{p.title}}\r\n              </ion-label>\r\n            </ion-item>\r\n          </ion-menu-toggle>\r\n          <ion-item (click)=\"logout()\">\r\n            <ion-icon slot=\"start\" name=\"log-out\"></ion-icon>\r\n            <ion-label>\r\n             Deconecteaza-te\r\n            </ion-label>\r\n          </ion-item>\r\n        </ion-list>\r\n      </ion-content>\r\n    </ion-menu>\r\n  \r\n    <ion-router-outlet main></ion-router-outlet>\r\n  <!-- </ion-split-pane> -->\r\n</ion-app>\r\n";
+      __webpack_exports__["default"] = "<ion-app>\r\n  <!-- <ion-split-pane> -->\r\n    <ion-menu>\r\n      <ion-header>\r\n        <ion-toolbar>\r\n          <ion-title>Meniu</ion-title>\r\n        </ion-toolbar>\r\n      </ion-header>\r\n      <ion-content style=\"text-align: center;\">\r\n        \r\n        <ion-avatar style=\"margin:0 auto; margin-top:25px !important;margin-bottom:25px !important;transform:scale(1.5);\"><ion-img src=\"https://infraspaces.ams3.digitaloceanspaces.com/medicover/avatars/user/{{avatar}}\"></ion-img></ion-avatar>\r\n        <ion-label ><strong>{{user_name}}</strong></ion-label>\r\n        <!-- <ion-label ><strong>{{user}}</strong></ion-label> -->\r\n       <!-- {{user.name}} -->\r\n        <!-- style=\"padding-bottom:10px;border-bottom: 1px solid rgb(223, 219, 219);\" -->\r\n        <ion-list style=\"margin-top:15px;\">\r\n          <ion-menu-toggle auto-hide=\"false\" *ngFor=\"let p of appPages\">\r\n            <ion-item [routerDirection]=\"'root'\" [routerLink]=\"[p.url]\">\r\n              <ion-icon slot=\"start\" [name]=\"p.icon\"></ion-icon>\r\n              <ion-label>\r\n                {{p.title}}\r\n              </ion-label>\r\n            </ion-item>\r\n          </ion-menu-toggle>\r\n          <ion-item (click)=\"logout()\">\r\n            <ion-icon slot=\"start\" name=\"log-out\"></ion-icon>\r\n            <ion-label>\r\n             Deconecteaza-te\r\n            </ion-label>\r\n          </ion-item>\r\n        </ion-list>\r\n      </ion-content>\r\n    </ion-menu>\r\n  \r\n    <ion-router-outlet main></ion-router-outlet>\r\n  <!-- </ion-split-pane> -->\r\n</ion-app>\r\n";
       /***/
     },
 
@@ -719,11 +744,17 @@
       var _env_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! ./env.service */
       "5zL6");
+      /* harmony import */
+
+
+      var _event_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      /*! ./event.service */
+      "fTLw");
 
       var TOKEN_KEY = 'access_token';
 
       var AuthenticationService = /*#__PURE__*/function () {
-        function AuthenticationService(env, http, helper, storage, plt, alertController, navCtrl) {
+        function AuthenticationService(env, http, helper, storage, events, plt, alertController, navCtrl) {
           var _this2 = this;
 
           _classCallCheck(this, AuthenticationService);
@@ -732,11 +763,14 @@
           this.http = http;
           this.helper = helper;
           this.storage = storage;
+          this.events = events;
           this.plt = plt;
           this.alertController = alertController;
           this.navCtrl = navCtrl;
-          this.isLoggedIn = false;
-          this.url = "https://probe.infragroup.ro";
+          this.isLoggedIn = false; // url = "https://medicall.medicover.ro";
+          // url = "https://probe.infragroup.ro";
+
+          this.url = "http://127.0.0.1:8000";
           this.user = null; // user_id = null;
 
           this.authenticationState = new rxjs__WEBPACK_IMPORTED_MODULE_7__["BehaviorSubject"](false);
@@ -783,7 +817,11 @@
 
               _this4.authenticationState.next(true);
 
-              localStorage.setItem("user_id", res['user'].id);
+              localStorage.setItem("user_id", res['user'].id); // alert(res['user'])
+
+              _this4.events.changeUser({
+                user: JSON.stringify(res['user'])
+              });
             }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["catchError"])(function (e) {
               _this4.showAlert('Autentificarea nu a reusit! Fi sigur ca email-ul si parola sunt corecte!');
 
@@ -859,6 +897,8 @@
         }, {
           type: _ionic_storage__WEBPACK_IMPORTED_MODULE_5__["Storage"]
         }, {
+          type: _event_service__WEBPACK_IMPORTED_MODULE_9__["EventService"]
+        }, {
           type: _ionic_angular__WEBPACK_IMPORTED_MODULE_1__["Platform"]
         }, {
           type: _ionic_angular__WEBPACK_IMPORTED_MODULE_1__["AlertController"]
@@ -870,6 +910,72 @@
       AuthenticationService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Injectable"])({
         providedIn: 'root'
       })], AuthenticationService);
+      /***/
+    },
+
+    /***/
+    "fTLw":
+    /*!*******************************************!*\
+      !*** ./src/app/services/event.service.ts ***!
+      \*******************************************/
+
+    /*! exports provided: EventService */
+
+    /***/
+    function fTLw(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "EventService", function () {
+        return EventService;
+      });
+      /* harmony import */
+
+
+      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! tslib */
+      "mrSG");
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! @angular/core */
+      "fXoL");
+      /* harmony import */
+
+
+      var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! rxjs */
+      "qCKp");
+
+      var EventService = /*#__PURE__*/function () {
+        function EventService() {
+          _classCallCheck(this, EventService);
+
+          this.fooSubject = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
+        }
+
+        _createClass(EventService, [{
+          key: "changeUser",
+          value: function changeUser(data) {
+            this.fooSubject.next(data);
+          }
+        }, {
+          key: "getObservable",
+          value: function getObservable() {
+            return this.fooSubject;
+          }
+        }]);
+
+        return EventService;
+      }();
+
+      EventService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+      })], EventService);
       /***/
     },
 
@@ -1015,9 +1121,9 @@
       }, {
         path: 'conferinta',
         loadChildren: function loadChildren() {
-          return __webpack_require__.e(
+          return Promise.all(
           /*! import() | pages-customer-conferinta-conferinta-module */
-          "pages-customer-conferinta-conferinta-module").then(__webpack_require__.bind(null,
+          [__webpack_require__.e("common"), __webpack_require__.e("pages-customer-conferinta-conferinta-module")]).then(__webpack_require__.bind(null,
           /*! ./pages/customer/conferinta/conferinta.module */
           "stGv")).then(function (m) {
             return m.ConferintaPageModule;
@@ -1026,12 +1132,34 @@
       }, {
         path: 'programari',
         loadChildren: function loadChildren() {
-          return __webpack_require__.e(
+          return Promise.all(
           /*! import() | pages-customer-programari-programari-module */
-          "pages-customer-programari-programari-module").then(__webpack_require__.bind(null,
+          [__webpack_require__.e("common"), __webpack_require__.e("pages-customer-programari-programari-module")]).then(__webpack_require__.bind(null,
           /*! ./pages/customer/programari/programari.module */
           "zqwK")).then(function (m) {
             return m.ProgramariPageModule;
+          });
+        }
+      }, {
+        path: 'arhiva',
+        loadChildren: function loadChildren() {
+          return Promise.all(
+          /*! import() | pages-customer-arhiva-arhiva-module */
+          [__webpack_require__.e("common"), __webpack_require__.e("pages-customer-arhiva-arhiva-module")]).then(__webpack_require__.bind(null,
+          /*! ./pages/customer/arhiva/arhiva.module */
+          "QiiV")).then(function (m) {
+            return m.ArhivaPageModule;
+          });
+        }
+      }, {
+        path: 'profile',
+        loadChildren: function loadChildren() {
+          return Promise.all(
+          /*! import() | pages-customer-profile-profile-module */
+          [__webpack_require__.e("common"), __webpack_require__.e("pages-customer-profile-profile-module")]).then(__webpack_require__.bind(null,
+          /*! ./pages/customer/profile/profile.module */
+          "4cRM")).then(function (m) {
+            return m.ProfilePageModule;
           });
         }
       }];
@@ -1106,7 +1234,7 @@
     /***/
     function zn8P(module, exports, __webpack_require__) {
       var map = {
-        "./pages/customer/home/home.module": ["yI1/", "pages-customer-home-home-module"],
+        "./pages/customer/home/home.module": ["yI1/", "common", "pages-customer-home-home-module"],
         "./public/login/login.module": ["6H4R", "public-login-login-module"],
         "./public/register/register.module": ["2i3i", "public-register-register-module"]
       };
@@ -1122,7 +1250,7 @@
 
         var ids = map[req],
             id = ids[0];
-        return __webpack_require__.e(ids[1]).then(function () {
+        return Promise.all(ids.slice(1).map(__webpack_require__.e)).then(function () {
           return __webpack_require__(id);
         });
       }

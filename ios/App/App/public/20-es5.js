@@ -46,15 +46,15 @@
       /* harmony import */
 
 
-      var _framework_delegate_4392cd63_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-      /*! ./framework-delegate-4392cd63.js */
-      "acej");
+      var _framework_delegate_94e770cc_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! ./framework-delegate-94e770cc.js */
+      "spDm");
       /* harmony import */
 
 
-      var _overlays_e9ccff30_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-      /*! ./overlays-e9ccff30.js */
-      "SOSK");
+      var _overlays_a62f858b_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! ./overlays-a62f858b.js */
+      "f9PN");
       /* harmony import */
 
 
@@ -64,15 +64,15 @@
       /* harmony import */
 
 
-      var _index_931440b1_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-      /*! ./index-931440b1.js */
-      "Js3/");
+      var _index_a7711c1e_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      /*! ./index-a7711c1e.js */
+      "qb1Q");
       /* harmony import */
 
 
-      var _animation_096c6391_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-      /*! ./animation-096c6391.js */
-      "meiF");
+      var _animation_822d986b_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      /*! ./animation-822d986b.js */
+      "Kfhc");
       /* harmony import */
 
 
@@ -88,9 +88,9 @@
       /* harmony import */
 
 
-      var _helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
-      /*! ./helpers-dd7e4b7b.js */
-      "1vRN");
+      var _helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      /*! ./helpers-1457892a.js */
+      "W6o/");
       /* harmony import */
 
 
@@ -137,13 +137,13 @@
         };
 
         var onMove = function onMove(detail) {
-          var step = Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_9__["j"])(0.0001, detail.deltaY / height, 0.9999);
+          var step = Object(_helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_9__["k"])(0.0001, detail.deltaY / height, 0.9999);
           animation.progressStep(step);
         };
 
         var onEnd = function onEnd(detail) {
           var velocity = detail.velocityY;
-          var step = Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_9__["j"])(0.0001, detail.deltaY / height, 0.9999);
+          var step = Object(_helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_9__["k"])(0.0001, detail.deltaY / height, 0.9999);
           var threshold = (detail.deltaY + velocity * 1000) / height;
           var shouldComplete = threshold >= 0.5;
           var newStepValue = shouldComplete ? -0.001 : 0.001;
@@ -185,7 +185,7 @@
       };
 
       var computeDuration = function computeDuration(remaining, velocity) {
-        return Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_9__["j"])(400, remaining / Math.abs(velocity * 1.1), 500);
+        return Object(_helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_9__["k"])(400, remaining / Math.abs(velocity * 1.1), 500);
       };
       /**
        * iOS Modal Enter Animation for the Card presentation style
@@ -193,18 +193,18 @@
 
 
       var iosEnterAnimation = function iosEnterAnimation(baseEl, presentingEl) {
-        var backdropAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_6__["c"])().addElement(baseEl.querySelector('ion-backdrop')).fromTo('opacity', 0.01, 'var(--backdrop-opacity)').beforeStyles({
+        var backdropAnimation = Object(_animation_822d986b_js__WEBPACK_IMPORTED_MODULE_6__["c"])().addElement(baseEl.querySelector('ion-backdrop')).fromTo('opacity', 0.01, 'var(--backdrop-opacity)').beforeStyles({
           'pointer-events': 'none'
         }).afterClearStyles(['pointer-events']);
-        var wrapperAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_6__["c"])().addElement(baseEl.querySelectorAll('.modal-wrapper, .modal-shadow')).beforeStyles({
+        var wrapperAnimation = Object(_animation_822d986b_js__WEBPACK_IMPORTED_MODULE_6__["c"])().addElement(baseEl.querySelectorAll('.modal-wrapper, .modal-shadow')).beforeStyles({
           'opacity': 1
         }).fromTo('transform', 'translateY(100vh)', 'translateY(0vh)');
-        var baseAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_6__["c"])().addElement(baseEl).easing('cubic-bezier(0.32,0.72,0,1)').duration(500).addAnimation(wrapperAnimation);
+        var baseAnimation = Object(_animation_822d986b_js__WEBPACK_IMPORTED_MODULE_6__["c"])().addElement(baseEl).easing('cubic-bezier(0.32,0.72,0,1)').duration(500).addAnimation(wrapperAnimation);
 
         if (presentingEl) {
           var isMobile = window.innerWidth < 768;
           var hasCardModal = presentingEl.tagName === 'ION-MODAL' && presentingEl.presentingElement !== undefined;
-          var presentingAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_6__["c"])().beforeStyles({
+          var presentingAnimation = Object(_animation_822d986b_js__WEBPACK_IMPORTED_MODULE_6__["c"])().beforeStyles({
             'transform': 'translateY(0)',
             'transform-origin': 'top center',
             'overflow': 'hidden'
@@ -258,7 +258,7 @@
                 filter: 'contrast(0.85)',
                 transform: _finalTransform
               }]);
-              var shadowAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_6__["c"])().afterStyles({
+              var shadowAnimation = Object(_animation_822d986b_js__WEBPACK_IMPORTED_MODULE_6__["c"])().afterStyles({
                 'transform': _finalTransform
               }).addElement(presentingEl.querySelector('.modal-shadow')).keyframes([{
                 offset: 0,
@@ -285,16 +285,16 @@
 
       var iosLeaveAnimation = function iosLeaveAnimation(baseEl, presentingEl) {
         var duration = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 500;
-        var backdropAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_6__["c"])().addElement(baseEl.querySelector('ion-backdrop')).fromTo('opacity', 'var(--backdrop-opacity)', 0.0);
-        var wrapperAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_6__["c"])().addElement(baseEl.querySelectorAll('.modal-wrapper, .modal-shadow')).beforeStyles({
+        var backdropAnimation = Object(_animation_822d986b_js__WEBPACK_IMPORTED_MODULE_6__["c"])().addElement(baseEl.querySelector('ion-backdrop')).fromTo('opacity', 'var(--backdrop-opacity)', 0.0);
+        var wrapperAnimation = Object(_animation_822d986b_js__WEBPACK_IMPORTED_MODULE_6__["c"])().addElement(baseEl.querySelectorAll('.modal-wrapper, .modal-shadow')).beforeStyles({
           'opacity': 1
         }).fromTo('transform', 'translateY(0vh)', 'translateY(100vh)');
-        var baseAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_6__["c"])().addElement(baseEl).easing('cubic-bezier(0.32,0.72,0,1)').duration(duration).addAnimation(wrapperAnimation);
+        var baseAnimation = Object(_animation_822d986b_js__WEBPACK_IMPORTED_MODULE_6__["c"])().addElement(baseEl).easing('cubic-bezier(0.32,0.72,0,1)').duration(duration).addAnimation(wrapperAnimation);
 
         if (presentingEl) {
           var isMobile = window.innerWidth < 768;
           var hasCardModal = presentingEl.tagName === 'ION-MODAL' && presentingEl.presentingElement !== undefined;
-          var presentingAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_6__["c"])().beforeClearStyles(['transform']).afterClearStyles(['transform']).onFinish(function (currentStep) {
+          var presentingAnimation = Object(_animation_822d986b_js__WEBPACK_IMPORTED_MODULE_6__["c"])().beforeClearStyles(['transform']).afterClearStyles(['transform']).onFinish(function (currentStep) {
             // only reset background color if this is the last card-style modal
             if (currentStep !== 1) {
               return;
@@ -349,7 +349,7 @@
                 filter: 'contrast(1)',
                 transform: 'translateY(0) scale(1)'
               }]);
-              var shadowAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_6__["c"])().addElement(presentingEl.querySelector('.modal-shadow')).afterStyles({
+              var shadowAnimation = Object(_animation_822d986b_js__WEBPACK_IMPORTED_MODULE_6__["c"])().addElement(presentingEl.querySelector('.modal-shadow')).afterStyles({
                 'transform': 'translateY(0) scale(1)'
               }).keyframes([{
                 offset: 0,
@@ -375,9 +375,9 @@
 
 
       var mdEnterAnimation = function mdEnterAnimation(baseEl) {
-        var baseAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_6__["c"])();
-        var backdropAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_6__["c"])();
-        var wrapperAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_6__["c"])();
+        var baseAnimation = Object(_animation_822d986b_js__WEBPACK_IMPORTED_MODULE_6__["c"])();
+        var backdropAnimation = Object(_animation_822d986b_js__WEBPACK_IMPORTED_MODULE_6__["c"])();
+        var wrapperAnimation = Object(_animation_822d986b_js__WEBPACK_IMPORTED_MODULE_6__["c"])();
         backdropAnimation.addElement(baseEl.querySelector('ion-backdrop')).fromTo('opacity', 0.01, 'var(--backdrop-opacity)').beforeStyles({
           'pointer-events': 'none'
         }).afterClearStyles(['pointer-events']);
@@ -398,9 +398,9 @@
 
 
       var mdLeaveAnimation = function mdLeaveAnimation(baseEl) {
-        var baseAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_6__["c"])();
-        var backdropAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_6__["c"])();
-        var wrapperAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_6__["c"])();
+        var baseAnimation = Object(_animation_822d986b_js__WEBPACK_IMPORTED_MODULE_6__["c"])();
+        var backdropAnimation = Object(_animation_822d986b_js__WEBPACK_IMPORTED_MODULE_6__["c"])();
+        var wrapperAnimation = Object(_animation_822d986b_js__WEBPACK_IMPORTED_MODULE_6__["c"])();
         var wrapperEl = baseEl.querySelector('.modal-wrapper');
         backdropAnimation.addElement(baseEl.querySelector('ion-backdrop')).fromTo('opacity', 'var(--backdrop-opacity)', 0.0);
         wrapperAnimation.addElement(wrapperEl).keyframes([{
@@ -459,7 +459,7 @@
           this.swipeToClose = false;
 
           this.onBackdropTap = function () {
-            _this.dismiss(undefined, _overlays_e9ccff30_js__WEBPACK_IMPORTED_MODULE_3__["B"]);
+            _this.dismiss(undefined, _overlays_a62f858b_js__WEBPACK_IMPORTED_MODULE_3__["B"]);
           };
 
           this.onDismiss = function (ev) {
@@ -496,7 +496,7 @@
         }, {
           key: "connectedCallback",
           value: function connectedCallback() {
-            Object(_overlays_e9ccff30_js__WEBPACK_IMPORTED_MODULE_3__["e"])(this.el);
+            Object(_overlays_a62f858b_js__WEBPACK_IMPORTED_MODULE_3__["e"])(this.el);
           }
           /**
            * Present the modal overlay after it has been created.
@@ -535,19 +535,19 @@
                         modal: this.el
                       });
                       _context.next = 8;
-                      return Object(_framework_delegate_4392cd63_js__WEBPACK_IMPORTED_MODULE_2__["a"])(this.delegate, container, this.component, ['ion-page'], componentProps);
+                      return Object(_framework_delegate_94e770cc_js__WEBPACK_IMPORTED_MODULE_2__["a"])(this.delegate, container, this.component, ['ion-page'], componentProps);
 
                     case 8:
                       this.usersElement = _context.sent;
                       _context.next = 11;
-                      return Object(_index_931440b1_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this.usersElement);
+                      return Object(_index_a7711c1e_js__WEBPACK_IMPORTED_MODULE_5__["e"])(this.usersElement);
 
                     case 11:
                       Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_0__["c"])(function () {
                         return _this2.el.classList.add('show-modal');
                       });
                       _context.next = 14;
-                      return Object(_overlays_e9ccff30_js__WEBPACK_IMPORTED_MODULE_3__["d"])(this, 'modalEnter', iosEnterAnimation, mdEnterAnimation, this.presentingElement);
+                      return Object(_overlays_a62f858b_js__WEBPACK_IMPORTED_MODULE_3__["d"])(this, 'modalEnter', iosEnterAnimation, mdEnterAnimation, this.presentingElement);
 
                     case 14:
                       if (this.swipeToClose) {
@@ -641,9 +641,9 @@
                       return _context3.abrupt("return", false);
 
                     case 2:
-                      enteringAnimation = _overlays_e9ccff30_js__WEBPACK_IMPORTED_MODULE_3__["h"].get(this) || [];
+                      enteringAnimation = _overlays_a62f858b_js__WEBPACK_IMPORTED_MODULE_3__["h"].get(this) || [];
                       _context3.next = 5;
-                      return Object(_overlays_e9ccff30_js__WEBPACK_IMPORTED_MODULE_3__["f"])(this, data, role, 'modalLeave', iosLeaveAnimation, mdLeaveAnimation, this.presentingElement);
+                      return Object(_overlays_a62f858b_js__WEBPACK_IMPORTED_MODULE_3__["f"])(this, data, role, 'modalLeave', iosLeaveAnimation, mdLeaveAnimation, this.presentingElement);
 
                     case 5:
                       dismissed = _context3.sent;
@@ -654,7 +654,7 @@
                       }
 
                       _context3.next = 9;
-                      return Object(_framework_delegate_4392cd63_js__WEBPACK_IMPORTED_MODULE_2__["d"])(this.delegate, this.usersElement);
+                      return Object(_framework_delegate_94e770cc_js__WEBPACK_IMPORTED_MODULE_2__["d"])(this.delegate, this.usersElement);
 
                     case 9:
                       if (this.animation) {
@@ -690,7 +690,7 @@
         }, {
           key: "onDidDismiss",
           value: function onDidDismiss() {
-            return Object(_overlays_e9ccff30_js__WEBPACK_IMPORTED_MODULE_3__["g"])(this.el, 'ionModalDidDismiss');
+            return Object(_overlays_a62f858b_js__WEBPACK_IMPORTED_MODULE_3__["g"])(this.el, 'ionModalDidDismiss');
           }
           /**
            * Returns a promise that resolves when the modal will dismiss.
@@ -699,7 +699,7 @@
         }, {
           key: "onWillDismiss",
           value: function onWillDismiss() {
-            return Object(_overlays_e9ccff30_js__WEBPACK_IMPORTED_MODULE_3__["g"])(this.el, 'ionModalWillDismiss');
+            return Object(_overlays_a62f858b_js__WEBPACK_IMPORTED_MODULE_3__["g"])(this.el, 'ionModalWillDismiss');
           }
         }, {
           key: "render",

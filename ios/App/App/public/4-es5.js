@@ -46,9 +46,9 @@
       /* harmony import */
 
 
-      var _helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-      /*! ./helpers-dd7e4b7b.js */
-      "1vRN");
+      var _helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! ./helpers-1457892a.js */
+      "W6o/");
       /* harmony import */
 
 
@@ -131,7 +131,7 @@
         _createClass(BackButton, [{
           key: "componentWillLoad",
           value: function componentWillLoad() {
-            this.inheritedAttributes = Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_2__["i"])(this.el, ['aria-label']);
+            this.inheritedAttributes = Object(_helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_2__["i"])(this.el);
 
             if (this.defaultHref === undefined) {
               this.defaultHref = _ionic_global_63a97a32_js__WEBPACK_IMPORTED_MODULE_1__["c"].get('backButtonDefaultHref');

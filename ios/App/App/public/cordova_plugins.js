@@ -60,6 +60,14 @@
         ]
         },
       {
+          "id": "im.ltdev.cordova.UserAgent.UserAgent",
+          "file": "plugins/im.ltdev.cordova.UserAgent/www/UserAgent.js",
+          "pluginId": "im.ltdev.cordova.UserAgent",
+        "clobbers": [
+          "UserAgent"
+        ]
+        },
+      {
           "id": "cordova-plugin-file.DirectoryEntry",
           "file": "plugins/cordova-plugin-file/www/DirectoryEntry.js",
           "pluginId": "cordova-plugin-file",
@@ -331,6 +339,7 @@
       "cordova-plugin-file": "6.0.2",
       "cordova-plugin-media": "5.0.4",
       "cordova-plugin-preview-any-file": "0.2.9",
+      "im.ltdev.cordova.UserAgent": "1.0.1",
       "cordova-pdf-generator": "2.1.1",
       "cordova-plugin-device": "2.1.0",
       "cordova-plugin-inappbrowser": "5.0.0",

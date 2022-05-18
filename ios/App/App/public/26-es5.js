@@ -58,9 +58,9 @@
       /* harmony import */
 
 
-      var _helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-      /*! ./helpers-dd7e4b7b.js */
-      "1vRN");
+      var _helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! ./helpers-1457892a.js */
+      "W6o/");
       /* harmony import */
 
 
@@ -70,9 +70,9 @@
       /* harmony import */
 
 
-      var _animation_096c6391_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-      /*! ./animation-096c6391.js */
-      "meiF");
+      var _animation_822d986b_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      /*! ./animation-822d986b.js */
+      "Kfhc");
       /* harmony import */
 
 
@@ -102,8 +102,8 @@
         var spinnerArrowContainer = pullingRefresherIcon.querySelector('.spinner-arrow-container');
         var arrowContainer = pullingRefresherIcon.querySelector('.arrow-container');
         var arrow = arrowContainer ? arrowContainer.querySelector('ion-icon') : null;
-        var baseAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_5__["c"])().duration(1000).easing('ease-out');
-        var spinnerArrowContainerAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_5__["c"])().addElement(spinnerArrowContainer).keyframes([{
+        var baseAnimation = Object(_animation_822d986b_js__WEBPACK_IMPORTED_MODULE_5__["c"])().duration(1000).easing('ease-out');
+        var spinnerArrowContainerAnimation = Object(_animation_822d986b_js__WEBPACK_IMPORTED_MODULE_5__["c"])().addElement(spinnerArrowContainer).keyframes([{
           offset: 0,
           opacity: '0.3'
         }, {
@@ -116,7 +116,7 @@
           offset: 1,
           opacity: '1'
         }]);
-        var circleInnerAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_5__["c"])().addElement(circle).keyframes([{
+        var circleInnerAnimation = Object(_animation_822d986b_js__WEBPACK_IMPORTED_MODULE_5__["c"])().addElement(circle).keyframes([{
           offset: 0,
           strokeDasharray: '1px, 200px'
         }, {
@@ -129,7 +129,7 @@
           offset: 1,
           strokeDasharray: '100px, 200px'
         }]);
-        var circleOuterAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_5__["c"])().addElement(spinner).keyframes([{
+        var circleOuterAnimation = Object(_animation_822d986b_js__WEBPACK_IMPORTED_MODULE_5__["c"])().addElement(spinner).keyframes([{
           offset: 0,
           transform: 'rotate(-90deg)'
         }, {
@@ -143,7 +143,7 @@
          */
 
         if (arrowContainer && arrow) {
-          var arrowContainerAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_5__["c"])().addElement(arrowContainer).keyframes([{
+          var arrowContainerAnimation = Object(_animation_822d986b_js__WEBPACK_IMPORTED_MODULE_5__["c"])().addElement(arrowContainer).keyframes([{
             offset: 0,
             transform: 'rotate(0deg)'
           }, {
@@ -156,7 +156,7 @@
             offset: 1,
             transform: 'rotate(400deg)'
           }]);
-          var arrowAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_5__["c"])().addElement(arrow).keyframes([{
+          var arrowAnimation = Object(_animation_822d986b_js__WEBPACK_IMPORTED_MODULE_5__["c"])().addElement(arrow).keyframes([{
             offset: 0,
             transform: 'translateX(2px) scale(0)'
           }, {
@@ -186,7 +186,7 @@
          * the icon by when pulling down.
          */
         var height = refresherEl.clientHeight;
-        var spinnerAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_5__["c"])().addElement(pullingRefresherIcon).keyframes([{
+        var spinnerAnimation = Object(_animation_822d986b_js__WEBPACK_IMPORTED_MODULE_5__["c"])().addElement(pullingRefresherIcon).keyframes([{
           offset: 0,
           transform: "scale(0) translateY(-".concat(height, "px)")
         }, {
@@ -207,7 +207,7 @@
          * the icon by when pulling down.
          */
         var height = refresherEl.clientHeight;
-        var spinnerAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_5__["c"])().addElement(pullingRefresherIcon).keyframes([{
+        var spinnerAnimation = Object(_animation_822d986b_js__WEBPACK_IMPORTED_MODULE_5__["c"])().addElement(pullingRefresherIcon).keyframes([{
           offset: 0,
           transform: "translateY(-".concat(height, "px)")
         }, {
@@ -218,7 +218,7 @@
       };
 
       var createSnapBackAnimation = function createSnapBackAnimation(pullingRefresherIcon) {
-        return Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_5__["c"])().duration(125).addElement(pullingRefresherIcon).fromTo('transform', 'translateY(var(--ion-pulling-refresher-translate, 100px))', 'translateY(0px)');
+        return Object(_animation_822d986b_js__WEBPACK_IMPORTED_MODULE_5__["c"])().duration(125).addElement(pullingRefresherIcon).fromTo('transform', 'translateY(var(--ion-pulling-refresher-translate, 100px))', 'translateY(0px)');
       }; // iOS Native Refresher
       // -----------------------------
 
@@ -283,7 +283,7 @@
                 case 3:
                   _context.next = 5;
                   return new Promise(function (resolve) {
-                    return Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_3__["c"])(refresherContent, resolve);
+                    return Object(_helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_3__["c"])(refresherContent, resolve);
                   });
 
                 case 5:
@@ -589,7 +589,7 @@
                             if (_this.state === 8
                             /* Refreshing */
                             ) {
-                              var ratio = Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_3__["j"])(0, scrollTop / (refresherHeight * 0.5), 1);
+                              var ratio = Object(_helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_3__["k"])(0, scrollTop / (refresherHeight * 0.5), 1);
                               Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_0__["c"])(function () {
                                 return setSpinnerOpacity(refreshingSpinner, 1 - ratio);
                               });
@@ -616,9 +616,9 @@
                           } // delay showing the next tick marks until user has pulled 30px
 
 
-                          var opacity = Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_3__["j"])(0, Math.abs(scrollTop) / refresherHeight, 0.99);
-                          var pullAmount = _this.progress = Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_3__["j"])(0, (Math.abs(scrollTop) - 30) / MAX_PULL, 1);
-                          var currentTickToShow = Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_3__["j"])(0, Math.floor(pullAmount * NUM_TICKS), NUM_TICKS - 1);
+                          var opacity = Object(_helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_3__["k"])(0, Math.abs(scrollTop) / refresherHeight, 0.99);
+                          var pullAmount = _this.progress = Object(_helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_3__["k"])(0, (Math.abs(scrollTop) - 30) / MAX_PULL, 1);
+                          var currentTickToShow = Object(_helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_3__["k"])(0, Math.floor(pullAmount * NUM_TICKS), NUM_TICKS - 1);
                           var shouldShowRefreshingSpinner = _this.state === 8
                           /* Refreshing */
                           || currentTickToShow === NUM_TICKS - 1;
@@ -733,9 +733,9 @@
                 while (1) {
                   switch (_context6.prev = _context6.next) {
                     case 0:
-                      circle = Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_3__["g"])(pullingSpinner).querySelector('circle');
+                      circle = Object(_helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_3__["g"])(pullingSpinner).querySelector('circle');
                       pullingRefresherIcon = this.el.querySelector('ion-refresher-content .refresher-pulling-icon');
-                      refreshingCircle = Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_3__["g"])(refreshingSpinner).querySelector('circle');
+                      refreshingCircle = Object(_helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_3__["g"])(refreshingSpinner).querySelector('circle');
 
                       if (circle !== null && refreshingCircle !== null) {
                         Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_0__["c"])(function () {
@@ -799,7 +799,7 @@
                           } // Since we are using an easing curve, slow the gesture tracking down a bit
 
 
-                          _this2.progress = Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_3__["j"])(0, ev.deltaY / 180 * 0.5, 1);
+                          _this2.progress = Object(_helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_3__["k"])(0, ev.deltaY / 180 * 0.5, 1);
                           ev.data.animation.progressStep(_this2.progress);
 
                           _this2.ionPull.emit();
@@ -964,7 +964,7 @@
                     case 7:
                       _context8.next = 9;
                       return new Promise(function (resolve) {
-                        return Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_3__["c"])(contentEl, resolve);
+                        return Object(_helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_3__["c"])(contentEl, resolve);
                       });
 
                     case 9:
@@ -973,7 +973,7 @@
 
                     case 11:
                       this.scrollEl = _context8.sent;
-                      this.backgroundContentEl = Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_3__["g"])(contentEl).querySelector('#background-content');
+                      this.backgroundContentEl = Object(_helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_3__["g"])(contentEl).querySelector('#background-content');
                       _context8.next = 15;
                       return shouldUseNativeRefresher(this.el, Object(_ionic_global_63a97a32_js__WEBPACK_IMPORTED_MODULE_1__["b"])(this));
 
@@ -1065,8 +1065,8 @@
                         this.needsCompletion = true; // Do not reset scroll el until user removes pointer from screen
 
                         if (!this.pointerDown) {
-                          Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_3__["r"])(function () {
-                            return Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_3__["r"])(function () {
+                          Object(_helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_3__["r"])(function () {
+                            return Object(_helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_3__["r"])(function () {
                               return _this4.resetNativeRefresher(_this4.elementToTransform, 32
                               /* Completing */
                               );
@@ -1110,8 +1110,8 @@
                       if (this.nativeRefresher) {
                         // Do not reset scroll el until user removes pointer from screen
                         if (!this.pointerDown) {
-                          Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_3__["r"])(function () {
-                            return Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_3__["r"])(function () {
+                          Object(_helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_3__["r"])(function () {
+                            return Object(_helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_3__["r"])(function () {
                               return _this5.resetNativeRefresher(_this5.elementToTransform, 16
                               /* Cancelling */
                               );

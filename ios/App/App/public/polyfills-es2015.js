@@ -203,8 +203,8 @@ module.exports = function (it, TAG, STATIC) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\XAMPP\htdocs\MedicoverPhone\src\polyfills.ts */"hN/g");
-module.exports = __webpack_require__(/*! D:\XAMPP\htdocs\MedicoverPhone\node_modules\@angular-devkit\build-angular\src\angular-cli-files\models\jit-polyfills.js */"LEsg");
+__webpack_require__(/*! D:\XAMPP\htdocs\MedicallPhone\src\polyfills.ts */"hN/g");
+module.exports = __webpack_require__(/*! D:\XAMPP\htdocs\MedicallPhone\node_modules\@angular-devkit\build-angular\src\angular-cli-files\models\jit-polyfills.js */"LEsg");
 
 
 /***/ }),
@@ -1128,7 +1128,7 @@ module.exports = DESCRIPTORS ? Object.defineProperties : function defineProperti
 /***/ (function(module, exports) {
 
 /**
- * @license Angular v10.0.14
+ * @license Angular v10.2.5
  * (c) 2010-2020 Google LLC. https://angular.io/
  * License: MIT
  */

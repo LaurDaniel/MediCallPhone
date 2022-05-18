@@ -44,15 +44,15 @@
       /* harmony import */
 
 
-      var _framework_delegate_4392cd63_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-      /*! ./framework-delegate-4392cd63.js */
-      "acej");
+      var _framework_delegate_94e770cc_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! ./framework-delegate-94e770cc.js */
+      "spDm");
       /* harmony import */
 
 
-      var _helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-      /*! ./helpers-dd7e4b7b.js */
-      "1vRN");
+      var _helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! ./helpers-1457892a.js */
+      "W6o/");
 
       var tabCss = ":host(.tab-hidden){display:none !important}";
 
@@ -141,7 +141,7 @@
               this.loaded = true;
 
               try {
-                return Object(_framework_delegate_4392cd63_js__WEBPACK_IMPORTED_MODULE_1__["a"])(this.delegate, this.el, this.component, ['ion-page']);
+                return Object(_framework_delegate_94e770cc_js__WEBPACK_IMPORTED_MODULE_1__["a"])(this.delegate, this.el, this.component, ['ion-page']);
               } catch (e) {
                 console.error(e);
               }

@@ -9,9 +9,11 @@ import { Router } from '@angular/router';
 import { PreviewAnyFile } from '@ionic-native/preview-any-file/ngx';
 import { Media, MediaObject } from '@ionic-native/media/ngx';
 import { IonLoaderService } from 'src/app/services/ion-loader.service';
-
+// import { UserAgent } from '@ionic-native/user-agent';
+// import { UserAgent } from '@awesome-cordova-plugins/user-agent/ngx';
 // import { File } from '@ionic-native/file';
 declare var JitsiMeetExternalAPI: any;
+
 
 
 @Component({
@@ -33,7 +35,8 @@ audio: MediaObject;
 // audioList: any[] = [];
     
 // url = "https://probe.infragroup.ro";
-url = "https://medicall.medicover.ro";
+// url = "https://medicall.medicover.ro";
+url = "http://127.0.0.1:8000";
   public url_conferinta: any;
   public check_url: any;
   public fisiere: any;
@@ -41,11 +44,17 @@ url = "https://medicall.medicover.ro";
   public id_consult: any;
   files: File[] = [];
 
+  // constructor( private media: Media,private previewAnyFile: PreviewAnyFile, private platform: Platform, private file: File2,private menu: MenuController, private router: Router, private authService: AuthenticationService,private http: HttpClient,private ionLoaderService: IonLoaderService,private userAgent: UserAgent) {
   constructor( private media: Media,private previewAnyFile: PreviewAnyFile, private platform: Platform, private file: File2,private menu: MenuController, private router: Router, private authService: AuthenticationService,private http: HttpClient,private ionLoaderService: IonLoaderService) {
    }
   
  fetchUrl()
  {
+  //  if(this.platform.is('iphone') || this.platform.is('ios') ){
+  // // // this.userAgent.set('Mozilla/5.0 (iPhone; CPU iPhone OS 15_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.4 Mobile/15E148 Safari/604.1')
+  // // // .then((res: any) => console.log(res))
+  // // // .catch((error: any) => console.error(error));
+  // //  }
   this.http.get(`${this.url}/api/conferinta/roomOpened/${localStorage.getItem("user_id")}`).subscribe(data=>{
    
     this.url_conferinta = data['url_consult'];
@@ -56,6 +65,7 @@ url = "https://medicall.medicover.ro";
  }
 
   ngOnInit() {
+    console.log(this.platform.platforms);
     this.ionLoaderService.simpleLoader();
     this.url_conferinta = null;
     this.menu.enable(true);

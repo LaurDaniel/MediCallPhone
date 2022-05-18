@@ -46,9 +46,9 @@
       /* harmony import */
 
 
-      var _helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-      /*! ./helpers-dd7e4b7b.js */
-      "1vRN");
+      var _helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! ./helpers-1457892a.js */
+      "W6o/");
       /* harmony import */
 
 
@@ -139,7 +139,7 @@
           this.value = 0;
 
           this.clampBounds = function (value) {
-            return Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_2__["j"])(_this.min, value, _this.max);
+            return Object(_helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_2__["k"])(_this.min, value, _this.max);
           };
 
           this.ensureValueInBounds = function (value) {
@@ -208,9 +208,9 @@
             }
 
             if (knob === 'A') {
-              _this.ratioA = Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_2__["j"])(0, _this.ratioA + step, 1);
+              _this.ratioA = Object(_helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_2__["k"])(0, _this.ratioA + step, 1);
             } else {
-              _this.ratioB = Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_2__["j"])(0, _this.ratioB + step, 1);
+              _this.ratioB = Object(_helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_2__["k"])(0, _this.ratioB + step, 1);
             }
 
             _this.updateValue();
@@ -240,7 +240,7 @@
         _createClass(Range, [{
           key: "debounceChanged",
           value: function debounceChanged() {
-            this.ionChange = Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_2__["f"])(this.ionChange, this.debounce);
+            this.ionChange = Object(_helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_2__["f"])(this.ionChange, this.debounce);
           }
         }, {
           key: "minChanged",
@@ -285,7 +285,7 @@
              * not assign the default incrementing ID.
              */
             this.rangeId = this.el.hasAttribute('id') ? this.el.getAttribute('id') : "ion-r-".concat(rangeIds++);
-            this.inheritedAttributes = Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_2__["i"])(this.el, ['aria-label']);
+            this.inheritedAttributes = Object(_helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_2__["i"])(this.el);
           }
         }, {
           key: "componentDidLoad",
@@ -354,7 +354,7 @@
             var rect = this.rect = this.rangeSlider.getBoundingClientRect();
             var currentX = detail.currentX; // figure out which knob they started closer to
 
-            var ratio = Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_2__["j"])(0, (currentX - rect.left) / rect.width, 1);
+            var ratio = Object(_helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_2__["k"])(0, (currentX - rect.left) / rect.width, 1);
 
             if (document.dir === 'rtl') {
               ratio = 1 - ratio;
@@ -382,7 +382,7 @@
             // figure out where the pointer is currently at
             // update the knob being interacted with
             var rect = this.rect;
-            var ratio = Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_2__["j"])(0, (currentX - rect.left) / rect.width, 1);
+            var ratio = Object(_helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_2__["k"])(0, (currentX - rect.left) / rect.width, 1);
 
             if (document.dir === 'rtl') {
               ratio = 1 - ratio;
@@ -493,7 +493,7 @@
              * and use that instead.
              */
 
-            var _Object = Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_2__["d"])(el, rangeId),
+            var _Object = Object(_helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_2__["d"])(el, rangeId),
                 labelText = _Object.labelText;
 
             if (labelText === undefined || labelText === null) {
@@ -527,7 +527,7 @@
               }
             }
 
-            Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_2__["e"])(true, el, this.name, JSON.stringify(this.getValue()), disabled);
+            Object(_helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_2__["e"])(true, el, this.name, JSON.stringify(this.getValue()), disabled);
             return Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_0__["h"])(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_0__["H"], {
               onFocusin: this.onFocus,
               onFocusout: this.onBlur,
@@ -673,11 +673,11 @@
           value = Math.round(value / step) * step + min;
         }
 
-        return Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_2__["j"])(min, value, max);
+        return Object(_helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_2__["k"])(min, value, max);
       };
 
       var valueToRatio = function valueToRatio(value, min, max) {
-        return Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_2__["j"])(0, (value - min) / (max - min), 1);
+        return Object(_helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_2__["k"])(0, (value - min) / (max - min), 1);
       };
 
       var rangeIds = 0;

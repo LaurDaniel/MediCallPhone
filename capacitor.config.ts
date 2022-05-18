@@ -15,6 +15,10 @@ const config: CapacitorConfig = {
       SplashScreen: 'screen',
       SplashScreenDelay: '3000'
     }
+  },
+  "ios": {
+    // User agent of Capacitor WebView for iOS
+    "overrideUserAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.4 Mobile/15E148 Safari/604.1",
   }
 };
 

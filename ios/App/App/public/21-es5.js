@@ -62,21 +62,21 @@
       /* harmony import */
 
 
-      var _helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-      /*! ./helpers-dd7e4b7b.js */
-      "1vRN");
+      var _helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! ./helpers-1457892a.js */
+      "W6o/");
       /* harmony import */
 
 
-      var _index_931440b1_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-      /*! ./index-931440b1.js */
-      "Js3/");
+      var _index_a7711c1e_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      /*! ./index-a7711c1e.js */
+      "qb1Q");
       /* harmony import */
 
 
-      var _framework_delegate_4392cd63_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-      /*! ./framework-delegate-4392cd63.js */
-      "acej");
+      var _framework_delegate_94e770cc_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      /*! ./framework-delegate-94e770cc.js */
+      "spDm");
 
       var VIEW_STATE_NEW = 1;
       var VIEW_STATE_ATTACHED = 2;
@@ -109,7 +109,7 @@
 
                       component = this.component;
                       _context.next = 5;
-                      return Object(_framework_delegate_4392cd63_js__WEBPACK_IMPORTED_MODULE_5__["a"])(this.delegate, container, component, ['ion-page', 'ion-page-invisible'], this.params);
+                      return Object(_framework_delegate_94e770cc_js__WEBPACK_IMPORTED_MODULE_5__["a"])(this.delegate, container, component, ['ion-page', 'ion-page-invisible'], this.params);
 
                     case 5:
                       this.element = _context.sent;
@@ -135,7 +135,7 @@
         }, {
           key: "_destroy",
           value: function _destroy() {
-            Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_3__["l"])(this.state !== VIEW_STATE_DESTROYED, 'view state must be ATTACHED');
+            Object(_helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_3__["m"])(this.state !== VIEW_STATE_DESTROYED, 'view state must be ATTACHED');
             var element = this.element;
 
             if (element) {
@@ -293,10 +293,10 @@
                       this.rootChanged();
                       _context2.next = 3;
                       return __webpack_require__.e(
-                      /*! import() | swipe-back-fae97365-js */
-                      "swipe-back-fae97365-js").then(__webpack_require__.bind(null,
-                      /*! ./swipe-back-fae97365.js */
-                      "Pu4v"));
+                      /*! import() | swipe-back-1bbd08e0-js */
+                      "swipe-back-1bbd08e0-js").then(__webpack_require__.bind(null,
+                      /*! ./swipe-back-1bbd08e0.js */
+                      "TWyq"));
 
                     case 3:
                       this.gesture = _context2.sent.createSwipeBackGesture(this.el, this.canStart.bind(this), this.onStart.bind(this), this.onMove.bind(this), this.onEnd.bind(this));
@@ -325,7 +325,7 @@
             try {
               for (_iterator.s(); !(_step = _iterator.n()).done;) {
                 var view = _step.value;
-                Object(_index_931440b1_js__WEBPACK_IMPORTED_MODULE_4__["l"])(view.element, _index_931440b1_js__WEBPACK_IMPORTED_MODULE_4__["d"]);
+                Object(_index_a7711c1e_js__WEBPACK_IMPORTED_MODULE_4__["l"])(view.element, _index_a7711c1e_js__WEBPACK_IMPORTED_MODULE_4__["d"]);
 
                 view._destroy();
               }
@@ -1009,8 +1009,8 @@
             }
 
             if (ti.removeView !== undefined) {
-              Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_3__["l"])(ti.removeStart !== undefined, 'removeView needs removeStart');
-              Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_3__["l"])(ti.removeCount !== undefined, 'removeView needs removeCount');
+              Object(_helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_3__["m"])(ti.removeStart !== undefined, 'removeView needs removeStart');
+              Object(_helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_3__["m"])(ti.removeCount !== undefined, 'removeView needs removeCount');
               var index = this.views.indexOf(ti.removeView);
 
               if (index < 0) {
@@ -1048,7 +1048,7 @@
               return;
             }
 
-            Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_3__["l"])(insertViews.length > 0, 'length can not be zero');
+            Object(_helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_3__["m"])(insertViews.length > 0, 'length can not be zero');
             var viewControllers = convertToViews(insertViews);
 
             if (viewControllers.length === 0) {
@@ -1112,9 +1112,9 @@
         }, {
           key: "postViewInit",
           value: function postViewInit(enteringView, leavingView, ti) {
-            Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_3__["l"])(leavingView || enteringView, 'Both leavingView and enteringView are null');
-            Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_3__["l"])(ti.resolve, 'resolve must be valid');
-            Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_3__["l"])(ti.reject, 'reject must be valid');
+            Object(_helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_3__["m"])(leavingView || enteringView, 'Both leavingView and enteringView are null');
+            Object(_helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_3__["m"])(ti.resolve, 'resolve must be valid');
+            Object(_helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_3__["m"])(ti.reject, 'reject must be valid');
             var opts = ti.opts;
             var insertViews = ti.insertViews;
             var removeStart = ti.removeStart;
@@ -1122,8 +1122,8 @@
             var destroyQueue; // there are views to remove
 
             if (removeStart !== undefined && removeCount !== undefined) {
-              Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_3__["l"])(removeStart >= 0, 'removeStart can not be negative');
-              Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_3__["l"])(removeCount >= 0, 'removeCount can not be negative');
+              Object(_helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_3__["m"])(removeStart >= 0, 'removeStart can not be negative');
+              Object(_helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_3__["m"])(removeCount >= 0, 'removeCount can not be negative');
               destroyQueue = [];
 
               for (var i = 0; i < removeCount; i++) {
@@ -1139,7 +1139,7 @@
             }
 
             var finalBalance = this.views.length + (insertViews !== undefined ? insertViews.length : 0) - (removeCount !== undefined ? removeCount : 0);
-            Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_3__["l"])(finalBalance >= 0, 'final balance can not be negative');
+            Object(_helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_3__["m"])(finalBalance >= 0, 'final balance can not be negative');
 
             if (finalBalance === 0) {
               console.warn("You can't remove all the pages in the navigation stack. nav.pop() is probably called too many times.", this, this.el);
@@ -1185,9 +1185,9 @@
               try {
                 for (_iterator4.s(); !(_step4 = _iterator4.n()).done;) {
                   var _view2 = _step4.value;
-                  Object(_index_931440b1_js__WEBPACK_IMPORTED_MODULE_4__["l"])(_view2.element, _index_931440b1_js__WEBPACK_IMPORTED_MODULE_4__["b"]);
-                  Object(_index_931440b1_js__WEBPACK_IMPORTED_MODULE_4__["l"])(_view2.element, _index_931440b1_js__WEBPACK_IMPORTED_MODULE_4__["c"]);
-                  Object(_index_931440b1_js__WEBPACK_IMPORTED_MODULE_4__["l"])(_view2.element, _index_931440b1_js__WEBPACK_IMPORTED_MODULE_4__["d"]);
+                  Object(_index_a7711c1e_js__WEBPACK_IMPORTED_MODULE_4__["l"])(_view2.element, _index_a7711c1e_js__WEBPACK_IMPORTED_MODULE_4__["b"]);
+                  Object(_index_a7711c1e_js__WEBPACK_IMPORTED_MODULE_4__["l"])(_view2.element, _index_a7711c1e_js__WEBPACK_IMPORTED_MODULE_4__["c"]);
+                  Object(_index_a7711c1e_js__WEBPACK_IMPORTED_MODULE_4__["l"])(_view2.element, _index_a7711c1e_js__WEBPACK_IMPORTED_MODULE_4__["d"]);
                 } // once all lifecycle events has been delivered, we can safely detroy the views
 
               } catch (err) {
@@ -1244,7 +1244,7 @@
                         animationBuilder: opts.animationBuilder || this.animation || _ionic_global_63a97a32_js__WEBPACK_IMPORTED_MODULE_1__["c"].get('navAnimation')
                       });
                       _context7.next = 8;
-                      return Object(_index_931440b1_js__WEBPACK_IMPORTED_MODULE_4__["t"])(animationOpts);
+                      return Object(_index_a7711c1e_js__WEBPACK_IMPORTED_MODULE_4__["t"])(animationOpts);
 
                     case 8:
                       _yield$Object = _context7.sent;
@@ -1291,10 +1291,10 @@
             if (existingIndex > -1) {
               // this view is already in the stack!!
               // move it to its new location
-              Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_3__["l"])(view.nav === this, 'view is not part of the nav');
+              Object(_helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_3__["m"])(view.nav === this, 'view is not part of the nav');
               views.splice(index, 0, views.splice(existingIndex, 1)[0]);
             } else {
-              Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_3__["l"])(!view.nav, 'nav is used'); // this is a new view to add to the stack
+              Object(_helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_3__["m"])(!view.nav, 'nav is used'); // this is a new view to add to the stack
               // create the new entering view
 
               view.nav = this; // insert the entering view into the correct index in the stack
@@ -1305,10 +1305,10 @@
         }, {
           key: "removeView",
           value: function removeView(view) {
-            Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_3__["l"])(view.state === VIEW_STATE_ATTACHED || view.state === VIEW_STATE_DESTROYED, 'view state should be loaded or destroyed');
+            Object(_helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_3__["m"])(view.state === VIEW_STATE_ATTACHED || view.state === VIEW_STATE_DESTROYED, 'view state should be loaded or destroyed');
             var views = this.views;
             var index = views.indexOf(view);
-            Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_3__["l"])(index > -1, 'view must be part of the stack');
+            Object(_helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_3__["m"])(index > -1, 'view must be part of the stack');
 
             if (index >= 0) {
               views.splice(index, 1);
@@ -1355,12 +1355,12 @@
                 if (i > activeViewIndex) {
                   // this view comes after the active view
                   // let's unload it
-                  Object(_index_931440b1_js__WEBPACK_IMPORTED_MODULE_4__["l"])(element, _index_931440b1_js__WEBPACK_IMPORTED_MODULE_4__["d"]);
+                  Object(_index_a7711c1e_js__WEBPACK_IMPORTED_MODULE_4__["l"])(element, _index_a7711c1e_js__WEBPACK_IMPORTED_MODULE_4__["d"]);
                   this.destroyView(view);
                 } else if (i < activeViewIndex) {
                   // this view comes before the active view
                   // and it is not a portal then ensure it is hidden
-                  Object(_index_931440b1_js__WEBPACK_IMPORTED_MODULE_4__["s"])(element, true);
+                  Object(_index_a7711c1e_js__WEBPACK_IMPORTED_MODULE_4__["s"])(element, true);
                 }
               }
             }

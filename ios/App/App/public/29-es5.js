@@ -72,9 +72,9 @@
       /* harmony import */
 
 
-      var _helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-      /*! ./helpers-dd7e4b7b.js */
-      "1vRN");
+      var _helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! ./helpers-1457892a.js */
+      "W6o/");
       /* harmony import */
 
 
@@ -419,7 +419,7 @@
                 case 6:
                   _context.next = 8;
                   return new Promise(function (resolve) {
-                    return Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_1__["c"])(outlet, resolve);
+                    return Object(_helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_1__["c"])(outlet, resolve);
                   });
 
                 case 8:
@@ -1059,8 +1059,8 @@
         }, {
           key: "componentDidLoad",
           value: function componentDidLoad() {
-            window.addEventListener('ionRouteRedirectChanged', Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_1__["n"])(this.onRedirectChanged.bind(this), 10));
-            window.addEventListener('ionRouteDataChanged', Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_1__["n"])(this.onRoutesChanged.bind(this), 100));
+            window.addEventListener('ionRouteRedirectChanged', Object(_helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_1__["o"])(this.onRedirectChanged.bind(this), 10));
+            window.addEventListener('ionRouteDataChanged', Object(_helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_1__["o"])(this.onRoutesChanged.bind(this), 100));
           }
         }, {
           key: "onPopState",

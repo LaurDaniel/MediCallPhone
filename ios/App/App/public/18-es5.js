@@ -46,9 +46,9 @@
       /* harmony import */
 
 
-      var _overlays_e9ccff30_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-      /*! ./overlays-e9ccff30.js */
-      "SOSK");
+      var _overlays_a62f858b_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! ./overlays-a62f858b.js */
+      "f9PN");
       /* harmony import */
 
 
@@ -64,9 +64,9 @@
       /* harmony import */
 
 
-      var _animation_096c6391_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-      /*! ./animation-096c6391.js */
-      "meiF");
+      var _animation_822d986b_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      /*! ./animation-822d986b.js */
+      "Kfhc");
       /* harmony import */
 
 
@@ -76,18 +76,18 @@
       /* harmony import */
 
 
-      var _helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
-      /*! ./helpers-dd7e4b7b.js */
-      "1vRN");
+      var _helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      /*! ./helpers-1457892a.js */
+      "W6o/");
       /**
        * iOS Loading Enter Animation
        */
 
 
       var iosEnterAnimation = function iosEnterAnimation(baseEl) {
-        var baseAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_5__["c"])();
-        var backdropAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_5__["c"])();
-        var wrapperAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_5__["c"])();
+        var baseAnimation = Object(_animation_822d986b_js__WEBPACK_IMPORTED_MODULE_5__["c"])();
+        var backdropAnimation = Object(_animation_822d986b_js__WEBPACK_IMPORTED_MODULE_5__["c"])();
+        var wrapperAnimation = Object(_animation_822d986b_js__WEBPACK_IMPORTED_MODULE_5__["c"])();
         backdropAnimation.addElement(baseEl.querySelector('ion-backdrop')).fromTo('opacity', 0.01, 'var(--backdrop-opacity)').beforeStyles({
           'pointer-events': 'none'
         }).afterClearStyles(['pointer-events']);
@@ -108,9 +108,9 @@
 
 
       var iosLeaveAnimation = function iosLeaveAnimation(baseEl) {
-        var baseAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_5__["c"])();
-        var backdropAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_5__["c"])();
-        var wrapperAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_5__["c"])();
+        var baseAnimation = Object(_animation_822d986b_js__WEBPACK_IMPORTED_MODULE_5__["c"])();
+        var backdropAnimation = Object(_animation_822d986b_js__WEBPACK_IMPORTED_MODULE_5__["c"])();
+        var wrapperAnimation = Object(_animation_822d986b_js__WEBPACK_IMPORTED_MODULE_5__["c"])();
         backdropAnimation.addElement(baseEl.querySelector('ion-backdrop')).fromTo('opacity', 'var(--backdrop-opacity)', 0);
         wrapperAnimation.addElement(baseEl.querySelector('.loading-wrapper')).keyframes([{
           offset: 0,
@@ -129,9 +129,9 @@
 
 
       var mdEnterAnimation = function mdEnterAnimation(baseEl) {
-        var baseAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_5__["c"])();
-        var backdropAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_5__["c"])();
-        var wrapperAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_5__["c"])();
+        var baseAnimation = Object(_animation_822d986b_js__WEBPACK_IMPORTED_MODULE_5__["c"])();
+        var backdropAnimation = Object(_animation_822d986b_js__WEBPACK_IMPORTED_MODULE_5__["c"])();
+        var wrapperAnimation = Object(_animation_822d986b_js__WEBPACK_IMPORTED_MODULE_5__["c"])();
         backdropAnimation.addElement(baseEl.querySelector('ion-backdrop')).fromTo('opacity', 0.01, 'var(--backdrop-opacity)').beforeStyles({
           'pointer-events': 'none'
         }).afterClearStyles(['pointer-events']);
@@ -152,9 +152,9 @@
 
 
       var mdLeaveAnimation = function mdLeaveAnimation(baseEl) {
-        var baseAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_5__["c"])();
-        var backdropAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_5__["c"])();
-        var wrapperAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_5__["c"])();
+        var baseAnimation = Object(_animation_822d986b_js__WEBPACK_IMPORTED_MODULE_5__["c"])();
+        var backdropAnimation = Object(_animation_822d986b_js__WEBPACK_IMPORTED_MODULE_5__["c"])();
+        var wrapperAnimation = Object(_animation_822d986b_js__WEBPACK_IMPORTED_MODULE_5__["c"])();
         backdropAnimation.addElement(baseEl.querySelector('ion-backdrop')).fromTo('opacity', 'var(--backdrop-opacity)', 0);
         wrapperAnimation.addElement(baseEl.querySelector('.loading-wrapper')).keyframes([{
           offset: 0,
@@ -217,14 +217,14 @@
           this.animated = true;
 
           this.onBackdropTap = function () {
-            _this.dismiss(undefined, _overlays_e9ccff30_js__WEBPACK_IMPORTED_MODULE_2__["B"]);
+            _this.dismiss(undefined, _overlays_a62f858b_js__WEBPACK_IMPORTED_MODULE_2__["B"]);
           };
         }
 
         _createClass(Loading, [{
           key: "connectedCallback",
           value: function connectedCallback() {
-            Object(_overlays_e9ccff30_js__WEBPACK_IMPORTED_MODULE_2__["e"])(this.el);
+            Object(_overlays_a62f858b_js__WEBPACK_IMPORTED_MODULE_2__["e"])(this.el);
           }
         }, {
           key: "componentWillLoad",
@@ -249,7 +249,7 @@
                   switch (_context.prev = _context.next) {
                     case 0:
                       _context.next = 2;
-                      return Object(_overlays_e9ccff30_js__WEBPACK_IMPORTED_MODULE_2__["d"])(this, 'loadingEnter', iosEnterAnimation, mdEnterAnimation, undefined);
+                      return Object(_overlays_a62f858b_js__WEBPACK_IMPORTED_MODULE_2__["d"])(this, 'loadingEnter', iosEnterAnimation, mdEnterAnimation, undefined);
 
                     case 2:
                       if (this.duration > 0) {
@@ -289,7 +289,7 @@
               clearTimeout(this.durationTimeout);
             }
 
-            return Object(_overlays_e9ccff30_js__WEBPACK_IMPORTED_MODULE_2__["f"])(this, data, role, 'loadingLeave', iosLeaveAnimation, mdLeaveAnimation);
+            return Object(_overlays_a62f858b_js__WEBPACK_IMPORTED_MODULE_2__["f"])(this, data, role, 'loadingLeave', iosLeaveAnimation, mdLeaveAnimation);
           }
           /**
            * Returns a promise that resolves when the loading did dismiss.
@@ -298,7 +298,7 @@
         }, {
           key: "onDidDismiss",
           value: function onDidDismiss() {
-            return Object(_overlays_e9ccff30_js__WEBPACK_IMPORTED_MODULE_2__["g"])(this.el, 'ionLoadingDidDismiss');
+            return Object(_overlays_a62f858b_js__WEBPACK_IMPORTED_MODULE_2__["g"])(this.el, 'ionLoadingDidDismiss');
           }
           /**
            * Returns a promise that resolves when the loading will dismiss.
@@ -307,7 +307,7 @@
         }, {
           key: "onWillDismiss",
           value: function onWillDismiss() {
-            return Object(_overlays_e9ccff30_js__WEBPACK_IMPORTED_MODULE_2__["g"])(this.el, 'ionLoadingWillDismiss');
+            return Object(_overlays_a62f858b_js__WEBPACK_IMPORTED_MODULE_2__["g"])(this.el, 'ionLoadingWillDismiss');
           }
         }, {
           key: "render",

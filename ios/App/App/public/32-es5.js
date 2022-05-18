@@ -58,15 +58,15 @@
       /* harmony import */
 
 
-      var _helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-      /*! ./helpers-dd7e4b7b.js */
-      "1vRN");
+      var _helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! ./helpers-1457892a.js */
+      "W6o/");
       /* harmony import */
 
 
-      var _overlays_e9ccff30_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-      /*! ./overlays-e9ccff30.js */
-      "SOSK");
+      var _overlays_a62f858b_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! ./overlays-a62f858b.js */
+      "f9PN");
       /* harmony import */
 
 
@@ -485,7 +485,7 @@
                           options: this.createPopoverOptions(this.childOpts, value)
                         }
                       });
-                      return _context4.abrupt("return", _overlays_e9ccff30_js__WEBPACK_IMPORTED_MODULE_3__["c"].create(popoverOpts));
+                      return _context4.abrupt("return", _overlays_a62f858b_js__WEBPACK_IMPORTED_MODULE_3__["c"].create(popoverOpts));
 
                     case 5:
                     case "end":
@@ -518,7 +518,7 @@
                         buttons: this.createActionSheetButtons(this.childOpts, this.value),
                         cssClass: ['select-action-sheet', interfaceOptions.cssClass]
                       });
-                      return _context5.abrupt("return", _overlays_e9ccff30_js__WEBPACK_IMPORTED_MODULE_3__["b"].create(actionSheetOpts));
+                      return _context5.abrupt("return", _overlays_a62f858b_js__WEBPACK_IMPORTED_MODULE_3__["b"].create(actionSheetOpts));
 
                     case 4:
                     case "end":
@@ -569,7 +569,7 @@
                         }],
                         cssClass: ['select-alert', interfaceOptions.cssClass, this.multiple ? 'multiple-select-alert' : 'single-select-alert']
                       });
-                      return _context6.abrupt("return", _overlays_e9ccff30_js__WEBPACK_IMPORTED_MODULE_3__["a"].create(alertOpts));
+                      return _context6.abrupt("return", _overlays_a62f858b_js__WEBPACK_IMPORTED_MODULE_3__["a"].create(alertOpts));
 
                     case 7:
                     case "end":
@@ -602,7 +602,7 @@
         }, {
           key: "getLabel",
           value: function getLabel() {
-            return Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_2__["h"])(this.el);
+            return Object(_helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_2__["j"])(this.el);
           }
         }, {
           key: "hasValue",
@@ -659,11 +659,11 @@
                 value = this.value;
             var mode = Object(_ionic_global_63a97a32_js__WEBPACK_IMPORTED_MODULE_1__["b"])(this);
 
-            var _Object = Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_2__["d"])(el, inputId),
+            var _Object = Object(_helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_2__["d"])(el, inputId),
                 labelText = _Object.labelText,
                 labelId = _Object.labelId;
 
-            Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_2__["e"])(true, el, name, parseValue(value), disabled);
+            Object(_helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_2__["e"])(true, el, name, parseValue(value), disabled);
             var displayValue = this.getText();
             var addPlaceholderClass = false;
             var selectText = displayValue;
@@ -861,7 +861,7 @@
             });
 
             if (option) {
-              Object(_overlays_e9ccff30_js__WEBPACK_IMPORTED_MODULE_3__["s"])(option.handler);
+              Object(_overlays_a62f858b_js__WEBPACK_IMPORTED_MODULE_3__["s"])(option.handler);
             }
           }
         }, {

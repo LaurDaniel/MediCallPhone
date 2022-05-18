@@ -506,7 +506,7 @@
     /***/
     function _(module, exports, __webpack_require__) {
       __webpack_require__(
-      /*! D:\XAMPP\htdocs\MedicoverPhone\node_modules\@angular-devkit\build-angular\src\angular-cli-files\models\es5-polyfills.js */
+      /*! D:\XAMPP\htdocs\MedicallPhone\node_modules\@angular-devkit\build-angular\src\angular-cli-files\models\es5-polyfills.js */
       "mRIq");
 
       __webpack_require__(
@@ -514,15 +514,15 @@
       "R0gw");
 
       __webpack_require__(
-      /*! D:\XAMPP\htdocs\MedicoverPhone\node_modules\@angular-devkit\build-angular\src\angular-cli-files\models\jit-polyfills.js */
+      /*! D:\XAMPP\htdocs\MedicallPhone\node_modules\@angular-devkit\build-angular\src\angular-cli-files\models\jit-polyfills.js */
       "LEsg");
 
       __webpack_require__(
-      /*! D:\XAMPP\htdocs\MedicoverPhone\node_modules\@angular-devkit\build-angular\src\angular-cli-files\models\es5-jit-polyfills.js */
+      /*! D:\XAMPP\htdocs\MedicallPhone\node_modules\@angular-devkit\build-angular\src\angular-cli-files\models\es5-jit-polyfills.js */
       "YJXN");
 
       module.exports = __webpack_require__(
-      /*! D:\XAMPP\htdocs\MedicoverPhone\src\polyfills.ts */
+      /*! D:\XAMPP\htdocs\MedicallPhone\src\polyfills.ts */
       "hN/g");
       /***/
     },
@@ -5665,7 +5665,7 @@
     /***/
     function NDB(module, exports) {
       /**
-       * @license Angular v10.0.14
+       * @license Angular v10.2.5
        * (c) 2010-2020 Google LLC. https://angular.io/
        * License: MIT
        */

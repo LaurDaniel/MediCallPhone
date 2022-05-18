@@ -46,9 +46,9 @@
       /* harmony import */
 
 
-      var _overlays_e9ccff30_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-      /*! ./overlays-e9ccff30.js */
-      "SOSK");
+      var _overlays_a62f858b_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! ./overlays-a62f858b.js */
+      "f9PN");
       /* harmony import */
 
 
@@ -64,9 +64,9 @@
       /* harmony import */
 
 
-      var _animation_096c6391_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-      /*! ./animation-096c6391.js */
-      "meiF");
+      var _animation_822d986b_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      /*! ./animation-822d986b.js */
+      "Kfhc");
       /* harmony import */
 
 
@@ -76,17 +76,17 @@
       /* harmony import */
 
 
-      var _helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
-      /*! ./helpers-dd7e4b7b.js */
-      "1vRN");
+      var _helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      /*! ./helpers-1457892a.js */
+      "W6o/");
       /**
        * iOS Toast Enter Animation
        */
 
 
       var iosEnterAnimation = function iosEnterAnimation(baseEl, position) {
-        var baseAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_5__["c"])();
-        var wrapperAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_5__["c"])();
+        var baseAnimation = Object(_animation_822d986b_js__WEBPACK_IMPORTED_MODULE_5__["c"])();
+        var wrapperAnimation = Object(_animation_822d986b_js__WEBPACK_IMPORTED_MODULE_5__["c"])();
         var hostEl = baseEl.host || baseEl;
         var wrapperEl = baseEl.querySelector('.toast-wrapper');
         var bottom = "calc(-10px - var(--ion-safe-area-bottom, 0px))";
@@ -117,8 +117,8 @@
 
 
       var iosLeaveAnimation = function iosLeaveAnimation(baseEl, position) {
-        var baseAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_5__["c"])();
-        var wrapperAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_5__["c"])();
+        var baseAnimation = Object(_animation_822d986b_js__WEBPACK_IMPORTED_MODULE_5__["c"])();
+        var wrapperAnimation = Object(_animation_822d986b_js__WEBPACK_IMPORTED_MODULE_5__["c"])();
         var hostEl = baseEl.host || baseEl;
         var wrapperEl = baseEl.querySelector('.toast-wrapper');
         var bottom = "calc(-10px - var(--ion-safe-area-bottom, 0px))";
@@ -147,8 +147,8 @@
 
 
       var mdEnterAnimation = function mdEnterAnimation(baseEl, position) {
-        var baseAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_5__["c"])();
-        var wrapperAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_5__["c"])();
+        var baseAnimation = Object(_animation_822d986b_js__WEBPACK_IMPORTED_MODULE_5__["c"])();
+        var wrapperAnimation = Object(_animation_822d986b_js__WEBPACK_IMPORTED_MODULE_5__["c"])();
         var hostEl = baseEl.host || baseEl;
         var wrapperEl = baseEl.querySelector('.toast-wrapper');
         var bottom = "calc(8px + var(--ion-safe-area-bottom, 0px))";
@@ -181,8 +181,8 @@
 
 
       var mdLeaveAnimation = function mdLeaveAnimation(baseEl) {
-        var baseAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_5__["c"])();
-        var wrapperAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_5__["c"])();
+        var baseAnimation = Object(_animation_822d986b_js__WEBPACK_IMPORTED_MODULE_5__["c"])();
+        var wrapperAnimation = Object(_animation_822d986b_js__WEBPACK_IMPORTED_MODULE_5__["c"])();
         var hostEl = baseEl.host || baseEl;
         var wrapperEl = baseEl.querySelector('.toast-wrapper');
         wrapperAnimation.addElement(wrapperEl).fromTo('opacity', 0.99, 0);
@@ -236,7 +236,7 @@
           this.dispatchCancelHandler = function (ev) {
             var role = ev.detail.role;
 
-            if (Object(_overlays_e9ccff30_js__WEBPACK_IMPORTED_MODULE_2__["i"])(role)) {
+            if (Object(_overlays_a62f858b_js__WEBPACK_IMPORTED_MODULE_2__["i"])(role)) {
               var cancelButton = _this.getButtons().find(function (b) {
                 return b.role === 'cancel';
               });
@@ -249,7 +249,7 @@
         _createClass(Toast, [{
           key: "connectedCallback",
           value: function connectedCallback() {
-            Object(_overlays_e9ccff30_js__WEBPACK_IMPORTED_MODULE_2__["e"])(this.el);
+            Object(_overlays_a62f858b_js__WEBPACK_IMPORTED_MODULE_2__["e"])(this.el);
           }
           /**
            * Present the toast overlay after it has been created.
@@ -266,7 +266,7 @@
                   switch (_context.prev = _context.next) {
                     case 0:
                       _context.next = 2;
-                      return Object(_overlays_e9ccff30_js__WEBPACK_IMPORTED_MODULE_2__["d"])(this, 'toastEnter', iosEnterAnimation, mdEnterAnimation, this.position);
+                      return Object(_overlays_a62f858b_js__WEBPACK_IMPORTED_MODULE_2__["d"])(this, 'toastEnter', iosEnterAnimation, mdEnterAnimation, this.position);
 
                     case 2:
                       if (this.duration > 0) {
@@ -306,7 +306,7 @@
               clearTimeout(this.durationTimeout);
             }
 
-            return Object(_overlays_e9ccff30_js__WEBPACK_IMPORTED_MODULE_2__["f"])(this, data, role, 'toastLeave', iosLeaveAnimation, mdLeaveAnimation, this.position);
+            return Object(_overlays_a62f858b_js__WEBPACK_IMPORTED_MODULE_2__["f"])(this, data, role, 'toastLeave', iosLeaveAnimation, mdLeaveAnimation, this.position);
           }
           /**
            * Returns a promise that resolves when the toast did dismiss.
@@ -315,7 +315,7 @@
         }, {
           key: "onDidDismiss",
           value: function onDidDismiss() {
-            return Object(_overlays_e9ccff30_js__WEBPACK_IMPORTED_MODULE_2__["g"])(this.el, 'ionToastDidDismiss');
+            return Object(_overlays_a62f858b_js__WEBPACK_IMPORTED_MODULE_2__["g"])(this.el, 'ionToastDidDismiss');
           }
           /**
            * Returns a promise that resolves when the toast will dismiss.
@@ -324,7 +324,7 @@
         }, {
           key: "onWillDismiss",
           value: function onWillDismiss() {
-            return Object(_overlays_e9ccff30_js__WEBPACK_IMPORTED_MODULE_2__["g"])(this.el, 'ionToastWillDismiss');
+            return Object(_overlays_a62f858b_js__WEBPACK_IMPORTED_MODULE_2__["g"])(this.el, 'ionToastWillDismiss');
           }
         }, {
           key: "getButtons",
@@ -347,7 +347,7 @@
                     case 0:
                       role = button.role;
 
-                      if (!Object(_overlays_e9ccff30_js__WEBPACK_IMPORTED_MODULE_2__["i"])(role)) {
+                      if (!Object(_overlays_a62f858b_js__WEBPACK_IMPORTED_MODULE_2__["i"])(role)) {
                         _context2.next = 3;
                         break;
                       }
@@ -401,7 +401,7 @@
 
                       _context3.prev = 1;
                       _context3.next = 4;
-                      return Object(_overlays_e9ccff30_js__WEBPACK_IMPORTED_MODULE_2__["s"])(button.handler);
+                      return Object(_overlays_a62f858b_js__WEBPACK_IMPORTED_MODULE_2__["s"])(button.handler);
 
                     case 4:
                       rtn = _context3.sent;

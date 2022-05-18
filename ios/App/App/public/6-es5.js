@@ -48,9 +48,9 @@
       /* harmony import */
 
 
-      var _helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-      /*! ./helpers-dd7e4b7b.js */
-      "1vRN");
+      var _helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! ./helpers-1457892a.js */
+      "W6o/");
       /* harmony import */
 
 
@@ -217,7 +217,7 @@
           this.handleClick = function (ev) {
             if (_this.type === 'button') {
               Object(_theme_ff3fc52f_js__WEBPACK_IMPORTED_MODULE_3__["o"])(_this.href, ev, _this.routerDirection, _this.routerAnimation);
-            } else if (Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_2__["k"])(_this.el)) {
+            } else if (Object(_helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_2__["l"])(_this.el)) {
               // this button wants to specifically submit a form
               // climb up the dom to see if we're in a <form>
               // and if so, then use JS to submit it
@@ -250,7 +250,7 @@
             this.inToolbar = !!this.el.closest('ion-buttons');
             this.inListHeader = !!this.el.closest('ion-list-header');
             this.inItem = !!this.el.closest('ion-item') || !!this.el.closest('ion-item-divider');
-            this.inheritedAttributes = Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_2__["i"])(this.el, ['aria-label']);
+            this.inheritedAttributes = Object(_helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_2__["i"])(this.el);
           }
         }, {
           key: "hasIconOnly",

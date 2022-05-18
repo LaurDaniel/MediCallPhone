@@ -42,9 +42,9 @@
       /* harmony import */
 
 
-      var _helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-      /*! ./helpers-dd7e4b7b.js */
-      "1vRN");
+      var _helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! ./helpers-1457892a.js */
+      "W6o/");
       /* harmony import */
 
 
@@ -131,8 +131,8 @@
       };
 
       var renderProgress = function renderProgress(value, buffer) {
-        var finalValue = Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_2__["j"])(0, value, 1);
-        var finalBuffer = Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_2__["j"])(0, buffer, 1);
+        var finalValue = Object(_helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_2__["k"])(0, value, 1);
+        var finalBuffer = Object(_helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_2__["k"])(0, buffer, 1);
         return [Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_0__["h"])("div", {
           part: "progress",
           "class": "progress",

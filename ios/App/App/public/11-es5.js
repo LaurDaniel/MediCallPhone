@@ -72,15 +72,15 @@
       /* harmony import */
 
 
-      var _helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-      /*! ./helpers-dd7e4b7b.js */
-      "1vRN");
+      var _helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! ./helpers-1457892a.js */
+      "W6o/");
       /* harmony import */
 
 
-      var _overlays_e9ccff30_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-      /*! ./overlays-e9ccff30.js */
-      "SOSK");
+      var _overlays_a62f858b_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! ./overlays-a62f858b.js */
+      "f9PN");
       /* harmony import */
 
 
@@ -90,9 +90,9 @@
       /* harmony import */
 
 
-      var _animation_096c6391_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-      /*! ./animation-096c6391.js */
-      "meiF");
+      var _animation_822d986b_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      /*! ./animation-822d986b.js */
+      "Kfhc");
       /* harmony import */
 
 
@@ -861,7 +861,7 @@
                     case 2:
                       pickerOptions = this.generatePickerOptions();
                       _context2.next = 5;
-                      return _overlays_e9ccff30_js__WEBPACK_IMPORTED_MODULE_3__["p"].create(pickerOptions);
+                      return _overlays_a62f858b_js__WEBPACK_IMPORTED_MODULE_3__["p"].create(pickerOptions);
 
                     case 5:
                       picker = _context2.sent;
@@ -871,7 +871,7 @@
 
                         _this2.setFocus();
                       });
-                      Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_2__["a"])(picker, 'ionPickerColChange', /*#__PURE__*/function () {
+                      Object(_helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_2__["a"])(picker, 'ionPickerColChange', /*#__PURE__*/function () {
                         var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(event) {
                           var data, colSelectedIndex, colOptions, changeData;
                           return regeneratorRuntime.wrap(function _callee$(_context) {
@@ -1187,7 +1187,7 @@
               }
             }
 
-            var selectedIndex = column.selectedIndex = Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_2__["j"])(indexMin, column.selectedIndex, indexMax);
+            var selectedIndex = column.selectedIndex = Object(_helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_2__["k"])(indexMin, column.selectedIndex, indexMax);
             var opt = column.options[selectedIndex];
 
             if (opt) {
@@ -1235,7 +1235,7 @@
                 placeholder = this.placeholder;
             var mode = Object(_ionic_global_63a97a32_js__WEBPACK_IMPORTED_MODULE_1__["b"])(this);
             var labelId = inputId + '-lbl';
-            var label = Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_2__["h"])(el);
+            var label = Object(_helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_2__["j"])(el);
             var addPlaceholderClass = text === undefined && placeholder != null ? true : false; // If selected text has been passed in, use that first
             // otherwise use the placeholder
 
@@ -1246,7 +1246,7 @@
               label.id = labelId;
             }
 
-            Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_2__["e"])(true, el, this.name, this.value, this.disabled);
+            Object(_helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_2__["e"])(true, el, this.name, this.value, this.disabled);
             return Object(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_0__["h"])(_index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_0__["H"], {
               onClick: this.onClick,
               "aria-disabled": disabled ? 'true' : null,
@@ -1340,9 +1340,9 @@
        */
 
       var iosEnterAnimation = function iosEnterAnimation(baseEl) {
-        var baseAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_5__["c"])();
-        var backdropAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_5__["c"])();
-        var wrapperAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_5__["c"])();
+        var baseAnimation = Object(_animation_822d986b_js__WEBPACK_IMPORTED_MODULE_5__["c"])();
+        var backdropAnimation = Object(_animation_822d986b_js__WEBPACK_IMPORTED_MODULE_5__["c"])();
+        var wrapperAnimation = Object(_animation_822d986b_js__WEBPACK_IMPORTED_MODULE_5__["c"])();
         backdropAnimation.addElement(baseEl.querySelector('ion-backdrop')).fromTo('opacity', 0.01, 'var(--backdrop-opacity)').beforeStyles({
           'pointer-events': 'none'
         }).afterClearStyles(['pointer-events']);
@@ -1355,9 +1355,9 @@
 
 
       var iosLeaveAnimation = function iosLeaveAnimation(baseEl) {
-        var baseAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_5__["c"])();
-        var backdropAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_5__["c"])();
-        var wrapperAnimation = Object(_animation_096c6391_js__WEBPACK_IMPORTED_MODULE_5__["c"])();
+        var baseAnimation = Object(_animation_822d986b_js__WEBPACK_IMPORTED_MODULE_5__["c"])();
+        var backdropAnimation = Object(_animation_822d986b_js__WEBPACK_IMPORTED_MODULE_5__["c"])();
+        var wrapperAnimation = Object(_animation_822d986b_js__WEBPACK_IMPORTED_MODULE_5__["c"])();
         backdropAnimation.addElement(baseEl.querySelector('ion-backdrop')).fromTo('opacity', 'var(--backdrop-opacity)', 0.01);
         wrapperAnimation.addElement(baseEl.querySelector('.picker-wrapper')).fromTo('transform', 'translateY(0%)', 'translateY(100%)');
         return baseAnimation.addElement(baseEl).easing('cubic-bezier(.36,.66,.04,1)').duration(400).addAnimation([backdropAnimation, wrapperAnimation]);
@@ -1415,13 +1415,13 @@
           this.animated = true;
 
           this.onBackdropTap = function () {
-            _this6.dismiss(undefined, _overlays_e9ccff30_js__WEBPACK_IMPORTED_MODULE_3__["B"]);
+            _this6.dismiss(undefined, _overlays_a62f858b_js__WEBPACK_IMPORTED_MODULE_3__["B"]);
           };
 
           this.dispatchCancelHandler = function (ev) {
             var role = ev.detail.role;
 
-            if (Object(_overlays_e9ccff30_js__WEBPACK_IMPORTED_MODULE_3__["i"])(role)) {
+            if (Object(_overlays_a62f858b_js__WEBPACK_IMPORTED_MODULE_3__["i"])(role)) {
               var cancelButton = _this6.buttons.find(function (b) {
                 return b.role === 'cancel';
               });
@@ -1434,7 +1434,7 @@
         _createClass(Picker, [{
           key: "connectedCallback",
           value: function connectedCallback() {
-            Object(_overlays_e9ccff30_js__WEBPACK_IMPORTED_MODULE_3__["e"])(this.el);
+            Object(_overlays_a62f858b_js__WEBPACK_IMPORTED_MODULE_3__["e"])(this.el);
           }
           /**
            * Present the picker overlay after it has been created.
@@ -1451,7 +1451,7 @@
                   switch (_context3.prev = _context3.next) {
                     case 0:
                       _context3.next = 2;
-                      return Object(_overlays_e9ccff30_js__WEBPACK_IMPORTED_MODULE_3__["d"])(this, 'pickerEnter', iosEnterAnimation, iosEnterAnimation, undefined);
+                      return Object(_overlays_a62f858b_js__WEBPACK_IMPORTED_MODULE_3__["d"])(this, 'pickerEnter', iosEnterAnimation, iosEnterAnimation, undefined);
 
                     case 2:
                       if (this.duration > 0) {
@@ -1491,7 +1491,7 @@
               clearTimeout(this.durationTimeout);
             }
 
-            return Object(_overlays_e9ccff30_js__WEBPACK_IMPORTED_MODULE_3__["f"])(this, data, role, 'pickerLeave', iosLeaveAnimation, iosLeaveAnimation);
+            return Object(_overlays_a62f858b_js__WEBPACK_IMPORTED_MODULE_3__["f"])(this, data, role, 'pickerLeave', iosLeaveAnimation, iosLeaveAnimation);
           }
           /**
            * Returns a promise that resolves when the picker did dismiss.
@@ -1500,7 +1500,7 @@
         }, {
           key: "onDidDismiss",
           value: function onDidDismiss() {
-            return Object(_overlays_e9ccff30_js__WEBPACK_IMPORTED_MODULE_3__["g"])(this.el, 'ionPickerDidDismiss');
+            return Object(_overlays_a62f858b_js__WEBPACK_IMPORTED_MODULE_3__["g"])(this.el, 'ionPickerDidDismiss');
           }
           /**
            * Returns a promise that resolves when the picker will dismiss.
@@ -1509,7 +1509,7 @@
         }, {
           key: "onWillDismiss",
           value: function onWillDismiss() {
-            return Object(_overlays_e9ccff30_js__WEBPACK_IMPORTED_MODULE_3__["g"])(this.el, 'ionPickerWillDismiss');
+            return Object(_overlays_a62f858b_js__WEBPACK_IMPORTED_MODULE_3__["g"])(this.el, 'ionPickerWillDismiss');
           }
           /**
            * Get the column that matches the specified name.
@@ -1535,7 +1535,7 @@
                     case 0:
                       role = button.role;
 
-                      if (!Object(_overlays_e9ccff30_js__WEBPACK_IMPORTED_MODULE_3__["i"])(role)) {
+                      if (!Object(_overlays_a62f858b_js__WEBPACK_IMPORTED_MODULE_3__["i"])(role)) {
                         _context4.next = 3;
                         break;
                       }
@@ -1588,7 +1588,7 @@
                       }
 
                       _context5.next = 3;
-                      return Object(_overlays_e9ccff30_js__WEBPACK_IMPORTED_MODULE_3__["s"])(button.handler, this.getSelected());
+                      return Object(_overlays_a62f858b_js__WEBPACK_IMPORTED_MODULE_3__["s"])(button.handler, this.getSelected());
 
                     case 3:
                       rtn = _context5.sent;
@@ -2039,7 +2039,7 @@
               return;
             }
 
-            this.velocity = Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_2__["j"])(-MAX_PICKER_SPEED, detail.velocityY * 23, MAX_PICKER_SPEED);
+            this.velocity = Object(_helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_2__["k"])(-MAX_PICKER_SPEED, detail.velocityY * 23, MAX_PICKER_SPEED);
 
             if (this.velocity === 0 && detail.deltaY === 0) {
               var opt = detail.event.target.closest('.picker-opt');
@@ -2090,7 +2090,7 @@
               return;
             }
 
-            var selectedIndex = Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_2__["j"])(min, this.col.selectedIndex || 0, max);
+            var selectedIndex = Object(_helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_2__["k"])(min, this.col.selectedIndex || 0, max);
 
             if (this.col.prevSelected !== selectedIndex || forceRefresh) {
               var y = selectedIndex * this.optHeight * -1;

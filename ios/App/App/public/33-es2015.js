@@ -13,7 +13,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ion_slides", function() { return Slides; });
 /* harmony import */ var _index_7a8b7a1c_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index-7a8b7a1c.js */ "wEJo");
 /* harmony import */ var _ionic_global_63a97a32_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ionic-global-63a97a32.js */ "E/Mt");
-/* harmony import */ var _helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./helpers-dd7e4b7b.js */ "1vRN");
+/* harmony import */ var _helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./helpers-1457892a.js */ "W6o/");
 
 
 
@@ -97,7 +97,7 @@ const Slides = class {
         childList: true,
         subtree: true
       });
-      Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_2__["c"])(this.el, () => {
+      Object(_helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_2__["c"])(this.el, () => {
         this.initSwiper();
       });
     }
@@ -410,7 +410,7 @@ const Slides = class {
   }; }
 };
 const waitForSlides = (el) => {
-  return Promise.all(Array.from(el.querySelectorAll('ion-slide')).map(s => new Promise(resolve => Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_2__["c"])(s, resolve))));
+  return Promise.all(Array.from(el.querySelectorAll('ion-slide')).map(s => new Promise(resolve => Object(_helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_2__["c"])(s, resolve))));
 };
 Slides.style = {
   ios: slidesIosCss,

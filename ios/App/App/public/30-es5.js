@@ -46,9 +46,9 @@
       /* harmony import */
 
 
-      var _helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-      /*! ./helpers-dd7e4b7b.js */
-      "1vRN");
+      var _helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! ./helpers-1457892a.js */
+      "W6o/");
       /* harmony import */
 
 
@@ -258,7 +258,7 @@
         _createClass(Searchbar, [{
           key: "debounceChanged",
           value: function debounceChanged() {
-            this.ionChange = Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_2__["f"])(this.ionChange, this.debounce);
+            this.ionChange = Object(_helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_2__["f"])(this.ionChange, this.debounce);
           }
         }, {
           key: "valueChanged",
@@ -400,7 +400,7 @@
               tempSpan.innerText = this.placeholder || '';
               doc.body.appendChild(tempSpan); // Get the width of the span then remove it
 
-              Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_2__["r"])(function () {
+              Object(_helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_2__["r"])(function () {
                 var textWidth = tempSpan.offsetWidth;
                 tempSpan.remove(); // Calculate the input padding
 

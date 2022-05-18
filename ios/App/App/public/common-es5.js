@@ -1,4 +1,10 @@
 (function () {
+  function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+  function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+  function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
   function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
   function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
@@ -128,6 +134,284 @@
     },
 
     /***/
+    "G8uT":
+    /*!************************************************!*\
+      !*** ./src/app/services/ion-loader.service.ts ***!
+      \************************************************/
+
+    /*! exports provided: IonLoaderService */
+
+    /***/
+    function G8uT(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "IonLoaderService", function () {
+        return IonLoaderService;
+      });
+      /* harmony import */
+
+
+      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! tslib */
+      "mrSG");
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! @angular/core */
+      "fXoL");
+      /* harmony import */
+
+
+      var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! @ionic/angular */
+      "TEn/");
+
+      var IonLoaderService = /*#__PURE__*/function () {
+        function IonLoaderService(loadingController) {
+          _classCallCheck(this, IonLoaderService);
+
+          this.loadingController = loadingController;
+        }
+
+        _createClass(IonLoaderService, [{
+          key: "simpleLoader",
+          value: function simpleLoader() {
+            this.loadingController.create({
+              message: 'Se incarca...'
+            }).then(function (response) {
+              response.present();
+            });
+          }
+        }, {
+          key: "dismissLoader",
+          value: function dismissLoader() {
+            this.loadingController.dismiss().then(function (response) {// console.log('Loader closed!', response);
+            })["catch"](function (err) {// console.log('Error occured : ', err);
+            });
+          }
+        }, {
+          key: "autoLoader",
+          value: function autoLoader() {
+            this.loadingController.create({
+              message: 'Loader hides after 4 seconds',
+              duration: 4000
+            }).then(function (response) {
+              response.present();
+              response.onDidDismiss().then(function (response) {
+                console.log('Loader dismissed', response);
+              });
+            });
+          }
+        }]);
+
+        return IonLoaderService;
+      }();
+
+      IonLoaderService.ctorParameters = function () {
+        return [{
+          type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["LoadingController"]
+        }];
+      };
+
+      IonLoaderService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+      })], IonLoaderService);
+      /***/
+    },
+
+    /***/
+    "J9Qv":
+    /*!***************************************************************!*\
+      !*** ./src/app/components/pagination/pagination.component.ts ***!
+      \***************************************************************/
+
+    /*! exports provided: PaginationComponent */
+
+    /***/
+    function J9Qv(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "PaginationComponent", function () {
+        return PaginationComponent;
+      });
+      /* harmony import */
+
+
+      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! tslib */
+      "mrSG");
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! @angular/core */
+      "fXoL");
+
+      var paginate = __webpack_require__(
+      /*! jw-paginate */
+      "TNpa");
+
+      var PaginationComponent = /*#__PURE__*/function () {
+        function PaginationComponent() {
+          _classCallCheck(this, PaginationComponent);
+
+          this.changePage = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"](true);
+          this.initialPage = 1;
+          this.pageSize = 10;
+          this.maxPages = 10;
+          this.pager = {};
+        }
+
+        _createClass(PaginationComponent, [{
+          key: "ngOnInit",
+          value: function ngOnInit() {
+            // set page if items array isn't empty
+            if (this.items && this.items.length) {
+              this.setPage(this.initialPage);
+            }
+          }
+        }, {
+          key: "ngOnChanges",
+          value: function ngOnChanges(changes) {
+            // reset page if items array has changed
+            if (changes.items.currentValue !== changes.items.previousValue) {
+              this.setPage(this.initialPage);
+            }
+          }
+        }, {
+          key: "setPage",
+          value: function setPage(page) {
+            // get new pager object for specified page
+            this.pager = paginate(this.items.length, page, this.pageSize, this.maxPages); // get new page of items from items array
+
+            var pageOfItems = this.items.slice(this.pager.startIndex, this.pager.endIndex + 1); // call change page function in parent component
+
+            this.changePage.emit(pageOfItems);
+          }
+        }]);
+
+        return PaginationComponent;
+      }();
+
+      PaginationComponent.propDecorators = {
+        items: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }],
+        changePage: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"]
+        }],
+        initialPage: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }],
+        pageSize: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }],
+        maxPages: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }]
+      };
+      PaginationComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'jw-pagination',
+        template: "<ul *ngIf=\"pager.pages && pager.pages.length\" class=\"pagination\">\n    <li [ngClass]=\"{disabled:pager.currentPage === 1}\" class=\"page-item previous-item\">\n        <a (click)=\"setPage(pager.currentPage - 1)\" class=\"page-link\"><</a>\n    </li>\n    <li *ngFor=\"let page of pager.pages\" [ngClass]=\"{active:pager.currentPage === page}\" class=\"page-item number-item\">\n        <a (click)=\"setPage(page)\" class=\"page-link\">{{page}}</a>\n    </li>\n    <li [ngClass]=\"{disabled:pager.currentPage === pager.totalPages}\" class=\"page-item next-item\">\n        <a (click)=\"setPage(pager.currentPage + 1)\" class=\"page-link\">></a>\n    </li>\n   \n</ul>"
+      })], PaginationComponent);
+      /***/
+    },
+
+    /***/
+    "TNpa":
+    /*!*****************************************************!*\
+      !*** ./node_modules/jw-paginate/lib/jw-paginate.js ***!
+      \*****************************************************/
+
+    /*! no static exports found */
+
+    /***/
+    function TNpa(module, exports, __webpack_require__) {
+      "use strict";
+
+      function paginate(totalItems, currentPage, pageSize, maxPages) {
+        if (currentPage === void 0) {
+          currentPage = 1;
+        }
+
+        if (pageSize === void 0) {
+          pageSize = 10;
+        }
+
+        if (maxPages === void 0) {
+          maxPages = 10;
+        } // calculate total pages
+
+
+        var totalPages = Math.ceil(totalItems / pageSize); // ensure current page isn't out of range
+
+        if (currentPage < 1) {
+          currentPage = 1;
+        } else if (currentPage > totalPages) {
+          currentPage = totalPages;
+        }
+
+        var startPage, endPage;
+
+        if (totalPages <= maxPages) {
+          // total pages less than max so show all pages
+          startPage = 1;
+          endPage = totalPages;
+        } else {
+          // total pages more than max so calculate start and end pages
+          var maxPagesBeforeCurrentPage = Math.floor(maxPages / 2);
+          var maxPagesAfterCurrentPage = Math.ceil(maxPages / 2) - 1;
+
+          if (currentPage <= maxPagesBeforeCurrentPage) {
+            // current page near the start
+            startPage = 1;
+            endPage = maxPages;
+          } else if (currentPage + maxPagesAfterCurrentPage >= totalPages) {
+            // current page near the end
+            startPage = totalPages - maxPages + 1;
+            endPage = totalPages;
+          } else {
+            // current page somewhere in the middle
+            startPage = currentPage - maxPagesBeforeCurrentPage;
+            endPage = currentPage + maxPagesAfterCurrentPage;
+          }
+        } // calculate start and end item indexes
+
+
+        var startIndex = (currentPage - 1) * pageSize;
+        var endIndex = Math.min(startIndex + pageSize - 1, totalItems - 1); // create an array of pages to ng-repeat in the pager control
+
+        var pages = Array.from(Array(endPage + 1 - startPage).keys()).map(function (i) {
+          return startPage + i;
+        }); // return object with all pager properties required by the view
+
+        return {
+          totalItems: totalItems,
+          currentPage: currentPage,
+          pageSize: pageSize,
+          totalPages: totalPages,
+          startPage: startPage,
+          endPage: endPage,
+          startIndex: startIndex,
+          endIndex: endIndex,
+          pages: pages
+        };
+      }
+
+      module.exports = paginate;
+      /***/
+    },
+
+    /***/
     "Zcj0":
     /*!*********************************************************************!*\
       !*** ./node_modules/@ionic/core/dist/esm/button-active-d4bd4f74.js ***!
@@ -250,106 +534,100 @@
     },
 
     /***/
-    "acej":
-    /*!**************************************************************************!*\
-      !*** ./node_modules/@ionic/core/dist/esm/framework-delegate-4392cd63.js ***!
-      \**************************************************************************/
+    "c7Fb":
+    /*!*******************************************************************************!*\
+      !*** ./node_modules/@ionic-native/preview-any-file/__ivy_ngcc__/ngx/index.js ***!
+      \*******************************************************************************/
 
-    /*! exports provided: a, d */
+    /*! exports provided: PreviewAnyFile */
 
     /***/
-    function acej(module, __webpack_exports__, __webpack_require__) {
+    function c7Fb(module, __webpack_exports__, __webpack_require__) {
       "use strict";
 
       __webpack_require__.r(__webpack_exports__);
       /* harmony export (binding) */
 
 
-      __webpack_require__.d(__webpack_exports__, "a", function () {
-        return attachComponent;
-      });
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "d", function () {
-        return detachComponent;
+      __webpack_require__.d(__webpack_exports__, "PreviewAnyFile", function () {
+        return PreviewAnyFile;
       });
       /* harmony import */
 
 
-      var _helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-      /*! ./helpers-dd7e4b7b.js */
-      "1vRN");
+      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! tslib */
+      "mrSG");
+      /* harmony import */
 
-      var attachComponent = /*#__PURE__*/function () {
-        var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(delegate, container, component, cssClasses, componentProps) {
-          var el;
-          return regeneratorRuntime.wrap(function _callee2$(_context2) {
-            while (1) {
-              switch (_context2.prev = _context2.next) {
-                case 0:
-                  if (!delegate) {
-                    _context2.next = 2;
-                    break;
-                  }
 
-                  return _context2.abrupt("return", delegate.attachViewToDom(container, component, componentProps, cssClasses));
+      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! @angular/core */
+      "fXoL");
+      /* harmony import */
 
-                case 2:
-                  if (!(typeof component !== 'string' && !(component instanceof HTMLElement))) {
-                    _context2.next = 4;
-                    break;
-                  }
 
-                  throw new Error('framework delegate is missing');
+      var _ionic_native_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! @ionic-native/core */
+      "C6fG");
 
-                case 4:
-                  el = typeof component === 'string' ? container.ownerDocument && container.ownerDocument.createElement(component) : component;
+      var PreviewAnyFile =
+      /** @class */
+      function (_super) {
+        Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"])(PreviewAnyFile, _super);
 
-                  if (cssClasses) {
-                    cssClasses.forEach(function (c) {
-                      return el.classList.add(c);
-                    });
-                  }
-
-                  if (componentProps) {
-                    Object.assign(el, componentProps);
-                  }
-
-                  container.appendChild(el);
-                  _context2.next = 10;
-                  return new Promise(function (resolve) {
-                    return Object(_helpers_dd7e4b7b_js__WEBPACK_IMPORTED_MODULE_0__["c"])(el, resolve);
-                  });
-
-                case 10:
-                  return _context2.abrupt("return", el);
-
-                case 11:
-                case "end":
-                  return _context2.stop();
-              }
-            }
-          }, _callee2);
-        }));
-
-        return function attachComponent(_x5, _x6, _x7, _x8, _x9) {
-          return _ref2.apply(this, arguments);
-        };
-      }();
-
-      var detachComponent = function detachComponent(delegate, element) {
-        if (element) {
-          if (delegate) {
-            var container = element.parentElement;
-            return delegate.removeViewFromDom(container, element);
-          }
-
-          element.remove();
+        function PreviewAnyFile() {
+          return _super !== null && _super.apply(this, arguments) || this;
         }
 
-        return Promise.resolve();
-      };
+        PreviewAnyFile.prototype.preview = function (url) {
+          return Object(_ionic_native_core__WEBPACK_IMPORTED_MODULE_2__["cordova"])(this, "preview", {}, arguments);
+        };
+
+        PreviewAnyFile.prototype.previewBase64 = function (base64, options) {
+          return Object(_ionic_native_core__WEBPACK_IMPORTED_MODULE_2__["cordova"])(this, "previewBase64", {}, arguments);
+        };
+
+        PreviewAnyFile.prototype.previewPath = function (url, options) {
+          return Object(_ionic_native_core__WEBPACK_IMPORTED_MODULE_2__["cordova"])(this, "previewPath", {}, arguments);
+        };
+
+        PreviewAnyFile.prototype.previewAsset = function (url, options) {
+          return Object(_ionic_native_core__WEBPACK_IMPORTED_MODULE_2__["cordova"])(this, "previewAsset", {}, arguments);
+        };
+
+        PreviewAnyFile.pluginName = "PreviewAnyFile";
+        PreviewAnyFile.plugin = "cordova-plugin-preview-any-file";
+        PreviewAnyFile.pluginRef = "PreviewAnyFile";
+        PreviewAnyFile.repo = "https://github.com/mostafa-mansour1/previewAnyFile";
+        PreviewAnyFile.install = "";
+        PreviewAnyFile.installVariables = [];
+        PreviewAnyFile.platforms = ["Android", "iOS"];
+
+        PreviewAnyFile.ɵfac = function PreviewAnyFile_Factory(t) {
+          return ɵPreviewAnyFile_BaseFactory(t || PreviewAnyFile);
+        };
+
+        PreviewAnyFile.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjectable"]({
+          token: PreviewAnyFile,
+          factory: function factory(t) {
+            return PreviewAnyFile.ɵfac(t);
+          }
+        });
+
+        var ɵPreviewAnyFile_BaseFactory = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵgetInheritedFactory"](PreviewAnyFile);
+        /*@__PURE__*/
+
+
+        (function () {
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](PreviewAnyFile, [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"]
+          }], null, null);
+        })();
+
+        return PreviewAnyFile;
+      }(_ionic_native_core__WEBPACK_IMPORTED_MODULE_2__["IonicNativePlugin"]); //# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uL3NyYy9AaW9uaWMtbmF0aXZlL3BsdWdpbnMvcHJldmlldy1hbnktZmlsZS9uZ3gvaW5kZXgudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IjtBQUFBLE9BQU8sRUFBRSxVQUFVLEVBQUUsTUFBTSxlQUFlLENBQUM7QUFDM0MsT0FBTyw4QkFBc0MsTUFBTSxvQkFBb0IsQ0FBQzs7QUFDeEU7QUFHUSxJQXFENEIsa0NBQWlCO0FBQUM7QUFFOUI7QUFBeUU7QUFBTSxJQUtyRyxnQ0FBTyxhQUFDLEdBQVc7QUFLVixJQUtULHNDQUFhLGFBQUMsTUFBYyxFQUFFLE9BQStCO0FBSzlDLElBS2Ysb0NBQVcsYUFBQyxHQUFXLEVBQUUsT0FBK0I7QUFLM0MsSUFLYixxQ0FBWSxhQUFDLEdBQVcsRUFBRSxPQUErQjtBQUl0QztBQUFrRDtBQUErRDtBQUFpRDtBQUFnRjtBQUFpQztBQUEwQztrREExQ2pWLFVBQVU7Ozs7OzBCQUNMO0FBQUMseUJBMURQO0FBQUUsRUEwRGtDLGlCQUFpQjtBQUNwRCxTQURZLGNBQWM7QUFBSSIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IEluamVjdGFibGUgfSBmcm9tICdAYW5ndWxhci9jb3JlJztcbmltcG9ydCB7IFBsdWdpbiwgQ29yZG92YSwgSW9uaWNOYXRpdmVQbHVnaW4gfSBmcm9tICdAaW9uaWMtbmF0aXZlL2NvcmUnO1xuXG5leHBvcnQgaW50ZXJmYWNlIFByZXZpZXdBbnlGaWxlT3B0aW9ucyB7XG4gIC8qKlxuICAgKiBUaGUgbmFtZSBvZiB0aGUgZmlsZSB0byBwcmV2aWV3LlxuICAgKi9cbiAgbmFtZT86IHN0cmluZztcbiAgLyoqXG4gICAqIFRoZSBtaW1lIHR5cGUgb2YgdGhlIGZpbGUgdG8gcHJldmlldy5cbiAgICovXG4gIG1pbWVUeXBlOiBzdHJpbmc7XG59XG5cbi8qKlxuICogQG5hbWUgUHJldmlld0FueUZpbGVcbiAqIEBkZXNjcmlwdGlvblxuICogV2hhdGV2ZXIgdGhlIGZpbGUgaXMgUERGIGRvY3VtZW50LCBXb3JkIGRvY3VtZW50LCBFeGNlbCwgb2ZmaWNlIGRvY3VtZW50LHppcCBhcmNoaXZlIGZpbGUsIGltYWdlLCB0ZXh0LCBodG1sIG9yIGFueXRoaW5nIGVsc2UsIHlvdSBjYW4gcGVyZm9ybSBhIHByZXZpZXcgYnkgdGhpcyBjb3Jkb3ZhIFBsdWdpbiB0byBwcmV2aWV3IGFueSBmaWxlIGluIG5hdGl2ZSBtb2RlIGJ5IHByb3ZpZGluZyB0aGUgbG9jYWwgb3IgZXh0ZXJuYWwgVVJMLlxuICpcbiAqICBSZXF1aXJlcyBDb3Jkb3ZhIHBsdWdpbjogYGNvcmRvdmEtcGx1Z2luLXByZXZpZXctYW55LWZpbGVgLiBGb3IgbW9yZSBpbmZvLCBwbGVhc2Ugc2VlIHRoZSBbcHJldmlld0FueUZpbGUgcGx1Z2luIGRvY3NdKGh0dHBzOi8vZ2l0aHViLmNvbS9tb3N0YWZhLW1hbnNvdXIxL3ByZXZpZXdBbnlGaWxlKS5cbiAqXG4gKiBAdXNhZ2VcbiAqIGBgYHR5cGVzY3JpcHRcbiAqIGltcG9ydCB7IFByZXZpZXdBbnlGaWxlIH0gZnJvbSAnQGlvbmljLW5hdGl2ZS9wcmV2aWV3LWFueS1maWxlL25neCc7XG4gKlxuICpcbiAqIGNvbnN0cnVjdG9yKHByaXZhdGUgcHJldmlld0FueUZpbGU6IFByZXZpZXdBbnlGaWxlKSB7IH1cbiAqXG4gKiAuLi5cbiAqXG4gKlxuICogdGhpcy5wcmV2aWV3QW55RmlsZS5wcmV2aWV3KCdmaWxlOi8vZmlsZXBhdGguZXh0JylcbiAqICAgLnRoZW4oKHJlczogYW55KSA9PiBjb25zb2xlLmxvZyhyZXMpKVxuICogICAuY2F0Y2goKGVycm9yOiBhbnkpID0+IGNvbnNvbGUuZXJyb3IoZXJyb3IpKTtcbiAqXG4gKiBgYGBcbiAqXG4gKlxuICogLi4uXG4gKlxuICpcbiAqIHRoaXMucHJldmlld0FueUZpbGUucHJldmlld1BhdGgoJ2h0dHA6Ly93d3cuZG9tYWluLmNvbS9zYW1wbGVmaWxlJylcbiAqICAgLnRoZW4oKHJlczogYW55KSA9PiBjb25zb2xlLmxvZyhyZXMpKVxuICogICAuY2F0Y2goKGVycm9yOiBhbnkpID0+IGNvbnNvbGUuZXJyb3IoZXJyb3IpKTtcbiAqXG4gKiBgYGBcbiAqL1xuXG5AUGx1Z2luKHtcbiAgcGx1Z2luTmFtZTogJ1ByZXZpZXdBbnlGaWxlJyxcbiAgcGx1Z2luOiAnY29yZG92YS1wbHVnaW4tcHJldmlldy1hbnktZmlsZScsIC8vIG5wbSBwYWNrYWdlIG5hbWUsIGV4YW1wbGU6IGNvcmRvdmEtcGx1Z2luLWNhbWVyYVxuICBwbHVnaW5SZWY6ICdQcmV2aWV3QW55RmlsZScsIC8vIHRoZSB2YXJpYWJsZSByZWZlcmVuY2UgdG8gY2FsbCB0aGUgcGx1Z2luLCBleGFtcGxlOiBuYXZpZ2F0b3IuZ2VvbG9jYXRpb25cbiAgcmVwbzogJ2h0dHBzOi8vZ2l0aHViLmNvbS9tb3N0YWZhLW1hbnNvdXIxL3ByZXZpZXdBbnlGaWxlJywgLy8gdGhlIGdpdGh1YiByZXBvc2l0b3J5IFVSTCBmb3IgdGhlIHBsdWdpblxuICBpbnN0YWxsOiAnJywgLy8gT1BUSU9OQUwgaW5zdGFsbCBjb21tYW5kLCBpbiBjYXNlIHRoZSBwbHVnaW4gcmVxdWlyZXMgdmFyaWFibGVzXG4gIGluc3RhbGxWYXJpYWJsZXM6IFtdLCAvLyBPUFRJT05BTCB0aGUgcGx1Z2luIHJlcXVpcmVzIHZhcmlhYmxlc1xuICBwbGF0Zm9ybXM6IFsnQW5kcm9pZCcsICdpT1MnXSwgLy8gQXJyYXkgb2YgcGxhdGZvcm1zIHN1cHBvcnRlZCwgZXhhbXBsZTogWydBbmRyb2lkJywgJ2lPUyddXG59KVxuQEluamVjdGFibGUoKVxuZXhwb3J0IGNsYXNzIFByZXZpZXdBbnlGaWxlIGV4dGVuZHMgSW9uaWNOYXRpdmVQbHVnaW4ge1xuICAvKipcbiAgICogdGhpcyBmdW5jdGlvbiByZXR1cm4gU1VDQ0VTUyBpbiBzdWNjZXNzIGNhbGxiYWNrIGlmIHRoZSBmaWxlIHN1Y2Nlc3NmdWxseSBvcGVuZWQsIGlmIHRoZSBjb250ZW50IGlzIGJhc2U2NCB5b3UgaGF2ZSB0byB3cml0ZSBpdCBpbnRvIGZpbGUgYnkgY29yZG92YS1wbHVnaW4tZmlsZVxuICAgKiBAcGFyYW0gdXJsIHtzdHJpbmd9IGZ1bGwgYWJzb2x1dGUgVVJMIGZvciB0aGUgZmlsZSwgaWYgdGhlIHBhdGggaXMgY29udGVudDovLyB5b3UgbmVlZCB0byByZXNvbHZlIHRoZSBuYXRpdmUgdXJsLCBpZiB0aGUgcGF0aCBpcyBodHRwczovLyBpdCBtYXkgbm90IHdvcmsgaW4gYW5kcm9pZFxuICAgKiBAcmV0dXJuIHtQcm9taXNlPGFueT59IFJldHVybnMgYSBwcm9taXNlIHRoYXQgcmVzb2x2ZXMgaWYgdGhlIGZpbGUgb3BlbmVkIHJlamVjdCBpZiBub3Q7XG4gICAqL1xuICBAQ29yZG92YSgpXG4gIHByZXZpZXcodXJsOiBzdHJpbmcpOiBQcm9taXNlPHN0cmluZz4ge1xuICAgIHJldHVybjtcbiAgfVxuXG4gIC8qKlxuICAgKiBwcmV2aWV3UGF0aCBmdW5jdGlvbiB3aWxsIHJldHVybiBzdWNjZXNzIGNhbGxiYWNrIGlmIHRoZSBmaWxlIHN1Y2Nlc3NmdWxseSBvcGVuZWQsIGlmIHRoZSBjb250ZW50IGlzIGJhc2U2NCB5b3UgaGF2ZSB0byB1c2UgcHJldmlld0Jhc2U2NCBtZXRob2RcbiAgICogQHBhcmFtIGJhc2U2NCB7U3RyaW5nfSBiYXNlNjQgc3RyaW5nIGNvbnRlbnRcbiAgICogQHBhcmFtIG9wdGlvbnMge1ByZXZpZXdBbnlGaWxlT3B0aW9uc30gZGVmaW5lIHRoZSBuYW1lIG9mIHRoZSBmaWxlIHdpdGggZXh0ZW5zaW9uIG9yIGl0J3MgbWltZVR5cGUsIGlmIHRoZSBjb3JyZWN0IGV4dGVuc2lvbiBub3QgZXhpc3QgaW4gdGhlIHBhdGhcbiAgICovXG4gIEBDb3Jkb3ZhKClcbiAgcHJldmlld0Jhc2U2NChiYXNlNjQ6IHN0cmluZywgb3B0aW9ucz86IFByZXZpZXdBbnlGaWxlT3B0aW9ucyk6IFByb21pc2U8c3RyaW5nPiB7XG4gICAgcmV0dXJuO1xuICB9XG5cbiAgLyoqXG4gICAqIHByZXZpZXdQYXRoIGZ1bmN0aW9uIHdpbGwgcmV0dXJuIHN1Y2Nlc3MgY2FsbGJhY2sgaWYgdGhlIGZpbGUgc3VjY2Vzc2Z1bGx5IG9wZW5lZCwgaWYgdGhlIGNvbnRlbnQgaXMgYmFzZTY0IHlvdSBoYXZlIHRvIHVzZSBwcmV2aWV3QmFzZTY0IG1ldGhvZFxuICAgKiBAcGFyYW0gdXJsIHtTdHJpbmd9IGZ1bGwgYWJzb2x1dGUgVVJMIC0+IGZpbGU6Ly8sIGNvbnRlbnQ6Ly8sIGh0dHA6Ly8sIGh0dHBzLCAuLi4gZXRjLCBpZiBleHRlbnNpb24gbm90IGV4aXN0LCB5b3UgbXVzdCBkZWZpbmUgaXQgaW4gdGhlIG9wdCBwYXJhbVxuICAgKiBAcGFyYW0gb3B0aW9ucyB7UHJldmlld0FueUZpbGVPcHRpb25zfSBkZWZpbmUgdGhlIG5hbWUgb2YgdGhlIGZpbGUgd2l0aCBleHRlbnNpb24gb3IgaXQncyBtaW1lVHlwZSwgaWYgdGhlIGNvcnJlY3QgZXh0ZW5zaW9uIG5vdCBleGlzdCBpbiB0aGUgcGF0aFxuICAgKi9cbiAgQENvcmRvdmEoKVxuICBwcmV2aWV3UGF0aCh1cmw6IHN0cmluZywgb3B0aW9ucz86IFByZXZpZXdBbnlGaWxlT3B0aW9ucyk6IFByb21pc2U8c3RyaW5nPiB7XG4gICAgcmV0dXJuO1xuICB9XG5cbiAgLyoqXG4gICAqIHByZXZpZXdQYXRoIGZ1bmN0aW9uIHdpbGwgcmV0dXJuIHN1Y2Nlc3MgY2FsbGJhY2sgaWYgdGhlIGZpbGUgc3VjY2Vzc2Z1bGx5IG9wZW5lZCwgaWYgdGhlIGNvbnRlbnQgaXMgYmFzZTY0IHlvdSBoYXZlIHRvIHVzZSBwcmV2aWV3QmFzZTY0IG1ldGhvZFxuICAgKiBAcGFyYW0gdXJsIHtTdHJpbmd9IGZ1bGwgYWJzb2x1dGUgVVJMIC0+IGZpbGU6Ly8sIGNvbnRlbnQ6Ly8sIGh0dHA6Ly8sIGh0dHBzLCAuLi4gZXRjLCBpZiBleHRlbnNpb24gbm90IGV4aXN0LCB5b3UgbXVzdCBkZWZpbmUgaXQgaW4gdGhlIG9wdCBwYXJhbVxuICAgKiBAcGFyYW0gb3B0aW9ucyB7UHJldmlld0FueUZpbGVPcHRpb25zfSBkZWZpbmUgdGhlIG5hbWUgb2YgdGhlIGZpbGUgd2l0aCBleHRlbnNpb24gb3IgaXQncyBtaW1lVHlwZSwgaWYgdGhlIGNvcnJlY3QgZXh0ZW5zaW9uIG5vdCBleGlzdCBpbiB0aGUgcGF0aFxuICAgKi9cbiAgQENvcmRvdmEoKVxuICBwcmV2aWV3QXNzZXQodXJsOiBzdHJpbmcsIG9wdGlvbnM/OiBQcmV2aWV3QW55RmlsZU9wdGlvbnMpOiBQcm9taXNlPHN0cmluZz4ge1xuICAgIHJldHVybjtcbiAgfVxufVxuIl19
+
       /***/
 
     },
@@ -482,6 +760,62 @@
         }
       };
       var SPINNERS = spinners;
+      /***/
+    },
+
+    /***/
+    "hGdz":
+    /*!****************************************************!*\
+      !*** ./src/app/components/shared/shared.module.ts ***!
+      \****************************************************/
+
+    /*! exports provided: SharedModule */
+
+    /***/
+    function hGdz(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "SharedModule", function () {
+        return SharedModule;
+      });
+      /* harmony import */
+
+
+      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! tslib */
+      "mrSG");
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! @angular/core */
+      "fXoL");
+      /* harmony import */
+
+
+      var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! @angular/common */
+      "ofXK");
+      /* harmony import */
+
+
+      var src_app_components_pagination_pagination_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! src/app/components/pagination/pagination.component */
+      "J9Qv");
+
+      var SharedModule = /*#__PURE__*/_createClass(function SharedModule() {
+        _classCallCheck(this, SharedModule);
+      });
+
+      SharedModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+        declarations: [src_app_components_pagination_pagination_component__WEBPACK_IMPORTED_MODULE_3__["PaginationComponent"]],
+        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"]],
+        exports: [src_app_components_pagination_pagination_component__WEBPACK_IMPORTED_MODULE_3__["PaginationComponent"]]
+      })], SharedModule);
       /***/
     },
 
@@ -654,6 +988,111 @@
 
       var hapticImpact = function hapticImpact(options) {
         HapticEngine.impact(options);
+      };
+      /***/
+
+    },
+
+    /***/
+    "spDm":
+    /*!**************************************************************************!*\
+      !*** ./node_modules/@ionic/core/dist/esm/framework-delegate-94e770cc.js ***!
+      \**************************************************************************/
+
+    /*! exports provided: a, d */
+
+    /***/
+    function spDm(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "a", function () {
+        return attachComponent;
+      });
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "d", function () {
+        return detachComponent;
+      });
+      /* harmony import */
+
+
+      var _helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! ./helpers-1457892a.js */
+      "W6o/");
+
+      var attachComponent = /*#__PURE__*/function () {
+        var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(delegate, container, component, cssClasses, componentProps) {
+          var el;
+          return regeneratorRuntime.wrap(function _callee2$(_context2) {
+            while (1) {
+              switch (_context2.prev = _context2.next) {
+                case 0:
+                  if (!delegate) {
+                    _context2.next = 2;
+                    break;
+                  }
+
+                  return _context2.abrupt("return", delegate.attachViewToDom(container, component, componentProps, cssClasses));
+
+                case 2:
+                  if (!(typeof component !== 'string' && !(component instanceof HTMLElement))) {
+                    _context2.next = 4;
+                    break;
+                  }
+
+                  throw new Error('framework delegate is missing');
+
+                case 4:
+                  el = typeof component === 'string' ? container.ownerDocument && container.ownerDocument.createElement(component) : component;
+
+                  if (cssClasses) {
+                    cssClasses.forEach(function (c) {
+                      return el.classList.add(c);
+                    });
+                  }
+
+                  if (componentProps) {
+                    Object.assign(el, componentProps);
+                  }
+
+                  container.appendChild(el);
+                  _context2.next = 10;
+                  return new Promise(function (resolve) {
+                    return Object(_helpers_1457892a_js__WEBPACK_IMPORTED_MODULE_0__["c"])(el, resolve);
+                  });
+
+                case 10:
+                  return _context2.abrupt("return", el);
+
+                case 11:
+                case "end":
+                  return _context2.stop();
+              }
+            }
+          }, _callee2);
+        }));
+
+        return function attachComponent(_x5, _x6, _x7, _x8, _x9) {
+          return _ref2.apply(this, arguments);
+        };
+      }();
+
+      var detachComponent = function detachComponent(delegate, element) {
+        if (element) {
+          if (delegate) {
+            var container = element.parentElement;
+            return delegate.removeViewFromDom(container, element);
+          }
+
+          element.remove();
+        }
+
+        return Promise.resolve();
       };
       /***/
 
