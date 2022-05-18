@@ -8,6 +8,7 @@ import { tap, catchError } from 'rxjs/operators';
 import { BehaviorSubject } from 'rxjs';
 import { EnvService } from './env.service';
 import { EventService } from './event.service';
+import { Router } from '@angular/router';
  
 const TOKEN_KEY = 'access_token';
  
@@ -24,7 +25,7 @@ export class AuthenticationService {
   // user_id = null;
   authenticationState = new BehaviorSubject(false);
  
-  constructor(private env: EnvService,private http: HttpClient, private helper: JwtHelperService, private storage: Storage,public events: EventService,
+  constructor(private env: EnvService,private http: HttpClient, private helper: JwtHelperService, private storage: Storage,public events: EventService, private router: Router,
     private plt: Platform, private alertController: AlertController,  private navCtrl: NavController,) {
     this.plt.ready().then(() => {
       this.checkToken();
@@ -58,7 +59,7 @@ export class AuthenticationService {
       .pipe(
         tap(res => {
           if(res['message'] == 'Verificare')
-          console.log('ver');
+          return this.router.navigateByUrl('/verify');
           else{
           this.storage.set(TOKEN_KEY, res['access_token']);
           this.user = this.helper.decodeToken(res['access_token']);

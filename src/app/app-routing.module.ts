@@ -24,7 +24,11 @@ const routes: Routes = [
   {
     path: 'profile',
     loadChildren: () => import('./pages/customer/profile/profile.module').then( m => m.ProfilePageModule)
+  },  {
+    path: 'verify',
+    loadChildren: () => import('./public/verify/verify.module').then( m => m.VerifyPageModule)
   },
+
 
  
 
