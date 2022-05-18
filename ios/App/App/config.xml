@@ -2,24 +2,8 @@
 <widget version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
   <access origin="*" />
   
-  <feature name="CordovaHttpPlugin">
-    <param name="ios-package" value="CordovaHttpPlugin"/>
-  </feature>
-
-  <feature name="DatePicker">
-    <param name="ios-package" value="DatePicker"/>
-  </feature>
-
-  <feature name="Media">
-    <param name="ios-package" value="CDVSound"/>
-  </feature>
-
   <feature name="PreviewAnyFile">
     <param name="ios-package" value="HWPPreviewAnyFile"/>
-  </feature>
-
-  <feature name="UserAgent">
-    <param name="ios-package" value="UserAgent"/>
   </feature>
 
   <feature name="Device">
