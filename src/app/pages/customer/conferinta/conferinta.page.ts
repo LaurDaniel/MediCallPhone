@@ -65,14 +65,7 @@ url = "https://probe.infragroup.ro";
  }
 
   ngOnInit() {
-      if(this.platform.is('android')){
-      this.androidPermissions.checkPermission(this.androidPermissions.PERMISSION.RECORD_AUDIO).then(
-        result => console.log('Has permission?',result.hasPermission),
-        err => this.androidPermissions.requestPermission(this.androidPermissions.PERMISSION.RECORD_AUDIO)
-      );
-      
-      this.androidPermissions.requestPermissions([this.androidPermissions.PERMISSION.RECORD_AUDIO, this.androidPermissions.PERMISSION.GET_ACCOUNTS]);
-      } 
+  
      
     console.log(this.platform.platforms);
     this.ionLoaderService.simpleLoader();

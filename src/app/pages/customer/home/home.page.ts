@@ -4,6 +4,8 @@ import { MenuController, AlertController } from '@ionic/angular';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { ViewEncapsulation } from '@angular/core';
 import { IonLoaderService } from 'src/app/services/ion-loader.service';
+import { AndroidPermissions } from '@awesome-cordova-plugins/android-permissions/ngx';
+import { Platform } from '@ionic/angular';
 export interface Data {
   programari: string;
   tranzactii: string;
@@ -18,7 +20,7 @@ export interface Data {
 export class HomePage implements OnInit {
   url = "https://medicall.medicover.ro";
   // url = "https://probe.infragroup.ro";
-  constructor(private http: HttpClient,private menu: MenuController, private authService: AuthenticationService, private alertCtrl: AlertController,private ionLoaderService: IonLoaderService) { 
+  constructor(  private platform: Platform, private androidPermissions: AndroidPermissions,private http: HttpClient,private menu: MenuController, private authService: AuthenticationService, private alertCtrl: AlertController,private ionLoaderService: IonLoaderService) { 
     this.menu.enable(true);
   }
 
@@ -34,7 +36,14 @@ pageOfItems2: Array<any>;
   ngOnInit() {
     // this.ionLoaderService.simpleLoader();
     this.menu.enable(true);
- 
+    if(this.platform.is('android')){
+      this.androidPermissions.checkPermission(this.androidPermissions.PERMISSION.RECORD_AUDIO).then(
+        result => console.log('Has permission?',result.hasPermission),
+        err => this.androidPermissions.requestPermission(this.androidPermissions.PERMISSION.RECORD_AUDIO)
+      );
+      
+      this.androidPermissions.requestPermissions([this.androidPermissions.PERMISSION.RECORD_AUDIO, this.androidPermissions.PERMISSION.GET_ACCOUNTS]);
+      } 
     //  this.ionLoaderService.dismissLoader();
     this.http.get<Data>(`${this.url}/api/home/programari/${localStorage.getItem("user_id")}`).subscribe(data=>{
       this.programari = data.programari;
