@@ -31,8 +31,8 @@ export class ConferintaPage implements OnInit{
 audio: MediaObject;
 // audioList: any[] = [];
     
-// url = "https://probe.infragroup.ro";
-url = "https://medicall.medicover.ro";
+url = "https://probe.infragroup.ro";
+// url = "https://medicall.medicover.ro";
 // url = "http://127.0.0.1:8000";
   public url_conferinta: any;
   public check_url: any;
@@ -53,8 +53,9 @@ url = "https://medicall.medicover.ro";
   // // // .catch((error: any) => console.error(error));
   // //  }
   // this.http.get(`${this.url}/api/conferinta/roomOpened/${localStorage.getItem("user_id")}`).subscribe(data=>{
-  this.http.get(`http://127.0.0.1:8000/api/conferinta/roomOpened/49`).subscribe(data=>{
-   
+  this.http.get(`${this.url}/api/conferinta/roomOpened/2`).subscribe(data=>{
+  // this.http.get(`http://127.0.0.1:8000/api/conferinta/roomOpened/49`).subscribe(data=>{
+
     this.url_conferinta = data['url_consult'];
     this.id_consult = data['id_consult'];
     this.fisiere = data['fisiere'];
@@ -100,8 +101,8 @@ url = "https://medicall.medicover.ro";
     });
     let options = { headers: headers };
 
-    // this.http.post(`${this.url}/api/conferinta/fileupload/${this.id_consult}`, formData, options)
-    this.http.post(`http://127.0.0.1:8000/api/conferinta/fileupload/${this.id_consult}`, formData, options)
+    this.http.post(`${this.url}/api/conferinta/fileupload/${this.id_consult}`, formData, options)
+    // this.http.post(`http://127.0.0.1:8000/api/conferinta/fileupload/${this.id_consult}`, formData, options)
     .subscribe(res => {
       //  console.log(res);
        alert('Fisier incarcat cu succes.');
