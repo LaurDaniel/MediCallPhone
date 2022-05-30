@@ -444,9 +444,9 @@ let AuthenticationService = class AuthenticationService {
         this.alertController = alertController;
         this.navCtrl = navCtrl;
         this.isLoggedIn = false;
-        // url = "https://medicall.medicover.ro";
+        this.url = "https://medicall.medicover.ro";
         // url = "https://probe.infragroup.ro";
-        this.url = "http://127.0.0.1:8000";
+        // url = "http://127.0.0.1:8000";
         this.user = null;
         // user_id = null;
         this.authenticationState = new rxjs__WEBPACK_IMPORTED_MODULE_7__["BehaviorSubject"](false);
@@ -476,7 +476,7 @@ let AuthenticationService = class AuthenticationService {
         return this.http.post(`${this.url}/api/login`, credentials)
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["tap"])(res => {
             if (res['message'] == 'Verificare')
-                return this.router.navigateByUrl('/verify');
+                this.showAlert('Pentru a intra in contul deja existent, este necesar sa accesati link-ul pe care l-ati primit pe adresa de e-mail si sa va conectati.Multumim!');
             else {
                 this.storage.set(TOKEN_KEY, res['access_token']);
                 this.user = this.helper.decodeToken(res['access_token']);
@@ -867,10 +867,6 @@ const routes = [
     {
         path: 'profile',
         loadChildren: () => Promise.all(/*! import() | pages-customer-profile-profile-module */[__webpack_require__.e("common"), __webpack_require__.e("pages-customer-profile-profile-module")]).then(__webpack_require__.bind(null, /*! ./pages/customer/profile/profile.module */ "4cRM")).then(m => m.ProfilePageModule)
-    },
-    {
-        path: 'verify',
-        loadChildren: () => __webpack_require__.e(/*! import() | public-verify-verify-module */ "public-verify-verify-module").then(__webpack_require__.bind(null, /*! ./public/verify/verify.module */ "dfRO")).then(m => m.VerifyPageModule)
     },
 ];
 let AppRoutingModule = class AppRoutingModule {

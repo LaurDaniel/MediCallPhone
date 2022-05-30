@@ -1822,7 +1822,7 @@
 
       var tslib__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
       /*! tslib */
-      "NfBk");
+      "O1h7");
       /* harmony import */
 
 
@@ -3580,9 +3580,8 @@
           this.domain = "voice.infragroup.ro"; // For self hosted use your domain
           // audioList: any[] = [];
           // url = "https://probe.infragroup.ro";
-          // url = "https://medicall.medicover.ro";
 
-          this.url = "http://127.0.0.1:8000";
+          this.url = "https://medicall.medicover.ro";
           this.title = 'dropzone';
           this.files = [];
         }

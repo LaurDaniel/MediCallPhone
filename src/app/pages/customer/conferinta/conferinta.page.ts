@@ -9,9 +9,6 @@ import { Router } from '@angular/router';
 import { PreviewAnyFile } from '@ionic-native/preview-any-file/ngx';
 import { Media, MediaObject } from '@ionic-native/media/ngx';
 import { IonLoaderService } from 'src/app/services/ion-loader.service';
-// import { UserAgent } from '@ionic-native/user-agent';
-// import { UserAgent } from '@awesome-cordova-plugins/user-agent/ngx';
-// import { File } from '@ionic-native/file';
 declare var JitsiMeetExternalAPI: any;
 
 
@@ -55,7 +52,8 @@ url = "https://medicall.medicover.ro";
   // // // .then((res: any) => console.log(res))
   // // // .catch((error: any) => console.error(error));
   // //  }
-  this.http.get(`${this.url}/api/conferinta/roomOpened/${localStorage.getItem("user_id")}`).subscribe(data=>{
+  // this.http.get(`${this.url}/api/conferinta/roomOpened/${localStorage.getItem("user_id")}`).subscribe(data=>{
+  this.http.get(`http://127.0.0.1:8000/api/conferinta/roomOpened/49`).subscribe(data=>{
    
     this.url_conferinta = data['url_consult'];
     this.id_consult = data['id_consult'];
@@ -102,7 +100,8 @@ url = "https://medicall.medicover.ro";
     });
     let options = { headers: headers };
 
-    this.http.post(`${this.url}/api/conferinta/fileupload/${this.id_consult}`, formData, options)
+    // this.http.post(`${this.url}/api/conferinta/fileupload/${this.id_consult}`, formData, options)
+    this.http.post(`http://127.0.0.1:8000/api/conferinta/fileupload/${this.id_consult}`, formData, options)
     .subscribe(res => {
       //  console.log(res);
        alert('Fisier incarcat cu succes.');

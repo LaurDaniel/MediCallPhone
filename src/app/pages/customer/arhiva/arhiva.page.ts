@@ -24,10 +24,12 @@ export class ArhivaPage implements OnInit {
     this.menu.enable(true);
  
   
+    // this.http.get(`${this.url}/api/arhiva/getconsults/306`).subscribe(data=>{
     this.http.get(`${this.url}/api/arhiva/getconsults/${localStorage.getItem("user_id")}`).subscribe(data=>{
     // this.http.get(`http://127.0.0.1:8000/api/arhiva/getconsults/49`).subscribe(data=>{
       console.log(data);
       this.programari = data['programari'];
+      console.log(data['programari']);
       this.ionLoaderService.dismissLoader();
     
     })
@@ -38,7 +40,6 @@ export class ArhivaPage implements OnInit {
     // update current page of items
     this.pageOfItems = pageOfItems;
   }
-
   generateRap(id_raport){
     this.http.get(`${this.url}/api/arhiva/generate/${id_raport}`).subscribe(data=>{
       console.log(data['file']);
