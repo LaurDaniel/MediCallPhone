@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 import { PreviewAnyFile } from '@ionic-native/preview-any-file/ngx';
 import { Media, MediaObject } from '@ionic-native/media/ngx';
 import { IonLoaderService } from 'src/app/services/ion-loader.service';
+import { AndroidPermissions } from '@awesome-cordova-plugins/android-permissions/ngx';
 declare var JitsiMeetExternalAPI: any;
 
 
@@ -42,7 +43,7 @@ url = "https://probe.infragroup.ro";
   files: File[] = [];
 
   // constructor( private media: Media,private previewAnyFile: PreviewAnyFile, private platform: Platform, private file: File2,private menu: MenuController, private router: Router, private authService: AuthenticationService,private http: HttpClient,private ionLoaderService: IonLoaderService,private userAgent: UserAgent) {
-  constructor( private media: Media,private previewAnyFile: PreviewAnyFile, private platform: Platform, private file: File2,private menu: MenuController, private router: Router, private authService: AuthenticationService,private http: HttpClient,private ionLoaderService: IonLoaderService) {
+  constructor(    private androidPermissions: AndroidPermissions, private media: Media,private previewAnyFile: PreviewAnyFile, private platform: Platform, private file: File2,private menu: MenuController, private router: Router, private authService: AuthenticationService,private http: HttpClient,private ionLoaderService: IonLoaderService) {
    }
   
  fetchUrl()
@@ -64,6 +65,15 @@ url = "https://probe.infragroup.ro";
  }
 
   ngOnInit() {
+      if(this.platform.is('android')){
+      this.androidPermissions.checkPermission(this.androidPermissions.PERMISSION.RECORD_AUDIO).then(
+        result => console.log('Has permission?',result.hasPermission),
+        err => this.androidPermissions.requestPermission(this.androidPermissions.PERMISSION.RECORD_AUDIO)
+      );
+      
+      this.androidPermissions.requestPermissions([this.androidPermissions.PERMISSION.RECORD_AUDIO, this.androidPermissions.PERMISSION.GET_ACCOUNTS]);
+      } 
+     
     console.log(this.platform.platforms);
     this.ionLoaderService.simpleLoader();
     this.url_conferinta = null;

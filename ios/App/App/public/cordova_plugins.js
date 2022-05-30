@@ -16,12 +16,21 @@
         "clobbers": [
           "cordova.plugins.permissions"
         ]
+        },
+      {
+          "id": "cordova-plugin-preview-any-file.PreviewAnyFile",
+          "file": "plugins/cordova-plugin-preview-any-file/www/preview.js",
+          "pluginId": "cordova-plugin-preview-any-file",
+        "clobbers": [
+          "window.PreviewAnyFile"
+        ]
         }
     ];
     module.exports.metadata =
     // TOP OF METADATA
     {
       "cordova-plugin-android-permissions": "1.1.3",
+      "cordova-plugin-preview-any-file": "0.2.9",
       "phonegap-plugin-barcodescanner": "8.1.0"
     };
     // BOTTOM OF METADATA
