@@ -32,8 +32,8 @@ export class ConferintaPage implements OnInit{
 audio: MediaObject;
 // audioList: any[] = [];
     
-url = "https://probe.infragroup.ro";
-// url = "https://medicall.medicover.ro";
+// url = "https://probe.infragroup.ro";
+url = "https://medicall.medicover.ro";
 // url = "http://127.0.0.1:8000";
   public url_conferinta: any;
   public check_url: any;
@@ -43,7 +43,7 @@ url = "https://probe.infragroup.ro";
   files: File[] = [];
 
   // constructor( private media: Media,private previewAnyFile: PreviewAnyFile, private platform: Platform, private file: File2,private menu: MenuController, private router: Router, private authService: AuthenticationService,private http: HttpClient,private ionLoaderService: IonLoaderService,private userAgent: UserAgent) {
-  constructor(    private androidPermissions: AndroidPermissions, private media: Media,private previewAnyFile: PreviewAnyFile, private platform: Platform, private file: File2,private menu: MenuController, private router: Router, private authService: AuthenticationService,private http: HttpClient,private ionLoaderService: IonLoaderService) {
+  constructor(    private androidPermissions: AndroidPermissions, private media: Media,private previewAnyFile: PreviewAnyFile, private platform: Platform, private file: File2,private menu: MenuController, private router: Router, private authService: AuthenticationService,private http: HttpClient,private ionLoaderService: IonLoaderService,private alertCtrl: AlertController) {
    }
   
  fetchUrl()
@@ -53,8 +53,8 @@ url = "https://probe.infragroup.ro";
   // // // .then((res: any) => console.log(res))
   // // // .catch((error: any) => console.error(error));
   // //  }
-  // this.http.get(`${this.url}/api/conferinta/roomOpened/${localStorage.getItem("user_id")}`).subscribe(data=>{
-  this.http.get(`${this.url}/api/conferinta/roomOpened/2`).subscribe(data=>{
+  this.http.get(`${this.url}/api/conferinta/roomOpened/${localStorage.getItem("user_id")}`).subscribe(data=>{
+  // this.http.get(`${this.url}/api/conferinta/roomOpened/2`).subscribe(data=>{
   // this.http.get(`http://127.0.0.1:8000/api/conferinta/roomOpened/49`).subscribe(data=>{
 
     this.url_conferinta = data['url_consult'];
@@ -88,7 +88,8 @@ url = "https://probe.infragroup.ro";
 
 
   onSelect(event) {
-    console.log(event.addedFiles);
+    if(event.rejectedFiles.length == 0){
+    console.log(event.addedFiles,event.rejectedFiles);
     this.files.push(...event.addedFiles);
   
         const formData = new FormData();
@@ -108,8 +109,33 @@ url = "https://probe.infragroup.ro";
     // this.http.post(`http://127.0.0.1:8000/api/conferinta/fileupload/${this.id_consult}`, formData, options)
     .subscribe(res => {
       //  console.log(res);
-       alert('Fisier incarcat cu succes.');
+      let alert =  this.alertCtrl.create({
+        // title: '',
+        message: 'Fisier incarcat cu succes',
+        buttons: [
+          {
+            text: 'Ok',
+            cssClass:'icon-color',  
+          }
+        ]
+      });
+      alert.then(alert => alert.present());
     })
+  }
+  else{
+    let alert =  this.alertCtrl.create({
+      // title: 'Fisier prea mare',
+      cssClass: "my-custom-class",
+      message: 'Dimensiunea maxima a fisierului poate fi de 10 MB',
+      buttons: [
+        {
+          text: 'Ok',
+          cssClass:'icon-color',  
+        }
+      ]
+    });
+    alert.then(alert => alert.present());
+  }
 }
 
 onRemove(event) {

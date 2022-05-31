@@ -21,7 +21,7 @@
             </ion-card>
              <ion-card *ngIf="url_conferinta" >
               <ion-card-content>
-                <ngx-dropzone [multiple]="false" (change)="onSelect($event)">
+                <ngx-dropzone [multiple]="false" [maxFileSize]="10000000" (change)="onSelect($event)">
                   <ngx-dropzone-label>Faceti click sau trageti fisierul in interiorul acestei casete pentru a putea incarca documentele.</ngx-dropzone-label>
                   <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
                     <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>

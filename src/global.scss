@@ -33,3 +33,13 @@
 @import '../node_modules/@syncfusion/ej2-calendars/styles/material.css';
 @import '../node_modules/@syncfusion/ej2-angular-calendars/styles/material.css';
 
+.my-custom-class {
+    .alert-wrapper {
+      .alert-head {
+          // header styling here eg. background
+          h2 {
+              color:red;
+          }
+      }
+    }
+  }
