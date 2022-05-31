@@ -219,8 +219,8 @@
     // TOP OF METADATA
     {
       "cordova-plugin-android-permissions": "1.1.3",
-      "cordova-plugin-file": "7.0.0",
-      "cordova-plugin-media": "6.0.0",
+      "cordova-plugin-file": "6.0.2",
+      "cordova-plugin-media": "5.0.4",
       "cordova-plugin-preview-any-file": "0.2.9",
       "phonegap-plugin-barcodescanner": "8.1.0"
     };
