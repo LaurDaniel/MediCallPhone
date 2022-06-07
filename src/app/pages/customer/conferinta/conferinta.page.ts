@@ -55,9 +55,9 @@ url = "https://medicall.medicover.ro";
   // // // .then((res: any) => console.log(res))
   // // // .catch((error: any) => console.error(error));
   // //  }
-  // this.http.get(`${this.url}/api/conferinta/roomOpened/${localStorage.getItem("user_id")}`).subscribe(data=>{
+  this.http.get(`${this.url}/api/conferinta/roomOpened/${localStorage.getItem("user_id")}`).subscribe(data=>{
   // this.http.get(`${this.url}/api/conferinta/roomOpened/2`).subscribe(data=>{
-  this.http.get(`http://127.0.0.1:8000/api/conferinta/roomOpened/49`).subscribe(data=>{
+  // this.http.get(`http://127.0.0.1:8000/api/conferinta/roomOpened/49`).subscribe(data=>{
     // if(this.platform.is('ios')){
     //   if(data['url_consult']){
     //   console.log('ios');
