@@ -887,6 +887,52 @@ var ɵFile_BaseFactory = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_1_
 
 /***/ }),
 
+/***/ "KRBT":
+/*!*************************************************!*\
+  !*** ./src/app/services/interceptor.service.ts ***!
+  \*************************************************/
+/*! exports provided: InterceptorService, InterceptorModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InterceptorService", function() { return InterceptorService; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InterceptorModule", function() { return InterceptorModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "tk/3");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "fXoL");
+
+
+
+let InterceptorService = class InterceptorService {
+    intercept(request, next) {
+        request = request.clone({
+            setHeaders: {
+                'User-Agent': `Mozilla/5.0 (iPhone; CPU iPhone OS 15_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.4 Mobile/15E148 Safari/604.1`,
+                'plm': 'da'
+            }
+        });
+        return next.handle(request);
+    }
+};
+InterceptorService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Injectable"])()
+], InterceptorService);
+
+let InterceptorModule = class InterceptorModule {
+};
+InterceptorModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
+        providers: [
+            { provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HTTP_INTERCEPTORS"], useClass: InterceptorService, multi: true }
+        ]
+    })
+], InterceptorModule);
+
+
+
+/***/ }),
+
 /***/ "XSEc":
 /*!*******************************************************************!*\
   !*** ./node_modules/@ionic-native/http/__ivy_ngcc__/ngx/index.js ***!
@@ -1029,7 +1075,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-header [translucent]=\"true\" class=\"header-background\">\r\n  <ion-toolbar >\r\n    <ion-buttons slot=\"start\">\r\n      <ion-menu-button></ion-menu-button>\r\n      </ion-buttons>\r\n      <ion-title slot=\"start\" style=\"display:inline-block;position: relative;top: 5px;left: 5px;\">\r\n      <ion-label >Conferinta Online</ion-label>\r\n   </ion-title>\r\n   <ion-thumbnail slot=\"end\" style=\"display:inline-block;margin-right:5%\">\r\n    <img src=\"assets/images/logo.png\" style=\"transform:scale(0.7);\">\r\n  </ion-thumbnail>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n  <ion-card *ngIf=\"url_conferinta\" >\r\n              <ion-card-content class=\"resp-container\">\r\n                  <iframe class=\"webPage\" allow=\"microphone *; camera; fullscreen; display-capture\" [src]=\"url_conferinta | safe\" ></iframe>\r\n                  <!-- <div id=\"jitsi-iframe\"></div> -->\r\n              </ion-card-content>\r\n            </ion-card>\r\n             <ion-card *ngIf=\"url_conferinta\" >\r\n              <ion-card-content>\r\n                <ngx-dropzone [multiple]=\"false\" (change)=\"onSelect($event)\">\r\n                  <ngx-dropzone-label>Faceti click sau trageti fisierul in interiorul acestei casete pentru a putea incarca documentele.</ngx-dropzone-label>\r\n                  <ngx-dropzone-preview *ngFor=\"let f of files\" [removable]=\"true\" (removed)=\"onRemove(f)\">\r\n                    <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>\r\n                  </ngx-dropzone-preview>\r\n                </ngx-dropzone>\r\n                 <!-- <form  [formGroup]=\"dropzone\" (ngSubmit)=\"onSubmitDropzone()\">\r\n                      <div class=\"dz-message\" data-dz-message><span>Faceti click sau trageti fisierul in interiorul acestei casete pentru a putea incarca documentele</span></div>\r\n                  </form> -->\r\n                </ion-card-content>\r\n              </ion-card>\r\n              <ion-card *ngIf=\"url_conferinta\" >\r\n                <ion-card-header>\r\n                  <ion-card-title>Fisiere incarcate de doctor</ion-card-title>\r\n                </ion-card-header>\r\n                <ion-card-content>\r\n                \r\n                  <ul class=\"list-group\" id=\"file_listing\" *ngFor=\"let fisier of fisiere;\">\r\n                      <li class=\"list-group-item\"><a (click)=\"downloadFile(fisier.nume_fisier)\" >{{fisier.nume_fisier}}</a></li> \r\n                  </ul>\r\n                  <!-- <button class=\"btn btn-primary mt-2 mb-3 w-100\" id=\"refresh_files\"><i class=\"fas fa-sync-alt mr-2\"></i>Reimprospateaza fisiere</button>                                                                        -->\r\n                </ion-card-content>\r\n              </ion-card>\r\n              <ion-card *ngIf=\"!url_conferinta\">\r\n                <ion-card-header>\r\n                  <ion-card-title>Momentan nu ai nicio camera de consultatie deschisa</ion-card-title>\r\n                </ion-card-header>\r\n                <ion-card-content>\r\n                          <p class=\"card-text\">Daca astepti sa intri in conferinta, camera se va deschide imediat ce doctorul va porni consultatia, indiferent daca consultatia va avea loc pentru unul din conturile asociate.\r\n                          </p>\r\n                          <!-- <a href=\"{{route('consultatie.online')}}\" class=\"btn btn-primary waves-effect waves-light\">Reincearca conectarea la consultatia online</a> -->\r\n                        </ion-card-content>\r\n                      </ion-card>\r\n</ion-content>\r\n\r\n\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header [translucent]=\"true\" class=\"header-background\">\r\n  <ion-toolbar >\r\n    <ion-buttons slot=\"start\">\r\n      <ion-menu-button></ion-menu-button>\r\n      </ion-buttons>\r\n      <ion-title slot=\"start\" style=\"display:inline-block;position: relative;top: 5px;left: 5px;\">\r\n      <ion-label >Conferinta Online</ion-label>\r\n   </ion-title>\r\n   <ion-thumbnail slot=\"end\" style=\"display:inline-block;margin-right:5%\">\r\n    <img src=\"assets/images/logo.png\" style=\"transform:scale(0.7);\">\r\n  </ion-thumbnail>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n  <ion-card *ngIf=\"url_conferinta\" >\r\n              <ion-card-content class=\"resp-container\">\r\n                  <iframe id=\"iframe\" #iframe class=\"webPage\" allow=\"microphone *; camera; fullscreen; display-capture\"  [src]=\"url_conferinta  | safe\" ></iframe>\r\n                  <!-- <div id=\"jitsi-iframe\"></div> -->\r\n              </ion-card-content>\r\n            </ion-card>\r\n             <ion-card *ngIf=\"url_conferinta\" >\r\n              <ion-card-content>\r\n                <ngx-dropzone [multiple]=\"false\" [maxFileSize]=\"10000000\" (change)=\"onSelect($event)\">\r\n                  <ngx-dropzone-label>Faceti click sau trageti fisierul in interiorul acestei casete pentru a putea incarca documentele.</ngx-dropzone-label>\r\n                  <ngx-dropzone-preview *ngFor=\"let f of files\" [removable]=\"true\" (removed)=\"onRemove(f)\">\r\n                    <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>\r\n                  </ngx-dropzone-preview>\r\n                </ngx-dropzone>\r\n                 <!-- <form  [formGroup]=\"dropzone\" (ngSubmit)=\"onSubmitDropzone()\">\r\n                      <div class=\"dz-message\" data-dz-message><span>Faceti click sau trageti fisierul in interiorul acestei casete pentru a putea incarca documentele</span></div>\r\n                  </form> -->\r\n                </ion-card-content>\r\n              </ion-card>\r\n              <ion-card *ngIf=\"url_conferinta\" >\r\n                <ion-card-header>\r\n                  <ion-card-title>Fisiere incarcate de doctor</ion-card-title>\r\n                </ion-card-header>\r\n                <ion-card-content>\r\n                \r\n                  <ul class=\"list-group\" id=\"file_listing\" *ngFor=\"let fisier of fisiere;\">\r\n                      <li class=\"list-group-item\"><a (click)=\"downloadFile(fisier.nume_fisier)\" >{{fisier.nume_fisier}}</a></li> \r\n                  </ul>\r\n                  <!-- <button class=\"btn btn-primary mt-2 mb-3 w-100\" id=\"refresh_files\"><i class=\"fas fa-sync-alt mr-2\"></i>Reimprospateaza fisiere</button>                                                                        -->\r\n                </ion-card-content>\r\n              </ion-card>\r\n              <ion-card *ngIf=\"!url_conferinta\">\r\n                <ion-card-header>\r\n                  <ion-card-title>Momentan nu ai nicio camera de consultatie deschisa</ion-card-title>\r\n                </ion-card-header>\r\n                <ion-card-content>\r\n                          <p class=\"card-text\">Daca astepti sa intri in conferinta, camera se va deschide imediat ce doctorul va porni consultatia, indiferent daca consultatia va avea loc pentru unul din conturile asociate.\r\n                          </p>\r\n                          <!-- <a href=\"{{route('consultatie.online')}}\" class=\"btn btn-primary waves-effect waves-light\">Reincearca conectarea la consultatia online</a> -->\r\n                        </ion-card-content>\r\n                      </ion-card>\r\n</ion-content>\r\n\r\n\r\n");
 
 /***/ }),
 
@@ -2060,6 +2106,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ionic_native_file_ngx__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @ionic-native/file/ngx */ "FAH8");
 /* harmony import */ var _ionic_native_preview_any_file_ngx__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @ionic-native/preview-any-file/ngx */ "c7Fb");
 /* harmony import */ var _ionic_native_media_ngx__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @ionic-native/media/ngx */ "9YJ4");
+/* harmony import */ var src_app_services_interceptor_service__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! src/app/services/interceptor.service */ "KRBT");
 
 
 
@@ -2074,6 +2121,7 @@ __webpack_require__.r(__webpack_exports__);
 // import { FileOpener } from '@awesome-cordova-plugins/file-opener/ngx';
 
 
+
 let ConferintaPageModule = class ConferintaPageModule {
 };
 ConferintaPageModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
@@ -2084,9 +2132,10 @@ ConferintaPageModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])(
             _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"],
             _conferinta_routing_module__WEBPACK_IMPORTED_MODULE_5__["ConferintaPageRoutingModule"],
             ngx_dropzone__WEBPACK_IMPORTED_MODULE_8__["NgxDropzoneModule"],
+            src_app_services_interceptor_service__WEBPACK_IMPORTED_MODULE_13__["InterceptorModule"]
         ],
         declarations: [_conferinta_page__WEBPACK_IMPORTED_MODULE_6__["ConferintaPage"], src_app_safe_pipe__WEBPACK_IMPORTED_MODULE_7__["SafePipe"],],
-        providers: [_ionic_native_http_ngx__WEBPACK_IMPORTED_MODULE_9__["HTTP"], _ionic_native_file_ngx__WEBPACK_IMPORTED_MODULE_10__["File"], _ionic_native_preview_any_file_ngx__WEBPACK_IMPORTED_MODULE_11__["PreviewAnyFile"], _ionic_native_media_ngx__WEBPACK_IMPORTED_MODULE_12__["Media"],]
+        providers: [_ionic_native_http_ngx__WEBPACK_IMPORTED_MODULE_9__["HTTP"], _ionic_native_file_ngx__WEBPACK_IMPORTED_MODULE_10__["File"], _ionic_native_preview_any_file_ngx__WEBPACK_IMPORTED_MODULE_11__["PreviewAnyFile"], _ionic_native_media_ngx__WEBPACK_IMPORTED_MODULE_12__["Media"]]
     })
 ], ConferintaPageModule);
 
@@ -2117,6 +2166,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ionic_native_preview_any_file_ngx__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @ionic-native/preview-any-file/ngx */ "c7Fb");
 /* harmony import */ var _ionic_native_media_ngx__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @ionic-native/media/ngx */ "9YJ4");
 /* harmony import */ var src_app_services_ion_loader_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! src/app/services/ion-loader.service */ "G8uT");
+/* harmony import */ var _awesome_cordova_plugins_android_permissions_ngx__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @awesome-cordova-plugins/android-permissions/ngx */ "YCdq");
+
 
 
 
@@ -2133,7 +2184,8 @@ __webpack_require__.r(__webpack_exports__);
 
 let ConferintaPage = class ConferintaPage {
     // constructor( private media: Media,private previewAnyFile: PreviewAnyFile, private platform: Platform, private file: File2,private menu: MenuController, private router: Router, private authService: AuthenticationService,private http: HttpClient,private ionLoaderService: IonLoaderService,private userAgent: UserAgent) {
-    constructor(media, previewAnyFile, platform, file, menu, router, authService, http, ionLoaderService) {
+    constructor(androidPermissions, media, previewAnyFile, platform, file, menu, router, authService, http, ionLoaderService, alertCtrl) {
+        this.androidPermissions = androidPermissions;
         this.media = media;
         this.previewAnyFile = previewAnyFile;
         this.platform = platform;
@@ -2143,10 +2195,12 @@ let ConferintaPage = class ConferintaPage {
         this.authService = authService;
         this.http = http;
         this.ionLoaderService = ionLoaderService;
+        this.alertCtrl = alertCtrl;
         this.domain = "voice.infragroup.ro"; // For self hosted use your domain
         // audioList: any[] = [];
         // url = "https://probe.infragroup.ro";
-        this.url = "https://medicall.medicover.ro";
+        // url = "https://medicall.medicover.ro";
+        this.url = "http://127.0.0.1:8000";
         this.title = 'dropzone';
         this.files = [];
     }
@@ -2156,15 +2210,50 @@ let ConferintaPage = class ConferintaPage {
         // // // .then((res: any) => console.log(res))
         // // // .catch((error: any) => console.error(error));
         // //  }
-        this.http.get(`${this.url}/api/conferinta/roomOpened/${localStorage.getItem("user_id")}`).subscribe(data => {
-            this.url_conferinta = data['url_consult'];
+        // this.http.get(`${this.url}/api/conferinta/roomOpened/${localStorage.getItem("user_id")}`).subscribe(data=>{
+        // this.http.get(`${this.url}/api/conferinta/roomOpened/2`).subscribe(data=>{
+        this.http.get(`http://127.0.0.1:8000/api/conferinta/roomOpened/49`).subscribe(data => {
+            if (this.platform.is('ios')) {
+                if (data['url_consult']) {
+                    console.log('ios');
+                    // this.url_conferinta = this.url+'api/conferinta/roomRedirect/'+localStorage.getItem("user_id");
+                    this.url_conferinta = this.url + '/api/conferinta/roomRedirect/49';
+                }
+            }
+            else {
+                this.url_conferinta = data['url_consult'];
+            }
+            console.log(this.url_conferinta);
             this.id_consult = data['id_consult'];
             this.fisiere = data['fisiere'];
             this.ionLoaderService.dismissLoader();
         });
     }
+    setUserAgent(window, userAgent) {
+        if (window.navigator.userAgent != userAgent) {
+            var userAgentProp = { get: function () { return userAgent; } };
+            try {
+                Object.defineProperty(window.navigator, 'userAgent', userAgentProp);
+            }
+            catch (e) {
+                window.navigator = Object.create(navigator, {
+                    userAgent: userAgentProp
+                });
+            }
+        }
+    }
     ngOnInit() {
-        console.log(this.platform.platforms);
+        // console.log( window.document.querySelectorAll("iframe"));
+        // this.setUserAgent(window, 'Mozilla/5.0 (iPhone; CPU iPhone OS 15_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.4 Mobile/15E148 Safari/604.1');
+        //     const element: HTMLIFrameElement = document.getElementById('iframe') as HTMLIFrameElement;
+        // // const iframe = element.contentWindow;
+        // var frame = (document.querySelector('#iframe') as HTMLIFrameElement) 
+        // console.log( frame);
+        //   this.setUserAgent(
+        //     this.hostElement.nativeElement.querySelector('iframe').contentWindow.document.querySelector, 
+        //     'Mozilla/5.0 (iPhone; CPU iPhone OS 15_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.4 Mobile/15E148 Safari/604.1'
+        // );
+        alert(window.navigator.userAgent);
         this.ionLoaderService.simpleLoader();
         this.url_conferinta = null;
         this.menu.enable(true);
@@ -2181,22 +2270,49 @@ let ConferintaPage = class ConferintaPage {
         }
     }
     onSelect(event) {
-        console.log(event.addedFiles);
-        this.files.push(...event.addedFiles);
-        const formData = new FormData();
-        for (var i = 0; i < this.files.length; i++) {
-            formData.append("file", this.files[i]);
+        if (event.rejectedFiles.length == 0) {
+            console.log(event.addedFiles, event.rejectedFiles);
+            this.files.push(...event.addedFiles);
+            const formData = new FormData();
+            for (var i = 0; i < this.files.length; i++) {
+                formData.append("file", this.files[i]);
+            }
+            const headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_6__["HttpHeaders"]({
+                'Accept': '*/*',
+                'enctype': "multipart/form-data"
+            });
+            let options = { headers: headers };
+            this.http.post(`${this.url}/api/conferinta/fileupload/${this.id_consult}`, formData, options)
+                // this.http.post(`http://127.0.0.1:8000/api/conferinta/fileupload/${this.id_consult}`, formData, options)
+                .subscribe(res => {
+                //  console.log(res);
+                let alert = this.alertCtrl.create({
+                    // title: '',
+                    message: 'Fisier incarcat cu succes',
+                    buttons: [
+                        {
+                            text: 'Ok',
+                            cssClass: 'icon-color',
+                        }
+                    ]
+                });
+                alert.then(alert => alert.present());
+            });
         }
-        const headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_6__["HttpHeaders"]({
-            'Accept': '*/*',
-            'enctype': "multipart/form-data"
-        });
-        let options = { headers: headers };
-        this.http.post(`${this.url}/api/conferinta/fileupload/${this.id_consult}`, formData, options)
-            .subscribe(res => {
-            //  console.log(res);
-            alert('Fisier incarcat cu succes.');
-        });
+        else {
+            let alert = this.alertCtrl.create({
+                // title: 'Fisier prea mare',
+                cssClass: "my-custom-class",
+                message: 'Dimensiunea maxima a fisierului poate fi de 10 MB',
+                buttons: [
+                    {
+                        text: 'Ok',
+                        cssClass: 'icon-color',
+                    }
+                ]
+            });
+            alert.then(alert => alert.present());
+        }
     }
     onRemove(event) {
         console.log(event);
@@ -2216,6 +2332,7 @@ let ConferintaPage = class ConferintaPage {
     }
 };
 ConferintaPage.ctorParameters = () => [
+    { type: _awesome_cordova_plugins_android_permissions_ngx__WEBPACK_IMPORTED_MODULE_13__["AndroidPermissions"] },
     { type: _ionic_native_media_ngx__WEBPACK_IMPORTED_MODULE_11__["Media"] },
     { type: _ionic_native_preview_any_file_ngx__WEBPACK_IMPORTED_MODULE_10__["PreviewAnyFile"] },
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["Platform"] },
@@ -2224,8 +2341,12 @@ ConferintaPage.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_9__["Router"] },
     { type: src_app_services_authentication_service__WEBPACK_IMPORTED_MODULE_5__["AuthenticationService"] },
     { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_6__["HttpClient"] },
-    { type: src_app_services_ion_loader_service__WEBPACK_IMPORTED_MODULE_12__["IonLoaderService"] }
+    { type: src_app_services_ion_loader_service__WEBPACK_IMPORTED_MODULE_12__["IonLoaderService"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["AlertController"] }
 ];
+ConferintaPage.propDecorators = {
+    iframe: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["ViewChild"], args: ['iframe', { static: false },] }]
+};
 ConferintaPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
         selector: 'app-conferinta',

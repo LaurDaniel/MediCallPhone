@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild,ElementRef } from '@angular/core';
 import { MenuController, AlertController } from '@ionic/angular';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
@@ -26,6 +26,7 @@ export class ConferintaPage implements OnInit{
     options: any;
     api: any;
     user: any;
+    @ViewChild('iframe', {static: false}) iframe: ElementRef
 //     recording: boolean = false;
 // filePath: string;
 // fileName: string;
@@ -42,6 +43,7 @@ url = "https://medicall.medicover.ro";
   public id_consult: any;
   files: File[] = [];
 
+
   // constructor( private media: Media,private previewAnyFile: PreviewAnyFile, private platform: Platform, private file: File2,private menu: MenuController, private router: Router, private authService: AuthenticationService,private http: HttpClient,private ionLoaderService: IonLoaderService,private userAgent: UserAgent) {
   constructor(    private androidPermissions: AndroidPermissions, private media: Media,private previewAnyFile: PreviewAnyFile, private platform: Platform, private file: File2,private menu: MenuController, private router: Router, private authService: AuthenticationService,private http: HttpClient,private ionLoaderService: IonLoaderService,private alertCtrl: AlertController) {
    }
@@ -53,21 +55,52 @@ url = "https://medicall.medicover.ro";
   // // // .then((res: any) => console.log(res))
   // // // .catch((error: any) => console.error(error));
   // //  }
-  this.http.get(`${this.url}/api/conferinta/roomOpened/${localStorage.getItem("user_id")}`).subscribe(data=>{
+  // this.http.get(`${this.url}/api/conferinta/roomOpened/${localStorage.getItem("user_id")}`).subscribe(data=>{
   // this.http.get(`${this.url}/api/conferinta/roomOpened/2`).subscribe(data=>{
-  // this.http.get(`http://127.0.0.1:8000/api/conferinta/roomOpened/49`).subscribe(data=>{
-
+  this.http.get(`http://127.0.0.1:8000/api/conferinta/roomOpened/49`).subscribe(data=>{
+    // if(this.platform.is('ios')){
+    //   if(data['url_consult']){
+    //   console.log('ios');
+    //   // this.url_conferinta = this.url+'api/conferinta/roomRedirect/'+localStorage.getItem("user_id");
+    //   this.url_conferinta = this.url+'/api/conferinta/roomRedirect/49';
+    //   }
+    // }
+    // else{
     this.url_conferinta = data['url_consult'];
+    // }
+    console.log(this.url_conferinta);
     this.id_consult = data['id_consult'];
     this.fisiere = data['fisiere'];
     this.ionLoaderService.dismissLoader();
  });
  }
+ setUserAgent(window, userAgent) {
+  if (window.navigator.userAgent != userAgent) {
+      var userAgentProp = { get: function () { return userAgent; } };
+      try {
+          Object.defineProperty(window.navigator, 'userAgent', userAgentProp);
+      } catch (e) {
+          window.navigator = Object.create(navigator, {
+              userAgent: userAgentProp
+          });
+      }
+  }
+}
 
   ngOnInit() {
+    
+    // console.log( window.document.querySelectorAll("iframe"));
+    // this.setUserAgent(window, 'Mozilla/5.0 (iPhone; CPU iPhone OS 15_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.4 Mobile/15E148 Safari/604.1');
+//     const element: HTMLIFrameElement = document.getElementById('iframe') as HTMLIFrameElement;
+// // const iframe = element.contentWindow;
+// var frame = (document.querySelector('#iframe') as HTMLIFrameElement) 
+// console.log( frame);
+  //   this.setUserAgent(
+  //     this.hostElement.nativeElement.querySelector('iframe').contentWindow.document.querySelector, 
+  //     'Mozilla/5.0 (iPhone; CPU iPhone OS 15_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.4 Mobile/15E148 Safari/604.1'
+  // );
   
-     
-    console.log(this.platform.platforms);
+    // alert(window.navigator.userAgent);
     this.ionLoaderService.simpleLoader();
     this.url_conferinta = null;
     this.menu.enable(true);
@@ -77,13 +110,15 @@ url = "https://medicall.medicover.ro";
         // this.ionLoaderService.dismissLoader();
         this.fetchUrl();
     });
+   
   }
-  else{
+  else{ 
+   
   this.audio.startRecord();
   this.audio.stopRecord();
-  
-  }
 
+
+  }
   }
 
 

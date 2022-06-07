@@ -15,6 +15,7 @@ import { File as File2 } from '@ionic-native/file/ngx';
 import { PreviewAnyFile } from '@ionic-native/preview-any-file/ngx';
 import { Media } from '@ionic-native/media/ngx';
 import { UserAgent } from '@ionic-native/user-agent/ngx';
+import { InterceptorModule } from 'src/app/services/interceptor.service';
 
 @NgModule({
   imports: [
@@ -23,10 +24,11 @@ import { UserAgent } from '@ionic-native/user-agent/ngx';
     IonicModule,
     ConferintaPageRoutingModule,
     NgxDropzoneModule,
+    InterceptorModule
    
     
   ],
   declarations: [ConferintaPage,SafePipe,],
-  providers: [ HTTP, File2, PreviewAnyFile,Media,]
+  providers: [ HTTP, File2, PreviewAnyFile,Media]
 })
 export class ConferintaPageModule {}

@@ -18,6 +18,14 @@
         ]
         },
       {
+          "id": "im.ltdev.cordova.UserAgent.UserAgent",
+          "file": "plugins/im.ltdev.cordova.UserAgent/www/UserAgent.js",
+          "pluginId": "im.ltdev.cordova.UserAgent",
+        "clobbers": [
+          "UserAgent"
+        ]
+        },
+      {
           "id": "cordova-plugin-file.DirectoryEntry",
           "file": "plugins/cordova-plugin-file/www/DirectoryEntry.js",
           "pluginId": "cordova-plugin-file",
@@ -222,6 +230,7 @@
       "cordova-plugin-file": "6.0.2",
       "cordova-plugin-media": "5.0.4",
       "cordova-plugin-preview-any-file": "0.2.9",
+      "im.ltdev.cordova.UserAgent": "1.0.1",
       "phonegap-plugin-barcodescanner": "8.1.0"
     };
     // BOTTOM OF METADATA

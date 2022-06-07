@@ -135,8 +135,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @ionic-native/splash-screen/ngx */ "54vc");
 /* harmony import */ var _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @ionic-native/status-bar/ngx */ "VYYF");
 /* harmony import */ var src_app_services_alert_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/services/alert.service */ "3LUQ");
-/* harmony import */ var src_app_services_event_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/app/services/event.service */ "fTLw");
-/* harmony import */ var _awesome_cordova_plugins_android_permissions_ngx__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @awesome-cordova-plugins/android-permissions/ngx */ "YCdq");
+/* harmony import */ var _ionic_native_user_agent_ngx__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @ionic-native/user-agent/ngx */ "poBw");
+/* harmony import */ var src_app_services_event_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! src/app/services/event.service */ "fTLw");
+/* harmony import */ var _awesome_cordova_plugins_android_permissions_ngx__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @awesome-cordova-plugins/android-permissions/ngx */ "YCdq");
+
 
 
 
@@ -151,7 +153,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let AppComponent = class AppComponent {
-    constructor(menu, platform, splashScreen, statusBar, authService, router, alertService, navCtrl, _location, androidPermissions, events) {
+    constructor(menu, platform, splashScreen, statusBar, authService, router, alertService, navCtrl, _location, androidPermissions, events, userAgent) {
         this.menu = menu;
         this.platform = platform;
         this.splashScreen = splashScreen;
@@ -163,6 +165,7 @@ let AppComponent = class AppComponent {
         this._location = _location;
         this.androidPermissions = androidPermissions;
         this.events = events;
+        this.userAgent = userAgent;
         this.appPages = [
             {
                 title: 'Panou Principal',
@@ -192,17 +195,36 @@ let AppComponent = class AppComponent {
         ];
         this.initializeApp();
     }
+    setUserAgent(window, userAgent) {
+        if (window.navigator.userAgent != userAgent) {
+            var userAgentProp = { get: function () { return userAgent; } };
+            try {
+                Object.defineProperty(window.navigator, 'user-agent', userAgentProp);
+            }
+            catch (e) {
+                window.navigator = Object.create(navigator, {
+                    userAgent: userAgentProp
+                });
+            }
+        }
+    }
     initializeApp() {
         this.platform.ready().then(() => {
             this.statusBar.styleDefault();
             this.splashScreen.hide();
-            // if(this.platform.is('android')){
-            // // this.androidPermissions.checkPermission(this.androidPermissions.PERMISSION.RECORD_AUDIO).then(
-            // //   result => console.log('Has permission?',result.hasPermission),
-            // //   err => this.androidPermissions.requestPermission(this.androidPermissions.PERMISSION.RECORD_AUDIO)
-            // // );
-            // this.androidPermissions.requestPermissions([this.androidPermissions.PERMISSION.RECORD_AUDIO, this.androidPermissions.PERMISSION.GET_ACCOUNTS]);
-            // } 
+            if (this.platform.is('ios')) {
+                this.userAgent.set('Mozilla/5.0 (iPhone; CPU iPhone OS 15_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.4 Mobile/15E148 Safari/604.1');
+                //   this.setUserAgent(window, 'Mozilla/5.0 (iPhone; CPU iPhone OS 15_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.4 Mobile/15E148 Safari/604.1');
+                //   this.setUserAgent(
+                //     document.querySelector('iframe').contentWindow, 
+                //     'Mozilla/5.0 (iPhone; CPU iPhone OS 15_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.4 Mobile/15E148 Safari/604.1'
+                // );
+                // // this.androidPermissions.checkPermission(this.androidPermissions.PERMISSION.RECORD_AUDIO).then(
+                // //   result => console.log('Has permission?',result.hasPermission),
+                // //   err => this.androidPermissions.requestPermission(this.androidPermissions.PERMISSION.RECORD_AUDIO)
+                // // );
+                // this.androidPermissions.requestPermissions([this.androidPermissions.PERMISSION.RECORD_AUDIO, this.androidPermissions.PERMISSION.GET_ACCOUNTS]);
+            }
             this.authService.authenticationState.subscribe(state => {
                 if (state) {
                     this.menu.enable(true);
@@ -245,8 +267,9 @@ AppComponent.ctorParameters = () => [
     { type: src_app_services_alert_service__WEBPACK_IMPORTED_MODULE_9__["AlertService"] },
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_6__["NavController"] },
     { type: _angular_common__WEBPACK_IMPORTED_MODULE_5__["Location"] },
-    { type: _awesome_cordova_plugins_android_permissions_ngx__WEBPACK_IMPORTED_MODULE_11__["AndroidPermissions"] },
-    { type: src_app_services_event_service__WEBPACK_IMPORTED_MODULE_10__["EventService"] }
+    { type: _awesome_cordova_plugins_android_permissions_ngx__WEBPACK_IMPORTED_MODULE_12__["AndroidPermissions"] },
+    { type: src_app_services_event_service__WEBPACK_IMPORTED_MODULE_11__["EventService"] },
+    { type: _ionic_native_user_agent_ngx__WEBPACK_IMPORTED_MODULE_10__["UserAgent"] }
 ];
 AppComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_4__["Component"])({
@@ -372,6 +395,7 @@ AppModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         imports: [
             _syncfusion_ej2_angular_calendars__WEBPACK_IMPORTED_MODULE_16__["DatePickerModule"],
             _mobiscroll_angular__WEBPACK_IMPORTED_MODULE_1__["MbscModule"],
+            // InterceptorModule,
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__["BrowserModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["IonicModule"].forRoot(),
             _app_routing_module__WEBPACK_IMPORTED_MODULE_10__["AppRoutingModule"], _ionic_storage__WEBPACK_IMPORTED_MODULE_13__["IonicStorageModule"].forRoot(),
             _angular_common_http__WEBPACK_IMPORTED_MODULE_12__["HttpClientModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_8__["FormsModule"],

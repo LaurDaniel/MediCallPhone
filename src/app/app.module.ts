@@ -16,6 +16,8 @@ import { SafePipe } from './safe.pipe';
 import { JwtModule, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { AndroidPermissions } from '@awesome-cordova-plugins/android-permissions/ngx';
 import { DatePickerModule } from '@syncfusion/ej2-angular-calendars';
+import { InterceptorModule } from 'src/app/services/interceptor.service';
+import { UserAgent } from '@ionic-native/user-agent/ngx';
 // import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 export function jwtOptionsFactory(storage) {
@@ -32,6 +34,8 @@ export function jwtOptionsFactory(storage) {
   imports: [ 
     DatePickerModule,
     MbscModule,  
+  
+    // InterceptorModule,
 BrowserModule, IonicModule.forRoot(),
      AppRoutingModule,IonicStorageModule.forRoot(),
      HttpClientModule, FormsModule,
@@ -50,6 +54,8 @@ BrowserModule, IonicModule.forRoot(),
     AndroidPermissions,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     BarcodeScanner,
+    UserAgent
+   
  
   ],
   bootstrap: [AppComponent]

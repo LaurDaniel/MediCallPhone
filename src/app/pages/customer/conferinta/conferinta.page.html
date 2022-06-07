@@ -15,7 +15,7 @@
 <ion-content>
   <ion-card *ngIf="url_conferinta" >
               <ion-card-content class="resp-container">
-                  <iframe class="webPage" allow="microphone *; camera; fullscreen; display-capture" [src]="url_conferinta | safe" ></iframe>
+                  <iframe id="iframe" #iframe class="webPage" allow="microphone *; camera; fullscreen; display-capture"  [src]="url_conferinta  | safe" ></iframe>
                   <!-- <div id="jitsi-iframe"></div> -->
               </ion-card-content>
             </ion-card>

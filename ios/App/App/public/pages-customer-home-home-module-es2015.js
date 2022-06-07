@@ -18,6 +18,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ "TEn/");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/common/http */ "tk/3");
 /* harmony import */ var src_app_services_ion_loader_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/services/ion-loader.service */ "G8uT");
+/* harmony import */ var _awesome_cordova_plugins_android_permissions_ngx__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @awesome-cordova-plugins/android-permissions/ngx */ "YCdq");
+
+
 
 
 
@@ -29,7 +32,9 @@ __webpack_require__.r(__webpack_exports__);
 
 let HomePage = class HomePage {
     // url = "https://probe.infragroup.ro";
-    constructor(http, menu, authService, alertCtrl, ionLoaderService) {
+    constructor(platform, androidPermissions, http, menu, authService, alertCtrl, ionLoaderService) {
+        this.platform = platform;
+        this.androidPermissions = androidPermissions;
         this.http = http;
         this.menu = menu;
         this.authService = authService;
@@ -41,6 +46,13 @@ let HomePage = class HomePage {
     ngOnInit() {
         // this.ionLoaderService.simpleLoader();
         this.menu.enable(true);
+        // if(this.platform.is('android')){
+        //   this.androidPermissions.checkPermission(this.androidPermissions.PERMISSION.RECORD_AUDIO).then(
+        //     result => console.log('Has permission?',result.hasPermission),
+        //     err => this.androidPermissions.requestPermission(this.androidPermissions.PERMISSION.RECORD_AUDIO)
+        //   );
+        //   this.androidPermissions.requestPermissions([this.androidPermissions.PERMISSION.RECORD_AUDIO, this.androidPermissions.PERMISSION.GET_ACCOUNTS]);
+        //   } 
         //  this.ionLoaderService.dismissLoader();
         this.http.get(`${this.url}/api/home/programari/${localStorage.getItem("user_id")}`).subscribe(data => {
             this.programari = data.programari;
@@ -109,6 +121,8 @@ let HomePage = class HomePage {
     }
 };
 HomePage.ctorParameters = () => [
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["Platform"] },
+    { type: _awesome_cordova_plugins_android_permissions_ngx__WEBPACK_IMPORTED_MODULE_8__["AndroidPermissions"] },
     { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_6__["HttpClient"] },
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["MenuController"] },
     { type: src_app_services_authentication_service__WEBPACK_IMPORTED_MODULE_4__["AuthenticationService"] },

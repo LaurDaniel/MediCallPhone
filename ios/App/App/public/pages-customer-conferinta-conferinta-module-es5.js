@@ -13,7 +13,7 @@
 
   function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
-  function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+  function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
   function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
 
@@ -23,7 +23,9 @@
 
   function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
 
-  function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+  function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+  function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return exports; }; var exports = {}, Op = Object.prototype, hasOwn = Op.hasOwnProperty, $Symbol = "function" == typeof Symbol ? Symbol : {}, iteratorSymbol = $Symbol.iterator || "@@iterator", asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator", toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag"; function define(obj, key, value) { return Object.defineProperty(obj, key, { value: value, enumerable: !0, configurable: !0, writable: !0 }), obj[key]; } try { define({}, ""); } catch (err) { define = function define(obj, key, value) { return obj[key] = value; }; } function wrap(innerFn, outerFn, self, tryLocsList) { var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator, generator = Object.create(protoGenerator.prototype), context = new Context(tryLocsList || []); return generator._invoke = function (innerFn, self, context) { var state = "suspendedStart"; return function (method, arg) { if ("executing" === state) throw new Error("Generator is already running"); if ("completed" === state) { if ("throw" === method) throw arg; return doneResult(); } for (context.method = method, context.arg = arg;;) { var delegate = context.delegate; if (delegate) { var delegateResult = maybeInvokeDelegate(delegate, context); if (delegateResult) { if (delegateResult === ContinueSentinel) continue; return delegateResult; } } if ("next" === context.method) context.sent = context._sent = context.arg;else if ("throw" === context.method) { if ("suspendedStart" === state) throw state = "completed", context.arg; context.dispatchException(context.arg); } else "return" === context.method && context.abrupt("return", context.arg); state = "executing"; var record = tryCatch(innerFn, self, context); if ("normal" === record.type) { if (state = context.done ? "completed" : "suspendedYield", record.arg === ContinueSentinel) continue; return { value: record.arg, done: context.done }; } "throw" === record.type && (state = "completed", context.method = "throw", context.arg = record.arg); } }; }(innerFn, self, context), generator; } function tryCatch(fn, obj, arg) { try { return { type: "normal", arg: fn.call(obj, arg) }; } catch (err) { return { type: "throw", arg: err }; } } exports.wrap = wrap; var ContinueSentinel = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var IteratorPrototype = {}; define(IteratorPrototype, iteratorSymbol, function () { return this; }); var getProto = Object.getPrototypeOf, NativeIteratorPrototype = getProto && getProto(getProto(values([]))); NativeIteratorPrototype && NativeIteratorPrototype !== Op && hasOwn.call(NativeIteratorPrototype, iteratorSymbol) && (IteratorPrototype = NativeIteratorPrototype); var Gp = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(IteratorPrototype); function defineIteratorMethods(prototype) { ["next", "throw", "return"].forEach(function (method) { define(prototype, method, function (arg) { return this._invoke(method, arg); }); }); } function AsyncIterator(generator, PromiseImpl) { function invoke(method, arg, resolve, reject) { var record = tryCatch(generator[method], generator, arg); if ("throw" !== record.type) { var result = record.arg, value = result.value; return value && "object" == typeof value && hasOwn.call(value, "__await") ? PromiseImpl.resolve(value.__await).then(function (value) { invoke("next", value, resolve, reject); }, function (err) { invoke("throw", err, resolve, reject); }) : PromiseImpl.resolve(value).then(function (unwrapped) { result.value = unwrapped, resolve(result); }, function (error) { return invoke("throw", error, resolve, reject); }); } reject(record.arg); } var previousPromise; this._invoke = function (method, arg) { function callInvokeWithMethodAndArg() { return new PromiseImpl(function (resolve, reject) { invoke(method, arg, resolve, reject); }); } return previousPromise = previousPromise ? previousPromise.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); }; } function maybeInvokeDelegate(delegate, context) { var method = delegate.iterator[context.method]; if (undefined === method) { if (context.delegate = null, "throw" === context.method) { if (delegate.iterator["return"] && (context.method = "return", context.arg = undefined, maybeInvokeDelegate(delegate, context), "throw" === context.method)) return ContinueSentinel; context.method = "throw", context.arg = new TypeError("The iterator does not provide a 'throw' method"); } return ContinueSentinel; } var record = tryCatch(method, delegate.iterator, context.arg); if ("throw" === record.type) return context.method = "throw", context.arg = record.arg, context.delegate = null, ContinueSentinel; var info = record.arg; return info ? info.done ? (context[delegate.resultName] = info.value, context.next = delegate.nextLoc, "return" !== context.method && (context.method = "next", context.arg = undefined), context.delegate = null, ContinueSentinel) : info : (context.method = "throw", context.arg = new TypeError("iterator result is not an object"), context.delegate = null, ContinueSentinel); } function pushTryEntry(locs) { var entry = { tryLoc: locs[0] }; 1 in locs && (entry.catchLoc = locs[1]), 2 in locs && (entry.finallyLoc = locs[2], entry.afterLoc = locs[3]), this.tryEntries.push(entry); } function resetTryEntry(entry) { var record = entry.completion || {}; record.type = "normal", delete record.arg, entry.completion = record; } function Context(tryLocsList) { this.tryEntries = [{ tryLoc: "root" }], tryLocsList.forEach(pushTryEntry, this), this.reset(!0); } function values(iterable) { if (iterable) { var iteratorMethod = iterable[iteratorSymbol]; if (iteratorMethod) return iteratorMethod.call(iterable); if ("function" == typeof iterable.next) return iterable; if (!isNaN(iterable.length)) { var i = -1, next = function next() { for (; ++i < iterable.length;) { if (hasOwn.call(iterable, i)) return next.value = iterable[i], next.done = !1, next; } return next.value = undefined, next.done = !0, next; }; return next.next = next; } } return { next: doneResult }; } function doneResult() { return { value: undefined, done: !0 }; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, define(Gp, "constructor", GeneratorFunctionPrototype), define(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, toStringTagSymbol, "GeneratorFunction"), exports.isGeneratorFunction = function (genFun) { var ctor = "function" == typeof genFun && genFun.constructor; return !!ctor && (ctor === GeneratorFunction || "GeneratorFunction" === (ctor.displayName || ctor.name)); }, exports.mark = function (genFun) { return Object.setPrototypeOf ? Object.setPrototypeOf(genFun, GeneratorFunctionPrototype) : (genFun.__proto__ = GeneratorFunctionPrototype, define(genFun, toStringTagSymbol, "GeneratorFunction")), genFun.prototype = Object.create(Gp), genFun; }, exports.awrap = function (arg) { return { __await: arg }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, asyncIteratorSymbol, function () { return this; }), exports.AsyncIterator = AsyncIterator, exports.async = function (innerFn, outerFn, self, tryLocsList, PromiseImpl) { void 0 === PromiseImpl && (PromiseImpl = Promise); var iter = new AsyncIterator(wrap(innerFn, outerFn, self, tryLocsList), PromiseImpl); return exports.isGeneratorFunction(outerFn) ? iter : iter.next().then(function (result) { return result.done ? result.value : iter.next(); }); }, defineIteratorMethods(Gp), define(Gp, toStringTagSymbol, "Generator"), define(Gp, iteratorSymbol, function () { return this; }), define(Gp, "toString", function () { return "[object Generator]"; }), exports.keys = function (object) { var keys = []; for (var key in object) { keys.push(key); } return keys.reverse(), function next() { for (; keys.length;) { var key = keys.pop(); if (key in object) return next.value = key, next.done = !1, next; } return next.done = !0, next; }; }, exports.values = values, Context.prototype = { constructor: Context, reset: function reset(skipTempReset) { if (this.prev = 0, this.next = 0, this.sent = this._sent = undefined, this.done = !1, this.delegate = null, this.method = "next", this.arg = undefined, this.tryEntries.forEach(resetTryEntry), !skipTempReset) for (var name in this) { "t" === name.charAt(0) && hasOwn.call(this, name) && !isNaN(+name.slice(1)) && (this[name] = undefined); } }, stop: function stop() { this.done = !0; var rootRecord = this.tryEntries[0].completion; if ("throw" === rootRecord.type) throw rootRecord.arg; return this.rval; }, dispatchException: function dispatchException(exception) { if (this.done) throw exception; var context = this; function handle(loc, caught) { return record.type = "throw", record.arg = exception, context.next = loc, caught && (context.method = "next", context.arg = undefined), !!caught; } for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i], record = entry.completion; if ("root" === entry.tryLoc) return handle("end"); if (entry.tryLoc <= this.prev) { var hasCatch = hasOwn.call(entry, "catchLoc"), hasFinally = hasOwn.call(entry, "finallyLoc"); if (hasCatch && hasFinally) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } else if (hasCatch) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); } else { if (!hasFinally) throw new Error("try statement without catch or finally"); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } } } }, abrupt: function abrupt(type, arg) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc <= this.prev && hasOwn.call(entry, "finallyLoc") && this.prev < entry.finallyLoc) { var finallyEntry = entry; break; } } finallyEntry && ("break" === type || "continue" === type) && finallyEntry.tryLoc <= arg && arg <= finallyEntry.finallyLoc && (finallyEntry = null); var record = finallyEntry ? finallyEntry.completion : {}; return record.type = type, record.arg = arg, finallyEntry ? (this.method = "next", this.next = finallyEntry.finallyLoc, ContinueSentinel) : this.complete(record); }, complete: function complete(record, afterLoc) { if ("throw" === record.type) throw record.arg; return "break" === record.type || "continue" === record.type ? this.next = record.arg : "return" === record.type ? (this.rval = this.arg = record.arg, this.method = "return", this.next = "end") : "normal" === record.type && afterLoc && (this.next = afterLoc), ContinueSentinel; }, finish: function finish(finallyLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.finallyLoc === finallyLoc) return this.complete(entry.completion, entry.afterLoc), resetTryEntry(entry), ContinueSentinel; } }, "catch": function _catch(tryLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc === tryLoc) { var record = entry.completion; if ("throw" === record.type) { var thrown = record.arg; resetTryEntry(entry); } return thrown; } } throw new Error("illegal catch attempt"); }, delegateYield: function delegateYield(iterable, resultName, nextLoc) { return this.delegate = { iterator: values(iterable), resultName: resultName, nextLoc: nextLoc }, "next" === this.method && (this.arg = undefined), ContinueSentinel; } }, exports; }
 
   function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -1291,6 +1293,87 @@
     },
 
     /***/
+    "KRBT":
+    /*!*************************************************!*\
+      !*** ./src/app/services/interceptor.service.ts ***!
+      \*************************************************/
+
+    /*! exports provided: InterceptorService, InterceptorModule */
+
+    /***/
+    function KRBT(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "InterceptorService", function () {
+        return InterceptorService;
+      });
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "InterceptorModule", function () {
+        return InterceptorModule;
+      });
+      /* harmony import */
+
+
+      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! tslib */
+      "mrSG");
+      /* harmony import */
+
+
+      var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! @angular/common/http */
+      "tk/3");
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! @angular/core */
+      "fXoL");
+
+      var InterceptorService = /*#__PURE__*/function () {
+        function InterceptorService() {
+          _classCallCheck(this, InterceptorService);
+        }
+
+        _createClass(InterceptorService, [{
+          key: "intercept",
+          value: function intercept(request, next) {
+            request = request.clone({
+              setHeaders: {
+                'User-Agent': "Mozilla/5.0 (iPhone; CPU iPhone OS 15_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.4 Mobile/15E148 Safari/604.1",
+                'plm': 'da'
+              }
+            });
+            return next.handle(request);
+          }
+        }]);
+
+        return InterceptorService;
+      }();
+
+      InterceptorService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Injectable"])()], InterceptorService);
+
+      var InterceptorModule = /*#__PURE__*/_createClass(function InterceptorModule() {
+        _classCallCheck(this, InterceptorModule);
+      });
+
+      InterceptorModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
+        providers: [{
+          provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HTTP_INTERCEPTORS"],
+          useClass: InterceptorService,
+          multi: true
+        }]
+      })], InterceptorModule);
+      /***/
+    },
+
+    /***/
     "XSEc":
     /*!*******************************************************************!*\
       !*** ./node_modules/@ionic-native/http/__ivy_ngcc__/ngx/index.js ***!
@@ -1686,7 +1769,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<ion-header [translucent]=\"true\" class=\"header-background\">\r\n  <ion-toolbar >\r\n    <ion-buttons slot=\"start\">\r\n      <ion-menu-button></ion-menu-button>\r\n      </ion-buttons>\r\n      <ion-title slot=\"start\" style=\"display:inline-block;position: relative;top: 5px;left: 5px;\">\r\n      <ion-label >Conferinta Online</ion-label>\r\n   </ion-title>\r\n   <ion-thumbnail slot=\"end\" style=\"display:inline-block;margin-right:5%\">\r\n    <img src=\"assets/images/logo.png\" style=\"transform:scale(0.7);\">\r\n  </ion-thumbnail>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n  <ion-card *ngIf=\"url_conferinta\" >\r\n              <ion-card-content class=\"resp-container\">\r\n                  <iframe class=\"webPage\" allow=\"microphone *; camera; fullscreen; display-capture\" [src]=\"url_conferinta | safe\" ></iframe>\r\n                  <!-- <div id=\"jitsi-iframe\"></div> -->\r\n              </ion-card-content>\r\n            </ion-card>\r\n             <ion-card *ngIf=\"url_conferinta\" >\r\n              <ion-card-content>\r\n                <ngx-dropzone [multiple]=\"false\" (change)=\"onSelect($event)\">\r\n                  <ngx-dropzone-label>Faceti click sau trageti fisierul in interiorul acestei casete pentru a putea incarca documentele.</ngx-dropzone-label>\r\n                  <ngx-dropzone-preview *ngFor=\"let f of files\" [removable]=\"true\" (removed)=\"onRemove(f)\">\r\n                    <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>\r\n                  </ngx-dropzone-preview>\r\n                </ngx-dropzone>\r\n                 <!-- <form  [formGroup]=\"dropzone\" (ngSubmit)=\"onSubmitDropzone()\">\r\n                      <div class=\"dz-message\" data-dz-message><span>Faceti click sau trageti fisierul in interiorul acestei casete pentru a putea incarca documentele</span></div>\r\n                  </form> -->\r\n                </ion-card-content>\r\n              </ion-card>\r\n              <ion-card *ngIf=\"url_conferinta\" >\r\n                <ion-card-header>\r\n                  <ion-card-title>Fisiere incarcate de doctor</ion-card-title>\r\n                </ion-card-header>\r\n                <ion-card-content>\r\n                \r\n                  <ul class=\"list-group\" id=\"file_listing\" *ngFor=\"let fisier of fisiere;\">\r\n                      <li class=\"list-group-item\"><a (click)=\"downloadFile(fisier.nume_fisier)\" >{{fisier.nume_fisier}}</a></li> \r\n                  </ul>\r\n                  <!-- <button class=\"btn btn-primary mt-2 mb-3 w-100\" id=\"refresh_files\"><i class=\"fas fa-sync-alt mr-2\"></i>Reimprospateaza fisiere</button>                                                                        -->\r\n                </ion-card-content>\r\n              </ion-card>\r\n              <ion-card *ngIf=\"!url_conferinta\">\r\n                <ion-card-header>\r\n                  <ion-card-title>Momentan nu ai nicio camera de consultatie deschisa</ion-card-title>\r\n                </ion-card-header>\r\n                <ion-card-content>\r\n                          <p class=\"card-text\">Daca astepti sa intri in conferinta, camera se va deschide imediat ce doctorul va porni consultatia, indiferent daca consultatia va avea loc pentru unul din conturile asociate.\r\n                          </p>\r\n                          <!-- <a href=\"{{route('consultatie.online')}}\" class=\"btn btn-primary waves-effect waves-light\">Reincearca conectarea la consultatia online</a> -->\r\n                        </ion-card-content>\r\n                      </ion-card>\r\n</ion-content>\r\n\r\n\r\n";
+      __webpack_exports__["default"] = "<ion-header [translucent]=\"true\" class=\"header-background\">\r\n  <ion-toolbar >\r\n    <ion-buttons slot=\"start\">\r\n      <ion-menu-button></ion-menu-button>\r\n      </ion-buttons>\r\n      <ion-title slot=\"start\" style=\"display:inline-block;position: relative;top: 5px;left: 5px;\">\r\n      <ion-label >Conferinta Online</ion-label>\r\n   </ion-title>\r\n   <ion-thumbnail slot=\"end\" style=\"display:inline-block;margin-right:5%\">\r\n    <img src=\"assets/images/logo.png\" style=\"transform:scale(0.7);\">\r\n  </ion-thumbnail>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n  <ion-card *ngIf=\"url_conferinta\" >\r\n              <ion-card-content class=\"resp-container\">\r\n                  <iframe id=\"iframe\" #iframe class=\"webPage\" allow=\"microphone *; camera; fullscreen; display-capture\"  [src]=\"url_conferinta  | safe\" ></iframe>\r\n                  <!-- <div id=\"jitsi-iframe\"></div> -->\r\n              </ion-card-content>\r\n            </ion-card>\r\n             <ion-card *ngIf=\"url_conferinta\" >\r\n              <ion-card-content>\r\n                <ngx-dropzone [multiple]=\"false\" [maxFileSize]=\"10000000\" (change)=\"onSelect($event)\">\r\n                  <ngx-dropzone-label>Faceti click sau trageti fisierul in interiorul acestei casete pentru a putea incarca documentele.</ngx-dropzone-label>\r\n                  <ngx-dropzone-preview *ngFor=\"let f of files\" [removable]=\"true\" (removed)=\"onRemove(f)\">\r\n                    <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>\r\n                  </ngx-dropzone-preview>\r\n                </ngx-dropzone>\r\n                 <!-- <form  [formGroup]=\"dropzone\" (ngSubmit)=\"onSubmitDropzone()\">\r\n                      <div class=\"dz-message\" data-dz-message><span>Faceti click sau trageti fisierul in interiorul acestei casete pentru a putea incarca documentele</span></div>\r\n                  </form> -->\r\n                </ion-card-content>\r\n              </ion-card>\r\n              <ion-card *ngIf=\"url_conferinta\" >\r\n                <ion-card-header>\r\n                  <ion-card-title>Fisiere incarcate de doctor</ion-card-title>\r\n                </ion-card-header>\r\n                <ion-card-content>\r\n                \r\n                  <ul class=\"list-group\" id=\"file_listing\" *ngFor=\"let fisier of fisiere;\">\r\n                      <li class=\"list-group-item\"><a (click)=\"downloadFile(fisier.nume_fisier)\" >{{fisier.nume_fisier}}</a></li> \r\n                  </ul>\r\n                  <!-- <button class=\"btn btn-primary mt-2 mb-3 w-100\" id=\"refresh_files\"><i class=\"fas fa-sync-alt mr-2\"></i>Reimprospateaza fisiere</button>                                                                        -->\r\n                </ion-card-content>\r\n              </ion-card>\r\n              <ion-card *ngIf=\"!url_conferinta\">\r\n                <ion-card-header>\r\n                  <ion-card-title>Momentan nu ai nicio camera de consultatie deschisa</ion-card-title>\r\n                </ion-card-header>\r\n                <ion-card-content>\r\n                          <p class=\"card-text\">Daca astepti sa intri in conferinta, camera se va deschide imediat ce doctorul va porni consultatia, indiferent daca consultatia va avea loc pentru unul din conturile asociate.\r\n                          </p>\r\n                          <!-- <a href=\"{{route('consultatie.online')}}\" class=\"btn btn-primary waves-effect waves-light\">Reincearca conectarea la consultatia online</a> -->\r\n                        </ion-card-content>\r\n                      </ion-card>\r\n</ion-content>\r\n\r\n\r\n";
       /***/
     },
 
@@ -2104,10 +2187,10 @@
         }, {
           key: "readFile",
           value: function readFile() {
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
               var _this2 = this;
 
-              return regeneratorRuntime.wrap(function _callee$(_context) {
+              return _regeneratorRuntime().wrap(function _callee$(_context) {
                 while (1) {
                   switch (_context.prev = _context.next) {
                     case 0:
@@ -3450,7 +3533,13 @@
 
       var _ionic_native_media_ngx__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
       /*! @ionic-native/media/ngx */
-      "9YJ4"); // import { FileOpener } from '@awesome-cordova-plugins/file-opener/ngx';
+      "9YJ4");
+      /* harmony import */
+
+
+      var src_app_services_interceptor_service__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
+      /*! src/app/services/interceptor.service */
+      "KRBT"); // import { FileOpener } from '@awesome-cordova-plugins/file-opener/ngx';
 
 
       var ConferintaPageModule = /*#__PURE__*/_createClass(function ConferintaPageModule() {
@@ -3458,7 +3547,7 @@
       });
 
       ConferintaPageModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"], _conferinta_routing_module__WEBPACK_IMPORTED_MODULE_5__["ConferintaPageRoutingModule"], ngx_dropzone__WEBPACK_IMPORTED_MODULE_8__["NgxDropzoneModule"]],
+        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"], _conferinta_routing_module__WEBPACK_IMPORTED_MODULE_5__["ConferintaPageRoutingModule"], ngx_dropzone__WEBPACK_IMPORTED_MODULE_8__["NgxDropzoneModule"], src_app_services_interceptor_service__WEBPACK_IMPORTED_MODULE_13__["InterceptorModule"]],
         declarations: [_conferinta_page__WEBPACK_IMPORTED_MODULE_6__["ConferintaPage"], src_app_safe_pipe__WEBPACK_IMPORTED_MODULE_7__["SafePipe"]],
         providers: [_ionic_native_http_ngx__WEBPACK_IMPORTED_MODULE_9__["HTTP"], _ionic_native_file_ngx__WEBPACK_IMPORTED_MODULE_10__["File"], _ionic_native_preview_any_file_ngx__WEBPACK_IMPORTED_MODULE_11__["PreviewAnyFile"], _ionic_native_media_ngx__WEBPACK_IMPORTED_MODULE_12__["Media"]]
       })], ConferintaPageModule);
@@ -3562,12 +3651,19 @@
       var src_app_services_ion_loader_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
       /*! src/app/services/ion-loader.service */
       "G8uT");
+      /* harmony import */
+
+
+      var _awesome_cordova_plugins_android_permissions_ngx__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
+      /*! @awesome-cordova-plugins/android-permissions/ngx */
+      "YCdq");
 
       var ConferintaPage = /*#__PURE__*/function () {
         // constructor( private media: Media,private previewAnyFile: PreviewAnyFile, private platform: Platform, private file: File2,private menu: MenuController, private router: Router, private authService: AuthenticationService,private http: HttpClient,private ionLoaderService: IonLoaderService,private userAgent: UserAgent) {
-        function ConferintaPage(media, previewAnyFile, platform, file, menu, router, authService, http, ionLoaderService) {
+        function ConferintaPage(androidPermissions, media, previewAnyFile, platform, file, menu, router, authService, http, ionLoaderService, alertCtrl) {
           _classCallCheck(this, ConferintaPage);
 
+          this.androidPermissions = androidPermissions;
           this.media = media;
           this.previewAnyFile = previewAnyFile;
           this.platform = platform;
@@ -3577,11 +3673,13 @@
           this.authService = authService;
           this.http = http;
           this.ionLoaderService = ionLoaderService;
+          this.alertCtrl = alertCtrl;
           this.domain = "voice.infragroup.ro"; // For self hosted use your domain
           // audioList: any[] = [];
           // url = "https://probe.infragroup.ro";
+          // url = "https://medicall.medicover.ro";
 
-          this.url = "https://medicall.medicover.ro";
+          this.url = "http://127.0.0.1:8000";
           this.title = 'dropzone';
           this.files = [];
         }
@@ -3596,8 +3694,20 @@
             // // // .then((res: any) => console.log(res))
             // // // .catch((error: any) => console.error(error));
             // //  }
-            this.http.get("".concat(this.url, "/api/conferinta/roomOpened/").concat(localStorage.getItem("user_id"))).subscribe(function (data) {
-              _this5.url_conferinta = data['url_consult'];
+            // this.http.get(`${this.url}/api/conferinta/roomOpened/${localStorage.getItem("user_id")}`).subscribe(data=>{
+            // this.http.get(`${this.url}/api/conferinta/roomOpened/2`).subscribe(data=>{
+            this.http.get("http://127.0.0.1:8000/api/conferinta/roomOpened/49").subscribe(function (data) {
+              if (_this5.platform.is('ios')) {
+                if (data['url_consult']) {
+                  console.log('ios'); // this.url_conferinta = this.url+'api/conferinta/roomRedirect/'+localStorage.getItem("user_id");
+
+                  _this5.url_conferinta = _this5.url + '/api/conferinta/roomRedirect/49';
+                }
+              } else {
+                _this5.url_conferinta = data['url_consult'];
+              }
+
+              console.log(_this5.url_conferinta);
               _this5.id_consult = data['id_consult'];
               _this5.fisiere = data['fisiere'];
 
@@ -3605,11 +3715,40 @@
             });
           }
         }, {
+          key: "setUserAgent",
+          value: function setUserAgent(window, userAgent) {
+            if (window.navigator.userAgent != userAgent) {
+              var userAgentProp = {
+                get: function get() {
+                  return userAgent;
+                }
+              };
+
+              try {
+                Object.defineProperty(window.navigator, 'userAgent', userAgentProp);
+              } catch (e) {
+                window.navigator = Object.create(navigator, {
+                  userAgent: userAgentProp
+                });
+              }
+            }
+          }
+        }, {
           key: "ngOnInit",
           value: function ngOnInit() {
             var _this6 = this;
 
-            console.log(this.platform.platforms);
+            // console.log( window.document.querySelectorAll("iframe"));
+            // this.setUserAgent(window, 'Mozilla/5.0 (iPhone; CPU iPhone OS 15_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.4 Mobile/15E148 Safari/604.1');
+            //     const element: HTMLIFrameElement = document.getElementById('iframe') as HTMLIFrameElement;
+            // // const iframe = element.contentWindow;
+            // var frame = (document.querySelector('#iframe') as HTMLIFrameElement) 
+            // console.log( frame);
+            //   this.setUserAgent(
+            //     this.hostElement.nativeElement.querySelector('iframe').contentWindow.document.querySelector, 
+            //     'Mozilla/5.0 (iPhone; CPU iPhone OS 15_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.4 Mobile/15E148 Safari/604.1'
+            // );
+            alert(window.navigator.userAgent);
             this.ionLoaderService.simpleLoader();
             this.url_conferinta = null;
             this.menu.enable(true);
@@ -3628,29 +3767,59 @@
         }, {
           key: "onSelect",
           value: function onSelect(event) {
-            var _this$files;
+            var _this7 = this;
 
-            console.log(event.addedFiles);
+            if (event.rejectedFiles.length == 0) {
+              var _this$files;
 
-            (_this$files = this.files).push.apply(_this$files, _toConsumableArray(event.addedFiles));
+              console.log(event.addedFiles, event.rejectedFiles);
 
-            var formData = new FormData();
+              (_this$files = this.files).push.apply(_this$files, _toConsumableArray(event.addedFiles));
 
-            for (var i = 0; i < this.files.length; i++) {
-              formData.append("file", this.files[i]);
+              var formData = new FormData();
+
+              for (var i = 0; i < this.files.length; i++) {
+                formData.append("file", this.files[i]);
+              }
+
+              var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_6__["HttpHeaders"]({
+                'Accept': '*/*',
+                'enctype': "multipart/form-data"
+              });
+              var options = {
+                headers: headers
+              };
+              this.http.post("".concat(this.url, "/api/conferinta/fileupload/").concat(this.id_consult), formData, options) // this.http.post(`http://127.0.0.1:8000/api/conferinta/fileupload/${this.id_consult}`, formData, options)
+              .subscribe(function (res) {
+                //  console.log(res);
+                var alert = _this7.alertCtrl.create({
+                  // title: '',
+                  message: 'Fisier incarcat cu succes',
+                  buttons: [{
+                    text: 'Ok',
+                    cssClass: 'icon-color'
+                  }]
+                });
+
+                alert.then(function (alert) {
+                  return alert.present();
+                });
+              });
+            } else {
+              var _alert = this.alertCtrl.create({
+                // title: 'Fisier prea mare',
+                cssClass: "my-custom-class",
+                message: 'Dimensiunea maxima a fisierului poate fi de 10 MB',
+                buttons: [{
+                  text: 'Ok',
+                  cssClass: 'icon-color'
+                }]
+              });
+
+              _alert.then(function (alert) {
+                return alert.present();
+              });
             }
-
-            var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_6__["HttpHeaders"]({
-              'Accept': '*/*',
-              'enctype': "multipart/form-data"
-            });
-            var options = {
-              headers: headers
-            };
-            this.http.post("".concat(this.url, "/api/conferinta/fileupload/").concat(this.id_consult), formData, options).subscribe(function (res) {
-              //  console.log(res);
-              alert('Fisier incarcat cu succes.');
-            });
           }
         }, {
           key: "onRemove",
@@ -3661,12 +3830,12 @@
         }, {
           key: "downloadFile",
           value: function downloadFile(nume_fisier) {
-            var _this7 = this;
+            var _this8 = this;
 
             this.http.get("".concat(this.url, "/api/conferinta/filedownload/").concat(nume_fisier)).subscribe(function (response) {
               console.log(response);
 
-              _this7.previewAnyFile.preview("https://infraspaces.ams3.digitaloceanspaces.com/" + response).then(function (res) {
+              _this8.previewAnyFile.preview("https://infraspaces.ams3.digitaloceanspaces.com/" + response).then(function (res) {
                 console.log(res);
               })["catch"](function (err) {
                 console.log(err);
@@ -3680,6 +3849,8 @@
 
       ConferintaPage.ctorParameters = function () {
         return [{
+          type: _awesome_cordova_plugins_android_permissions_ngx__WEBPACK_IMPORTED_MODULE_13__["AndroidPermissions"]
+        }, {
           type: _ionic_native_media_ngx__WEBPACK_IMPORTED_MODULE_11__["Media"]
         }, {
           type: _ionic_native_preview_any_file_ngx__WEBPACK_IMPORTED_MODULE_10__["PreviewAnyFile"]
@@ -3697,9 +3868,19 @@
           type: _angular_common_http__WEBPACK_IMPORTED_MODULE_6__["HttpClient"]
         }, {
           type: src_app_services_ion_loader_service__WEBPACK_IMPORTED_MODULE_12__["IonLoaderService"]
+        }, {
+          type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["AlertController"]
         }];
       };
 
+      ConferintaPage.propDecorators = {
+        iframe: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["ViewChild"],
+          args: ['iframe', {
+            "static": false
+          }]
+        }]
+      };
       ConferintaPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
         selector: 'app-conferinta',
         template: _raw_loader_conferinta_page_html__WEBPACK_IMPORTED_MODULE_1__["default"],
